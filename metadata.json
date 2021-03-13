@@ -1,0 +1,9 @@
+{
+  "name": "Alphabetical App Grid",
+  "description": "Restore the alphabetical ordering of the app grid",
+  "uuid": "AlphabeticalAppGrid@Dragon8oy.com",
+  "url": "https://github.com/Dragon8oy/alphabetical-grid-extension",
+  "shell-version": [
+    "3.38"
+  ]
+}
