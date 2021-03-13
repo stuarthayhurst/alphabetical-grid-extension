@@ -1,6 +1,9 @@
 ## Alphabetical App Grid GNOME Extension
   - Restore the alphabetical ordering of the app grid, removed in GNOME 3.38
+  - Supports GNOME 3.38+, earlier versions are untested, and unnecessary
+  - Get the extension from [here](https://extensions.gnome.org/extension/XXXX/alphabetical-app-grid/)
 
+![Extension](docs/icon.png)
 ## Create an extension bundle:
   - `gnome-extensions pack ../alphabetical-grid-extension`
 
