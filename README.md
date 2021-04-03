@@ -9,7 +9,7 @@
   - `gnome-extensions pack ../alphabetical-grid-extension`
 
 ## Install the extension bundle:
- - `gnome-extensions install AlphabeticalAppGrid@stuarthayhurst.com.shell-extension.zip`
+ - `gnome-extensions install AlphabeticalAppGrid@Dragon8oy.com.shell-extension.zip`
  - Reload GNOME
  - Enable the extension
 
