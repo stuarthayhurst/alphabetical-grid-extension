@@ -55,8 +55,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="svg8"
      inkscape:document-units="px"
-     inkscape:cy="10.937773"
-     inkscape:cx="13.832856"
+     inkscape:cy="16.04113"
+     inkscape:cx="14.283007"
      inkscape:zoom="11.313709"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -72,76 +72,112 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <rect
-     style="fill:#00ffff;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
-     id="rect839"
-     width="3.175"
-     height="3.175"
+     style="opacity:0.4;fill:#000000;stroke-width:0.538468;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+     id="rect896"
+     width="7.4083333"
+     height="7.4083333"
+     x="0.5291667"
+     y="0.79374999"
+     ry="0.69626886" />
+  <rect
+     style="fill:#4d4d4d;stroke-width:0.538468;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+     id="rect858"
+     width="7.4083333"
+     height="7.4083333"
      x="0.5291667"
      y="0.5291667"
-     ry="0.29840094" />
-  <rect
-     style="fill:#00ff00;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
-     id="rect861"
-     width="3.175"
-     height="3.175"
-     x="4.7624998"
-     y="0.5291667"
-     ry="0.29840094" />
-  <rect
-     style="fill:#f52547;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;fill-opacity:1"
-     id="rect863"
-     width="3.175"
-     height="3.175"
-     x="4.7624998"
-     y="4.7624998"
-     ry="0.29840094" />
-  <rect
-     style="fill:#fc931d;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;fill-opacity:1"
-     id="rect865"
-     width="3.175"
-     height="3.175"
-     x="0.5291667"
-     y="4.7624998"
-     ry="0.29840094" />
+     ry="0.69626886" />
+  <path
+     id="rect898"
+     style="fill:#000000;stroke-width:0.726841;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;opacity:0.4"
+     d="M 4.9394531 5 C 4.4187787 5 4 5.4187787 4 5.9394531 L 4 14.060547 C 4 14.581221 4.4187787 15 4.9394531 15 L 13.060547 15 C 13.581221 15 14 14.581221 14 14.060547 L 14 5.9394531 C 14 5.4187787 13.581221 5 13.060547 5 L 4.9394531 5 z M 18.939453 5 C 18.418779 5 18 5.4187787 18 5.9394531 L 18 14.060547 C 18 14.581221 18.418779 15 18.939453 15 L 27.060547 15 C 27.581221 15 28 14.581221 28 14.060547 L 28 5.9394531 C 28 5.4187787 27.581221 5 27.060547 5 L 18.939453 5 z M 4.9394531 19 C 4.4187787 19 4 19.418779 4 19.939453 L 4 28.060547 C 4 28.581221 4.4187787 29 4.9394531 29 L 13.060547 29 C 13.581221 29 14 28.581221 14 28.060547 L 14 19.939453 C 14 19.418779 13.581221 19 13.060547 19 L 4.9394531 19 z M 18.939453 19 C 18.418779 19 18 19.418779 18 19.939453 L 18 28.060547 C 18 28.581221 18.418779 29 18.939453 29 L 27.060547 29 C 27.581221 29 28 28.581221 28 28.060547 L 28 19.939453 C 28 19.418779 27.581221 19 27.060547 19 L 18.939453 19 z "
+     transform="scale(0.26458333)" />
   <g
-     id="g899"
-     style="fill:#ffffff">
-    <text
-       xml:space="preserve"
-       id="text867"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect869);fill:#ffffff;fill-opacity:1;stroke:none;"
-       transform="matrix(1.0000013,0,0,1,4.5872335,9.9373236)"><tspan
-         x="-3.3476562"
-         y="-6.903878"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">A</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text875"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect877);fill:#ffffff;fill-opacity:1;stroke:none;"
-       transform="translate(8.8007191,9.9386464)"><tspan
-         x="-3.3476562"
-         y="-6.903878"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">B</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text881"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect883);fill:#ffffff;fill-opacity:1;stroke:none;"
-       transform="matrix(1,0,0,1.0000013,4.6004585,14.171991)"><tspan
-         x="-3.3476562"
-         y="-6.903878"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">C</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       id="text887"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect889);fill:#ffffff;fill-opacity:1;stroke:none;"
-       transform="matrix(1.0000013,0,0,1.0000013,8.7173794,14.171991)"><tspan
-         x="-3.3476562"
-         y="-6.903878"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">D</tspan></tspan></text>
+     id="g983">
+    <g
+       id="g876"
+       transform="matrix(0.83333335,0,0,0.83333335,0.61736108,0.61736108)">
+      <rect
+         style="fill:#00ffff;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+         id="rect839"
+         width="3.175"
+         height="3.175"
+         x="0.5291667"
+         y="0.5291667"
+         ry="0.29840094" />
+      <text
+         xml:space="preserve"
+         id="text867"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect869);fill:#ffffff;fill-opacity:1;stroke:none;"
+         transform="matrix(1.0000013,0,0,1,4.5872335,9.9373236)"><tspan
+           x="-3.3476562"
+           y="-6.903878"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">A</tspan></tspan></text>
+    </g>
+    <g
+       id="g882"
+       transform="matrix(0.83333335,0,0,0.83333335,0.7937501,0.61736108)">
+      <rect
+         style="fill:#00ff00;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+         id="rect861"
+         width="3.175"
+         height="3.175"
+         x="4.7624998"
+         y="0.5291667"
+         ry="0.29840094" />
+      <text
+         xml:space="preserve"
+         id="text875"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect877);fill:#ffffff;fill-opacity:1;stroke:none;"
+         transform="translate(8.8007191,9.9386464)"><tspan
+           x="-3.3476562"
+           y="-6.903878"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">B</tspan></tspan></text>
+    </g>
+    <g
+       id="g888"
+       transform="matrix(0.83333335,0,0,0.83333335,0.61736108,0.7937501)">
+      <rect
+         style="fill:#fc931d;fill-opacity:1;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+         id="rect865"
+         width="3.175"
+         height="3.175"
+         x="0.5291667"
+         y="4.7624998"
+         ry="0.29840094" />
+      <text
+         xml:space="preserve"
+         id="text881"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect883);fill:#ffffff;fill-opacity:1;stroke:none;"
+         transform="matrix(1,0,0,1.0000013,4.6004585,14.171991)"><tspan
+           x="-3.3476562"
+           y="-6.903878"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">C</tspan></tspan></text>
+    </g>
+    <g
+       id="g894"
+       transform="matrix(0.83333335,0,0,0.83333335,0.7937501,0.7937501)">
+      <rect
+         style="fill:#f52547;fill-opacity:1;stroke-width:0.230772;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+         id="rect863"
+         width="3.175"
+         height="3.175"
+         x="4.7624998"
+         y="4.7624998"
+         ry="0.29840094" />
+      <text
+         xml:space="preserve"
+         id="text887"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;line-height:1.25;font-family:ubuntu;-inkscape-font-specification:ubuntu;white-space:pre;shape-inside:url(#rect889);fill:#ffffff;fill-opacity:1;stroke:none;"
+         transform="matrix(1.0000013,0,0,1.0000013,8.7173794,14.171991)"><tspan
+           x="-3.3476562"
+           y="-6.903878"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.64583px;font-family:ubuntu;-inkscape-font-specification:ubuntu;fill:#ffffff">D</tspan></tspan></text>
+    </g>
   </g>
 </svg>
