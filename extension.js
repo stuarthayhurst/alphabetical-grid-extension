@@ -21,8 +21,12 @@ class Extension {
 
   _reorderGrid() {
     //Alphabetically order the grid, by resetting the gsettings value for 'app-picker-layout'
-    this.shellSettings.reset("app-picker-layout");
-    this._logMessage('Reordered grid');
+    if (this.shellSettings.is_writable('app-picker-layout')) {
+      this.shellSettings.reset("app-picker-layout");
+      this._logMessage('Reordered grid');
+    } else {
+      this._logMessage('org.gnome.shell app-picker-layout in unwritable, skipping reorder')
+    }
   }
 
   _logMessage(message) {
