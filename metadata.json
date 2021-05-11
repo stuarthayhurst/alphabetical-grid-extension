@@ -4,7 +4,8 @@
   "uuid": "AlphabeticalAppGrid@stuarthayhurst",
   "url": "https://github.com/stuarthayhurst/alphabetical-grid-extension",
   "shell-version": [
-    "3.38"
+    "3.38",
+    "40"
   ],
   "version": 2
 }
