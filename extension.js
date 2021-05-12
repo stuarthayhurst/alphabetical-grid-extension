@@ -1,10 +1,10 @@
 const ExtensionUtils = imports.misc.extensionUtils;
 
 function enable() {
-    //Wait until the grid is reordered to do anything
-    gridReorder = new Extension();
-    gridReorder._reorderGrid();
-    gridReorder.waitForExternalReorder();
+  //Wait until the grid is reordered to do anything
+  gridReorder = new Extension();
+  gridReorder._reorderGrid();
+  gridReorder.waitForExternalReorder();
 }
 
 function disable() {
