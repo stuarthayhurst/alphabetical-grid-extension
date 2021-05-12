@@ -1,4 +1,5 @@
 const ExtensionUtils = imports.misc.extensionUtils;
+const {GLib} = imports.gi;
 
 function enable() {
   //Wait until the grid is reordered to do anything
@@ -20,9 +21,11 @@ class Extension {
   }
 
   _reorderGrid() {
-    //Alphabetically order the grid, by resetting the gsettings value for 'app-picker-layout'
+    //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout' and triggering a reorder of the grid
     if (this.shellSettings.is_writable('app-picker-layout')) {
-      this.shellSettings.reset('app-picker-layout');
+      //Change gsettings value
+      this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', []));
+
       this._logMessage('Reordered grid');
     } else {
       this._logMessage('org.gnome.shell app-picker-layout in unwritable, skipping reorder')
