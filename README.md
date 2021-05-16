@@ -2,9 +2,9 @@
   - Restore the alphabetical ordering of the app grid, removed in GNOME 3.38
   - App folders are saved, and treated like regular apps when sorting
   - Supports GNOME 3.38+, earlier versions are untested, and unnecessary
+  - **On GNOME 3.38, the shell needs to be reloaded for the reorder to take effect**
   - Get the extension from [here](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
   - This project is licensed under GPL 3.0
-  - **On GNOME 3.38, the shell needs to be reloaded for the reorder to take effect**
 
 ## Known issues:
   - The following issues are known, and are planned to be fixed:
