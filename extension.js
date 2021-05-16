@@ -5,7 +5,7 @@ const ExtensionUtils = imports.misc.extensionUtils;
 
 function enable() {
   gridReorder = new Extension();
-  //Reorder initially, to privode an intial reorder, as well as apps not already taken care of
+  //Reorder initially, to provide an intial reorder, as well as apps not already taken care of
   gridReorder.reorderGrid();
   //Wait until the grid is reordered for further reorders
   gridReorder.waitForExternalReorder();
