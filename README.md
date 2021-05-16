@@ -4,10 +4,10 @@
   - Supports GNOME 3.38+, earlier versions are untested, and unnecessary
   - Get the extension from [here](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
   - This project is licensed under GPL 3.0
+  - **On GNOME 3.38, the shell needs to be reloaded for the reorder to take effect**
 
 ## Known issues:
   - The following issues are known, and are planned to be fixed:
-  - **The shell needs to be reloaded for the reorder to take effect**
   - **Newly added applications are only reordered alphabetically when the shell is reloaded**
 
 ![Extension](docs/icon.png)
