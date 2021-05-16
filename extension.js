@@ -4,9 +4,10 @@ const Config = imports.misc.config;
 const ExtensionUtils = imports.misc.extensionUtils;
 
 function enable() {
-  //Wait until the grid is reordered to do anything
   gridReorder = new Extension();
+  //Reorder initially, to privode an intial reorder, as well as apps not already taken care of
   gridReorder.reorderGrid();
+  //Wait until the grid is reordered for further reorders
   gridReorder.waitForExternalReorder();
 }
 
@@ -31,7 +32,7 @@ class Extension {
   }
 
   reorderGrid() {
-    //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout' and triggering a reorder of the grid
+    //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout'
     if (this.shellSettings.is_writable('app-picker-layout')) {
       //Change gsettings value
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', []));
