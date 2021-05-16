@@ -1,5 +1,7 @@
-const ExtensionUtils = imports.misc.extensionUtils;
 const {GLib} = imports.gi;
+const Main = imports.ui.main;
+const Config = imports.misc.config;
+const ExtensionUtils = imports.misc.extensionUtils;
 
 function enable() {
   //Wait until the grid is reordered to do anything
@@ -16,8 +18,12 @@ function disable() {
 
 class Extension {
   constructor() {
-    //Load gsettings values for GNOME Shell
+    //Load gsettings values for GNOME Shell, to access 'app-picker-layout'
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
+    //Get access to appDisplay
+    this._appDisplay = Main.overview._overview._controls._appDisplay;
+    //Get GNOME shell version
+    this.shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
   }
 
   _reorderGrid() {
@@ -26,9 +32,17 @@ class Extension {
       //Change gsettings value
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', []));
 
+      //Trigger a refresh of the app grid, if shell version is greater than 40
+      if (this.shellVersion < 40) {
+        this._logMessage('Running GNOME shell 3.38 or lower, skipping reload');
+      } else {
+        //Use call() so 'this' applies to this._appDisplay
+        this.reloadAppDisplay.call(this._appDisplay);
+      }
+
       this._logMessage('Reordered grid');
     } else {
-      this._logMessage('org.gnome.shell app-picker-layout in unwritable, skipping reorder')
+      this._logMessage('org.gnome.shell app-picker-layout in unwritable, skipping reorder');
     }
   }
 
@@ -47,5 +61,25 @@ class Extension {
         this._reorderGrid();
       }
     });
+  }
+
+  reloadAppDisplay() {
+    //Reload app grid to apply any pending changes
+    this._pageManager._loadPages();
+    this._redisplay();
+
+    const { itemsPerPage } = this._grid;
+    //Array of apps, sorted alphabetically
+    let apps = this._loadApps().sort(this._compareItems.bind(this));
+
+    //Move each app to correct grid postion
+    apps.forEach((icon, index) => {
+      const page = Math.floor(index / itemsPerPage);
+      const position = index % itemsPerPage;
+      this._moveItem(icon, page, position);
+    });
+
+    //Emit 'view-loaded' signal
+    this.emit('view-loaded');
   }
 }
