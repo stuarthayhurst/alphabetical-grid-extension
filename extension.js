@@ -6,7 +6,7 @@ const ExtensionUtils = imports.misc.extensionUtils;
 function enable() {
   //Wait until the grid is reordered to do anything
   gridReorder = new Extension();
-  gridReorder._reorderGrid();
+  gridReorder.reorderGrid();
   gridReorder.waitForExternalReorder();
 }
 
@@ -26,7 +26,11 @@ class Extension {
     this.shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
   }
 
-  _reorderGrid() {
+  _logMessage(message) {
+    log('alphabetical-app-grid: ' + message);
+  }
+
+  reorderGrid() {
     //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout' and triggering a reorder of the grid
     if (this.shellSettings.is_writable('app-picker-layout')) {
       //Change gsettings value
@@ -46,10 +50,6 @@ class Extension {
     }
   }
 
-  _logMessage(message) {
-    log('alphabetical-app-grid: ' + message);
-  }
-
   waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
     this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
@@ -58,7 +58,7 @@ class Extension {
       if (appLayout.recursiveUnpack() != '') {
         //When an external change is picked up, reorder the grid
         this._logMessage('App grid layout changed, triggering reorder');
-        this._reorderGrid();
+        this.reorderGrid();
       }
     });
   }
