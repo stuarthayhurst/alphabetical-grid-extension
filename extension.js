@@ -7,13 +7,15 @@ function enable() {
   gridReorder = new Extension();
   //Reorder initially, to provide an intial reorder, as well as apps not already taken care of
   gridReorder.reorderGrid();
-  //Wait until the grid is reordered for further reorders
+  //Wait until the grid is reordered or app folders changed for further reorders
   gridReorder.waitForExternalReorder();
+  gridReorder.waitForFolderChange();
 }
 
 function disable() {
   //Disconnect from events and clean up
   gridReorder.shellSettings.disconnect(gridReorder.reorderSignal);
+  gridReorder.folderSettings.disconnect(gridReorder.folderSignal);
   gridReorder = null;
 }
 
@@ -21,6 +23,8 @@ class Extension {
   constructor() {
     //Load gsettings values for GNOME Shell, to access 'app-picker-layout'
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
+    //Load gsettings values for folders, to access 'folder-children'
+    this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
     //Get access to appDisplay
     this._appDisplay = Main.overview._overview._controls._appDisplay;
     //Get GNOME shell version
@@ -49,6 +53,14 @@ class Extension {
     } else {
       this._logMessage('org.gnome.shell app-picker-layout in unwritable, skipping reorder');
     }
+  }
+
+  waitForFolderChange() {
+    //If a folder was made or deleted, trigger a reorder
+    this.folderSignal = this.folderSettings.connect('changed::folder-children', () => {
+      this._logMessage('Folders changed, triggering reorder');
+      this.reorderGrid();
+    });
   }
 
   waitForExternalReorder() {
