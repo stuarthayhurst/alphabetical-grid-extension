@@ -8,7 +8,7 @@
 
 ## Known issues:
   - The following issues are known, and are planned to be fixed:
-  - **Newly added applications are only reordered alphabetically when the shell is reloaded**
+  - **Newly added applications are only reordered when the extension restarts, or when another application is moved**
 
 ![Extension](docs/icon.png)
 ## Create an extension bundle:
