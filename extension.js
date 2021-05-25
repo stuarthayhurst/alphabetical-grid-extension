@@ -2,6 +2,11 @@ const {GLib} = imports.gi;
 const Main = imports.ui.main;
 const Config = imports.misc.config;
 const ExtensionUtils = imports.misc.extensionUtils;
+const Gettext = imports.gettext;
+Gettext.textdomain("AlphabeticalAppGrid@stuarthayhurst");
+Gettext.bindtextdomain("AlphabeticalAppGrid@stuarthayhurst", ExtensionSystem.extensionMeta["AlphabeticalAppGrid@stuarthayhurst"].path + "/locale");
+
+const _ = Gettext.gettext;
 
 function enable() {
   gridReorder = new Extension();
@@ -43,22 +48,22 @@ class Extension {
 
       //Trigger a refresh of the app grid, if shell version is greater than 40
       if (this.shellVersion < 40) {
-        this._logMessage('Running GNOME shell 3.38 or lower, skipping reload');
+        this._logMessage(_('Running GNOME shell 3.38 or lower, skipping reload'));
       } else {
         //Use call() so 'this' applies to this._appDisplay
         this.reloadAppDisplay.call(this._appDisplay);
       }
 
-      this._logMessage('Reordered grid');
+      this._logMessage(_('Reordered grid'));
     } else {
-      this._logMessage('org.gnome.shell app-picker-layout in unwritable, skipping reorder');
+      this._logMessage(_('org.gnome.shell app-picker-layout in unwritable, skipping reorder'));
     }
   }
 
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this.folderSignal = this.folderSettings.connect('changed::folder-children', () => {
-      this._logMessage('Folders changed, triggering reorder');
+      this._logMessage(_('Folders changed, triggering reorder'));
       this.reorderGrid();
     });
   }
@@ -70,7 +75,7 @@ class Extension {
       let appLayout = this.shellSettings.get_value('app-picker-layout');
       if (appLayout.recursiveUnpack() != '') {
         //When an external change is picked up, reorder the grid
-        this._logMessage('App grid layout changed, triggering reorder');
+        this._logMessage(_('App grid layout changed, triggering reorder'));
         this.reorderGrid();
       }
     });
