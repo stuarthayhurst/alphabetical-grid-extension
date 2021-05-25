@@ -2,6 +2,7 @@
   "name": "Alphabetical App Grid",
   "description": "Restore the alphabetical ordering of the app grid",
   "uuid": "AlphabeticalAppGrid@stuarthayhurst",
+  "gettext-domain": "AlphabeticalAppGrid@stuarthayhurst",
   "url": "https://github.com/stuarthayhurst/alphabetical-grid-extension",
   "shell-version": [
     "3.38",
