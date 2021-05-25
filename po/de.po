@@ -1,0 +1,41 @@
+# German translation for the Alphabetical App Grid GNOME Shell Extension.
+# Copyright (C) 2021 Stuart Hayhurst
+# This file is distributed under the same license as the alphabetical-grid-extension package.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alphabetical-grid-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-25 13:25+0200\n"
+"PO-Revision-Date: 2021-05-25 13:55+0200\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
+"Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: extension.js:51
+msgid "Running GNOME shell 3.38 or lower, skipping reload"
+msgstr "Es läuft GNOME Shell 3.38 oder niedriger, neu laden wird übersprungen"
+
+#: extension.js:57
+msgid "Reordered grid"
+msgstr "Raster wurde neu geordnet"
+
+#: extension.js:59
+msgid "org.gnome.shell app-picker-layout in unwritable, skipping reorder"
+msgstr ""
+"org.gnome.shell app-picker-layout ist nicht schreibbar, Neuordnung wird "
+"übersprungen"
+
+#: extension.js:66
+msgid "Folders changed, triggering reorder"
+msgstr "Ordner geändert, Neuordnung wird ausgelöst"
+
+#: extension.js:78
+msgid "App grid layout changed, triggering reorder"
+msgstr "Layout des Anwendungsrasters geändert, Neuordung wird ausgelöst"
