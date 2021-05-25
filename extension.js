@@ -101,7 +101,7 @@ class Extension {
 
       this._logMessage(_('Reordered grid'));
     } else {
-      this._logMessage(_('org.gnome.shell app-picker-layout in unwritable, skipping reorder'));
+      this._logMessage(_('org.gnome.shell app-picker-layout is unwritable, skipping reorder'));
     }
   }
 
