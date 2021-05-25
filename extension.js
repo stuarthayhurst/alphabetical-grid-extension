@@ -3,10 +3,12 @@ const Main = imports.ui.main;
 const Config = imports.misc.config;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Gettext = imports.gettext;
-Gettext.textdomain("AlphabeticalAppGrid@stuarthayhurst");
-Gettext.bindtextdomain("AlphabeticalAppGrid@stuarthayhurst", ExtensionSystem.extensionMeta["AlphabeticalAppGrid@stuarthayhurst"].path + "/locale");
 
-const _ = Gettext.gettext;
+function init(extensionMeta) {
+  Gettext.textdomain('AlphabeticalAppGrid@stuarthayhurst');
+  Gettext.bindtextdomain('AlphabeticalAppGrid@stuarthayhurst', extensionMeta.path + '/locale');
+  const _ = Gettext.gettext;
+}
 
 function enable() {
   gridReorder = new Extension();
