@@ -11,10 +11,10 @@
 
 ![Extension](docs/icon.png)
 ## Create an extension bundle:
-  - `gnome-extensions pack ../alphabetical-grid-extension`
+  - `./scripts/create-release.sh`
 
 ## Install the extension bundle:
-  - `gnome-extensions install AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip`
+  - `./scripts/create-release.sh -i`
   - Reload GNOME
   - Enable the extension
 
