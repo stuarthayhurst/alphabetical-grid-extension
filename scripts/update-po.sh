@@ -65,7 +65,8 @@ while getopts l:a FLAG; do
           msgmerge --previous -U "$FILE" po/messages.pot
 
           # Check the state of the translation progress.
-          msgfmt --check --verbose "$FILE"
+          # We don't want to actually create a .mo file, so we direct it to /dev/null.
+          msgfmt --check --verbose --output-file=/dev/null po/"$OPTARG".po
         done
         exit;;
 
