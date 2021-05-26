@@ -4,10 +4,12 @@ const Config = imports.misc.config;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Gettext = imports.gettext;
 
-function init(extensionMeta) {
-  Gettext.textdomain('AlphabeticalAppGrid@stuarthayhurst');
-  Gettext.bindtextdomain('AlphabeticalAppGrid@stuarthayhurst', extensionMeta.path + '/locale');
-  const _ = Gettext.gettext;
+//Use _() for translations
+const Me = ExtensionUtils.getCurrentExtension();
+const _ = Gettext.domain(Me.metadata.uuid).gettext;
+
+function init() {
+  ExtensionUtils.initTranslations(Me.metadata.uuid);
 }
 
 function enable() {
