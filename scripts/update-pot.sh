@@ -2,9 +2,7 @@
 #This script is derived from the awesome Fly-Pie Project (https://github.com/Schneegans/Fly-Pie), originally licensed under the MIT license (https://github.com/Schneegans/Fly-Pie/blob/develop/LICENSE)
 #Modifications were made in order to make the script work with this repository
 
-# This script scans the source code for any translatable strings and updates
-# the po/messages.pot file accordingly. To merge the new strings into a translation,
-# run update-po.sh -l <LANG-CODE>.
+# This script scans the source code for any translatable strings and updates the po/messages.pot file accordingly
 
 #Exit on failure
 set -e
