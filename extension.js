@@ -40,6 +40,8 @@ class Extension {
     this.shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
     //Create AppSystem
     this.appSystem = new Shell.AppSystem();
+    //Create a lock to prevent code fighting itself to change gsettings
+    this.currentlyUpdating = false
   }
 
   _logMessage(message) {
@@ -113,20 +115,32 @@ class Extension {
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this.folderSignal = this.folderSettings.connect('changed::folder-children', () => {
-      this._logMessage(_('Folders changed, triggering reorder'));
-      this.reorderGrid();
+      if (this.currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
+        this.currentlyUpdating = true;
+
+        this._logMessage(_('Folders changed, triggering reorder'));
+        this.reorderGrid();
+
+        this.currentlyUpdating = false;
+      }
     });
   }
 
   waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
     this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
-      //Work out if the change was internal or external
-      let appLayout = this.shellSettings.get_value('app-picker-layout');
-      if (appLayout.recursiveUnpack() != '') {
-        //When an external change is picked up, reorder the grid
-        this._logMessage(_('App grid layout changed, triggering reorder'));
-        this.reorderGrid();
+      if (this.currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
+        this.currentlyUpdating = true;
+
+        //Work out if the change was internal or external
+        let appLayout = this.shellSettings.get_value('app-picker-layout');
+        if (appLayout.recursiveUnpack() != '') {
+          //When an external change is picked up, reorder the grid
+          this._logMessage(_('App grid layout changed, triggering reorder'));
+          this.reorderGrid();
+        }
+
+        this.currentlyUpdating = false;
       }
     });
   }
