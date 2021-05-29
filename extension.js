@@ -2,14 +2,13 @@ const {GLib, Gio, Shell} = imports.gi;
 const Main = imports.ui.main;
 const Config = imports.misc.config;
 const ExtensionUtils = imports.misc.extensionUtils;
-const Gettext = imports.gettext;
+const Me = ExtensionUtils.getCurrentExtension();
 
 //Use _() for translations
-const Me = ExtensionUtils.getCurrentExtension();
-const _ = Gettext.domain(Me.metadata.uuid).gettext;
+const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
 
 function init() {
-  ExtensionUtils.initTranslations(Me.metadata.uuid);
+  ExtensionUtils.initTranslations();
 }
 
 function enable() {
