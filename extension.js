@@ -80,7 +80,10 @@ class Extension {
       folderContents.forEach((folderApp, i) => { folderContents[i] = folderApp.desktopFile; });
 
       //Set the gsettings value for 'apps' to the ordered list
-      folderContentsSettings.set_value('apps', new GLib.Variant('as', folderContents));
+      let currentOrder = folderContentsSettings.get_value('apps').get_strv();
+      if (String(currentOrder) != String(folderContents)) {
+        folderContentsSettings.set_value('apps', new GLib.Variant('as', folderContents));
+      }
     });
   }
 
