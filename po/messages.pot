@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-30 11:17+0100\n"
+"POT-Creation-Date: 2021-05-30 15:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:55
+#: extension.js:56
 msgid "Reordering folder contents"
 msgstr ""
 
-#: extension.js:105
+#: extension.js:107
 msgid "Running GNOME shell 3.38 or lower, skipping reload"
 msgstr ""
 
-#: extension.js:111
+#: extension.js:113
 msgid "Reordered grid"
 msgstr ""
 
-#: extension.js:113
+#: extension.js:115
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 
-#: extension.js:123
+#: extension.js:125
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:141
+#: extension.js:143
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:157
+#: extension.js:159
 msgid "Favourite apps changed, triggering reorder"
+msgstr ""
+
+#: prefs.ui:26
+msgctxt "setting-tooltip"
+msgid "Whether application folders should be listed in front of applications"
+msgstr ""
+
+#: prefs.ui:42
+msgctxt "setting-name"
+msgid "List folders first"
+msgstr ""
+
+#: prefs.ui:78
+msgctxt "setting-tooltip"
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr ""
+
+#: prefs.ui:96
+msgctxt "setting-name"
+msgid "Sort folder contents"
 msgstr ""
