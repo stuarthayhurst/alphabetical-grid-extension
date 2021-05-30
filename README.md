@@ -33,6 +33,7 @@
 ## Build dependencies: (Only required if running `make build`)
   - gnome-extensions
   - gettext
+  - libglib2.0-bin
   - sed
 
 ## Create an extension bundle:
