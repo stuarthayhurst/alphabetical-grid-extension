@@ -6,7 +6,7 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 build:
 	./scripts/compile-locales.sh
 	glib-compile-schemas schemas
-	gnome-extensions pack --force --extra-source=LICENSE.txt
+	gnome-extensions pack --force --extra-source=LICENSE.txt --extra-source=prefs.ui
 release:
 	$(MAKE) translations
 	$(MAKE) build
