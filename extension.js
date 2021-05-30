@@ -36,7 +36,7 @@ class Extension {
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
     //Load gsettings values for the extension itself
-    this.settings = ExtensionUtils.getSettings()
+    this._extensionSettings = ExtensionUtils.getSettings()
     //Get access to appDisplay
     this._appDisplay = Main.overview._overview._controls._appDisplay;
     //Get GNOME shell version
@@ -94,7 +94,9 @@ class Extension {
 
   reorderGrid() {
     //Alphabetically order the contents of each folder
-    this.reorderFolderContents();
+    if (this._extensionSettings.get_boolean('sort-folder-contents')) {
+      this.reorderFolderContents();
+    }
 
     //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout'
     if (this.shellSettings.is_writable('app-picker-layout')) {
