@@ -39,5 +39,17 @@
   - `make build`
   - For release, `make release` creates the bundle with updated translations
 
+## Want to help?
+  - ### Translations:
+    - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
+    - `.po` files can be found in `po/`
+    - All translations can be refreshed with `make translations`
+    - Strings marked with `fuzzy` may need a better translation
+    - Blank strings need a translation added
+  - ### Code and documentation:
+    - Changes are welcome, as long as they are documented, well explained and necessary
+    - Make your changes and submit a pull request, where it'll shortly be reviewed
+    - If any changes are requested, please make the changes and wait for it to be re-reviewed
+
 ### Screenshot:
 ![Extension](docs/screenshot.png)
