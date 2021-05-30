@@ -18,12 +18,14 @@ function enable() {
   gridReorder.reorderGrid();
   //Wait until the grid is reordered or app folders changed for further reorders
   gridReorder.waitForExternalReorder();
+  gridReorder.waitForFavouritesChange();
   gridReorder.waitForFolderChange();
 }
 
 function disable() {
   //Disconnect from events and clean up
   gridReorder.shellSettings.disconnect(gridReorder.reorderSignal);
+  gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
   gridReorder.folderSettings.disconnect(gridReorder.folderSignal);
   gridReorder = null;
 }
@@ -139,6 +141,21 @@ class Extension {
           this._logMessage(_('App grid layout changed, triggering reorder'));
           this.reorderGrid();
         }
+
+        this.currentlyUpdating = false;
+      }
+    });
+  }
+
+  waitForFavouritesChange() {
+    //Connect to gsettings and wait for the favourite apps to change
+    this.favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
+      if (this.currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
+        this.currentlyUpdating = true;
+
+        //When the favourites changed, reorder the grid
+        this._logMessage(_('Favourite apps changed, triggering reorder'));
+        this.reorderGrid();
 
         this.currentlyUpdating = false;
       }
