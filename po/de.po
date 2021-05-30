@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-30 15:54+0200\n"
+"POT-Creation-Date: 2021-05-30 20:43+0100\n"
 "PO-Revision-Date: 2021-05-30 16:00+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -22,49 +22,36 @@ msgstr ""
 msgid "Reordering folder contents"
 msgstr "Ordnerinhalt neu ordnen"
 
-#: extension.js:107
+#: extension.js:108
 msgid "Running GNOME shell 3.38 or lower, skipping reload"
 msgstr "Es läuft GNOME Shell 3.38 oder niedriger, neu laden wird übersprungen"
 
-#: extension.js:113
+#: extension.js:114
 msgid "Reordered grid"
 msgstr "Raster wurde neu geordnet"
 
-#: extension.js:115
+#: extension.js:116
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
-msgstr ""
-"org.gnome.shell app-picker-layout ist nicht schreibbar, Neuordnung wird "
-"übersprungen"
+msgstr "org.gnome.shell app-picker-layout ist nicht schreibbar, Neuordnung wird übersprungen"
 
-#: extension.js:125
+#: extension.js:126
 msgid "Folders changed, triggering reorder"
 msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:143
+#: extension.js:144
 msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
-#: extension.js:159
+#: extension.js:160
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändet, Neuordnung wird ausgelöst"
 
-#: prefs.ui:26
-msgctxt "setting-tooltip"
-msgid "Whether application folders should be listed in front of applications"
-msgstr "Legt fest, ob Ordner vor Anwendungen aufgelistet werden sollen"
-
-#: prefs.ui:42
-msgctxt "setting-name"
-msgid "List folders first"
-msgstr "Ordner am Anfang auflisten"
-
-#: prefs.ui:78
+#: prefs.ui:22
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
-msgstr ""
-"Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
+msgstr "Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
 
-#: prefs.ui:96
+#: prefs.ui:40
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr "Ordnerinhalt sortieren"
