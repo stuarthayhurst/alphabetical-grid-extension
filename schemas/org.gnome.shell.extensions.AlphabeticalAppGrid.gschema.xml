@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.alphabetical-app-grid"
+    path="/org/gnome/shell/extensions/alphabetical-app-grid/">
+
+    <key name="folders-first" type="b">
+      <default>true</default>
+      <summary>List folders first</summary>
+      <description>Whether application folders should be listed in front of applications.</description>
+    </key>
+
+    <key name="sort-folder-contents" type="b">
+      <default>true</default>
+      <summary>Sort Folder contents</summary>
+      <description>Whether the contents of folders should be sorted alphabetically.</description>
+    </key>
+
+  </schema>
+</schemalist>

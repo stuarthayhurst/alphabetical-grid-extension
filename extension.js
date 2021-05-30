@@ -36,6 +36,8 @@ class Extension {
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
+    //Load gsettings values for the extension itself
+    this.settings = ExtensionUtils.getSettings()
     //Get access to appDisplay
     this._appDisplay = Main.overview._overview._controls._appDisplay;
     //Get GNOME shell version

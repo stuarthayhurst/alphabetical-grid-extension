@@ -3,6 +3,7 @@
   "description": "Restore the alphabetical ordering of the app grid",
   "uuid": "AlphabeticalAppGrid@stuarthayhurst",
   "gettext-domain": "AlphabeticalAppGrid@stuarthayhurst",
+  "settings-schema": "org.gnome.shell.extensions.alphabetical-app-grid",
   "url": "https://github.com/stuarthayhurst/alphabetical-grid-extension",
   "shell-version": [
     "3.38",
