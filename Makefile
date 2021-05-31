@@ -5,7 +5,8 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 
 build:
 	./scripts/compile-locales.sh
-	gnome-extensions pack --force --extra-source=LICENSE.txt
+	glib-compile-schemas schemas
+	gnome-extensions pack --force --extra-source=LICENSE.txt --extra-source=prefs.ui
 release:
 	$(MAKE) translations
 	$(MAKE) build
@@ -21,4 +22,4 @@ install:
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
-	rm -rf locale "$(UUID).shell-extension.zip"
+	rm -rf locale schemas/gschemas.compiled "$(UUID).shell-extension.zip"

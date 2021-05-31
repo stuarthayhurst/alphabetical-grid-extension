@@ -2,14 +2,13 @@ const {GLib, Gio, Shell} = imports.gi;
 const Main = imports.ui.main;
 const Config = imports.misc.config;
 const ExtensionUtils = imports.misc.extensionUtils;
-const Gettext = imports.gettext;
+const Me = ExtensionUtils.getCurrentExtension();
 
 //Use _() for translations
-const Me = ExtensionUtils.getCurrentExtension();
-const _ = Gettext.domain(Me.metadata.uuid).gettext;
+const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
 
 function init() {
-  ExtensionUtils.initTranslations(Me.metadata.uuid);
+  ExtensionUtils.initTranslations();
 }
 
 function enable() {
@@ -36,6 +35,8 @@ class Extension {
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
+    //Load gsettings values for the extension itself
+    this._extensionSettings = ExtensionUtils.getSettings()
     //Get access to appDisplay
     this._appDisplay = Main.overview._overview._controls._appDisplay;
     //Get GNOME shell version
@@ -93,7 +94,9 @@ class Extension {
 
   reorderGrid() {
     //Alphabetically order the contents of each folder
-    this.reorderFolderContents();
+    if (this._extensionSettings.get_boolean('sort-folder-contents')) {
+      this.reorderFolderContents();
+    }
 
     //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout'
     if (this.shellSettings.is_writable('app-picker-layout')) {
