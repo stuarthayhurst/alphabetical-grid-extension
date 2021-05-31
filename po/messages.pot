@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-30 20:43+0100\n"
+"POT-Creation-Date: 2021-05-31 20:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,12 +45,21 @@ msgstr ""
 msgid "Favourite apps changed, triggering reorder"
 msgstr ""
 
-#: prefs.ui:22
+#: prefs.ui:25
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 
-#: prefs.ui:40
+#: prefs.ui:44
 msgctxt "setting-name"
 msgid "Sort folder contents"
+msgstr ""
+
+#: prefs.ui:97
+msgid ""
+"© 2021 Stuart Hayhurst\n"
+"Licensed under <a href=\"https://www.gnu.org/licenses/gpl-3.0-standalone.html"
+"\">GPL v3.0</a>\n"
+"Contribute on <a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">GitHub</a>"
 msgstr ""

@@ -95,8 +95,8 @@
                 <property name="valign">end</property>
                 <property name="vexpand">True</property>
                 <property name="label" translatable="yes">© 2021 Stuart Hayhurst
-Licensed under &lt;a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html"&gt;GPL v3.0&lt;/a&gt;.
-Contribute to this extension on &lt;a href="https://github.com/stuarthayhurst/alphabetical-grid-extension"&gt;GitHub&lt;/a&gt;!</property>
+Licensed under &lt;a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html"&gt;GPL v3.0&lt;/a&gt;
+Contribute on &lt;a href="https://github.com/stuarthayhurst/alphabetical-grid-extension"&gt;GitHub&lt;/a&gt;</property>
                 <property name="use-markup">True</property>
                 <property name="justify">center</property>
               </object>
