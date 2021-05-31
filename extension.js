@@ -36,15 +36,15 @@ class Extension {
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
     //Load gsettings values for the extension itself
-    this._extensionSettings = ExtensionUtils.getSettings()
+    this._extensionSettings = ExtensionUtils.getSettings();
     //Get access to appDisplay
     this._appDisplay = Main.overview._overview._controls._appDisplay;
     //Get GNOME shell version
-    this.shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
+    this._shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
     //Create AppSystem
-    this.appSystem = new Shell.AppSystem();
+    this._appSystem = new Shell.AppSystem();
     //Create a lock to prevent code fighting itself to change gsettings
-    this.currentlyUpdating = false
+    this._currentlyUpdating = false;
   }
 
   _logMessage(message) {
@@ -52,7 +52,7 @@ class Extension {
   }
 
   //Called by reorderGrid()
-  reorderFolderContents() {
+  _reorderFolderContents() {
     this._logMessage(_('Reordering folder contents'));
 
     //Get array of folders from 'folder-children' key
@@ -68,7 +68,7 @@ class Extension {
       let numRemovedApps = 0;
       folderContents.forEach((folderApp, i) => {
         //Lookup display name of each app
-        let appInfo = this.appSystem.lookup_app(folderApp);
+        let appInfo = this._appSystem.lookup_app(folderApp);
         if (appInfo != null) {
           folderContents[i - numRemovedApps] = new String(appInfo.get_name());
           folderContents[i - numRemovedApps].desktopFile = folderApp;
@@ -95,7 +95,7 @@ class Extension {
   reorderGrid() {
     //Alphabetically order the contents of each folder
     if (this._extensionSettings.get_boolean('sort-folder-contents')) {
-      this.reorderFolderContents();
+      this._reorderFolderContents();
     }
 
     //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout'
@@ -104,11 +104,11 @@ class Extension {
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', []));
 
       //Trigger a refresh of the app grid, if shell version is greater than 40
-      if (this.shellVersion < 40) {
+      if (this._shellVersion < 40) {
         this._logMessage(_('Running GNOME shell 3.38 or lower, skipping reload'));
       } else {
         //Use call() so 'this' applies to this._appDisplay
-        this.reloadAppDisplay.call(this._appDisplay);
+        this._reloadAppDisplay.call(this._appDisplay);
       }
 
       this._logMessage(_('Reordered grid'));
@@ -120,13 +120,13 @@ class Extension {
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this.folderSignal = this.folderSettings.connect('changed::folder-children', () => {
-      if (this.currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
-        this.currentlyUpdating = true;
+      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
+        this._currentlyUpdating = true;
 
         this._logMessage(_('Folders changed, triggering reorder'));
         this.reorderGrid();
 
-        this.currentlyUpdating = false;
+        this._currentlyUpdating = false;
       }
     });
   }
@@ -134,8 +134,8 @@ class Extension {
   waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
     this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
-      if (this.currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
-        this.currentlyUpdating = true;
+      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
+        this._currentlyUpdating = true;
 
         //Work out if the change was internal or external
         let appLayout = this.shellSettings.get_value('app-picker-layout');
@@ -145,7 +145,7 @@ class Extension {
           this.reorderGrid();
         }
 
-        this.currentlyUpdating = false;
+        this._currentlyUpdating = false;
       }
     });
   }
@@ -153,19 +153,19 @@ class Extension {
   waitForFavouritesChange() {
     //Connect to gsettings and wait for the favourite apps to change
     this.favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
-      if (this.currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
-        this.currentlyUpdating = true;
+      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
+        this._currentlyUpdating = true;
 
         //When the favourites changed, reorder the grid
         this._logMessage(_('Favourite apps changed, triggering reorder'));
         this.reorderGrid();
 
-        this.currentlyUpdating = false;
+        this._currentlyUpdating = false;
       }
     });
   }
 
-  reloadAppDisplay() {
+  _reloadAppDisplay() {
     //Reload app grid to apply any pending changes
     this._pageManager._loadPages();
     this._redisplay();
