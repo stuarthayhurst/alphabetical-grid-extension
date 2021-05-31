@@ -4,9 +4,8 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 .PHONY: build release translations install uninstall clean
 
 build:
-	./scripts/compile-locales.sh
 	glib-compile-schemas schemas
-	gnome-extensions pack --force --extra-source=LICENSE.txt --extra-source=prefs.ui
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=prefs.ui
 release:
 	$(MAKE) translations
 	$(MAKE) build
