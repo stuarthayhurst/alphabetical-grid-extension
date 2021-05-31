@@ -13,7 +13,7 @@ var PrefsWidget = class PrefsWidget {
     this.widget = new Gtk.ScrolledWindow();
     this.widget.add(this._builder.get_object('main-prefs'));
 
-    this._foldersSwitch = this._builder.get_object('sort-folders-switch')
+    this._foldersSwitch = this._builder.get_object('sort-folders-switch');
 
     //Set sliders to match the gsettings vlaues for the extension
     this._updateSwitch(this._foldersSwitch, 'sort-folder-contents');
