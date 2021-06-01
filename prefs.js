@@ -29,7 +29,10 @@ var PrefsWidget = class PrefsWidget {
         authors: [
           'Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'
         ],
-        translator_credits: 'Philipp Kiemle <philipp.kiemle@gmail.com>',
+        //Translators: Do not translate literally. If you want, you can enter your
+        //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
+        //If not, "translate" this string with a whitespace character.
+        translator_credits: _('translator-credits'),
         program_name: _('Alphabetical App Grid'),
         comments: _('Restore the alphabetical ordering of the app grid'),
         license_type: Gtk.License.GPL_3_0,
