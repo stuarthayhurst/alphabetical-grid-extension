@@ -88,36 +88,6 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="hexpand">True</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkLabel" id="copyright-notice">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="valign">end</property>
-                <property name="vexpand">True</property>
-                <property name="label" translatable="yes">© 2021 Stuart Hayhurst
-Licensed under &lt;a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html"&gt;GPL v3.0&lt;/a&gt;
-Contribute on &lt;a href="https://github.com/stuarthayhurst/alphabetical-grid-extension"&gt;GitHub&lt;/a&gt;</property>
-                <property name="use-markup">True</property>
-                <property name="justify">center</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">2</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkLabel" id="settings-title">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
@@ -132,6 +102,36 @@ Contribute on &lt;a href="https://github.com/stuarthayhurst/alphabetical-grid-ex
           <packing>
             <property name="left-attach">0</property>
             <property name="top-attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="halign">start</property>
+            <property name="margin-top">4</property>
+            <property name="hexpand">True</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkButton" id="about-button">
+                <property name="label" translatable="yes">About</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">end</property>
+                <property name="vexpand">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">2</property>
           </packing>
         </child>
       </object>

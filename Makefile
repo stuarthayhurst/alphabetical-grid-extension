@@ -5,7 +5,7 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 
 build:
 	glib-compile-schemas schemas
-	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=prefs.ui
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=prefs.ui --extra-source=docs/icon.svg
 release:
 	$(MAKE) translations
 	$(MAKE) build
