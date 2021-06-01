@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-01 13:47+0100\n"
+"POT-Creation-Date: 2021-06-01 14:53+0100\n"
 "PO-Revision-Date: 2021-05-31 22:55+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -18,35 +18,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: extension.js:56
+#: extension.js:57
 msgid "Reordering folder contents"
 msgstr "Ordnerinhalt neu ordnen"
 
-#: extension.js:108
+#: extension.js:109
 msgid "Running GNOME shell 3.38 or lower, skipping reload"
 msgstr "Es läuft GNOME Shell 3.38 oder niedriger, neu laden wird übersprungen"
 
-#: extension.js:114
+#: extension.js:115
 msgid "Reordered grid"
 msgstr "Raster wurde neu geordnet"
 
-#: extension.js:116
+#: extension.js:117
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 "org.gnome.shell app-picker-layout ist nicht schreibbar, Neuordnung wird "
 "übersprungen"
 
-#: extension.js:126
+#: extension.js:127
 msgid "Folders changed, triggering reorder"
 msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:144
+#: extension.js:145
 msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
-#: extension.js:160
+#: extension.js:161
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändet, Neuordnung wird ausgelöst"
+
+#: extension.js:176
+#| msgid "Folders changed, triggering reorder"
+msgid "Extension gsettings values changed, triggering reorder"
+msgstr ""
 
 #: prefs.ui:27
 msgctxt "setting-tooltip"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-01 13:47+0100\n"
+"POT-Creation-Date: 2021-06-01 14:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:56
+#: extension.js:57
 msgid "Reordering folder contents"
 msgstr ""
 
-#: extension.js:108
+#: extension.js:109
 msgid "Running GNOME shell 3.38 or lower, skipping reload"
 msgstr ""
 
-#: extension.js:114
+#: extension.js:115
 msgid "Reordered grid"
 msgstr ""
 
-#: extension.js:116
+#: extension.js:117
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 
-#: extension.js:126
+#: extension.js:127
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:144
+#: extension.js:145
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:160
+#: extension.js:161
 msgid "Favourite apps changed, triggering reorder"
+msgstr ""
+
+#: extension.js:176
+msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
 #: prefs.ui:27

@@ -19,6 +19,7 @@ function enable() {
   gridReorder.waitForExternalReorder();
   gridReorder.waitForFavouritesChange();
   gridReorder.waitForFolderChange();
+  gridReorder.waitForSettingsChange();
 }
 
 function disable() {
@@ -158,6 +159,21 @@ class Extension {
 
         //When the favourites changed, reorder the grid
         this._logMessage(_('Favourite apps changed, triggering reorder'));
+        this.reorderGrid();
+
+        this._currentlyUpdating = false;
+      }
+    });
+  }
+
+  waitForSettingsChange() {
+    //Connect to gsettings and wait for the favourite apps to change
+    this.folderContentsSignal = this._extensionSettings.connect('changed', () => {
+      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
+        this._currentlyUpdating = true;
+
+        //When the favourites changed, reorder the grid
+        this._logMessage(_('Extension gsettings values changed, triggering reorder'));
         this.reorderGrid();
 
         this._currentlyUpdating = false;
