@@ -76,6 +76,9 @@
                 </child>
               </object>
             </child>
+            <style>
+              <class name="frame"/>
+            </style>
           </object>
           <packing>
             <property name="left-attach">0</property>
