@@ -49,7 +49,6 @@ msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändet, Neuordnung wird ausgelöst"
 
 #: extension.js:176
-#| msgid "Folders changed, triggering reorder"
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
