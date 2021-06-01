@@ -17,3 +17,9 @@ jobs:
       - name: Run shellcheck
         run: |
           find $GITHUB_WORKSPACE -type f -and \( -name "*.sh" \) | xargs shellcheck
+      - name: Install eslint
+        run: |
+          sudo apt install eslint
+      - name: Run eslint
+        run: |
+          eslint *.js
