@@ -1,6 +1,9 @@
-const {GObject, Gtk} = imports.gi;
+const {GObject, Gtk, GdkPixbuf} = imports.gi;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
+
+//Use _() for translations
+const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
 
 var PrefsWidget = class PrefsWidget {
   constructor() {
@@ -14,12 +17,31 @@ var PrefsWidget = class PrefsWidget {
     this.widget.add(this._builder.get_object('main-prefs'));
 
     this._foldersSwitch = this._builder.get_object('sort-folders-switch');
-
     //Set sliders to match the gsettings vlaues for the extension
     this._updateSwitch(this._foldersSwitch, 'sort-folder-contents');
-
     //Update gsettings values when switches are toggled
     this._listenForChanges(this._foldersSwitch, 'sort-folder-contents');
+
+    //Create about menu when button is pressed
+    this._aboutButton = this._builder.get_object('about-button');
+    this._aboutButton.connect('clicked', () => {
+      let aboutDialog = new Gtk.AboutDialog({
+        authors: [
+          'Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'
+        ],
+        translator_credits: 'Philipp Kiemle <philipp.kiemle@gmail.com>',
+        program_name: _('Alphabetical App Grid'),
+        comments: _('Restore the alphabetical ordering of the app grid'),
+        license_type: Gtk.License.GPL_3_0,
+        copyright: _('© 2021 Stuart Hayhurst'),
+        logo: GdkPixbuf.Pixbuf.new_from_file_at_size(Me.path + '/icon.svg', 128, 128),
+        version: 'v' + Me.metadata.version.toString(),
+        website: Me.metadata.url.toString(),
+        website_label: _('Contribute on GitHub'),
+        modal: true
+      });
+      aboutDialog.present();
+    });
   }
 
   _listenForChanges(targetSwitch, gsettingsKey) {
