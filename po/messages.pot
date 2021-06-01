@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-01 18:59+0100\n"
+"POT-Creation-Date: 2021-06-01 20:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,19 +49,26 @@ msgstr ""
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
-#: prefs.js:33
-msgid "Alphabetical App Grid"
-msgstr ""
-
-#: prefs.js:34
-msgid "Restore the alphabetical ordering of the app grid"
+#. Translators: Do not translate literally. If you want, you can enter your
+#. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
+#. If not, "translate" this string with a whitespace character.
+#: prefs.js:35
+msgid "translator-credits"
 msgstr ""
 
 #: prefs.js:36
+msgid "Alphabetical App Grid"
+msgstr ""
+
+#: prefs.js:37
+msgid "Restore the alphabetical ordering of the app grid"
+msgstr ""
+
+#: prefs.js:39
 msgid "© 2021 Stuart Hayhurst"
 msgstr ""
 
-#: prefs.js:40
+#: prefs.js:43
 msgid "Contribute on GitHub"
 msgstr ""
 
