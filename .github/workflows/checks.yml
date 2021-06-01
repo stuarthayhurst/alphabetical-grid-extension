@@ -24,7 +24,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Install eslint
         run: |
-          sudo apt install eslint
+          npm install -g eslint
       - name: Run eslint
         run: |
+          eslint --init
           eslint *.js
