@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-01 18:59+0100\n"
-"PO-Revision-Date: 2021-05-31 22:55+0200\n"
+"POT-Creation-Date: 2021-06-01 20:59+0200\n"
+"PO-Revision-Date: 2021-06-01 21:00+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: extension.js:57
 msgid "Reordering folder contents"
-msgstr "Ordnerinhalt neu ordnen"
+msgstr "Ordnerinhalt wird neu geordnet"
 
 #: extension.js:109
 msgid "Running GNOME shell 3.38 or lower, skipping reload"
@@ -51,22 +51,30 @@ msgstr "Favorisierte Anwendungen wurden geändet, Neuordnung wird ausgelöst"
 #: extension.js:176
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
+"gsettings-Werte der Erweiterung wurden geändert, Neuordnung wird ausgelöst"
 
-#: prefs.js:33
-msgid "Alphabetical App Grid"
-msgstr ""
-
-#: prefs.js:34
-msgid "Restore the alphabetical ordering of the app grid"
-msgstr ""
+#. Translators: Do not translate literally. If you want, you can enter your
+#. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
+#. If not, "translate" this string with a whitespace character.
+#: prefs.js:35
+msgid "translator-credits"
+msgstr "Philipp Kiemle <philipp.kiemle@gmail.com>, 2021"
 
 #: prefs.js:36
-msgid "© 2021 Stuart Hayhurst"
-msgstr ""
+msgid "Alphabetical App Grid"
+msgstr "Alphabetical App Grid"
 
-#: prefs.js:40
+#: prefs.js:37
+msgid "Restore the alphabetical ordering of the app grid"
+msgstr "Stellt die alphabetische Sortierung des Anwendungsrasters wieder her"
+
+#: prefs.js:39
+msgid "© 2021 Stuart Hayhurst"
+msgstr "© 2021 Stuart Hayhurst"
+
+#: prefs.js:43
 msgid "Contribute on GitHub"
-msgstr ""
+msgstr "Mitwirken auf GitHub"
 
 #: prefs.ui:27
 msgctxt "setting-tooltip"
@@ -81,8 +89,8 @@ msgstr "Ordnerinhalt sortieren"
 
 #: prefs.ui:95
 msgid "General settings"
-msgstr ""
+msgstr "Allgemeine Einstellungen"
 
 #: prefs.ui:117
 msgid "About"
-msgstr ""
+msgstr "Info"
