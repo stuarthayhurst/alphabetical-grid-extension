@@ -60,7 +60,6 @@
                             <property name="valign">center</property>
                             <property name="margin-end">10</property>
                             <property name="active">True</property>
-                            <signal name="state-set" handler="on_my_switch_state_set" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">False</property>
