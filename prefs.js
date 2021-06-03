@@ -73,7 +73,6 @@ function buildPrefsWidget() {
 
     //Create a button on the header bar and show the about menu when clicked
     let aboutButton = Gtk.Button.new_with_label(_('About'));
-    //let aboutButton = Gtk.Button.new_from_icon_name('dialog-information-symbolic', 16);
     aboutButton.connect('clicked', () => {
       settingsMenu.showAbout();
     });
