@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-03 09:14+0100\n"
-"PO-Revision-Date: 2021-06-01 21:00+0200\n"
+"PO-Revision-Date: 2021-06-03 11:41+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -82,7 +82,7 @@ msgstr "Info"
 
 #: prefs.js:82
 msgid "Alphabetical App Grid Preferences"
-msgstr ""
+msgstr "Alphabetical App Grid-Einstellungen"
 
 #: prefs.ui:28
 msgctxt "setting-tooltip"
