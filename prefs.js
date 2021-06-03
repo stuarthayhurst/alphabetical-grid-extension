@@ -1,4 +1,4 @@
-const {GObject, Gtk, GdkPixbuf} = imports.gi;
+const {GObject, Gtk, GdkPixbuf, GLib} = imports.gi;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
@@ -21,30 +21,29 @@ var PrefsWidget = class PrefsWidget {
     this._updateSwitch(this._foldersSwitch, 'sort-folder-contents');
     //Update gsettings values when switches are toggled
     this._listenForChanges(this._foldersSwitch, 'sort-folder-contents');
+  }
 
-    //Create about menu when button is pressed
-    this._aboutButton = this._builder.get_object('about-button');
-    this._aboutButton.connect('clicked', () => {
-      let aboutDialog = new Gtk.AboutDialog({
-        authors: [
-          'Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'
-        ],
-        //Translators: Do not translate literally. If you want, you can enter your
-        //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
-        //If not, "translate" this string with a whitespace character.
-        translator_credits: _('translator-credits'),
-        program_name: _('Alphabetical App Grid'),
-        comments: _('Restore the alphabetical ordering of the app grid'),
-        license_type: Gtk.License.GPL_3_0,
-        copyright: _('© 2021 Stuart Hayhurst'),
-        logo: GdkPixbuf.Pixbuf.new_from_file_at_size(Me.path + '/icon.svg', 128, 128),
-        version: 'v' + Me.metadata.version.toString(),
-        website: Me.metadata.url.toString(),
-        website_label: _('Contribute on GitHub'),
-        modal: true
-      });
-      aboutDialog.present();
+  showAbout() {
+    //Create and display an about menu when requested
+    let aboutDialog = new Gtk.AboutDialog({
+      authors: [
+        'Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'
+      ],
+      //Translators: Do not translate literally. If you want, you can enter your
+      //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
+      //If not, "translate" this string with a whitespace character.
+      translator_credits: _('translator-credits'),
+      program_name: _('Alphabetical App Grid'),
+      comments: _('Restore the alphabetical ordering of the app grid'),
+      license_type: Gtk.License.GPL_3_0,
+      copyright: _('© 2021 Stuart Hayhurst'),
+      logo: GdkPixbuf.Pixbuf.new_from_file_at_size(Me.path + '/icon.svg', 128, 128),
+      version: 'v' + Me.metadata.version.toString(),
+      website: Me.metadata.url.toString(),
+      website_label: _('Contribute on GitHub'),
+      modal: true
     });
+    aboutDialog.present();
   }
 
   _listenForChanges(targetSwitch, gsettingsKey) {
@@ -65,7 +64,26 @@ function init() {
 }
 
 function buildPrefsWidget() {
-  let settings = new PrefsWidget();
-  settings.widget.show_all();
-  return settings.widget;
+  let settingsMenu = new PrefsWidget();
+  settingsMenu.widget.show_all();
+
+  GLib.timeout_add(0, 0, () => {
+    let window = settingsMenu.widget.get_toplevel();
+    let headerBar = window.get_titlebar();
+
+    //Create a button on the header bar and show the about menu when clicked
+    let aboutButton = Gtk.Button.new_with_label(_('About'));
+    aboutButton.connect('clicked', () => {
+      settingsMenu.showAbout();
+    });
+
+    //Modify header bar title and add about menu button
+    headerBar.title = _('Alphabetical App Grid Preferences');
+    headerBar.pack_start(aboutButton);
+    aboutButton.show_all();
+
+    return GLib.SOURCE_REMOVE;
+  });
+
+  return settingsMenu.widget;
 }
