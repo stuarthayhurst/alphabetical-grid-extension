@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-01 20:59+0200\n"
+"POT-Creation-Date: 2021-06-03 09:14+0100\n"
 "PO-Revision-Date: 2021-06-01 21:00+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -76,21 +76,25 @@ msgstr "© 2021 Stuart Hayhurst"
 msgid "Contribute on GitHub"
 msgstr "Mitwirken auf GitHub"
 
-#: prefs.ui:27
+#: prefs.js:75
+msgid "About"
+msgstr "Info"
+
+#: prefs.js:82
+msgid "Alphabetical App Grid Preferences"
+msgstr ""
+
+#: prefs.ui:28
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 "Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
 
-#: prefs.ui:46
+#: prefs.ui:47
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr "Ordnerinhalt sortieren"
 
-#: prefs.ui:95
+#: prefs.ui:96
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
-
-#: prefs.ui:117
-msgid "About"
-msgstr "Info"

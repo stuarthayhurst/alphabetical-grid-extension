@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-01 20:59+0200\n"
+"POT-Creation-Date: 2021-06-03 09:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,20 +72,24 @@ msgstr ""
 msgid "Contribute on GitHub"
 msgstr ""
 
-#: prefs.ui:27
+#: prefs.js:75
+msgid "About"
+msgstr ""
+
+#: prefs.js:82
+msgid "Alphabetical App Grid Preferences"
+msgstr ""
+
+#: prefs.ui:28
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 
-#: prefs.ui:46
+#: prefs.ui:47
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr ""
 
-#: prefs.ui:95
+#: prefs.ui:96
 msgid "General settings"
-msgstr ""
-
-#: prefs.ui:117
-msgid "About"
 msgstr ""
