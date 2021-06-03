@@ -30,11 +30,12 @@
   - `make uninstall`: Uninstalls the extension
   - `make clean`: Deletes extension zip and `locale` directory
 
-## Build dependencies: (Only required if running `make build`)
+## Build dependencies: (Only required if running `make release`)
   - gnome-extensions
-  - gettext
-  - libglib2.0-bin
-  - sed
+  - gettext (Translations)
+  - libglib2.0-bin (Translations)
+  - libgtk-4-bin (GTK)
+  - sed (Translations)
 
 ## Create an extension bundle:
   - `make build`

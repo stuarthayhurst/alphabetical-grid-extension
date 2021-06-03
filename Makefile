@@ -5,8 +5,9 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 
 build:
 	glib-compile-schemas schemas
-	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=prefs.ui --extra-source=docs/icon.svg
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=prefs.ui --extra-source=prefs-gtk4.ui --extra-source=docs/icon.svg
 release:
+	$(MAKE) gtk4
 	$(MAKE) translations
 	$(MAKE) build
 	if [[ "$$(stat -c %s AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip)" -gt 4096000 ]]; then \
@@ -16,6 +17,8 @@ release:
 translations:
 	./scripts/update-pot.sh
 	./scripts/update-po.sh -a
+gtk4:
+	gtk4-builder-tool simplify --3to4 prefs.ui > prefs-gtk4.ui
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
