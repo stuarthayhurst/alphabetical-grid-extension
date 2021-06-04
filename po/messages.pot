@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-03 19:16+0100\n"
+"POT-Creation-Date: 2021-06-04 09:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,44 +52,44 @@ msgstr ""
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:35
+#: prefs.js:50
 msgid "translator-credits"
 msgstr ""
 
-#: prefs.js:36
+#: prefs.js:51
 msgid "Alphabetical App Grid"
 msgstr ""
 
-#: prefs.js:37
+#: prefs.js:52
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr ""
 
-#: prefs.js:39
+#: prefs.js:54
 msgid "© 2021 Stuart Hayhurst"
 msgstr ""
 
-#: prefs.js:43
+#: prefs.js:58
 msgid "Contribute on GitHub"
 msgstr ""
 
-#: prefs.js:75
+#: prefs.js:99
 msgid "About"
 msgstr ""
 
-#: prefs.js:81
+#: prefs.js:105
 msgid "Alphabetical App Grid Preferences"
 msgstr ""
 
-#: prefs.ui:28
+#: prefs-gtk4.ui:21 prefs.ui:28
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 
-#: prefs.ui:47
+#: prefs-gtk4.ui:38 prefs.ui:47
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr ""
 
-#: prefs.ui:96
+#: prefs-gtk4.ui:69 prefs.ui:96
 msgid "General settings"
 msgstr ""
