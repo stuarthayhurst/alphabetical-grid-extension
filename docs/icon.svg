@@ -11,43 +11,43 @@
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
    id="svg8"
    version="1.1"
-   viewBox="0 0 8.4666665 8.4666669"
-   height="32"
-   width="32"
+   viewBox="0 0 33.866666 33.866668"
+   height="128"
+   width="128"
    inkscape:export-filename="/home/ratus5/Downloads/Projects/Code/alphabetical-grid-extension/docs/icon.png"
    inkscape:export-xdpi="384"
    inkscape:export-ydpi="384">
   <defs
      id="defs2">
     <rect
-       x="-3.3468241"
-       y="-9.3717792"
-       width="2.1569739"
+       x="-3.3468242"
+       y="-9.3717794"
+       width="2.1569738"
        height="3.0920596"
        id="rect869" />
     <rect
-       x="-3.3468241"
-       y="-9.3717792"
-       width="2.1569739"
+       x="-3.3468242"
+       y="-9.3717794"
+       width="2.1569738"
        height="3.0920596"
        id="rect877" />
     <rect
-       x="-3.3468241"
-       y="-9.3717792"
-       width="2.1569739"
+       x="-3.3468242"
+       y="-9.3717794"
+       width="2.1569738"
        height="3.0920596"
        id="rect883" />
     <rect
-       x="-3.3468241"
-       y="-9.3717792"
-       width="2.1569739"
+       x="-3.3468242"
+       y="-9.3717794"
+       width="2.1569738"
        height="3.0920596"
        id="rect889" />
   </defs>
   <sodipodi:namedview
      inkscape:window-maximized="1"
-     inkscape:window-y="0"
-     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-x="2004"
      inkscape:window-height="1016"
      inkscape:window-width="1836"
      units="px"
@@ -55,9 +55,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="svg8"
      inkscape:document-units="px"
-     inkscape:cy="16.04113"
-     inkscape:cx="14.283007"
-     inkscape:zoom="11.313709"
+     inkscape:cy="72.168478"
+     inkscape:cx="57.575738"
+     inkscape:zoom="2.8284273"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -72,33 +72,33 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <rect
-     style="opacity:0.4;fill:#000000;stroke-width:0.538468;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
-     id="rect896"
-     width="7.4083333"
-     height="7.4083333"
-     x="0.5291667"
-     y="0.79374999"
-     ry="0.69626886" />
+     style="fill:#000000;stroke-width:2.15387;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;opacity:0.4"
+     id="rect866"
+     width="29.633333"
+     height="29.633333"
+     x="2.1166668"
+     y="3.1750002"
+     ry="2.7850754" />
   <rect
-     style="fill:#4d4d4d;stroke-width:0.538468;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+     style="fill:#4d4d4d;stroke-width:2.15387;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
      id="rect858"
-     width="7.4083333"
-     height="7.4083333"
-     x="0.5291667"
-     y="0.5291667"
-     ry="0.69626886" />
+     width="29.633333"
+     height="29.633333"
+     x="2.1166668"
+     y="2.1166668"
+     ry="2.7850754" />
   <path
      id="rect898"
-     style="fill:#000000;stroke-width:0.726841;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;opacity:0.4"
-     d="M 4.9394531 5 C 4.4187787 5 4 5.4187787 4 5.9394531 L 4 14.060547 C 4 14.581221 4.4187787 15 4.9394531 15 L 13.060547 15 C 13.581221 15 14 14.581221 14 14.060547 L 14 5.9394531 C 14 5.4187787 13.581221 5 13.060547 5 L 4.9394531 5 z M 18.939453 5 C 18.418779 5 18 5.4187787 18 5.9394531 L 18 14.060547 C 18 14.581221 18.418779 15 18.939453 15 L 27.060547 15 C 27.581221 15 28 14.581221 28 14.060547 L 28 5.9394531 C 28 5.4187787 27.581221 5 27.060547 5 L 18.939453 5 z M 4.9394531 19 C 4.4187787 19 4 19.418779 4 19.939453 L 4 28.060547 C 4 28.581221 4.4187787 29 4.9394531 29 L 13.060547 29 C 13.581221 29 14 28.581221 14 28.060547 L 14 19.939453 C 14 19.418779 13.581221 19 13.060547 19 L 4.9394531 19 z M 18.939453 19 C 18.418779 19 18 19.418779 18 19.939453 L 18 28.060547 C 18 28.581221 18.418779 29 18.939453 29 L 27.060547 29 C 27.581221 29 28 28.581221 28 28.060547 L 28 19.939453 C 28 19.418779 27.581221 19 27.060547 19 L 18.939453 19 z "
-     transform="scale(0.26458333)" />
+     style="opacity:0.4;fill:#000000;stroke-width:0.76924;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
+     d="m 5.2275877,5.2916665 c -0.551047,0 -0.9942545,0.4432075 -0.9942545,0.9942546 v 8.5948239 c 0,0.551047 0.4432075,0.994255 0.9942545,0.994255 h 8.5948243 c 0.551047,0 0.994254,-0.443208 0.994254,-0.994255 V 6.2859211 c 0,-0.5510471 -0.443207,-0.9942546 -0.994254,-0.9942546 z m 14.8166663,0 C 19.493208,5.2916665 19.05,5.734874 19.05,6.2859211 v 8.5948239 c 0,0.551047 0.443208,0.994255 0.994254,0.994255 h 8.594825 c 0.551046,0 0.994254,-0.443208 0.994254,-0.994255 V 6.2859211 c 0,-0.5510471 -0.443208,-0.9942546 -0.994254,-0.9942546 z M 5.2275877,20.108333 c -0.551047,0 -0.9942545,0.443208 -0.9942545,0.994255 v 8.594824 c 0,0.551047 0.4432075,0.994254 0.9942545,0.994254 h 8.5948243 c 0.551047,0 0.994254,-0.443207 0.994254,-0.994254 v -8.594824 c 0,-0.551047 -0.443207,-0.994255 -0.994254,-0.994255 z m 14.8166663,0 c -0.551046,0 -0.994254,0.443208 -0.994254,0.994255 v 8.594824 c 0,0.551047 0.443208,0.994254 0.994254,0.994254 h 8.594825 c 0.551046,0 0.994254,-0.443207 0.994254,-0.994254 v -8.594824 c 0,-0.551047 -0.443208,-0.994255 -0.994254,-0.994255 z" />
   <g
-     id="g983">
+     id="g983"
+     transform="scale(4)">
     <g
        id="g876"
        transform="matrix(0.83333335,0,0,0.83333335,0.61736108,0.61736108)">

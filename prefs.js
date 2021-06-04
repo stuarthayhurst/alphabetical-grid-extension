@@ -4,17 +4,25 @@ const Me = ExtensionUtils.getCurrentExtension();
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
+//Get GNOME shell version
+const shellVersion = Number.parseInt(imports.misc.config.PACKAGE_VERSION.split('.'));
 
 var PrefsWidget = class PrefsWidget {
   constructor() {
     this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.alphabetical-app-grid');
 
     this._builder = new Gtk.Builder();
-    this._builder.set_translation_domain(Me.metadata.uuid);
-    this._builder.add_from_file(Me.path + '/prefs.ui');
-
     this.widget = new Gtk.ScrolledWindow();
-    this.widget.add(this._builder.get_object('main-prefs'));
+    this._builder.set_translation_domain(Me.metadata.uuid);
+
+    //Use different API methods for GTK 3 / 4
+    if (shellVersion < 40) { //GTK 3
+      this._builder.add_from_file(Me.path + '/prefs.ui');
+      this.widget.add(this._builder.get_object('main-prefs'));
+    } else { //GTK 4
+      this._builder.add_from_file(Me.path + '/prefs-gtk4.ui');
+      this.widget.set_child(this._builder.get_object('main-prefs'));
+    }
 
     this._foldersSwitch = this._builder.get_object('sort-folders-switch');
     //Set sliders to match the gsettings vlaues for the extension
@@ -24,6 +32,13 @@ var PrefsWidget = class PrefsWidget {
   }
 
   showAbout() {
+    let logo = Gtk.Image.new_from_file(Me.path + '/icon.svg');
+    if (shellVersion < 40) { //GTK 3
+      logo = logo.get_pixbuf();
+    } else { //GTK 4
+      logo = logo.get_paintable();
+    }
+
     //Create and display an about menu when requested
     let aboutDialog = new Gtk.AboutDialog({
       authors: [
@@ -37,7 +52,7 @@ var PrefsWidget = class PrefsWidget {
       comments: _('Restore the alphabetical ordering of the app grid'),
       license_type: Gtk.License.GPL_3_0,
       copyright: _('© 2021 Stuart Hayhurst'),
-      logo: GdkPixbuf.Pixbuf.new_from_file_at_size(Me.path + '/icon.svg', 128, 128),
+      logo: logo,
       version: 'v' + Me.metadata.version.toString(),
       website: Me.metadata.url.toString(),
       website_label: _('Contribute on GitHub'),
@@ -65,10 +80,19 @@ function init() {
 
 function buildPrefsWidget() {
   let settingsMenu = new PrefsWidget();
-  settingsMenu.widget.show_all();
+  if (shellVersion < 40) { //GTK 3
+    settingsMenu.widget.show_all();
+  } else { //GTK 4
+    settingsMenu.widget.show();
+  }
 
-  GLib.timeout_add(0, 0, () => {
-    let window = settingsMenu.widget.get_toplevel();
+  GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+    let window
+    if (shellVersion < 40) { //GTK 3
+      window = settingsMenu.widget.get_toplevel();
+    } else { //GTK 4
+      window = settingsMenu.widget.get_root();
+    }
     let headerBar = window.get_titlebar();
 
     //Create a button on the header bar and show the about menu when clicked
@@ -80,7 +104,7 @@ function buildPrefsWidget() {
     //Modify header bar title and add about menu button
     headerBar.title = _('Alphabetical App Grid Preferences');
     headerBar.pack_start(aboutButton);
-    aboutButton.show_all();
+    aboutButton.show();
 
     return GLib.SOURCE_REMOVE;
   });
