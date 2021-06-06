@@ -79,26 +79,27 @@ function init() {
 }
 
 function buildPrefsWidget() {
-  let settingsMenu = new PrefsWidget();
+  let settingsWindow = new PrefsWidget();
+  let settingsWidget = settingsWindow.widget;
   if (shellVersion < 40) { //GTK 3
-    settingsMenu.widget.show_all();
+    settingsWidget.show_all();
   } else { //GTK 4
-    settingsMenu.widget.show();
+    settingsWidget.show();
   }
 
-  settingsMenu.widget.connect('realize', () => {
+  settingsWidget.connect('realize', () => {
     let window
     if (shellVersion < 40) { //GTK 3
-      window = settingsMenu.widget.get_toplevel();
+      window = settingsWidget.get_toplevel();
     } else { //GTK 4
-      window = settingsMenu.widget.get_root();
+      window = settingsWidget.get_root();
     }
     let headerBar = window.get_titlebar();
 
     //Create a button on the header bar and show the about menu when clicked
     let aboutButton = Gtk.Button.new_with_label(_('About'));
     aboutButton.connect('clicked', () => {
-      settingsMenu.showAbout();
+      settingsWindow.showAbout();
     });
 
     //Modify header bar title and add about menu button
@@ -107,5 +108,5 @@ function buildPrefsWidget() {
     aboutButton.show();
   });
 
-  return settingsMenu.widget;
+  return settingsWidget;
 }
