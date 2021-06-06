@@ -86,7 +86,7 @@ function buildPrefsWidget() {
     settingsMenu.widget.show();
   }
 
-  GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+  settingsMenu.widget.connect('realize', () => {
     let window
     if (shellVersion < 40) { //GTK 3
       window = settingsMenu.widget.get_toplevel();
@@ -105,8 +105,6 @@ function buildPrefsWidget() {
     headerBar.title = _('Alphabetical App Grid Preferences');
     headerBar.pack_start(aboutButton);
     aboutButton.show();
-
-    return GLib.SOURCE_REMOVE;
   });
 
   return settingsMenu.widget;
