@@ -6,5 +6,10 @@
       <summary>Sort folder contents</summary>
       <description>Whether the contents of folders should be sorted alphabetically</description>
     </key>
+    <key name="folder-order-position" type="s">
+      <default>"alphabetical"</default>
+      <summary>Position of ordered folders</summary>
+      <description>Where to place folders when ordering the application grid</description>
+    </key>
   </schema>
 </schemalist>

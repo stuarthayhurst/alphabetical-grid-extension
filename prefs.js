@@ -24,11 +24,15 @@ var PrefsWidget = class PrefsWidget {
       this.widget.set_child(this._builder.get_object('main-prefs'));
     }
 
+    //Set settings slider to current value and set up listener
     this._foldersSwitch = this._builder.get_object('sort-folders-switch');
-    //Set sliders to match the gsettings vlaues for the extension
     this._updateSwitch(this._foldersSwitch, 'sort-folder-contents');
-    //Update gsettings values when switches are toggled
-    this._listenForChanges(this._foldersSwitch, 'sort-folder-contents');
+    this._listenForChangedSlider(this._foldersSwitch, 'sort-folder-contents');
+
+    //Set settings combo box to current value and set up listener
+    this._comboBox = this._builder.get_object('folder-order-dropdown');
+    this._updateCombo(this._comboBox, 'folder-order-position');
+    this._listenForChangedCombo(this._comboBox, 'folder-order-position');
   }
 
   showAbout() {
@@ -61,16 +65,27 @@ var PrefsWidget = class PrefsWidget {
     aboutDialog.present();
   }
 
-  _listenForChanges(targetSwitch, gsettingsKey) {
+  _listenForChangedSlider(targetSwitch, gsettingsKey) {
     //Update gsettings value when switch is toggled
     targetSwitch.connect('state-set', () => {
       this._settings.set_boolean(gsettingsKey, targetSwitch.get_active());
     });
   }
 
+  _listenForChangedCombo(targetCombo, gsettingsKey) {
+    //Update gsettings value when dropdown is changed
+    targetCombo.connect('changed', () => {
+      this._settings.set_string(gsettingsKey, targetCombo.get_active_id());
+    });
+  }
+
   //Requires the element to toggle and the gsettings key to base it off of
   _updateSwitch(targetSwitch, gsettingsKey) {
     targetSwitch.set_active(this._settings.get_boolean(gsettingsKey));
+  }
+
+  _updateCombo(targetCombo, gsettingsKey) {
+    targetCombo.set_active_id(this._settings.get_string(gsettingsKey));
   }
 }
 

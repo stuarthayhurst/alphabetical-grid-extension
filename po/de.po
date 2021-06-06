@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-04 09:12+0100\n"
+"POT-Creation-Date: 2021-06-06 20:22+0100\n"
 "PO-Revision-Date: 2021-06-03 11:41+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -56,45 +56,66 @@ msgstr ""
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:50
+#: prefs.js:56
 msgid "translator-credits"
 msgstr "Philipp Kiemle <philipp.kiemle@gmail.com>, 2021"
 
-#: prefs.js:51
+#: prefs.js:57
 msgid "Alphabetical App Grid"
 msgstr "Alphabetical App Grid"
 
-#: prefs.js:52
+#: prefs.js:58
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr "Stellt die alphabetische Sortierung des Anwendungsrasters wieder her"
 
-#: prefs.js:54
+#: prefs.js:60
 msgid "© 2021 Stuart Hayhurst"
 msgstr "© 2021 Stuart Hayhurst"
 
-#: prefs.js:58
+#: prefs.js:64
 msgid "Contribute on GitHub"
 msgstr "Mitwirken auf GitHub"
 
-#: prefs.js:99
+#: prefs.js:117
 msgid "About"
 msgstr "Info"
 
-#: prefs.js:105
+#: prefs.js:123
 msgid "Alphabetical App Grid Preferences"
 msgstr "Alphabetical App Grid-Einstellungen"
 
-#: prefs-gtk4.ui:21 prefs.ui:28
+#: prefs-gtk4.ui:11 prefs.ui:14
+msgid "Alphabetical"
+msgstr ""
+
+#: prefs-gtk4.ui:15 prefs.ui:18
+msgid "Start"
+msgstr ""
+
+#: prefs-gtk4.ui:19 prefs.ui:22
+msgid "End"
+msgstr ""
+
+#: prefs-gtk4.ui:41 prefs.ui:50
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 "Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
 
-#: prefs-gtk4.ui:38 prefs.ui:47
+#: prefs-gtk4.ui:58 prefs.ui:69
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr "Ordnerinhalt sortieren"
 
-#: prefs-gtk4.ui:69 prefs.ui:96
+#: prefs-gtk4.ui:77 prefs.ui:107
+msgid "Where to place folders when ordering the applications grid"
+msgstr ""
+
+#: prefs-gtk4.ui:94 prefs.ui:126
+msgctxt "setting-name"
+msgid "Position of ordered folders"
+msgstr ""
+
+#: prefs-gtk4.ui:132 prefs.ui:181
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
