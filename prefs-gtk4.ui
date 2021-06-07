@@ -74,6 +74,17 @@
             </child>
             <child>
               <object class="GtkListBoxRow">
+                <property name="sensitive">0</property>
+                <property name="can-focus">0</property>
+                <property name="child">
+                  <object class="GtkSeparator">
+                    <property name="can-focus">0</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBoxRow">
                 <property name="tooltip-text" translatable="yes">Where to place folders when ordering the applications grid</property>
                 <property name="child">
                   <object class="GtkBox">
