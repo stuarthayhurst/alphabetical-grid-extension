@@ -46,8 +46,6 @@ class Extension {
     this._appSystem = new Shell.AppSystem();
     //Create a lock to prevent code fighting itself to change gsettings
     this._currentlyUpdating = false;
-    //Array of empty folders to ignore
-    this._ignoredFolders = [];
   }
 
   _logMessage(message) {
@@ -55,7 +53,7 @@ class Extension {
   }
 
   //Called by reorderGrid()
-  _reorderFolderContents(dryrun) {
+  _reorderFolderContents() {
     this._logMessage(_('Reordering folder contents'));
 
     //Get array of folders from 'folder-children' key
@@ -68,16 +66,6 @@ class Extension {
       let folderContents = folderContentsSettings.get_value('apps').get_strv();
       folderContents = this._orderByDisplayName(folderContents);
 
-      //If the folder is empty, delete it
-      if (String(folderContents) == "") {
-        this._ignoredFolders.push(targetFolder);
-      }
-
-      //Return early if no changes should be made
-      if (dryrun == true) {
-        return;
-      }
-
       //Set the gsettings value for 'apps' to the ordered list
       let currentOrder = folderContentsSettings.get_value('apps').get_strv();
       if (String(currentOrder) != String(folderContents)) {
@@ -89,36 +77,24 @@ class Extension {
   //Returns an ordered version of 'inputArray', ordered by display name
   _orderByDisplayName(inputArray) {
     //Loop through array contents and get their display names
-    let numRemovedApps = 0;
     inputArray.forEach((currentTarget, i) => {
       //Decide if it's an app or a folder
       let folderArray = this.folderSettings.get_value('folder-children').get_strv();
-      let removeTarget = false;
       let displayName;
 
       if (folderArray.includes(currentTarget)) { //Folder
-        if (!this._ignoredFolders.includes(currentTarget)) { //Folder isn't empty
-          let targetFolderSettings = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + currentTarget + '/');
-          displayName = targetFolderSettings.get_string('name');
-        } else { //Folder is empty
-          removeTarget = true;
-        }
+        let targetFolderSettings = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + currentTarget + '/');
+        displayName = targetFolderSettings.get_string('name');
       } else { //App
         //Lookup display name of each app
         let appInfo = this._appSystem.lookup_app(currentTarget);
         if (appInfo != null) {
           displayName = appInfo.get_name();
-        } else { //App doesn't exist, so remove from array
-          removeTarget = true;
         }
       }
-      if (removeTarget == false) {
-        inputArray[i - numRemovedApps] = new String(displayName);
-        inputArray[i - numRemovedApps].desktopFile = currentTarget;
-      } else { //App doesn't exist, so remove from array
-        inputArray = inputArray.filter(element => element != currentTarget);
-        numRemovedApps += 1;
-      }
+
+      inputArray[i] = new String(displayName);
+      inputArray[i].desktopFile = currentTarget;
     });
 
     //Alphabetically sort the folder's contents, by the display name
@@ -134,7 +110,7 @@ class Extension {
     //Get list of folders
     let folderArray = this.folderSettings.get_value('folder-children').get_strv();
 
-    //Filter out ignored folders and alphabetically order
+    //Alphabetically order folders
     folderArray = this._orderByDisplayName(folderArray);
 
     //Create GVariant to set folder positions
@@ -154,7 +130,9 @@ class Extension {
 
   reorderGrid() {
     //Alphabetically order the contents of each folder, if enabled
-    this._reorderFolderContents(!this._extensionSettings.get_boolean('sort-folder-contents'));
+    if (this._extensionSettings.get_boolean('sort-folder-contents') == true) {
+      this._reorderFolderContents();
+    }
 
     //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout'
     if (this.shellSettings.is_writable('app-picker-layout')) {
