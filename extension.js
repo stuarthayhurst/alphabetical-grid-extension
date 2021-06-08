@@ -160,61 +160,43 @@ class Extension {
     }
   }
 
+  _checkUpdatingLock(logMessage) {
+    //Detect lock to avoid multiple changes at once
+    if (this._currentlyUpdating == false) {
+      this._currentlyUpdating = true;
+
+      this._logMessage(logMessage);
+      this.reorderGrid();
+
+      this._currentlyUpdating = false;
+    }
+  }
+
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this.folderSignal = this.folderSettings.connect('changed::folder-children', () => {
-      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
-        this._currentlyUpdating = true;
-
-        this._logMessage(_('Folders changed, triggering reorder'));
-        this.reorderGrid();
-
-        this._currentlyUpdating = false;
-      }
+      this._checkUpdatingLock(_('Folders changed, triggering reorder'));
     });
   }
 
   waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
     this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
-      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
-        this._currentlyUpdating = true;
-
-        this._logMessage(_('App grid layout changed, triggering reorder'));
-        this.reorderGrid();
-
-        this._currentlyUpdating = false;
-      }
+      this._checkUpdatingLock(_('App grid layout changed, triggering reorder'));
     });
   }
 
   waitForFavouritesChange() {
     //Connect to gsettings and wait for the favourite apps to change
     this.favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
-      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
-        this._currentlyUpdating = true;
-
-        //When the favourites changed, reorder the grid
-        this._logMessage(_('Favourite apps changed, triggering reorder'));
-        this.reorderGrid();
-
-        this._currentlyUpdating = false;
-      }
+      this._checkUpdatingLock(_('Favourite apps changed, triggering reorder'));
     });
   }
 
   waitForSettingsChange() {
     //Connect to gsettings and wait for the favourite apps to change
     this.settingsChangedSignal = this._extensionSettings.connect('changed', () => {
-      if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
-        this._currentlyUpdating = true;
-
-        //When the favourites changed, reorder the grid
-        this._logMessage(_('Extension gsettings values changed, triggering reorder'));
-        this.reorderGrid();
-
-        this._currentlyUpdating = false;
-      }
+      this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
   }
 
