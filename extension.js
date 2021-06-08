@@ -194,7 +194,7 @@ class Extension {
   }
 
   waitForSettingsChange() {
-    //Connect to gsettings and wait for the favourite apps to change
+    //Connect to gsettings and wait for the extension's settings to change
     this.settingsChangedSignal = this._extensionSettings.connect('changed', () => {
       this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
