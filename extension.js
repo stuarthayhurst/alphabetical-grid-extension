@@ -46,6 +46,8 @@ class Extension {
     this._appSystem = new Shell.AppSystem();
     //Create a lock to prevent code fighting itself to change gsettings
     this._currentlyUpdating = false;
+    //Array of empty folders to ignore
+    this._ignoredFolders = [];
   }
 
   _logMessage(message) {
@@ -53,7 +55,7 @@ class Extension {
   }
 
   //Called by reorderGrid()
-  _reorderFolderContents() {
+  _reorderFolderContents(dryrun) {
     this._logMessage(_('Reordering folder contents'));
 
     //Get array of folders from 'folder-children' key
@@ -64,26 +66,17 @@ class Extension {
       //Get the contents of the folder, from gsettings value
       let folderContentsSettings = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + targetFolder + '/');
       let folderContents = folderContentsSettings.get_value('apps').get_strv();
+      folderContents = this._orderByDisplayName(folderContents);
 
-      //Loop through detected folders and get display names for their contents
-      let numRemovedApps = 0;
-      folderContents.forEach((folderApp, i) => {
-        //Lookup display name of each app
-        let appInfo = this._appSystem.lookup_app(folderApp);
-        if (appInfo != null) {
-          folderContents[i - numRemovedApps] = new String(appInfo.get_name());
-          folderContents[i - numRemovedApps].desktopFile = folderApp;
-        } else { //App doesn't exist, so remove from array
-          folderContents = folderContents.filter(element => element != folderApp);
-          numRemovedApps += 1;
-        }
-      });
+      //If the folder is empty, delete it
+      if (String(folderContents) == "") {
+        this._ignoredFolders.push(targetFolder);
+      }
 
-      //Alphabetically sort the folder's contents, by the display name
-      folderContents.sort();
-
-      //Replace each element with the app's .desktop filename
-      folderContents.forEach((folderApp, i) => { folderContents[i] = folderApp.desktopFile; });
+      //Return early if no changes should be made
+      if (dryrun == true) {
+        return;
+      }
 
       //Set the gsettings value for 'apps' to the ordered list
       let currentOrder = folderContentsSettings.get_value('apps').get_strv();
@@ -93,16 +86,86 @@ class Extension {
     });
   }
 
-  reorderGrid() {
-    //Alphabetically order the contents of each folder
-    if (this._extensionSettings.get_boolean('sort-folder-contents')) {
-      this._reorderFolderContents();
+  //Returns an ordered version of 'inputArray', ordered by display name
+  _orderByDisplayName(inputArray) {
+    //Loop through array contents and get their display names
+    let numRemovedApps = 0;
+    inputArray.forEach((currentTarget, i) => {
+      //Decide if it's an app or a folder
+      let folderArray = this.folderSettings.get_value('folder-children').get_strv();
+      let removeTarget = false;
+      let displayName;
+
+      if (folderArray.includes(currentTarget)) { //Folder
+        if (!this._ignoredFolders.includes(currentTarget)) { //Folder isn't empty
+          let targetFolderSettings = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + currentTarget + '/');
+          displayName = targetFolderSettings.get_string('name');
+        } else { //Folder is empty
+          removeTarget = true;
+        }
+      } else { //App
+        //Lookup display name of each app
+        let appInfo = this._appSystem.lookup_app(currentTarget);
+        if (appInfo != null) {
+          displayName = appInfo.get_name();
+        } else { //App doesn't exist, so remove from array
+          removeTarget = true;
+        }
+      }
+      if (removeTarget == false) {
+        inputArray[i - numRemovedApps] = new String(displayName);
+        inputArray[i - numRemovedApps].desktopFile = currentTarget;
+      } else { //App doesn't exist, so remove from array
+        inputArray = inputArray.filter(element => element != currentTarget);
+        numRemovedApps += 1;
+      }
+    });
+
+    //Alphabetically sort the folder's contents, by the display name
+    inputArray.sort();
+
+    //Replace each element with the app's .desktop filename
+    inputArray.forEach((currentTarget, i) => { inputArray[i] = currentTarget.desktopFile; });
+
+    return inputArray;
+  }
+
+  _moveFolders(position) {
+    //Get list of folders
+    let folderArray = this.folderSettings.get_value('folder-children').get_strv();
+
+    //Filter out ignored folders and alphabetically order
+    folderArray = this._orderByDisplayName(folderArray);
+
+    //Create GVariant to set folder positions
+    let pages = [];
+    let variantDict = {};
+    if (position == 'start') {
+      folderArray.forEach((currentFolder, i) => {
+        variantDict[currentFolder] = new GLib.Variant('a{sv}', {
+          'position': new GLib.Variant('i', i),
+        });
+      });
+      pages.push(variantDict);
     }
+
+    this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', pages));
+  }
+
+  reorderGrid() {
+    //Alphabetically order the contents of each folder, if enabled
+    this._reorderFolderContents(!this._extensionSettings.get_boolean('sort-folder-contents'));
 
     //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout'
     if (this.shellSettings.is_writable('app-picker-layout')) {
-      //Change gsettings value
+      //Reset app grid layout gsettings value
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', []));
+
+      let folderPositionSetting = this._extensionSettings.get_string('folder-order-position');
+      if (folderPositionSetting != 'alphabetical') {
+        //Set positions folders to the configured position
+        this._moveFolders(folderPositionSetting);
+      }
 
       //Trigger a refresh of the app grid, if shell version is greater than 40
       if (this._shellVersion < 40) {
@@ -138,13 +201,8 @@ class Extension {
       if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
         this._currentlyUpdating = true;
 
-        //Work out if the change was internal or external
-        let appLayout = this.shellSettings.get_value('app-picker-layout');
-        if (appLayout.recursiveUnpack() != '') {
-          //When an external change is picked up, reorder the grid
-          this._logMessage(_('App grid layout changed, triggering reorder'));
-          this.reorderGrid();
-        }
+        this._logMessage(_('App grid layout changed, triggering reorder'));
+        this.reorderGrid();
 
         this._currentlyUpdating = false;
       }
