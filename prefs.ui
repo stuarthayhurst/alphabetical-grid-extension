@@ -18,10 +18,6 @@
         <col id="0" translatable="yes">Start</col>
         <col id="1">start</col>
       </row>
-      <row>
-        <col id="0" translatable="yes">End</col>
-        <col id="1">end</col>
-      </row>
     </data>
   </object>
   <object class="GtkBox" id="main-prefs">
