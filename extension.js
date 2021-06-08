@@ -4,6 +4,11 @@ const Config = imports.misc.config;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
+//Get GNOME shell version
+const shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
+//Get access to appDisplay
+const AppDisplay = shellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
+
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
 
@@ -39,10 +44,6 @@ class Extension {
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
     //Load gsettings values for the extension itself
     this._extensionSettings = ExtensionUtils.getSettings();
-    //Get access to appDisplay
-    this._appDisplay = Main.overview._overview._controls._appDisplay;
-    //Get GNOME shell version
-    this._shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
     //Create AppSystem
     this._appSystem = new Shell.AppSystem();
     //Create a lock to prevent code fighting itself to change gsettings
@@ -146,13 +147,8 @@ class Extension {
         this._moveFolders(folderPositionSetting);
       }
 
-      //Trigger a refresh of the app grid, if shell version is greater than 40
-      if (this._shellVersion < 40) {
-        this._logMessage(_('Running GNOME shell 3.38 or lower, skipping reload'));
-      } else {
-        //Use call() so 'this' applies to this._appDisplay
-        this._reloadAppDisplay.call(this._appDisplay);
-      }
+      //Trigger a refresh of the app grid (use call() so 'this' applies to AppDisplay)
+      this._reloadAppDisplay.call(AppDisplay);
 
       this._logMessage(_('Reordered grid'));
     } else {

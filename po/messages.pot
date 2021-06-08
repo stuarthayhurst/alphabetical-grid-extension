@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-06 20:22+0100\n"
+"POT-Creation-Date: 2021-06-08 10:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,66 +17,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:57
+#: extension.js:59
 msgid "Reordering folder contents"
 msgstr ""
 
-#: extension.js:109
-msgid "Running GNOME shell 3.38 or lower, skipping reload"
-msgstr ""
-
-#: extension.js:115
+#: extension.js:153
 msgid "Reordered grid"
 msgstr ""
 
-#: extension.js:117
+#: extension.js:155
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 
-#: extension.js:127
+#: extension.js:174
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:145
+#: extension.js:181
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:161
+#: extension.js:188
 msgid "Favourite apps changed, triggering reorder"
 msgstr ""
 
-#: extension.js:176
+#: extension.js:195
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:56
+#: prefs.js:54
 msgid "translator-credits"
 msgstr ""
 
-#: prefs.js:57
+#: prefs.js:55
 msgid "Alphabetical App Grid"
 msgstr ""
 
-#: prefs.js:58
+#: prefs.js:56
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr ""
 
-#: prefs.js:60
+#: prefs.js:58
 msgid "© 2021 Stuart Hayhurst"
 msgstr ""
 
-#: prefs.js:64
+#: prefs.js:62
 msgid "Contribute on GitHub"
 msgstr ""
 
-#: prefs.js:117
+#: prefs.js:115
 msgid "About"
 msgstr ""
 
-#: prefs.js:123
+#: prefs.js:121
 msgid "Alphabetical App Grid Preferences"
 msgstr ""
 
@@ -102,15 +98,15 @@ msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr ""
 
-#: prefs-gtk4.ui:77 prefs.ui:107
+#: prefs-gtk4.ui:88 prefs.ui:120
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 
-#: prefs-gtk4.ui:94 prefs.ui:126
+#: prefs-gtk4.ui:105 prefs.ui:139
 msgctxt "setting-name"
 msgid "Position of ordered folders"
 msgstr ""
 
-#: prefs-gtk4.ui:132 prefs.ui:181
+#: prefs-gtk4.ui:143 prefs.ui:194
 msgid "General settings"
 msgstr ""

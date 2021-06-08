@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-06 20:22+0100\n"
+"POT-Creation-Date: 2021-06-08 10:49+0100\n"
 "PO-Revision-Date: 2021-06-03 11:41+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -18,37 +18,33 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: extension.js:57
+#: extension.js:59
 msgid "Reordering folder contents"
 msgstr "Ordnerinhalt wird neu geordnet"
 
-#: extension.js:109
-msgid "Running GNOME shell 3.38 or lower, skipping reload"
-msgstr "Es läuft GNOME Shell 3.38 oder niedriger, neu laden wird übersprungen"
-
-#: extension.js:115
+#: extension.js:153
 msgid "Reordered grid"
 msgstr "Raster wurde neu geordnet"
 
-#: extension.js:117
+#: extension.js:155
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 "org.gnome.shell app-picker-layout ist nicht schreibbar, Neuordnung wird "
 "übersprungen"
 
-#: extension.js:127
+#: extension.js:174
 msgid "Folders changed, triggering reorder"
 msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:145
+#: extension.js:181
 msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
-#: extension.js:161
+#: extension.js:188
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändet, Neuordnung wird ausgelöst"
 
-#: extension.js:176
+#: extension.js:195
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "gsettings-Werte der Erweiterung wurden geändert, Neuordnung wird ausgelöst"
@@ -56,31 +52,31 @@ msgstr ""
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:56
+#: prefs.js:54
 msgid "translator-credits"
 msgstr "Philipp Kiemle <philipp.kiemle@gmail.com>, 2021"
 
-#: prefs.js:57
+#: prefs.js:55
 msgid "Alphabetical App Grid"
 msgstr "Alphabetical App Grid"
 
-#: prefs.js:58
+#: prefs.js:56
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr "Stellt die alphabetische Sortierung des Anwendungsrasters wieder her"
 
-#: prefs.js:60
+#: prefs.js:58
 msgid "© 2021 Stuart Hayhurst"
 msgstr "© 2021 Stuart Hayhurst"
 
-#: prefs.js:64
+#: prefs.js:62
 msgid "Contribute on GitHub"
 msgstr "Mitwirken auf GitHub"
 
-#: prefs.js:117
+#: prefs.js:115
 msgid "About"
 msgstr "Info"
 
-#: prefs.js:123
+#: prefs.js:121
 msgid "Alphabetical App Grid Preferences"
 msgstr "Alphabetical App Grid-Einstellungen"
 
@@ -107,15 +103,15 @@ msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr "Ordnerinhalt sortieren"
 
-#: prefs-gtk4.ui:77 prefs.ui:107
+#: prefs-gtk4.ui:88 prefs.ui:120
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 
-#: prefs-gtk4.ui:94 prefs.ui:126
+#: prefs-gtk4.ui:105 prefs.ui:139
 msgctxt "setting-name"
 msgid "Position of ordered folders"
 msgstr ""
 
-#: prefs-gtk4.ui:132 prefs.ui:181
+#: prefs-gtk4.ui:143 prefs.ui:194
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"

@@ -5,8 +5,6 @@
   - This project is licensed under GPL 3.0
 
 ## Known issues:
-  - GNOME 3.38 support has been kept, mostly because Ubuntu 21.04 uses it
-  - **On GNOME 3.38, the shell needs to be reloaded for the reorder to take effect**
   - **Newly added applications aren't automatically reordered**
 
 ![Extension](docs/icon.png)
