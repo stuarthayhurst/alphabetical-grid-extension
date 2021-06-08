@@ -27,6 +27,7 @@ function disable() {
   gridReorder.shellSettings.disconnect(gridReorder.reorderSignal);
   gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
   gridReorder.folderSettings.disconnect(gridReorder.folderSignal);
+  gridReorder.folderSettings.disconnect(gridReorder.settingsChangedSignal);
   gridReorder = null;
 }
 
@@ -204,7 +205,7 @@ class Extension {
 
   waitForSettingsChange() {
     //Connect to gsettings and wait for the favourite apps to change
-    this.folderContentsSignal = this._extensionSettings.connect('changed', () => {
+    this.settingsChangedSignal = this._extensionSettings.connect('changed', () => {
       if (this._currentlyUpdating == false) { //Detect lock to avoid multiple changes at once
         this._currentlyUpdating = true;
 
