@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-08 10:58+0100\n"
+"POT-Creation-Date: 2021-06-10 11:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,25 +84,29 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: prefs-gtk4.ui:37 prefs.ui:46
+#: prefs-gtk4.ui:19 prefs.ui:22
+msgid "End"
+msgstr ""
+
+#: prefs-gtk4.ui:41 prefs.ui:50
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 
-#: prefs-gtk4.ui:54 prefs.ui:65
+#: prefs-gtk4.ui:58 prefs.ui:69
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr ""
 
-#: prefs-gtk4.ui:84 prefs.ui:116
+#: prefs-gtk4.ui:88 prefs.ui:120
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 
-#: prefs-gtk4.ui:101 prefs.ui:135
+#: prefs-gtk4.ui:105 prefs.ui:139
 msgctxt "setting-name"
 msgid "Position of ordered folders"
 msgstr ""
 
-#: prefs-gtk4.ui:139 prefs.ui:190
+#: prefs-gtk4.ui:143 prefs.ui:194
 msgid "General settings"
 msgstr ""
