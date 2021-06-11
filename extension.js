@@ -99,8 +99,20 @@ class Extension {
       inputArray[i].desktopFile = currentTarget;
     });
 
+    function caseInsensitiveSort(a, b) {
+      a = a.toLowerCase();
+      b = b.toLowerCase();
+      if(a > b) {
+        return 1;
+      } else if(a < b) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+
     //Alphabetically sort the folder's contents, by the display name
-    inputArray.sort();
+    inputArray.sort(caseInsensitiveSort);
 
     //Replace each element with the app's .desktop filename
     inputArray.forEach((currentTarget, i) => { inputArray[i] = currentTarget.desktopFile; });
