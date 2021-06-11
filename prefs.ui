@@ -11,15 +11,15 @@
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes">Alphabetical</col>
+        <col id="0" translatable="yes" context="folder-position">Alphabetical</col>
         <col id="1">alphabetical</col>
       </row>
       <row>
-        <col id="0" translatable="yes">Start</col>
+        <col id="0" translatable="yes" context="folder-position">Start</col>
         <col id="1">start</col>
       </row>
       <row>
-        <col id="0" translatable="yes">End</col>
+        <col id="0" translatable="yes" context="folder-position">End</col>
         <col id="1">end</col>
       </row>
     </data>
