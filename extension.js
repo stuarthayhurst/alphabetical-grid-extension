@@ -108,26 +108,74 @@ class Extension {
     return inputArray;
   }
 
-  _moveFolders(position) {
-    //Get list of folders
-    let folderArray = this.folderSettings.get_value('folder-children').get_strv();
+  _appListToPages(itemList) {
+    const itemsPerPage = AppDisplay._grid.itemsPerPage;
+    let rawPages = [];
 
-    //Alphabetically order folders
-    folderArray = this._orderByDisplayName(folderArray);
+    //Split itemList into pages of items
+    itemList.forEach((item, i) => {
+      const page = Math.floor(i / itemsPerPage);
+      const position = i % itemsPerPage;
+      if (position == 0) {
+        rawPages.push([]);
+      }
+      rawPages[page].push(item);
+    });
 
-    //Create GVariant to set folder positions
-    let pages = [];
-    let variantDict = {};
-    if (position == 'start') {
-      folderArray.forEach((currentFolder, i) => {
-        variantDict[currentFolder] = new GLib.Variant('a{sv}', {
+    //Create GVariant of packed pages for all grid items
+    let appPages = [];
+    rawPages.forEach((page, index) => {
+      let pageData = {};
+      page.forEach((currentItem, i) => {
+        pageData[currentItem] = new GLib.Variant('a{sv}', {
           'position': new GLib.Variant('i', i),
         });
       });
-      pages.push(variantDict);
+      appPages.push(pageData);
+    });
+
+    return appPages;
+  }
+
+  _getGridOrder(folderPosition) {
+    //Get array of all grid items and save the ids
+    let itemList = AppDisplay._loadApps();
+    itemList.forEach((item, i) => {
+      itemList[i] = item.id;
+    });
+
+    //Get list of potential folders (each folder may not exist, as it's empty)
+    let potentialFolders = this.folderSettings.get_value('folder-children').get_strv();
+    let folderArray = [];
+
+    //If folders need to be ordered separately, split them out of itemList into folderArray
+    if (folderPosition != 'alphabetical') {
+      potentialFolders.forEach((potentialFolder, i) => {
+        if (itemList.includes(potentialFolder)) {
+          folderArray.push(potentialFolder);
+          itemList.splice(itemList.indexOf(potentialFolder), 1);
+        }
+      });
     }
 
-    this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', pages));
+    //Sort itemList alphabetically
+    itemList = this._orderByDisplayName(itemList);
+
+    //If folderAttay isn't empty, sort it and add to correct position in itemList
+    if (folderArray.length) {
+      //Sort folderArray
+      folderArray = this._orderByDisplayName(folderArray);
+      //Add to start or end  of itemList
+      if (folderPosition == 'start') {
+        itemList = folderArray.concat(itemList);
+      } else if (folderPosition == 'end') {
+        itemList.push(...folderArray);
+      }
+    }
+
+    //Send itemList to _appListToPages() to be packaged into pages
+    itemList = this._appListToPages(itemList);
+    return itemList;
   }
 
   reorderGrid() {
@@ -136,19 +184,12 @@ class Extension {
       this._reorderFolderContents();
     }
 
-    //Alphabetically order the grid, by blanking the gsettings value for 'app-picker-layout'
+    //Alphabetically order the grid
     if (this.shellSettings.is_writable('app-picker-layout')) {
-      //Reset app grid layout gsettings value
-      this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', []));
-
+      //Get the desired order of the grid, including folders
       let folderPositionSetting = this._extensionSettings.get_string('folder-order-position');
-      if (folderPositionSetting != 'alphabetical') {
-        //Set positions folders to the configured position
-        this._moveFolders(folderPositionSetting);
-      }
-
-      //Trigger a refresh of the app grid (use call() so 'this' applies to AppDisplay)
-      this._reloadAppDisplay.call(AppDisplay);
+      let gridOrder = this._getGridOrder(folderPositionSetting);
+      this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
 
       this._logMessage(_('Reordered grid'));
     } else {
@@ -194,25 +235,5 @@ class Extension {
     this.settingsChangedSignal = this._extensionSettings.connect('changed', () => {
       this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
-  }
-
-  _reloadAppDisplay() {
-    //Reload app grid to apply any pending changes
-    this._pageManager._loadPages();
-    this._redisplay();
-
-    const { itemsPerPage } = this._grid;
-    //Array of apps, sorted alphabetically
-    let apps = this._loadApps().sort(this._compareItems.bind(this));
-
-    //Move each app to correct grid postion
-    apps.forEach((icon, index) => {
-      const page = Math.floor(index / itemsPerPage);
-      const position = index % itemsPerPage;
-      this._moveItem(icon, page, position);
-    });
-
-    //Emit 'view-loaded' signal
-    this.emit('view-loaded');
   }
 }
