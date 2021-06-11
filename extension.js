@@ -203,6 +203,9 @@ class Extension {
       let gridOrder = this._getGridOrder(folderPositionSetting);
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
 
+      //Trigger a refresh of the app grid (use call() so 'this' applies to AppDisplay)
+      this._reloadAppDisplay.call(AppDisplay);
+
       this._logMessage(_('Reordered grid'));
     } else {
       this._logMessage(_('org.gnome.shell app-picker-layout is unwritable, skipping reorder'));
@@ -247,5 +250,25 @@ class Extension {
     this.settingsChangedSignal = this._extensionSettings.connect('changed', () => {
       this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
+  }
+
+  _reloadAppDisplay() {
+    //Reload app grid to apply any pending changes
+    this._pageManager._loadPages();
+    this._redisplay();
+
+    const { itemsPerPage } = this._grid;
+    //Array of apps, sorted alphabetically
+    let apps = this._loadApps().sort(this._compareItems.bind(this));
+
+    //Move each app to correct grid postion
+    apps.forEach((icon, index) => {
+      const page = Math.floor(index / itemsPerPage);
+      const position = index % itemsPerPage;
+      this._moveItem(icon, page, position);
+    });
+
+    //Emit 'view-loaded' signal
+    this.emit('view-loaded');
   }
 }
