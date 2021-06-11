@@ -2,4 +2,5 @@ AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip
 locale/
 po/*.po~
 prefs.ui~
+prefs-gtk4.ui~
 schemas/gschemas.compiled

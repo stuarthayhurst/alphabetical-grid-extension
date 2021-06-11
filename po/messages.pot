@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-10 11:25+0100\n"
+"POT-Creation-Date: 2021-06-11 21:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,27 +21,27 @@ msgstr ""
 msgid "Reordering folder contents"
 msgstr ""
 
-#: extension.js:153
+#: extension.js:209
 msgid "Reordered grid"
 msgstr ""
 
-#: extension.js:155
+#: extension.js:211
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 
-#: extension.js:174
+#: extension.js:230
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:181
+#: extension.js:237
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:188
+#: extension.js:244
 msgid "Favourite apps changed, triggering reorder"
 msgstr ""
 
-#: extension.js:195
+#: extension.js:251
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
@@ -76,37 +76,40 @@ msgstr ""
 msgid "Alphabetical App Grid Preferences"
 msgstr ""
 
-#: prefs-gtk4.ui:11 prefs.ui:14
+#: prefs-gtk4.ui:15 prefs.ui:14
+msgctxt "folder-position"
 msgid "Alphabetical"
 msgstr ""
 
-#: prefs-gtk4.ui:15 prefs.ui:18
+#: prefs-gtk4.ui:19 prefs.ui:18
+msgctxt "folder-position"
 msgid "Start"
 msgstr ""
 
-#: prefs-gtk4.ui:19 prefs.ui:22
+#: prefs-gtk4.ui:23 prefs.ui:22
+msgctxt "folder-position"
 msgid "End"
 msgstr ""
 
-#: prefs-gtk4.ui:41 prefs.ui:50
+#: prefs-gtk4.ui:47 prefs.ui:50
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 
-#: prefs-gtk4.ui:58 prefs.ui:69
+#: prefs-gtk4.ui:59 prefs.ui:120
+msgid "Where to place folders when ordering the applications grid"
+msgstr ""
+
+#: prefs-gtk4.ui:76 prefs.ui:194
+msgid "General settings"
+msgstr ""
+
+#: prefs.ui:69
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr ""
 
-#: prefs-gtk4.ui:88 prefs.ui:120
-msgid "Where to place folders when ordering the applications grid"
-msgstr ""
-
-#: prefs-gtk4.ui:105 prefs.ui:139
+#: prefs.ui:139
 msgctxt "setting-name"
 msgid "Position of ordered folders"
-msgstr ""
-
-#: prefs-gtk4.ui:143 prefs.ui:194
-msgid "General settings"
 msgstr ""
