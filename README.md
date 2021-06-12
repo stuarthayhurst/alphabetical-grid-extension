@@ -40,6 +40,7 @@
   - For release, `make release` creates the bundle with updated translations
 
 ## Want to help?
+  - To enable logging from the extension, set `debug` to `true` in `metadata.json`
   - ### Translations:
     - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
     - `.po` files can be found in `po/`
