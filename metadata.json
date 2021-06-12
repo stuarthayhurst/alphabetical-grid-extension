@@ -9,5 +9,6 @@
     "3.38",
     "40"
   ],
-  "version": 7
+  "version": 7,
+  "debug-mode": false
 }
