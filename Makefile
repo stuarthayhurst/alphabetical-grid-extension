@@ -13,7 +13,7 @@ check:
 	if [[ "$$(stat -c %s AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip)" -gt 4096000 ]]; then \
 	  echo -e "\nWARNING! The extension is too big to be uploaded to the extensions website, keep it smaller than 4096 KB"; exit 1; \
 	fi
-	if grep '"debug-mode": true' metadata.json > /dev/null; then \
+	if grep '"debug": true' metadata.json > /dev/null; then \
 	  echo -e "\nWARNING! Debug mode is enabled, a release shouldn't be published"; exit 1; \
 	fi
 release:

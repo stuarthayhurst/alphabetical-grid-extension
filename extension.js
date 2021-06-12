@@ -51,7 +51,9 @@ class Extension {
   }
 
   _logMessage(message) {
-    log('alphabetical-app-grid: ' + message);
+    if (Me.metadata.debug == true) {
+      log('alphabetical-app-grid: ' + message);
+    }
   }
 
   //Called by reorderGrid()
