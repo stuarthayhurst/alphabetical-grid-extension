@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-11 21:26+0200\n"
+"POT-Creation-Date: 2021-06-15 16:23+0100\n"
 "PO-Revision-Date: 2021-06-11 21:27+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -18,33 +18,33 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: extension.js:59
+#: extension.js:61
 msgid "Reordering folder contents"
 msgstr "Ordnerinhalt wird neu geordnet"
 
-#: extension.js:209
+#: extension.js:211
 msgid "Reordered grid"
 msgstr "Raster wurde neu geordnet"
 
-#: extension.js:211
+#: extension.js:213
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 "org.gnome.shell app-picker-layout ist nicht schreibbar, Neuordnung wird "
 "übersprungen"
 
-#: extension.js:230
+#: extension.js:232
 msgid "Folders changed, triggering reorder"
 msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:237
+#: extension.js:239
 msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
-#: extension.js:244
+#: extension.js:246
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändet, Neuordnung wird ausgelöst"
 
-#: extension.js:251
+#: extension.js:253
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "gsettings-Werte der Erweiterung wurden geändert, Neuordnung wird ausgelöst"
@@ -80,43 +80,50 @@ msgstr "Info"
 msgid "Alphabetical App Grid Preferences"
 msgstr "Alphabetical App Grid-Einstellungen"
 
-#: prefs-gtk4.ui:15 prefs.ui:14
+#: prefs-gtk4.ui:11 prefs.ui:14
 msgctxt "folder-position"
 msgid "Alphabetical"
 msgstr "Alphabetisch"
 
-#: prefs-gtk4.ui:19 prefs.ui:18
+#: prefs-gtk4.ui:15 prefs.ui:18
 msgctxt "folder-position"
 msgid "Start"
 msgstr "Anfang"
 
-#: prefs-gtk4.ui:23 prefs.ui:22
+#: prefs-gtk4.ui:19 prefs.ui:22
 msgctxt "folder-position"
 msgid "End"
 msgstr "Ende"
 
-#: prefs-gtk4.ui:47 prefs.ui:50
+#: prefs-gtk4.ui:41 prefs.ui:50
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 "Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
 
-#: prefs-gtk4.ui:59 prefs.ui:120
+#: prefs-gtk4.ui:58 prefs.ui:69
+msgctxt "setting-name"
+msgid "Sort folder contents"
+msgstr "Ordnerinhalt sortieren"
+
+#: prefs-gtk4.ui:88 prefs.ui:120
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 "Legt fest, an welcher Stelle Ordner im Anwendungsraster angezeigt werden "
 "sollen"
 
-#: prefs-gtk4.ui:76 prefs.ui:194
-msgid "General settings"
-msgstr "Allgemeine Einstellungen"
-
-#: prefs.ui:69
-msgctxt "setting-name"
-msgid "Sort folder contents"
-msgstr "Ordnerinhalt sortieren"
-
-#: prefs.ui:139
+#: prefs-gtk4.ui:105 prefs.ui:139
 msgctxt "setting-name"
 msgid "Position of ordered folders"
 msgstr "Ordnerposition"
+
+#: prefs-gtk4.ui:143 prefs.ui:194
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+#: prefs-gtk4.ui:161 prefs.ui:213
+msgid ""
+"Found this useful?\n"
+"<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
+"\">Consider donating :)</a>"
+msgstr ""

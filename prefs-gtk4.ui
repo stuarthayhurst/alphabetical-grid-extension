@@ -152,6 +152,22 @@
             </layout>
           </object>
         </child>
+        <child>
+          <object class="GtkLabel" id="donate-prompt">
+            <property name="can-focus">0</property>
+            <property name="valign">end</property>
+            <property name="margin-top">4</property>
+            <property name="vexpand">1</property>
+            <property name="label" translatable="yes">Found this useful?
+&lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN&quot;&gt;Consider donating :)&lt;/a&gt;</property>
+            <property name="use-markup">1</property>
+            <property name="justify">center</property>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">2</property>
+            </layout>
+          </object>
+        </child>
       </object>
     </child>
   </object>
