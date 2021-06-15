@@ -1,8 +1,10 @@
 ## Alphabetical App Grid GNOME Extension
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN)
   - Restore the alphabetical ordering of the app grid, removed in GNOME 3.38
   - Supports GNOME 3.38+, earlier versions are untested, and unnecessary
   - Get the extension from [here](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
   - This project is licensed under GPL 3.0
+  - Any donations are greatly appreciated :)
 
 ## Known issues:
   - **Newly added applications aren't automatically reordered**
