@@ -76,6 +76,8 @@ class Extension {
       //Get the contents of the folder, from gsettings value
       let folderContentsSettings = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + targetFolder + '/');
       let folderContents = folderContentsSettings.get_value('apps').get_strv();
+
+      //Reorder the contents of the folder
       folderContents = this._orderByDisplayName(folderContents);
 
       //Set the gsettings value for 'apps' to the ordered list
@@ -90,15 +92,14 @@ class Extension {
   _orderByDisplayName(inputArray) {
     //Loop through array contents and get their display names
     inputArray.forEach((currentTarget, i) => {
-      //Decide if it's an app or a folder
       let folderArray = this.folderSettings.get_value('folder-children').get_strv();
       let displayName;
 
+      //Lookup display name of each item (decide if it's an app or folder first)
       if (folderArray.includes(currentTarget)) { //Folder
         let targetFolderSettings = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + currentTarget + '/');
         displayName = targetFolderSettings.get_string('name');
       } else { //App
-        //Lookup display name of each app
         let appInfo = this._appSystem.lookup_app(currentTarget);
         if (appInfo != null) {
           displayName = appInfo.get_name();
@@ -222,6 +223,8 @@ class Extension {
     }
   }
 
+  //Helper functions
+
   _checkUpdatingLock(logMessage) {
     //Detect lock to avoid multiple changes at once
     if (this._currentlyUpdating == false) {
@@ -233,6 +236,28 @@ class Extension {
       this._currentlyUpdating = false;
     }
   }
+
+  _reloadAppDisplay() {
+    //Reload app grid to apply any pending changes
+    this._pageManager._loadPages();
+    this._redisplay();
+
+    const { itemsPerPage } = this._grid;
+    //Array of apps, sorted alphabetically
+    let apps = this._loadApps().sort(this._compareItems.bind(this));
+
+    //Move each app to correct grid postion
+    apps.forEach((icon, index) => {
+      const page = Math.floor(index / itemsPerPage);
+      const position = index % itemsPerPage;
+      this._moveItem(icon, page, position);
+    });
+
+    //Emit 'view-loaded' signal
+    this.emit('view-loaded');
+  }
+
+  //Create listeners to trigger reorders of the grid when needed
 
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
@@ -289,25 +314,5 @@ class Extension {
     this.settingsChangedSignal = this.extensionSettings.connect('changed', () => {
       this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
-  }
-
-  _reloadAppDisplay() {
-    //Reload app grid to apply any pending changes
-    this._pageManager._loadPages();
-    this._redisplay();
-
-    const { itemsPerPage } = this._grid;
-    //Array of apps, sorted alphabetically
-    let apps = this._loadApps().sort(this._compareItems.bind(this));
-
-    //Move each app to correct grid postion
-    apps.forEach((icon, index) => {
-      const page = Math.floor(index / itemsPerPage);
-      const position = index % itemsPerPage;
-      this._moveItem(icon, page, position);
-    });
-
-    //Emit 'view-loaded' signal
-    this.emit('view-loaded');
   }
 }
