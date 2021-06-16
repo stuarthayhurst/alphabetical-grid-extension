@@ -31,7 +31,7 @@ function disable() {
   //Disconnect from events and clean up
   gridReorder.shellSettings.disconnect(gridReorder.reorderSignal);
   gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
-  gridReorder.folderSettings.disconnect(gridReorder.folderSignal);
+  gridReorder.folderSettings.disconnect(gridReorder.foldersChangedSignal);
   gridReorder.folderSettings.disconnect(gridReorder.settingsChangedSignal);
   //Only disconnect from folder renaming signals if they were connected to
   if (gridReorder.folderNameSignals.length) {
@@ -236,7 +236,7 @@ class Extension {
 
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
-    this.folderSignal = this.folderSettings.connect('changed::folder-children', () => {
+    this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
       this._checkUpdatingLock(_('Folders changed, triggering reorder'));
     });
 
