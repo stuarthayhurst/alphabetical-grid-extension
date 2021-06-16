@@ -32,7 +32,7 @@ function disable() {
   gridReorder.shellSettings.disconnect(gridReorder.reorderSignal);
   gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
   gridReorder.folderSettings.disconnect(gridReorder.foldersChangedSignal);
-  gridReorder.folderSettings.disconnect(gridReorder.settingsChangedSignal);
+  gridReorder.extensionSettings.disconnect(gridReorder.settingsChangedSignal);
   //Only disconnect from folder renaming signals if they were connected to
   if (gridReorder.folderNameSignals.length) {
     gridReorder.waitForFolderRename('disconnect');
@@ -51,7 +51,7 @@ class Extension {
     //Array of gsettings connected to each folder
     this.individualFolderSettings = [];
     //Load gsettings values for the extension itself
-    this._extensionSettings = ExtensionUtils.getSettings();
+    this.extensionSettings = ExtensionUtils.getSettings();
     //Create AppSystem
     this._appSystem = new Shell.AppSystem();
     //Create a lock to prevent code fighting itself to change gsettings
@@ -202,14 +202,14 @@ class Extension {
 
   reorderGrid() {
     //Alphabetically order the contents of each folder, if enabled
-    if (this._extensionSettings.get_boolean('sort-folder-contents') == true) {
+    if (this.extensionSettings.get_boolean('sort-folder-contents') == true) {
       this._reorderFolderContents();
     }
 
     //Alphabetically order the grid
     if (this.shellSettings.is_writable('app-picker-layout')) {
       //Get the desired order of the grid, including folders
-      let folderPositionSetting = this._extensionSettings.get_string('folder-order-position');
+      let folderPositionSetting = this.extensionSettings.get_string('folder-order-position');
       let gridOrder = this._getGridOrder(folderPositionSetting);
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
 
@@ -286,7 +286,7 @@ class Extension {
 
   waitForSettingsChange() {
     //Connect to gsettings and wait for the extension's settings to change
-    this.settingsChangedSignal = this._extensionSettings.connect('changed', () => {
+    this.settingsChangedSignal = this.extensionSettings.connect('changed', () => {
       this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
   }
