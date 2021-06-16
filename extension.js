@@ -33,6 +33,10 @@ function disable() {
   gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
   gridReorder.folderSettings.disconnect(gridReorder.folderSignal);
   gridReorder.folderSettings.disconnect(gridReorder.settingsChangedSignal);
+  //Only disconnect from folder renaming signals if they were connected to
+  if (gridReorder.folderNameSignals.length) {
+    gridReorder.waitForFolderRename('disconnect');
+  }
   gridReorder = null;
 }
 
@@ -42,6 +46,10 @@ class Extension {
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
+    //Array of signals connected to folder names
+    this.folderNameSignals = [];
+    //Array of gsettings connected to each folder
+    this.individualFolderSettings = [];
     //Load gsettings values for the extension itself
     this._extensionSettings = ExtensionUtils.getSettings();
     //Create AppSystem
@@ -231,6 +239,35 @@ class Extension {
     this.folderSignal = this.folderSettings.connect('changed::folder-children', () => {
       this._checkUpdatingLock(_('Folders changed, triggering reorder'));
     });
+
+    //Each time folders update, the folders this connects to need to be refreshed
+    if (shellVersion > 38) { //Trigger reorder when folders are renamed on GNOME 40+
+      this.waitForFolderRename('disconnect');
+      this.waitForFolderRename('connect');
+    }
+  }
+
+  waitForFolderRename(operation) {
+    if (operation == 'connect') {
+      let folderArray = this.folderSettings.get_value('folder-children').get_strv();
+      folderArray.forEach((folder, i) => {
+
+        this.individualFolderSettings[i] = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + folder + '/');
+
+        this.folderNameSignals.push(this.individualFolderSettings[i].connect('changed::name', () => {
+          this._checkUpdatingLock(_('Folder renamed, triggering reorder'));
+
+        }));
+      });
+    } else if (operation == 'disconnect') {
+      //Disconnect from signals
+      this.folderNameSignals.forEach((signal, i) => {
+        this.individualFolderSettings[i].disconnect(signal);
+      });
+
+      this.folderNameSignals = [];
+      this.individualFolderSettings = [];
+    }
   }
 
   waitForExternalReorder() {
