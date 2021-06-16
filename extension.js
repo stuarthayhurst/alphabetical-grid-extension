@@ -98,7 +98,16 @@ class Extension {
       //Lookup display name of each item (decide if it's an app or folder first)
       if (folderArray.includes(currentTarget)) { //Folder
         let targetFolderSettings = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + currentTarget + '/');
+
+        //Get folder name and attempt to translate
         displayName = targetFolderSettings.get_string('name');
+        if (targetFolderSettings.get_boolean('translate')) {
+          let translation = Shell.util_get_translated_folder_name(displayName);
+          if (translation !== null) {
+            displayName = translation;
+          }
+        }
+
       } else { //App
         let appInfo = this._appSystem.lookup_app(currentTarget);
         if (appInfo != null) {
