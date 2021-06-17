@@ -5,7 +5,7 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 
 build:
 	glib-compile-schemas schemas
-	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=prefs.ui --extra-source=prefs-gtk4.ui --extra-source=docs/icon.svg
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=ui/prefs.ui --extra-source=ui/prefs-gtk4.ui --extra-source=docs/icon.svg
 check:
 	if [[ ! -f "AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip" ]]; then \
 	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
@@ -25,7 +25,7 @@ translations:
 	./scripts/update-pot.sh
 	./scripts/update-po.sh -a
 gtk4:
-	gtk4-builder-tool simplify --3to4 prefs.ui > prefs-gtk4.ui
+	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
