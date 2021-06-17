@@ -1,4 +1,4 @@
-const {GObject, Gtk, GdkPixbuf, GLib} = imports.gi;
+const {GObject, Gtk, GdkPixbuf, GLib, Gio} = imports.gi;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
@@ -24,15 +24,21 @@ var PrefsWidget = class PrefsWidget {
       this.widget.set_child(this._builder.get_object('main-prefs'));
     }
 
-    //Set settings slider to current value and set up listener
-    this._foldersSwitch = this._builder.get_object('sort-folders-switch');
-    this._updateSwitch(this._foldersSwitch, 'sort-folder-contents');
-    this._listenForChangedSlider(this._foldersSwitch, 'sort-folder-contents');
+    //Bind folder contents ordering slider to gsettings
+    this._settings.bind(
+      'sort-folder-contents',
+      this._builder.get_object('sort-folders-switch'),
+      'active',
+      Gio.SettingsBindFlags.DEFAULT
+    );
 
-    //Set settings combo box to current value and set up listener
-    this._comboBox = this._builder.get_object('folder-order-dropdown');
-    this._updateCombo(this._comboBox, 'folder-order-position');
-    this._listenForChangedCombo(this._comboBox, 'folder-order-position');
+    //Bind folder position slider to gsettings
+    this._settings.bind(
+      'folder-order-position',
+      this._builder.get_object('folder-order-dropdown'),
+      'active-id',
+      Gio.SettingsBindFlags.DEFAULT
+    );
   }
 
   showAbout() {
@@ -63,29 +69,6 @@ var PrefsWidget = class PrefsWidget {
       modal: true
     });
     aboutDialog.present();
-  }
-
-  _listenForChangedSlider(targetSwitch, gsettingsKey) {
-    //Update gsettings value when switch is toggled
-    targetSwitch.connect('state-set', () => {
-      this._settings.set_boolean(gsettingsKey, targetSwitch.get_active());
-    });
-  }
-
-  _listenForChangedCombo(targetCombo, gsettingsKey) {
-    //Update gsettings value when dropdown is changed
-    targetCombo.connect('changed', () => {
-      this._settings.set_string(gsettingsKey, targetCombo.get_active_id());
-    });
-  }
-
-  //Requires the element to toggle and the gsettings key to base it off of
-  _updateSwitch(targetSwitch, gsettingsKey) {
-    targetSwitch.set_active(this._settings.get_boolean(gsettingsKey));
-  }
-
-  _updateCombo(targetCombo, gsettingsKey) {
-    targetCombo.set_active_id(this._settings.get_string(gsettingsKey));
   }
 }
 
