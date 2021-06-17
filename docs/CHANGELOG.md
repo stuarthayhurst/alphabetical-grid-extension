@@ -26,8 +26,9 @@
  - Increased consistency of code styling
 
 ### v5: `- 2021-05-29`
- - Added German translation support
+ - Added translation support
  - Added new build system
+ - Added German translation - [Philipp Kiemle](https://github.com/daPhipz)
  - Fixed folder contents not being reordered
  - Fixed a typo in a log message
  - Updated documentation
