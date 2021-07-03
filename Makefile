@@ -1,7 +1,7 @@
 SHELL=bash
 UUID=AlphabeticalAppGrid@stuarthayhurst
 
-.PHONY: build check release translations install uninstall clean
+.PHONY: build check release translations gtk4 install uninstall clean
 
 build:
 	glib-compile-schemas schemas
