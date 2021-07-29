@@ -3,8 +3,10 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 
 .PHONY: build check release translations gtk4 install uninstall clean
 
-build:
+build: gtk4
 	glib-compile-schemas schemas
+	$(MAKE) package
+package:
 	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=ui/prefs.ui --extra-source=ui/prefs-gtk4.ui --extra-source=docs/icon.svg
 check:
 	if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
@@ -19,7 +21,7 @@ check:
 release:
 	$(MAKE) gtk4
 	$(MAKE) translations
-	$(MAKE) build
+	$(MAKE) package
 	$(MAKE) check
 translations:
 	./scripts/update-pot.sh
