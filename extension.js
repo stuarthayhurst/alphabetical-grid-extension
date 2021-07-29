@@ -79,26 +79,12 @@ class Extension {
     }
   }
 
-  //Helper functions
-
-  _checkUpdatingLock(logMessage) {
-    //Detect lock to avoid multiple changes at once
-    if (this._currentlyUpdating == false) {
-      this._currentlyUpdating = true;
-
-      ExtensionHelper.logMessage(logMessage);
-      this.reorderGrid();
-
-      this._currentlyUpdating = false;
-    }
-  }
-
   //Create listeners to trigger reorders of the grid when needed
 
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
-      this._checkUpdatingLock(_('Folders changed, triggering reorder'));
+      ExtensionHelper.checkUpdatingLock(_('Folders changed, triggering reorder'));
     });
 
     //Each time folders update, the folders this connects to need to be refreshed
@@ -116,7 +102,7 @@ class Extension {
         this.individualFolderSettings[i] = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + folder + '/');
 
         this.folderNameSignals.push(this.individualFolderSettings[i].connect('changed::name', () => {
-          this._checkUpdatingLock(_('Folder renamed, triggering reorder'));
+          ExtensionHelper.checkUpdatingLock(_('Folder renamed, triggering reorder'));
 
         }));
       });
@@ -134,21 +120,21 @@ class Extension {
   waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
     this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
-      this._checkUpdatingLock(_('App grid layout changed, triggering reorder'));
+      ExtensionHelper.checkUpdatingLock(_('App grid layout changed, triggering reorder'));
     });
   }
 
   waitForFavouritesChange() {
     //Connect to gsettings and wait for the favourite apps to change
     this.favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
-      this._checkUpdatingLock(_('Favourite apps changed, triggering reorder'));
+      ExtensionHelper.checkUpdatingLock(_('Favourite apps changed, triggering reorder'));
     });
   }
 
   waitForSettingsChange() {
     //Connect to gsettings and wait for the extension's settings to change
     this.settingsChangedSignal = this.extensionSettings.connect('changed', () => {
-      this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
+      ExtensionHelper.checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
   }
 }
