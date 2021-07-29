@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-29 16:37+0100\n"
-"PO-Revision-Date: 2021-06-16 21:59+0200\n"
+"PO-Revision-Date: 2021-07-29 21:29+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
 "Language: de\n"
@@ -25,6 +25,8 @@ msgstr "Ordnerinhalt wird neu geordnet"
 #: extension.js:73
 msgid "Automatic grid refresh enabled, refreshing grid"
 msgstr ""
+"Automatische Anwendungsraster-Aktualisierung aktiviert, Raster wird "
+"aktualisiert"
 
 #: extension.js:77
 msgid "Reordered grid"
@@ -128,11 +130,12 @@ msgstr "Ordnerposition"
 #: ui/prefs-gtk4.ui:131 ui/prefs.ui:196
 msgid "Allows displaying the alphabetical order without reloading GNOME Shell"
 msgstr ""
+"Ermöglicht die alphabetische Sortierung ohne einen Neustart der GNOME Shell"
 
 #: ui/prefs-gtk4.ui:145 ui/prefs.ui:215
 msgctxt "setting-name"
 msgid "Automatically refresh the app grid"
-msgstr ""
+msgstr "Anwendungsraster automatisch aktualisieren"
 
 #: ui/prefs-gtk4.ui:176 ui/prefs.ui:264
 msgid "General settings"
