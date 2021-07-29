@@ -1,8 +1,10 @@
-const {GLib, Gio, Shell} = imports.gi;
+const { GLib, Gio, Shell } = imports.gi;
 const Main = imports.ui.main;
 const Config = imports.misc.config;
+
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
+const { AppGridHelper } = Me.imports.lib;
 
 //Get GNOME shell version
 const shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
@@ -223,10 +225,10 @@ class Extension {
       let gridOrder = this._getGridOrder(folderPositionSetting);
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
 
-      //Trigger a refresh of the app grid (use call() so 'this' applies to AppDisplay), if enabled
+      //Trigger a refresh of the app grid, if enabled
       if (this.extensionSettings.get_boolean('auto-refresh-grid') == true) {
         this._logMessage(_('Automatic grid refresh enabled, refreshing grid'));
-        this._reloadAppDisplay.call(AppDisplay);
+        AppGridHelper.reloadAppGrid(AppDisplay);
       }
 
       this._logMessage(_('Reordered grid'));
@@ -247,26 +249,6 @@ class Extension {
 
       this._currentlyUpdating = false;
     }
-  }
-
-  _reloadAppDisplay() {
-    //Reload app grid to apply any pending changes
-    this._pageManager._loadPages();
-    this._redisplay();
-
-    const { itemsPerPage } = this._grid;
-    //Array of apps, sorted alphabetically
-    let apps = this._loadApps().sort(this._compareItems.bind(this));
-
-    //Move each app to correct grid postion
-    apps.forEach((icon, index) => {
-      const page = Math.floor(index / itemsPerPage);
-      const position = index % itemsPerPage;
-      this._moveItem(icon, page, position);
-    });
-
-    //Emit 'view-loaded' signal
-    this.emit('view-loaded');
   }
 
   //Create listeners to trigger reorders of the grid when needed
