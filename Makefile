@@ -3,7 +3,7 @@ UUID=AlphabeticalAppGrid@stuarthayhurst
 
 .PHONY: build check release translations gtk4 install uninstall clean
 
-build: gtk4
+build:
 	glib-compile-schemas schemas
 	$(MAKE) package
 package:
@@ -19,7 +19,7 @@ check:
 release:
 	$(MAKE) gtk4
 	$(MAKE) translations
-	$(MAKE) package
+	$(MAKE) build
 	$(MAKE) check
 translations:
 	./scripts/update-pot.sh
