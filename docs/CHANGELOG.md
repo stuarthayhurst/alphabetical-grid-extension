@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v9: - `To be released`
+ - New build system targets and tweaks
+ - Added setting to toggle automatic refresh of the app grid
+
 ### v8: `- 2021-06-17`
  - Added donation button to README and preferences
  - Added changelog
