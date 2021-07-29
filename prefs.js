@@ -39,6 +39,15 @@ var PrefsWidget = class PrefsWidget {
       'active-id',
       Gio.SettingsBindFlags.DEFAULT
     );
+
+    //Bind grid refresh toggle slider to gsettings
+    this._settings.bind(
+      'auto-refresh-grid',
+      this._builder.get_object('refresh-grid-switch'),
+      'active',
+      Gio.SettingsBindFlags.DEFAULT
+    );
+
   }
 
   showAbout() {
