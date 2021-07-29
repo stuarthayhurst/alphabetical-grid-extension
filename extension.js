@@ -50,8 +50,6 @@ class Extension {
     this.individualFolderSettings = [];
     //Load gsettings values for the extension itself
     this.extensionSettings = ExtensionUtils.getSettings();
-    //Create a lock to prevent code fighting itself to change gsettings
-    this._currentlyUpdating = false;
   }
 
   reorderGrid() {
