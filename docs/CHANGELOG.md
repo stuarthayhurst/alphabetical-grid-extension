@@ -1,8 +1,11 @@
 ## Changelog:
 
 ### v9: - `To be released`
- - New build system targets and tweaks
  - Added setting to toggle automatic refresh of the app grid
+ - Added check that that the folder settings GSettings key used is writable before attempting to write to it
+ - Updated build system targets and added new tweaks
+ - Updated documentation on build system and dependencies
+ - Internal code improvements
 
 ### v8: `- 2021-06-17`
  - Added donation button to README and preferences
