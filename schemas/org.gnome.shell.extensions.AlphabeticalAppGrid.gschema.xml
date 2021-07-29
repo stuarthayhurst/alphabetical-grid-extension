@@ -11,5 +11,10 @@
       <summary>Position of ordered folders</summary>
       <description>Where to place folders when ordering the application grid</description>
     </key>
+    <key name="auto-refresh-grid" type="b">
+      <default>true</default>
+      <summary>Automatically refresh the app grid</summary>
+      <description>Allows displaying the alphabetical order without reloading GNOME Shell</description>
+    </key>
   </schema>
 </schemalist>
