@@ -223,8 +223,11 @@ class Extension {
       let gridOrder = this._getGridOrder(folderPositionSetting);
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
 
-      //Trigger a refresh of the app grid (use call() so 'this' applies to AppDisplay)
-      this._reloadAppDisplay.call(AppDisplay);
+      //Trigger a refresh of the app grid (use call() so 'this' applies to AppDisplay), if enabled
+      if (this.extensionSettings.get_boolean('auto-refresh-grid') == true) {
+        this._logMessage(_('Automatic grid refresh enabled, refreshing grid'));
+        this._reloadAppDisplay.call(AppDisplay);
+      }
 
       this._logMessage(_('Reordered grid'));
     } else {
