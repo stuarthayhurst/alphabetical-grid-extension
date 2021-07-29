@@ -17,6 +17,7 @@
   - Enable the extension
 
 ## Install the extension from source:
+  - Make sure the install dependencies are installed
   - `make build`
   - `make install`
   - Reload GNOME
@@ -32,12 +33,15 @@
   - `make uninstall`: Uninstalls the extension
   - `make clean`: Deletes extension zip and `locale` directory
 
-## Build dependencies: (Only required if running `make release`)
+## Install dependencies:
   - gnome-extensions
+  - libglib2.0-bin
+
+## Build dependencies: (Only required if running `make release`)
+  - `All install dependencies`
   - gettext (Translations)
-  - libglib2.0-bin (Translations)
-  - libgtk-4-bin (GTK)
   - sed (Translations)
+  - libgtk-4-bin (GTK 4)
 
 ## Create an extension bundle:
   - `make build`
