@@ -1,15 +1,18 @@
-const { GLib, Gio, Shell } = imports.gi;
-const Main = imports.ui.main;
-const Config = imports.misc.config;
-
+//Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const { AppGridHelper } = Me.imports.lib;
 
-//Get GNOME shell version
-const shellVersion = Number.parseInt(Config.PACKAGE_VERSION.split('.'));
-//Get access to appDisplay
-const AppDisplay = shellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
+//Handle GNOME Shell version
+const Config = imports.misc.config;
+const ShellVersion = parseFloat(Config.PACKAGE_VERSION);
+
+//AppDisplay based off of version
+const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
+
+//Main imports
+const { GLib, Gio, Shell } = imports.gi;
+const Main = imports.ui.main;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
@@ -260,7 +263,7 @@ class Extension {
     });
 
     //Each time folders update, the folders this connects to need to be refreshed
-    if (shellVersion > 38) { //Trigger reorder when folders are renamed on GNOME 40+
+    if (ShellVersion > 3.36) { //Trigger reorder when folders are renamed on GNOME 40+
       this.waitForFolderRename('disconnect');
       this.waitForFolderRename('connect');
     }
