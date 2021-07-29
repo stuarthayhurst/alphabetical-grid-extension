@@ -23,8 +23,10 @@
   - Enable the extension
 
 ## Build system usage:
-  - `make build`: Creates extension zip
+  - `make build`: Creates GTK 4 UI, compiles gsettings schemas and creates extension zip
   - `make release`: Updates translations and creates extension zip
+  - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
+  - `make gtk4`: Creates a GTK 4 UI from the GTK 3 UI file
   - `make translations`: Updates translations
   - `make install`: Installs the extension
   - `make uninstall`: Uninstalls the extension
