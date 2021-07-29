@@ -1,11 +1,14 @@
-const {GObject, Gtk, GdkPixbuf, GLib, Gio} = imports.gi;
+//Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
+const { ExtensionHelper } = Me.imports.lib;
+const ShellVersion = ExtensionHelper.shellVersion;
+
+//Main imports
+const {GObject, Gtk, GdkPixbuf, GLib, Gio} = imports.gi;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
-//Get GNOME shell version
-const shellVersion = Number.parseInt(imports.misc.config.PACKAGE_VERSION.split('.'));
 
 var PrefsWidget = class PrefsWidget {
   constructor() {
@@ -16,7 +19,7 @@ var PrefsWidget = class PrefsWidget {
     this._builder.set_translation_domain(Me.metadata.uuid);
 
     //Use different API methods for GTK 3 / 4
-    if (shellVersion < 40) { //GTK 3
+    if (ShellVersion < 40) { //GTK 3
       this._builder.add_from_file(Me.path + '/prefs.ui');
       this.widget.add(this._builder.get_object('main-prefs'));
     } else { //GTK 4
@@ -52,7 +55,7 @@ var PrefsWidget = class PrefsWidget {
 
   showAbout() {
     let logo = Gtk.Image.new_from_file(Me.path + '/icon.svg');
-    if (shellVersion < 40) { //GTK 3
+    if (ShellVersion < 40) { //GTK 3
       logo = logo.get_pixbuf();
     } else { //GTK 4
       logo = logo.get_paintable();
@@ -88,7 +91,7 @@ function init() {
 function buildPrefsWidget() {
   let settingsWindow = new PrefsWidget();
   let settingsWidget = settingsWindow.widget;
-  if (shellVersion < 40) { //GTK 3
+  if (ShellVersion < 40) { //GTK 3
     settingsWidget.show_all();
   } else { //GTK 4
     settingsWidget.show();
@@ -96,7 +99,7 @@ function buildPrefsWidget() {
 
   settingsWidget.connect('realize', () => {
     let window
-    if (shellVersion < 40) { //GTK 3
+    if (ShellVersion < 40) { //GTK 3
       window = settingsWidget.get_toplevel();
     } else { //GTK 4
       window = settingsWidget.get_root();
