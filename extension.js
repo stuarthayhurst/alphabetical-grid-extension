@@ -57,6 +57,7 @@ class Extension {
   reorderGrid() {
     //Alphabetically order the contents of each folder, if enabled
     if (this.extensionSettings.get_boolean('sort-folder-contents') == true) {
+      ExtensionHelper.logMessage(_('Reordering folder contents'));
       AppGridHelper.reorderFolderContents();
     }
 
