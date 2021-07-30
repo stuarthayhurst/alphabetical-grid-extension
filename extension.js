@@ -5,7 +5,8 @@ const { AppGridHelper, ExtensionHelper } = Me.imports.lib;
 const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
-const { GLib, Gio } = imports.gi;
+const { GLib, Gio, Shell } = imports.gi;
+const AppSystem = new Shell.AppSystem();
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
@@ -23,6 +24,7 @@ function enable() {
   gridReorder.waitForFavouritesChange();
   gridReorder.waitForFolderChange();
   gridReorder.waitForSettingsChange();
+  gridReorder.waitForInstalledAppsChange();
 }
 
 function disable() {
@@ -31,6 +33,7 @@ function disable() {
   gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
   gridReorder.folderSettings.disconnect(gridReorder.foldersChangedSignal);
   gridReorder.extensionSettings.disconnect(gridReorder.settingsChangedSignal);
+  AppSystem.disconnect(gridReorder.installedAppsChangedSignal)
   //Only disconnect from folder renaming signals if they were connected to
   if (gridReorder.folderNameSignals.length) {
     gridReorder.waitForFolderRename('disconnect');
@@ -116,7 +119,6 @@ class Extension {
 
         this.folderNameSignals.push(this.individualFolderSettings[i].connect('changed::name', () => {
           this._checkUpdatingLock(_('Folder renamed, triggering reorder'));
-
         }));
       });
     } else if (operation == 'disconnect') {
@@ -150,4 +152,12 @@ class Extension {
       this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
     });
   }
+
+  waitForInstalledAppsChange() {
+    //Wait for installed apps to change
+    this.installedAppsChangedSignal = AppSystem.connect('installed-changed', () => {
+      this._checkUpdatingLock(_('Installed apps changed, triggering reorder'));
+    });
+  }
+
 }

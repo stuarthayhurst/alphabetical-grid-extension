@@ -6,9 +6,6 @@
   - This project is licensed under GPL 3.0
   - Any donations are greatly appreciated :)
 
-## Known issues:
-  - **Newly added applications aren't automatically reordered**
-
 ![Extension](docs/icon.png)
 
 ## Install the extension from releases:
