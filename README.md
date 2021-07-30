@@ -34,12 +34,12 @@
   - `make clean`: Deletes extension zip and `locale` directory
 
 ## Install dependencies:
+  - gettext
   - gnome-extensions
   - libglib2.0-bin
 
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
-  - gettext (Translations)
   - sed (Translations)
   - libgtk-4-bin (GTK 4)
 
