@@ -35,7 +35,7 @@ var PrefsWidget = class PrefsWidget {
       Gio.SettingsBindFlags.DEFAULT
     );
 
-    //Bind folder position slider to gsettings
+    //Bind folder position dropdown to gsettings
     this._settings.bind(
       'folder-order-position',
       this._builder.get_object('folder-order-dropdown'),
@@ -47,6 +47,14 @@ var PrefsWidget = class PrefsWidget {
     this._settings.bind(
       'auto-refresh-grid',
       this._builder.get_object('refresh-grid-switch'),
+      'active',
+      Gio.SettingsBindFlags.DEFAULT
+    );
+
+    //Bind show favourite apps slider to gsettings
+    this._settings.bind(
+      'show-favourite-apps',
+      this._builder.get_object('show-favourite-apps-switch'),
       'active',
       Gio.SettingsBindFlags.DEFAULT
     );
