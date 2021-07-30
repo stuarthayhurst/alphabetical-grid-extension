@@ -171,8 +171,9 @@
         </child>
         <child>
           <object class="GtkLabel" id="settings-title">
+            <property name="margin-start">2</property>
             <property name="margin-top">4</property>
-            <property name="margin-bottom">4</property>
+            <property name="margin-bottom">6</property>
             <property name="label" translatable="yes">General settings</property>
             <property name="xalign">0</property>
             <attributes>
@@ -249,8 +250,9 @@
         </child>
         <child>
           <object class="GtkLabel" id="gnome40-settings">
+            <property name="margin-start">2</property>
             <property name="margin-top">16</property>
-            <property name="margin-bottom">4</property>
+            <property name="margin-bottom">6</property>
             <property name="label" translatable="yes">GNOME 40+ settings</property>
             <property name="xalign">0</property>
             <attributes>
