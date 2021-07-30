@@ -6,6 +6,11 @@ const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
 const { GLib, Gio, Shell } = imports.gi;
+const Main = imports.ui.main;
+const ParentalControlsManager = imports.misc.parentalControlsManager;
+
+//Access required objects and systems
+const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
 const AppSystem = new Shell.AppSystem();
 
 //Use _() for translations
@@ -17,7 +22,7 @@ function init() {
 
 function enable() {
   gridReorder = new Extension();
-  //Reorder initially, to provide an intial reorder, as well as apps not already taken care of
+  //Reorder initially, to provide an initial reorder, as well as apps not already taken care of
   gridReorder.reorderGrid();
   //Wait until the grid is reordered or app folders changed for further reorders
   gridReorder.waitForExternalReorder();
@@ -25,6 +30,11 @@ function enable() {
   gridReorder.waitForFolderChange();
   gridReorder.waitForSettingsChange();
   gridReorder.waitForInstalledAppsChange();
+
+  //Only needed on GNOME 40
+  if (ShellVersion > 3.36) {
+    gridReorder.handleShowFavouriteApps();
+  }
 }
 
 function disable() {
@@ -33,7 +43,11 @@ function disable() {
   gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
   gridReorder.folderSettings.disconnect(gridReorder.foldersChangedSignal);
   gridReorder.extensionSettings.disconnect(gridReorder.settingsChangedSignal);
-  AppSystem.disconnect(gridReorder.installedAppsChangedSignal)
+  AppSystem.disconnect(gridReorder.installedAppsChangedSignal);
+
+  //Disable showing the favourite apps on the app grid
+  gridReorder.setShowFavouriteApps(false);
+
   //Only disconnect from folder renaming signals if they were connected to
   if (gridReorder.folderNameSignals.length) {
     gridReorder.waitForFolderRename('disconnect');
@@ -43,7 +57,7 @@ function disable() {
 
 class Extension {
   constructor() {
-    //Load gsettings values for GNOME Shell, to access 'app-picker-layout'
+    //Load gsettings values for GNOME Shell
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
@@ -55,6 +69,10 @@ class Extension {
     this.extensionSettings = ExtensionUtils.getSettings();
     //Create a lock to prevent code fighting itself to change gsettings
     this._currentlyUpdating = false;
+    //Save whether or not favourite apps are currently shown
+    this._favouriteAppsShown = false;
+    //Save the original _loadApps function
+    this._originalLoadApps = AppDisplay._loadApps;
   }
 
   reorderGrid() {
@@ -95,7 +113,55 @@ class Extension {
     }
   }
 
-  //Create listeners to trigger reorders of the grid when needed
+  setShowFavouriteApps(targetState) {
+    let currentState = this._favouriteAppsShown;
+    let shellSettings = this.shellSettings;
+    let originalLoadApps = this._originalLoadApps;
+
+    //Wrapper for _loadApps() to add back favourite apps
+    function patchedLoadApps() {
+      let originalIsFavorite = AppDisplay._appFavorites.isFavorite;
+
+      //Temporarily disable the code's ability to detect a favourite app
+      AppDisplay._appFavorites.isFavorite = function () { return false; };
+      let appList = originalLoadApps.call(this);
+      AppDisplay._appFavorites.isFavorite = originalIsFavorite;
+
+      return appList;
+    }
+
+    if (currentState == targetState) {
+      //Do nothing if the current state and target state match
+      if (currentState == true) {
+        ExtensionHelper.logMessage(_('Favourite apps are already shown'));
+      } else {
+        ExtensionHelper.logMessage(_('Favourite apps are already hidden'));
+      }
+      return;
+    } else if (targetState == true) {
+      ExtensionHelper.logMessage(_('Showing favourite apps on the app grid'));
+      AppDisplay._loadApps = patchedLoadApps; //Replace _loadApps() with a patched wrapper
+      this._favouriteAppsShown = true;
+    } else {
+      ExtensionHelper.logMessage(_('Hiding favourite apps on the app grid'));
+      AppDisplay._loadApps = originalLoadApps; //Restore original _loadApps()
+      this._favouriteAppsShown = false;
+    }
+
+    //Trigger reorder with new changes
+    this._checkUpdatingLock(_('Reordering app grid, due to favourite apps'));
+  }
+
+  //Create listeners to trigger reorders of the grid and other actions when needed
+
+  handleShowFavouriteApps() {
+    //Set initial state
+    this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
+    //Wait for show favourite apps to be toggled
+    this.settingsChangedSignal = this.extensionSettings.connect('changed::show-favourite-apps', () => {
+      this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
+    });
+  }
 
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
