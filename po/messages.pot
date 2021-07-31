@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-29 21:23+0200\n"
+"POT-Creation-Date: 2021-07-31 11:44+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,70 +17,102 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:60
+#: extension.js:61
 msgid "Reordering folder contents"
 msgstr ""
 
-#: extension.js:73
+#: extension.js:74
 msgid "Automatic grid refresh enabled, refreshing grid"
 msgstr ""
 
-#: extension.js:77
+#: extension.js:78
 msgid "Reordered grid"
 msgstr ""
 
-#: extension.js:79
+#: extension.js:80
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 
-#: extension.js:100
+#: extension.js:115
+msgid "Favourite apps are already shown"
+msgstr ""
+
+#: extension.js:117
+msgid "Favourite apps are already hidden"
+msgstr ""
+
+#: extension.js:122
+msgid "Showing favourite apps on the app grid"
+msgstr ""
+
+#: extension.js:127
+msgid "Hiding favourite apps on the app grid"
+msgstr ""
+
+#: extension.js:134
+msgid "Reordering app grid, due to favourite apps"
+msgstr ""
+
+#: extension.js:151
+msgid "Connected to listeners"
+msgstr ""
+
+#: extension.js:169
+msgid "Disconnected from listeners"
+msgstr ""
+
+#: extension.js:184
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:118
+#: extension.js:202
 msgid "Folder renamed, triggering reorder"
 msgstr ""
 
-#: extension.js:136
+#: extension.js:219
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:143
+#: extension.js:226
 msgid "Favourite apps changed, triggering reorder"
 msgstr ""
 
-#: extension.js:150
+#: extension.js:233
 msgid "Extension gsettings values changed, triggering reorder"
+msgstr ""
+
+#: extension.js:240
+msgid "Installed apps changed, triggering reorder"
 msgstr ""
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:72
+#: prefs.js:81
 msgid "translator-credits"
 msgstr ""
 
-#: prefs.js:73
+#: prefs.js:82
 msgid "Alphabetical App Grid"
 msgstr ""
 
-#: prefs.js:74
+#: prefs.js:83
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr ""
 
-#: prefs.js:76
+#: prefs.js:85
 msgid "© 2021 Stuart Hayhurst"
 msgstr ""
 
-#: prefs.js:80
+#: prefs.js:89
 msgid "Contribute on GitHub"
 msgstr ""
 
-#: prefs.js:110
+#: prefs.js:119
 msgid "About"
 msgstr ""
 
-#: prefs.js:116
+#: prefs.js:125
 msgid "Alphabetical App Grid Preferences"
 msgstr ""
 
@@ -100,40 +132,53 @@ msgid "End"
 msgstr ""
 
 #: ui/prefs-gtk4.ui:39 ui/prefs.ui:50
-msgctxt "setting-tooltip"
-msgid "Whether the contents of folders should be sorted alphabetically"
+msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
 msgstr ""
 
 #: ui/prefs-gtk4.ui:53 ui/prefs.ui:69
 msgctxt "setting-name"
+msgid "Show favourite apps on the app grid"
+msgstr ""
+
+#: ui/prefs-gtk4.ui:86 ui/prefs.ui:121
+msgctxt "setting-tooltip"
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr ""
+
+#: ui/prefs-gtk4.ui:100 ui/prefs.ui:140
+msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:82 ui/prefs.ui:120
+#: ui/prefs-gtk4.ui:129 ui/prefs.ui:191
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:96 ui/prefs.ui:139
+#: ui/prefs-gtk4.ui:143 ui/prefs.ui:210
 msgctxt "setting-name"
 msgid "Position of ordered folders"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:131 ui/prefs.ui:196
+#: ui/prefs-gtk4.ui:178 ui/prefs.ui:267
 msgid "Allows displaying the alphabetical order without reloading GNOME Shell"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:145 ui/prefs.ui:215
+#: ui/prefs-gtk4.ui:192 ui/prefs.ui:286
 msgctxt "setting-name"
 msgid "Automatically refresh the app grid"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:176 ui/prefs.ui:264
+#: ui/prefs-gtk4.ui:227 ui/prefs.ui:341
 msgid "General settings"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:193 ui/prefs.ui:283
+#: ui/prefs-gtk4.ui:249 ui/prefs.ui:372
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
 "\">Consider donating :)</a>"
+msgstr ""
+
+#: ui/prefs-gtk4.ui:273 ui/prefs.ui:407
+msgid "GNOME 40+ settings"
 msgstr ""
