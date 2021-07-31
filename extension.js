@@ -24,34 +24,14 @@ function enable() {
   gridReorder = new Extension();
   //Reorder initially, to provide an initial reorder, as well as apps not already taken care of
   gridReorder.reorderGrid();
-  //Wait until the grid is reordered or app folders changed for further reorders
-  gridReorder.waitForExternalReorder();
-  gridReorder.waitForFavouritesChange();
-  gridReorder.waitForFolderChange();
-  gridReorder.waitForSettingsChange();
-  gridReorder.waitForInstalledAppsChange();
-
-  //Only needed on GNOME 40
-  if (ShellVersion > 3.36) {
-    gridReorder.handleShowFavouriteApps();
-  }
+  //Trigger all listeners for reorders and other operations
+  gridReorder.startListeners();
 }
 
 function disable() {
   //Disconnect from events and clean up
-  gridReorder.shellSettings.disconnect(gridReorder.reorderSignal);
-  gridReorder.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
-  gridReorder.folderSettings.disconnect(gridReorder.foldersChangedSignal);
-  gridReorder.extensionSettings.disconnect(gridReorder.settingsChangedSignal);
-  AppSystem.disconnect(gridReorder.installedAppsChangedSignal);
+  gridReorder.disconnectListeners();
 
-  //Disable showing the favourite apps on the app grid
-  gridReorder.setShowFavouriteApps(false);
-
-  //Only disconnect from folder renaming signals if they were connected to
-  if (gridReorder.folderNameSignals.length) {
-    gridReorder.waitForFolderRename('disconnect');
-  }
   gridReorder = null;
 }
 
@@ -153,6 +133,39 @@ class Extension {
   }
 
   //Create listeners to trigger reorders of the grid and other actions when needed
+
+  startListeners() {
+    this.waitForExternalReorder();
+    this.waitForFavouritesChange();
+    this.waitForFolderChange();
+    this.waitForSettingsChange();
+    this.waitForInstalledAppsChange();
+
+    //Only needed on GNOME 40
+    if (ShellVersion > 3.36) {
+      this.handleShowFavouriteApps();
+    }
+
+    ExtensionHelper.logMessage(_('Connected to listeners'))
+  }
+
+  disconnectListeners() {
+    this.shellSettings.disconnect(gridReorder.reorderSignal);
+    this.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
+    this.folderSettings.disconnect(gridReorder.foldersChangedSignal);
+    this.extensionSettings.disconnect(gridReorder.settingsChangedSignal);
+    AppSystem.disconnect(gridReorder.installedAppsChangedSignal);
+
+    //Disable showing the favourite apps on the app grid
+    gridReorder.setShowFavouriteApps(false);
+
+    //Only disconnect from folder renaming signals if they were connected
+    if (gridReorder.folderNameSignals.length) {
+      this.waitForFolderRename('disconnect');
+    }
+
+    ExtensionHelper.logMessage(_('Disconnected from listeners'))
+  }
 
   handleShowFavouriteApps() {
     //Set initial state
