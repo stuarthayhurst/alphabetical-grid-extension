@@ -39,7 +39,7 @@
         <property name="margin-end">12</property>
         <property name="column-homogeneous">True</property>
         <child>
-          <object class="GtkListBox">
+          <object class="GtkListBox" id="gnome40-settings">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="selection-mode">none</property>
@@ -110,7 +110,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkListBox">
+          <object class="GtkListBox" id="general-settings">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="selection-mode">none</property>
@@ -401,7 +401,7 @@
                 <property name="margin-bottom">6</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkLabel" id="gnome40-settings">
+                  <object class="GtkLabel" id="gnome40-settings-title">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">GNOME 40+ settings</property>

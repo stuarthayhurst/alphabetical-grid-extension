@@ -27,6 +27,11 @@ var PrefsWidget = class PrefsWidget {
       this.widget.set_child(this._builder.get_object('main-prefs'));
     }
 
+    //Disable GNOME 40+ settings on GNOME 3.38
+    if (ShellVersion < 40) {
+      this._builder.get_object('gnome40-settings').set_sensitive(false);
+    }
+
     this.settingElements = {
       'sort-folders-switch': {
         'settingKey': 'sort-folder-contents',
