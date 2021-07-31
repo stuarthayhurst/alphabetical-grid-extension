@@ -36,6 +36,53 @@
             <child>
               <object class="GtkListBoxRow">
                 <property name="focusable">1</property>
+                <property name="tooltip-text" translatable="yes">Allows displaying the favourite apps on the app grid (GNOME 40+)</property>
+                <property name="child">
+                  <object class="GtkBox">
+                    <property name="margin-top">12</property>
+                    <property name="margin-bottom">12</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="spacing">32</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="hexpand">1</property>
+                            <property name="valign">center</property>
+                            <property name="margin-start">10</property>
+                            <property name="label" translatable="yes" context="setting-name">Show favourite apps on the app grid</property>
+                            <property name="xalign">0</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkSwitch" id="show-favourite-apps-switch">
+                            <property name="focusable">1</property>
+                            <property name="valign">center</property>
+                            <property name="margin-end">10</property>
+                            <property name="active">1</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </property>
+              </object>
+            </child>
+            <style>
+              <class name="frame"/>
+            </style>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">3</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkListBox">
+            <property name="selection-mode">none</property>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="focusable">1</property>
                 <property name="tooltip-text" translatable="yes" context="setting-tooltip">Whether the contents of folders should be sorted alphabetically</property>
                 <property name="child">
                   <object class="GtkBox">
@@ -170,16 +217,21 @@
           </object>
         </child>
         <child>
-          <object class="GtkLabel" id="settings-title">
+          <object class="GtkBox">
             <property name="margin-start">2</property>
             <property name="margin-top">4</property>
             <property name="margin-bottom">6</property>
-            <property name="label" translatable="yes">General settings</property>
-            <property name="xalign">0</property>
-            <attributes>
-              <attribute name="weight" value="bold"></attribute>
-              <attribute name="scale" value="1"></attribute>
-            </attributes>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="settings-title">
+                <property name="label" translatable="yes">General settings</property>
+                <property name="xalign">0</property>
+                <attributes>
+                  <attribute name="weight" value="bold"></attribute>
+                  <attribute name="scale" value="1"></attribute>
+                </attributes>
+              </object>
+            </child>
             <layout>
               <property name="column">0</property>
               <property name="row">0</property>
@@ -187,14 +239,19 @@
           </object>
         </child>
         <child>
-          <object class="GtkLabel" id="donate-prompt">
+          <object class="GtkBox">
             <property name="valign">end</property>
             <property name="margin-top">4</property>
             <property name="vexpand">1</property>
-            <property name="label" translatable="yes">Found this useful?
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="donate-prompt">
+                <property name="label" translatable="yes">Found this useful?
 &lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN&quot;&gt;Consider donating :)&lt;/a&gt;</property>
-            <property name="use-markup">1</property>
-            <property name="justify">center</property>
+                <property name="use-markup">1</property>
+                <property name="justify">center</property>
+              </object>
+            </child>
             <layout>
               <property name="column">0</property>
               <property name="row">4</property>
@@ -202,63 +259,27 @@
           </object>
         </child>
         <child>
-          <object class="GtkListBox">
-            <property name="selection-mode">none</property>
+          <object class="GtkBox">
+            <property name="margin-top">12</property>
+            <property name="orientation">vertical</property>
             <child>
-              <object class="GtkListBoxRow">
-                <property name="focusable">1</property>
-                <property name="tooltip-text" translatable="yes">Allows displaying the favourite apps on the app grid (GNOME 40+)</property>
-                <property name="child">
-                  <object class="GtkBox">
-                    <property name="margin-top">12</property>
-                    <property name="margin-bottom">12</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="spacing">32</property>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="hexpand">1</property>
-                            <property name="valign">center</property>
-                            <property name="margin-start">10</property>
-                            <property name="label" translatable="yes" context="setting-name">Show favourite apps on the app grid</property>
-                            <property name="xalign">0</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkSwitch" id="show-favourite-apps-switch">
-                            <property name="focusable">1</property>
-                            <property name="valign">center</property>
-                            <property name="margin-end">10</property>
-                            <property name="active">1</property>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
+              <object class="GtkBox">
+                <property name="margin-start">2</property>
+                <property name="margin-top">4</property>
+                <property name="margin-bottom">6</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="gnome40-settings">
+                    <property name="label" translatable="yes">GNOME 40+ settings</property>
+                    <property name="xalign">0</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"></attribute>
+                      <attribute name="scale" value="1"></attribute>
+                    </attributes>
                   </object>
-                </property>
+                </child>
               </object>
             </child>
-            <style>
-              <class name="frame"/>
-            </style>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">3</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="gnome40-settings">
-            <property name="margin-start">2</property>
-            <property name="margin-top">16</property>
-            <property name="margin-bottom">6</property>
-            <property name="label" translatable="yes">GNOME 40+ settings</property>
-            <property name="xalign">0</property>
-            <attributes>
-              <attribute name="weight" value="bold"></attribute>
-              <attribute name="scale" value="1"></attribute>
-            </attributes>
             <layout>
               <property name="column">0</property>
               <property name="row">2</property>
