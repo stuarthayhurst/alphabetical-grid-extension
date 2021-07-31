@@ -3,4 +3,5 @@ locale/
 po/*.po~
 *.ui~
 ui/*.ui~
+ui/*#*
 schemas/gschemas.compiled
