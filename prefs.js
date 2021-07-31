@@ -27,38 +27,34 @@ var PrefsWidget = class PrefsWidget {
       this.widget.set_child(this._builder.get_object('main-prefs'));
     }
 
-    //Bind folder contents ordering slider to gsettings
-    this._settings.bind(
-      'sort-folder-contents',
-      this._builder.get_object('sort-folders-switch'),
-      'active',
-      Gio.SettingsBindFlags.DEFAULT
-    );
+    this.settingElements = {
+      'sort-folders-switch': {
+        'settingKey': 'sort-folder-contents',
+        'bindProperty': 'active'
+      },
+      'folder-order-dropdown': {
+        'settingKey': 'folder-order-position',
+        'bindProperty': 'active-id'
+      },
+      'refresh-grid-switch': {
+        'settingKey': 'auto-refresh-grid',
+        'bindProperty': 'active'
+      },
+      'show-favourite-apps-switch': {
+        'settingKey': 'show-favourite-apps',
+        'bindProperty': 'active'
+      }
+    }
 
-    //Bind folder position dropdown to gsettings
-    this._settings.bind(
-      'folder-order-position',
-      this._builder.get_object('folder-order-dropdown'),
-      'active-id',
-      Gio.SettingsBindFlags.DEFAULT
-    );
-
-    //Bind grid refresh toggle slider to gsettings
-    this._settings.bind(
-      'auto-refresh-grid',
-      this._builder.get_object('refresh-grid-switch'),
-      'active',
-      Gio.SettingsBindFlags.DEFAULT
-    );
-
-    //Bind show favourite apps slider to gsettings
-    this._settings.bind(
-      'show-favourite-apps',
-      this._builder.get_object('show-favourite-apps-switch'),
-      'active',
-      Gio.SettingsBindFlags.DEFAULT
-    );
-
+    //Loop through settings toggles and dropdowns and bind together
+    Object.keys(this.settingElements).forEach((element) => {
+      this._settings.bind(
+        this.settingElements[element].settingKey, //GSettings key to bind to
+        this._builder.get_object(element), //GTK UI element to bind to
+        this.settingElements[element].bindProperty, //The property to share
+        Gio.SettingsBindFlags.DEFAULT
+      );
+    });
   }
 
   showAbout() {
@@ -106,7 +102,7 @@ function buildPrefsWidget() {
   }
 
   settingsWidget.connect('realize', () => {
-    let window
+    let window;
     if (ShellVersion < 40) { //GTK 3
       window = settingsWidget.get_toplevel();
     } else { //GTK 4
