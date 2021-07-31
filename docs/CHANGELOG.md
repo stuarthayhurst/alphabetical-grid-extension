@@ -1,5 +1,15 @@
 ## Changelog:
 
+### v10: - `To be released`
+ - Added automatic grid reordering when the installed apps change
+ - Added setting to enable displaying favourite apps on the grid (#20)
+ - Added timestamp to debug information / logging
+ - Added more verbose logging
+ - Added Dutch translation - [Heimen Stoffels](https://github.com/Vistaus)
+ - Improved settings menu
+ - Improved code quality
+ - Moved `gettext` to install dependencies
+
 ### v9: - `2021-07-29`
  - Added setting to toggle automatic refresh of the app grid
  - Added check that that the folder settings GSettings key used is writable before attempting to write to it
