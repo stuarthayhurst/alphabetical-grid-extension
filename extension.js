@@ -57,7 +57,7 @@ class Extension {
 
   reorderGrid() {
     //Alphabetically order the contents of each folder, if enabled
-    if (this.extensionSettings.get_boolean('sort-folder-contents') == true) {
+    if (this.extensionSettings.get_boolean('sort-folder-contents')) {
       ExtensionHelper.logMessage(_('Reordering folder contents'));
       AppGridHelper.reorderFolderContents();
     }
@@ -70,7 +70,7 @@ class Extension {
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
 
       //Trigger a refresh of the app grid, if enabled
-      if (this.extensionSettings.get_boolean('auto-refresh-grid') == true) {
+      if (this.extensionSettings.get_boolean('auto-refresh-grid')) {
         ExtensionHelper.logMessage(_('Automatic grid refresh enabled, refreshing grid'));
         AppGridHelper.reloadAppGrid();
       }
@@ -83,7 +83,7 @@ class Extension {
 
   _checkUpdatingLock(logMessage) {
     //Detect lock to avoid multiple changes at once
-    if (this._currentlyUpdating == false) {
+    if (!this._currentlyUpdating) {
       this._currentlyUpdating = true;
 
       ExtensionHelper.logMessage(logMessage);
@@ -112,13 +112,13 @@ class Extension {
 
     if (currentState == targetState) {
       //Do nothing if the current state and target state match
-      if (currentState == true) {
+      if (currentState) {
         ExtensionHelper.logMessage(_('Favourite apps are already shown'));
       } else {
         ExtensionHelper.logMessage(_('Favourite apps are already hidden'));
       }
       return;
-    } else if (targetState == true) {
+    } else if (targetState) {
       ExtensionHelper.logMessage(_('Showing favourite apps on the app grid'));
       AppDisplay._loadApps = patchedLoadApps; //Replace _loadApps() with a patched wrapper
       this._favouriteAppsShown = true;
