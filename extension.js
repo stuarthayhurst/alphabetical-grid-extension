@@ -98,7 +98,7 @@ class Extension {
     let shellSettings = this.shellSettings;
     let originalLoadApps = this._originalLoadApps;
 
-    //Wrapper for _loadApps() to add back favourite apps
+    //Wrapper for _loadApps() to not remove favourite apps
     function patchedLoadApps() {
       let originalIsFavorite = AppDisplay._appFavorites.isFavorite;
 
@@ -110,21 +110,23 @@ class Extension {
       return appList;
     }
 
-    if (currentState == targetState) {
-      //Do nothing if the current state and target state match
+    if (currentState == targetState) { //Do nothing if the current state and target state match
       if (currentState) {
         ExtensionHelper.logMessage(_('Favourite apps are already shown'));
       } else {
         ExtensionHelper.logMessage(_('Favourite apps are already hidden'));
       }
+
       return;
-    } else if (targetState) {
+    } else if (targetState) { //Hide favourite apps, by patching _loadApps()
       ExtensionHelper.logMessage(_('Showing favourite apps on the app grid'));
-      AppDisplay._loadApps = patchedLoadApps; //Replace _loadApps() with a patched wrapper
+      AppDisplay._loadApps = patchedLoadApps;
+
       this._favouriteAppsShown = true;
-    } else {
+    } else { //Hide favourite apps, by restoring _loadApps()
       ExtensionHelper.logMessage(_('Hiding favourite apps on the app grid'));
-      AppDisplay._loadApps = originalLoadApps; //Restore original _loadApps()
+      AppDisplay._loadApps = originalLoadApps;
+
       this._favouriteAppsShown = false;
     }
 
@@ -183,7 +185,7 @@ class Extension {
     });
 
     //Each time folders update, the folders this connects to need to be refreshed
-    if (ShellVersion > 3.36) { //Trigger reorder when folders are renamed on GNOME 40+
+    if (ShellVersion > 3.36) { //Setup listener to trigger reorder when folders are renamed on GNOME 40+
       this.waitForFolderRename('disconnect');
       this.waitForFolderRename('connect');
     }
