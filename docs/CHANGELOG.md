@@ -6,6 +6,7 @@
  - Added timestamp to debug information / logging
  - Added more verbose logging
  - Added Dutch translation - [Heimen Stoffels](https://github.com/Vistaus)
+ - Fixed some characters being sent to the end of the grid (#24)
  - Improved settings menu
  - Improved code quality
  - Moved `gettext` to install dependencies
