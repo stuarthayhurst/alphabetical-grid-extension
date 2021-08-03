@@ -154,17 +154,17 @@ class Extension {
   }
 
   disconnectListeners() {
-    this.shellSettings.disconnect(gridReorder.reorderSignal);
-    this.shellSettings.disconnect(gridReorder.favouriteAppsSignal);
-    this.folderSettings.disconnect(gridReorder.foldersChangedSignal);
-    this.extensionSettings.disconnect(gridReorder.settingsChangedSignal);
-    AppSystem.disconnect(gridReorder.installedAppsChangedSignal);
+    this.shellSettings.disconnect(this.reorderSignal);
+    this.shellSettings.disconnect(this.favouriteAppsSignal);
+    this.folderSettings.disconnect(this.foldersChangedSignal);
+    this.extensionSettings.disconnect(this.settingsChangedSignal);
+    AppSystem.disconnect(this.installedAppsChangedSignal);
 
     //Disable showing the favourite apps on the app grid
-    gridReorder.setShowFavouriteApps(false);
+    this.setShowFavouriteApps(false);
 
     //Only disconnect from folder renaming signals if they were connected
-    if (gridReorder.folderNameSignals.length) {
+    if (this.folderNameSignals.length) {
       this.waitForFolderRename('disconnect');
     }
 
