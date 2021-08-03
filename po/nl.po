@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-31 11:42+0100\n"
-"PO-Revision-Date: 2021-07-31 09:28+0200\n"
+"POT-Creation-Date: 2021-07-31 11:44+0100\n"
+"PO-Revision-Date: 2021-08-03 17:43+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -38,31 +38,31 @@ msgstr ""
 
 #: extension.js:115
 msgid "Favourite apps are already shown"
-msgstr ""
+msgstr "Uw favoriete toepassingen worden al getoond"
 
 #: extension.js:117
 msgid "Favourite apps are already hidden"
-msgstr ""
+msgstr "Uw favoriete toepassingen zijn al verborgen"
 
 #: extension.js:122
 msgid "Showing favourite apps on the app grid"
-msgstr ""
+msgstr "Uw favoriete toepassingen worden getoond op het rooster"
 
 #: extension.js:127
 msgid "Hiding favourite apps on the app grid"
-msgstr ""
+msgstr "Uw favoriete toepassingen zijn verborgen van het rooster"
 
 #: extension.js:134
 msgid "Reordering app grid, due to favourite apps"
-msgstr ""
+msgstr "De favoriete toepassingen worden toegevoegd - bezig met herordenen…"
 
 #: extension.js:151
 msgid "Connected to listeners"
-msgstr ""
+msgstr "Verbonden met achtergronddienst"
 
 #: extension.js:169
 msgid "Disconnected from listeners"
-msgstr ""
+msgstr "Verbinding verbroken met achtergronddienst"
 
 #: extension.js:184
 msgid "Folders changed, triggering reorder"
@@ -87,7 +87,7 @@ msgstr ""
 
 #: extension.js:240
 msgid "Installed apps changed, triggering reorder"
-msgstr ""
+msgstr "De geïnstalleerde toepassingen zijn gewijzigd - bezig met herordenen…"
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
@@ -138,11 +138,13 @@ msgstr "Einde"
 #: ui/prefs-gtk4.ui:39 ui/prefs.ui:50
 msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
 msgstr ""
+"Toont uw favoriete toepassingen op het toepassingsrooster (GNOME 40 en "
+"nieuwer)"
 
 #: ui/prefs-gtk4.ui:53 ui/prefs.ui:69
 msgctxt "setting-name"
 msgid "Show favourite apps on the app grid"
-msgstr ""
+msgstr "Favoriete toepassingen tonen op rooster"
 
 #: ui/prefs-gtk4.ui:86 ui/prefs.ui:121
 msgctxt "setting-tooltip"
@@ -188,4 +190,4 @@ msgstr ""
 
 #: ui/prefs-gtk4.ui:273 ui/prefs.ui:407
 msgid "GNOME 40+ settings"
-msgstr ""
+msgstr "GNOME 40+-voorkeuren"
