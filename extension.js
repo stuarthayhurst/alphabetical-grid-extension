@@ -87,9 +87,11 @@ class Extension {
       this._currentlyUpdating = true;
 
       ExtensionHelper.logMessage(logMessage);
-      this.reorderGrid();
-
-      this._currentlyUpdating = false;
+      //Wait an amount of time to avoid clashing with animations
+      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 10, () => {
+        this.reorderGrid();
+        this._currentlyUpdating = false;
+      });
     }
   }
 
