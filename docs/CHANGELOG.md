@@ -8,6 +8,7 @@
  - Added Dutch translation - [Heimen Stoffels](https://github.com/Vistaus)
  - Fixed some characters being sent to the end of the grid (#24)
  - Fixed floating icons after making new folders
+ - Fixed some folders not being reordered when renamed
  - Improved settings menu
  - Improved code quality
  - Moved `gettext` to install dependencies
