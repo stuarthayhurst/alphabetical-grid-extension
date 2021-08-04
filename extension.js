@@ -88,7 +88,7 @@ class Extension {
 
       ExtensionHelper.logMessage(logMessage);
       //Wait a small amount of time to avoid clashing with animations
-      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 10, () => {
+      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 20, () => {
         this.reorderGrid();
         this._currentlyUpdating = false;
       });
