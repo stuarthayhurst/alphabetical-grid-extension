@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-31 11:44+0100\n"
+"POT-Creation-Date: 2021-08-04 10:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,55 +33,55 @@ msgstr ""
 msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
 msgstr ""
 
-#: extension.js:115
+#: extension.js:117
 msgid "Favourite apps are already shown"
 msgstr ""
 
-#: extension.js:117
+#: extension.js:119
 msgid "Favourite apps are already hidden"
 msgstr ""
 
-#: extension.js:122
+#: extension.js:124
 msgid "Showing favourite apps on the app grid"
 msgstr ""
 
-#: extension.js:127
+#: extension.js:129
 msgid "Hiding favourite apps on the app grid"
 msgstr ""
 
-#: extension.js:134
+#: extension.js:136
 msgid "Reordering app grid, due to favourite apps"
 msgstr ""
 
-#: extension.js:151
+#: extension.js:153
 msgid "Connected to listeners"
 msgstr ""
 
-#: extension.js:169
+#: extension.js:171
 msgid "Disconnected from listeners"
 msgstr ""
 
-#: extension.js:184
+#: extension.js:186
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:202
+#: extension.js:204
 msgid "Folder renamed, triggering reorder"
 msgstr ""
 
-#: extension.js:219
+#: extension.js:221
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:226
+#: extension.js:228
 msgid "Favourite apps changed, triggering reorder"
 msgstr ""
 
-#: extension.js:233
+#: extension.js:235
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
-#: extension.js:240
+#: extension.js:242
 msgid "Installed apps changed, triggering reorder"
 msgstr ""
 
