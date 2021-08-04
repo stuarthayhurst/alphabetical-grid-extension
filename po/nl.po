@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-31 11:44+0100\n"
+"POT-Creation-Date: 2021-08-04 12:41+0100\n"
 "PO-Revision-Date: 2021-08-03 17:43+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -36,56 +36,56 @@ msgstr ""
 "org.gnome.shell app-picker-layout is niet-beschrijfbaar - herordenen wordt "
 "overgeslagen…"
 
-#: extension.js:115
+#: extension.js:117
 msgid "Favourite apps are already shown"
 msgstr "Uw favoriete toepassingen worden al getoond"
 
-#: extension.js:117
+#: extension.js:119
 msgid "Favourite apps are already hidden"
 msgstr "Uw favoriete toepassingen zijn al verborgen"
 
-#: extension.js:122
+#: extension.js:124
 msgid "Showing favourite apps on the app grid"
 msgstr "Uw favoriete toepassingen worden getoond op het rooster"
 
-#: extension.js:127
+#: extension.js:129
 msgid "Hiding favourite apps on the app grid"
 msgstr "Uw favoriete toepassingen zijn verborgen van het rooster"
 
-#: extension.js:134
+#: extension.js:136
 msgid "Reordering app grid, due to favourite apps"
 msgstr "De favoriete toepassingen worden toegevoegd - bezig met herordenen…"
 
-#: extension.js:151
+#: extension.js:153
 msgid "Connected to listeners"
 msgstr "Verbonden met achtergronddienst"
 
-#: extension.js:169
+#: extension.js:171
 msgid "Disconnected from listeners"
 msgstr "Verbinding verbroken met achtergronddienst"
 
-#: extension.js:184
+#: extension.js:186
 msgid "Folders changed, triggering reorder"
 msgstr "De mappen zijn gewijzigd - bezig met herordenen…"
 
-#: extension.js:202
+#: extension.js:204
 msgid "Folder renamed, triggering reorder"
 msgstr "De mapnaam is gewijzigd - bezig met herordenen…"
 
-#: extension.js:219
+#: extension.js:221
 msgid "App grid layout changed, triggering reorder"
 msgstr "De toepassingsindeling is gewijzigd - bezig met herordenen…"
 
-#: extension.js:226
+#: extension.js:228
 msgid "Favourite apps changed, triggering reorder"
 msgstr "De favoriete toepassingen zijn gewijzigd - bezig met herordenen…"
 
-#: extension.js:233
+#: extension.js:235
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "De uitbreidingswaarden (gsettings) zijn aangepast - bezig met herordenen…"
 
-#: extension.js:240
+#: extension.js:242
 msgid "Installed apps changed, triggering reorder"
 msgstr "De geïnstalleerde toepassingen zijn gewijzigd - bezig met herordenen…"
 
