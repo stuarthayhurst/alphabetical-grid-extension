@@ -11,7 +11,6 @@ const ParentalControlsManager = imports.misc.parentalControlsManager;
 
 //Access required objects and systems
 const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
-const AppSystem = new Shell.AppSystem();
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
@@ -21,6 +20,7 @@ function init() {
 }
 
 function enable() {
+  AppSystem = new Shell.AppSystem();
   gridReorder = new Extension();
   //Reorder initially, to provide an initial reorder, as well as apps not already taken care of
   gridReorder.reorderGrid();
@@ -32,6 +32,7 @@ function disable() {
   //Disconnect from events and clean up
   gridReorder.disconnectListeners();
 
+  AppSystem = null;
   gridReorder = null;
 }
 
