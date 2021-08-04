@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v11: - `2021-08-04`
+ - Hotfix: Correct code for upload to GNOME Extensions website
+
 ### v10: - `2021-08-04`
  - Added automatic grid reordering when the installed apps change
  - Added setting to enable displaying favourite apps on the grid (#20)
