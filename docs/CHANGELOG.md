@@ -1,6 +1,6 @@
 ## Changelog:
 
-### v10: - `To be released`
+### v10: - `2021-08-04`
  - Added automatic grid reordering when the installed apps change
  - Added setting to enable displaying favourite apps on the grid (#20)
  - Added timestamp to debug information / logging
