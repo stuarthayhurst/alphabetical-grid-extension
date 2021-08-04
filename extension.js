@@ -183,18 +183,26 @@ class Extension {
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
+      //Setup listener to trigger reorder when folders are renamed on GNOME 40+
+      //Each time folders update, the folders this connects to need to be refreshed
+      if (ShellVersion > 3.36) {
+        this.waitForFolderRename('reconnect');
+      }
+
       this._checkUpdatingLock(_('Folders changed, triggering reorder'));
     });
 
-    //Each time folders update, the folders this connects to need to be refreshed
-    if (ShellVersion > 3.36) { //Setup listener to trigger reorder when folders are renamed on GNOME 40+
-      this.waitForFolderRename('disconnect');
-      this.waitForFolderRename('connect');
+    //Initially connect to folders to detect renaming
+    if (ShellVersion > 3.36) {
+      this.waitForFolderRename('reconnect');
     }
   }
 
   waitForFolderRename(operation) {
-    if (operation == 'connect') {
+    if (operation == 'reconnect') {
+      this.waitForFolderRename('disconnect');
+      this.waitForFolderRename('connect');
+    } else if (operation == 'connect') {
       let folderArray = this.folderSettings.get_value('folder-children').get_strv();
       folderArray.forEach((folder, i) => {
 
@@ -202,6 +210,8 @@ class Extension {
 
         this.folderNameSignals.push(this.individualFolderSettings[i].connect('changed::name', () => {
           this._checkUpdatingLock(_('Folder renamed, triggering reorder'));
+          //Reconnect to new folders after change
+          this.waitForFolderRename('reconnect');
         }));
       });
     } else if (operation == 'disconnect') {
