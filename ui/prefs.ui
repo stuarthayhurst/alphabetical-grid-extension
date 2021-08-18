@@ -31,7 +31,7 @@
     <property name="margin-bottom">10</property>
     <property name="orientation">vertical</property>
     <child>
-      <!-- n-columns=1 n-rows=5 -->
+      <!-- n-columns=1 n-rows=7 -->
       <object class="GtkGrid">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
@@ -247,76 +247,6 @@
                 </child>
               </object>
             </child>
-            <child>
-              <object class="GtkListBoxRow">
-                <property name="visible">True</property>
-                <property name="sensitive">False</property>
-                <property name="can-focus">True</property>
-                <child>
-                  <object class="GtkSeparator">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkListBoxRow">
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
-                <property name="tooltip-text" translatable="yes">Allows displaying the alphabetical order without reloading GNOME Shell</property>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="margin-top">12</property>
-                    <property name="margin-bottom">12</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                        <property name="spacing">32</property>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="visible">True</property>
-                            <property name="can-focus">False</property>
-                            <property name="valign">center</property>
-                            <property name="margin-start">10</property>
-                            <property name="label" translatable="yes" context="setting-name">Automatically refresh the app grid</property>
-                            <property name="xalign">0</property>
-                          </object>
-                          <packing>
-                            <property name="expand">True</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkSwitch" id="refresh-grid-switch">
-                            <property name="visible">True</property>
-                            <property name="can-focus">True</property>
-                            <property name="valign">center</property>
-                            <property name="margin-end">10</property>
-                            <property name="active">True</property>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
             <style>
               <class name="frame"/>
             </style>
@@ -383,7 +313,7 @@
           </object>
           <packing>
             <property name="left-attach">0</property>
-            <property name="top-attach">4</property>
+            <property name="top-attach">6</property>
           </packing>
         </child>
         <child>
@@ -428,6 +358,121 @@
           <packing>
             <property name="left-attach">0</property>
             <property name="top-attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkListBox" id="gnome38-settings">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="selection-mode">none</property>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="tooltip-text" translatable="yes">Allows displaying the favourite apps on the app grid (GNOME 40+)</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="margin-top">12</property>
+                    <property name="margin-bottom">12</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="spacing">32</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="valign">center</property>
+                            <property name="margin-start">10</property>
+                            <property name="label" translatable="yes" context="setting-name">Automatically refresh the app grid</property>
+                            <property name="xalign">0</property>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkSwitch" id="refresh-grid-switch">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="valign">center</property>
+                            <property name="margin-end">10</property>
+                            <property name="active">True</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <style>
+              <class name="frame"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-top">12</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="margin-start">2</property>
+                <property name="margin-top">4</property>
+                <property name="margin-bottom">6</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="gnome38-settings-title">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">GNOME 3.38 settings</property>
+                    <property name="xalign">0</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                      <attribute name="scale" value="1"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">4</property>
           </packing>
         </child>
       </object>
