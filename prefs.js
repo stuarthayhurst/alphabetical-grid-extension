@@ -5,7 +5,7 @@ const { ExtensionHelper } = Me.imports.lib;
 const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
-const { GObject, Gtk, GdkPixbuf, GLib, Gio } = imports.gi;
+const { Gtk, Gio} = imports.gi;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
