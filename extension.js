@@ -70,8 +70,8 @@ class Extension {
       let gridOrder = AppGridHelper.getGridOrder(folderPositionSetting);
       this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
 
-      //Trigger a refresh of the app grid, if enabled
-      if (this.extensionSettings.get_boolean('auto-refresh-grid')) {
+      //Trigger a refresh of the app grid, if enabled and GNOME 3.38 is running
+      if (this.extensionSettings.get_boolean('auto-refresh-grid') && ShellVersion == 3.38) {
         ExtensionHelper.logMessage(_('Automatic grid refresh enabled, refreshing grid'));
         AppGridHelper.reloadAppGrid();
       }
