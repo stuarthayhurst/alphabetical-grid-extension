@@ -29,9 +29,9 @@ var PrefsWidget = class PrefsWidget {
 
     //Disable GNOME 40+ settings on GNOME 3.38
     if (ShellVersion < 40) {
-      this._builder.get_object('gnome40-settings').set_sensitive(false);
+      this._builder.get_object('gnome40-box').set_sensitive(false);
     } else {
-      this._builder.get_object('gnome38-settings').set_sensitive(false);
+      this._builder.get_object('gnome38-box').set_sensitive(false);
     }
 
     this.settingElements = {
