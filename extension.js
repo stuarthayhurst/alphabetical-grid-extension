@@ -147,7 +147,7 @@ class Extension {
     this.waitForInstalledAppsChange();
 
     //Only needed on GNOME 40
-    if (ShellVersion > 3.36) {
+    if (ShellVersion > 3.38) {
       this.handleShowFavouriteApps();
     }
 
@@ -186,7 +186,7 @@ class Extension {
     this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
       //Setup listener to trigger reorder when folders are renamed on GNOME 40+
       //Each time folders update, the folders this connects to need to be refreshed
-      if (ShellVersion > 3.36) {
+      if (ShellVersion > 3.38) {
         this.waitForFolderRename('reconnect');
       }
 
@@ -194,7 +194,7 @@ class Extension {
     });
 
     //Initially connect to folders to detect renaming
-    if (ShellVersion > 3.36) {
+    if (ShellVersion > 3.38) {
       this.waitForFolderRename('reconnect');
     }
   }
