@@ -50,6 +50,10 @@ var PrefsWidget = class PrefsWidget {
       'show-favourite-apps-switch': {
         'settingKey': 'show-favourite-apps',
         'bindProperty': 'active'
+      },
+      'logging-enabled-switch': {
+        'settingKey': 'logging-enabled',
+        'bindProperty': 'active'
       }
     }
 
