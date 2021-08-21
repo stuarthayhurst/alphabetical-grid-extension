@@ -21,5 +21,10 @@
       <summary>Show favourite apps on the app grid</summary>
       <description>Allows displaying the favourite apps on the app grid (GNOME 40+)</description>
     </key>
+    <key name="logging-enabled" type="b">
+      <default>false</default>
+      <summary>Enable extension logging</summary>
+      <description>Allow the extension to send messages to the system logs</description>
+    </key>
   </schema>
 </schemalist>
