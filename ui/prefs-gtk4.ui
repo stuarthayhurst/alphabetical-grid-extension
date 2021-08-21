@@ -207,18 +207,24 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="margin-start">2</property>
-                <property name="margin-top">4</property>
-                <property name="margin-bottom">6</property>
+                <property name="margin-top">12</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkLabel" id="settings-title">
-                    <property name="label" translatable="yes">General settings</property>
-                    <property name="xalign">0</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"></attribute>
-                      <attribute name="scale" value="1"></attribute>
-                    </attributes>
+                  <object class="GtkBox">
+                    <property name="margin-start">2</property>
+                    <property name="margin-top">4</property>
+                    <property name="margin-bottom">6</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel" id="settings-title">
+                        <property name="label" translatable="yes">General settings</property>
+                        <property name="xalign">0</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"></attribute>
+                          <attribute name="scale" value="1"></attribute>
+                        </attributes>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -326,18 +332,24 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="margin-start">2</property>
-                <property name="margin-top">16</property>
-                <property name="margin-bottom">6</property>
+                <property name="margin-top">12</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkLabel" id="dev-settings-title">
-                    <property name="label" translatable="yes">Developer settings</property>
-                    <property name="xalign">0</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"></attribute>
-                      <attribute name="scale" value="1"></attribute>
-                    </attributes>
+                  <object class="GtkBox">
+                    <property name="margin-start">2</property>
+                    <property name="margin-top">4</property>
+                    <property name="margin-bottom">6</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel" id="dev-settings-title">
+                        <property name="label" translatable="yes">Developer settings</property>
+                        <property name="xalign">0</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"></attribute>
+                          <attribute name="scale" value="1"></attribute>
+                        </attributes>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
