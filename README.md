@@ -40,10 +40,6 @@
   - sed (Translations)
   - libgtk-4-bin (GTK 4)
 
-## Create an extension bundle:
-  - `make build`
-  - For release, `make release` creates the bundle with updated translations
-
 ## Want to help?
   - To enable logging from the extension, set `debug` to `true` in `metadata.json`
   - ### Translations:
