@@ -119,9 +119,9 @@ class Extension {
   disconnectListeners() {
     this.shellSettings.disconnect(this.reorderSignal);
     this.shellSettings.disconnect(this.favouriteAppsSignal);
-    this.folderSettings.disconnect(this.foldersChangedSignal);
     this.extensionSettings.disconnect(this.settingsChangedSignal);
     AppSystem.disconnect(this.installedAppsChangedSignal);
+    this.folderSettings.disconnect(this.foldersChangedSignal);
 
     ExtensionHelper.logMessage(_('Disconnected from listeners'))
   }
