@@ -44,16 +44,20 @@ class Extension {
   constructor() {
     //Load gsettings values for GNOME Shell
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
+    //Load gsettings values for folders, to access 'folder-children'
+    this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
     //Load gsettings values for the extension itself
     this.extensionSettings = ExtensionUtils.getSettings();
     //Save original _compareItems
     this._originalCompareItems = AppDisplay._compareItems;
     //Store whether the shell function(s) are patched
     this.isShellPatched = false;
+    //Create a lock to prevent code fighting itself to change gsettings
+    this._currentlyUpdating = false;
   }
 
   reorderGrid() {
-    if (this.isShellPatched === false) {
+    if (!this.isShellPatched) {
       this._patchCompareItems();
     }
     ExtensionHelper.logMessage(_('Reloading app grid'));
@@ -64,13 +68,13 @@ class Extension {
   _patchCompareItems() {
     AppDisplay._compareItems = this._patchedCompareItems;
     ExtensionHelper.logMessage(_('Patched item comparison'));
-    this.isShellPatched == true;
+    this.isShellPatched = true;
   }
 
   unpatchCompareItems() {
     AppDisplay._compareItems = this._originalCompareItems;
     ExtensionHelper.logMessage(_('Unpatched item comparison'));
-    this.isShellPatched == false;
+    this.isShellPatched = false;
   }
 
   _patchedCompareItems(a, b) {
@@ -97,11 +101,21 @@ class Extension {
 
   startListeners() {
     this.waitForExternalReorder();
+    this.waitForFavouritesChange();
+    this.waitForSettingsChange();
+    //this.waitForInstalledAppsChange();
+    this.waitForFolderChange();
+
     ExtensionHelper.logMessage(_('Connected to listeners'))
   }
 
   disconnectListeners() {
     this.shellSettings.disconnect(this.reorderSignal);
+    this.shellSettings.disconnect(this.favouriteAppsSignal);
+    this.folderSettings.disconnect(this.foldersChangedSignal);
+    this.extensionSettings.disconnect(this.settingsChangedSignal);
+    //AppSystem.disconnect(this.installedAppsChangedSignal);
+
     ExtensionHelper.logMessage(_('Disconnected from listeners'))
   }
 
@@ -111,6 +125,29 @@ class Extension {
       this._checkUpdatingLock(_('App grid layout changed, triggering reorder'));
     });
   }
+
+  waitForFavouritesChange() {
+    //Connect to gsettings and wait for the favourite apps to change
+    this.favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
+      this._checkUpdatingLock(_('Favourite apps changed, triggering reorder'));
+    });
+  }
+
+  waitForSettingsChange() {
+    //Connect to gsettings and wait for the extension's settings to change
+    this.settingsChangedSignal = this.extensionSettings.connect('changed', () => {
+      ExtensionHelper.loggingEnabled = Me.metadata.debug || this.extensionSettings.get_boolean('logging-enabled');
+      this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
+    });
+  }
+
+  waitForFolderChange() {
+    //If a folder was made or deleted, trigger a reorder
+    this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
+      this._checkUpdatingLock(_('Folders changed, triggering reorder'));
+    });
+  }
+
 }
 
 class ExtensionOld {
