@@ -61,7 +61,6 @@ class Extension {
     function _patchedRedisplay() {
       //Call original redisplay code to handle added and removed items
       originalRedisplay.call(this);
-
       //Call patched redisplay code to reorder the items
       AppGridHelper.reloadAppGrid();
     }
