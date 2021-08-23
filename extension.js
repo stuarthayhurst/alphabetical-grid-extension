@@ -20,7 +20,7 @@ function init() {
 }
 
 function enable() {
-  //AppSystem = new Shell.AppSystem();
+  AppSystem = new Shell.AppSystem();
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
 
@@ -35,7 +35,7 @@ function disable() {
   gridReorder.disconnectListeners();
   gridReorder.unpatchShell();
 
-  //AppSystem = null;
+  AppSystem = null;
   gridReorder = null;
 }
 
@@ -110,7 +110,7 @@ class Extension {
     this.waitForExternalReorder();
     this.waitForFavouritesChange();
     this.waitForSettingsChange();
-    //this.waitForInstalledAppsChange();
+    this.waitForInstalledAppsChange();
     this.waitForFolderChange();
 
     ExtensionHelper.logMessage(_('Connected to listeners'))
@@ -121,7 +121,7 @@ class Extension {
     this.shellSettings.disconnect(this.favouriteAppsSignal);
     this.folderSettings.disconnect(this.foldersChangedSignal);
     this.extensionSettings.disconnect(this.settingsChangedSignal);
-    //AppSystem.disconnect(this.installedAppsChangedSignal);
+    AppSystem.disconnect(this.installedAppsChangedSignal);
 
     ExtensionHelper.logMessage(_('Disconnected from listeners'))
   }
@@ -155,6 +155,12 @@ class Extension {
     });
   }
 
+  waitForInstalledAppsChange() {
+    //Wait for installed apps to change
+    this.installedAppsChangedSignal = AppSystem.connect('installed-changed', () => {
+      this._checkUpdatingLock(_('Installed apps changed, triggering reorder'));
+    });
+  }
 }
 
 class ExtensionOld {
