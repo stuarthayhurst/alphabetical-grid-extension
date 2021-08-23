@@ -24,17 +24,16 @@ function enable() {
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
 
-  //Reorder initially, to provide an initial reorder, as well as apps not already taken care of
-  gridReorder.reorderGrid();
-
-  //Trigger all listeners for reorders and other operations
+  //Patch shell, reorder and trigger listeners
+  gridReorder.patchShell();
+  AppDisplay._redisplay();
   gridReorder.startListeners();
 }
 
 function disable() {
   //Disconnect from events and clean up
   gridReorder.disconnectListeners();
-  gridReorder.unpatchCompareItems();
+  gridReorder.unpatchShell();
 
   //AppSystem = null;
   gridReorder = null;
@@ -48,40 +47,48 @@ class Extension {
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
     //Load gsettings values for the extension itself
     this.extensionSettings = ExtensionUtils.getSettings();
-    //Save original _compareItems
+    //Save shell functions
     this._originalCompareItems = AppDisplay._compareItems;
-    //Store whether the shell function(s) are patched
-    this.isShellPatched = false;
+    this._originalRedisplay = AppDisplay._redisplay;
     //Create a lock to prevent code fighting itself to change gsettings
     this._currentlyUpdating = false;
   }
 
-  reorderGrid() {
-    if (!this.isShellPatched) {
-      this._patchCompareItems();
-    }
-    ExtensionHelper.logMessage(_('Reloading app grid'));
-    AppGridHelper.reloadAppGrid();
-    ExtensionHelper.logMessage(_('Reordered grid'));
-  }
+  patchShell() {
+    //Patched version of _redisplay() to apply custom order
+    //Delcared here for access to original function
+    let originalRedisplay = this._originalRedisplay;
+    function _patchedRedisplay() {
+      //Call original redisplay code to handle added and removed items
+      originalRedisplay.call(this);
 
-  _patchCompareItems() {
+      //Call patched redisplay code to reorder the items
+      AppGridHelper.reloadAppGrid();
+    }
+
     AppDisplay._compareItems = this._patchedCompareItems;
     ExtensionHelper.logMessage(_('Patched item comparison'));
-    this.isShellPatched = true;
+
+    AppDisplay._redisplay = _patchedRedisplay;
+    ExtensionHelper.logMessage(_('Patched redisplay'));
   }
 
-  unpatchCompareItems() {
+  unpatchShell() {
     AppDisplay._compareItems = this._originalCompareItems;
     ExtensionHelper.logMessage(_('Unpatched item comparison'));
-    this.isShellPatched = false;
+
+    AppDisplay._redisplay = this._originalRedisplay;
+    ExtensionHelper.logMessage(_('Unpatched redisplay'));
   }
 
+  //Patched version of _compareItems(), to apply custom order
   _patchedCompareItems(a, b) {
     let aName = a.name.toLowerCase();
     let bName = b.name.toLowerCase();
     return aName.localeCompare(bName);
   }
+
+  //Helper functions
 
   _checkUpdatingLock(logMessage) {
     //Detect lock to avoid multiple changes at once
@@ -91,7 +98,7 @@ class Extension {
       ExtensionHelper.logMessage(logMessage);
       //Wait a small amount of time to avoid clashing with animations
       GLib.timeout_add(GLib.PRIORITY_DEFAULT, 20, () => {
-        this.reorderGrid();
+        AppDisplay._redisplay();
         this._currentlyUpdating = false;
       });
     }
