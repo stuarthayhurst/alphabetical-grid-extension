@@ -20,7 +20,7 @@ function init() {
 }
 
 function enable() {
-  AppSystem = new Shell.AppSystem();
+  //AppSystem = new Shell.AppSystem();
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
 
@@ -34,12 +34,86 @@ function enable() {
 function disable() {
   //Disconnect from events and clean up
   gridReorder.disconnectListeners();
+  gridReorder.unpatchCompareItems();
 
-  AppSystem = null;
+  //AppSystem = null;
   gridReorder = null;
 }
 
 class Extension {
+  constructor() {
+    //Load gsettings values for GNOME Shell
+    this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
+    //Load gsettings values for the extension itself
+    this.extensionSettings = ExtensionUtils.getSettings();
+    //Save original _compareItems
+    this._originalCompareItems = AppDisplay._compareItems;
+    //Store whether the shell function(s) are patched
+    this.isShellPatched = false;
+  }
+
+  reorderGrid() {
+    if (this.isShellPatched === false) {
+      this._patchCompareItems();
+    }
+    ExtensionHelper.logMessage(_('Reloading app grid'));
+    AppGridHelper.reloadAppGrid();
+    ExtensionHelper.logMessage(_('Reordered grid'));
+  }
+
+  _patchCompareItems() {
+    AppDisplay._compareItems = this._patchedCompareItems;
+    ExtensionHelper.logMessage(_('Patched item comparison'));
+    this.isShellPatched == true;
+  }
+
+  unpatchCompareItems() {
+    AppDisplay._compareItems = this._originalCompareItems;
+    ExtensionHelper.logMessage(_('Unpatched item comparison'));
+    this.isShellPatched == false;
+  }
+
+  _patchedCompareItems(a, b) {
+    let aName = a.name.toLowerCase();
+    let bName = b.name.toLowerCase();
+    return aName.localeCompare(bName);
+  }
+
+  _checkUpdatingLock(logMessage) {
+    //Detect lock to avoid multiple changes at once
+    if (!this._currentlyUpdating) {
+      this._currentlyUpdating = true;
+
+      ExtensionHelper.logMessage(logMessage);
+      //Wait a small amount of time to avoid clashing with animations
+      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 20, () => {
+        this.reorderGrid();
+        this._currentlyUpdating = false;
+      });
+    }
+  }
+
+  //Listener functions below
+
+  startListeners() {
+    this.waitForExternalReorder();
+    ExtensionHelper.logMessage(_('Connected to listeners'))
+  }
+
+  disconnectListeners() {
+    this.shellSettings.disconnect(this.reorderSignal);
+    ExtensionHelper.logMessage(_('Disconnected from listeners'))
+  }
+
+  waitForExternalReorder() {
+    //Connect to gsettings and wait for the order to change
+    this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
+      this._checkUpdatingLock(_('App grid layout changed, triggering reorder'));
+    });
+  }
+}
+
+class ExtensionOld {
   constructor() {
     //Load gsettings values for GNOME Shell
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
