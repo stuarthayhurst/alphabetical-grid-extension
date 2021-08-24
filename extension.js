@@ -78,6 +78,7 @@ class Extension {
       return AppGridHelper.compareItems(a, b, folderPosition, folderArray);
     }
 
+    //Actually patch the internal functions
     AppDisplay._compareItems = _patchedCompareItems;
     ExtensionHelper.logMessage(_('Patched item comparison'));
 
@@ -86,6 +87,7 @@ class Extension {
   }
 
   unpatchShell() {
+    //Unpatch the internal functions for extension shutdown
     AppDisplay._compareItems = this._originalCompareItems;
     ExtensionHelper.logMessage(_('Unpatched item comparison'));
 
@@ -110,6 +112,7 @@ class Extension {
   }
 
   setShowFavouriteApps(targetState) {
+    //Declare locally for access
     let currentState = this._favouriteAppsShown;
     let shellSettings = this.shellSettings;
     let originalLoadApps = this._originalLoadApps;
