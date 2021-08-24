@@ -58,8 +58,9 @@ class Extension {
   }
 
   patchShell() {
+    //Patched functions delcared here for access to extension's variables
+
     //Patched version of _redisplay() to apply custom order
-    //Delcared here for access to original function
     let originalRedisplay = this._originalRedisplay;
     function _patchedRedisplay() {
       //Call original redisplay code to handle added and removed items
@@ -68,7 +69,16 @@ class Extension {
       AppGridHelper.reloadAppGrid();
     }
 
-    AppDisplay._compareItems = this._patchedCompareItems;
+    //Patched version of _compareItems(), to apply custom order
+    let extensionSettings = this.extensionSettings;
+    let folderSettings = this.folderSettings;
+    function _patchedCompareItems(a, b) {
+      let folderPosition = extensionSettings.get_string('folder-order-position');
+      let folderArray = folderSettings.get_value('folder-children').get_strv();
+      return AppGridHelper.compareItems(a, b, folderPosition, folderArray);
+    }
+
+    AppDisplay._compareItems = _patchedCompareItems;
     ExtensionHelper.logMessage(_('Patched item comparison'));
 
     AppDisplay._redisplay = _patchedRedisplay;
@@ -81,13 +91,6 @@ class Extension {
 
     AppDisplay._redisplay = this._originalRedisplay;
     ExtensionHelper.logMessage(_('Unpatched redisplay'));
-  }
-
-  //Patched version of _compareItems(), to apply custom order
-  _patchedCompareItems(a, b) {
-    let aName = a.name.toLowerCase();
-    let bName = b.name.toLowerCase();
-    return aName.localeCompare(bName);
   }
 
   //Helper functions
