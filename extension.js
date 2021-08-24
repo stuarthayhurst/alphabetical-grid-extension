@@ -102,7 +102,7 @@ class Extension {
 
       ExtensionHelper.logMessage(logMessage);
       //Wait a small amount of time to avoid clashing with animations
-      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 20, () => {
+      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
         AppDisplay._redisplay();
         this._currentlyUpdating = false;
       });
