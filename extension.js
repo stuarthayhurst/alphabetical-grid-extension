@@ -24,16 +24,16 @@ function enable() {
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
 
-  //Reorder initially, to provide an initial reorder, as well as apps not already taken care of
-  gridReorder.reorderGrid();
-
-  //Trigger all listeners for reorders and other operations
+  //Patch shell, reorder and trigger listeners
+  gridReorder.patchShell();
+  gridReorder._checkUpdatingLock(_('Reordering app grid'));
   gridReorder.startListeners();
 }
 
 function disable() {
   //Disconnect from events and clean up
   gridReorder.disconnectListeners();
+  gridReorder.unpatchShell();
 
   AppSystem = null;
   gridReorder = null;
@@ -45,61 +45,81 @@ class Extension {
     this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
-    //Array of signals connected to folder names
-    this.folderNameSignals = [];
-    //Array of gsettings connected to each folder
-    this.individualFolderSettings = [];
     //Load gsettings values for the extension itself
     this.extensionSettings = ExtensionUtils.getSettings();
-    //Create a lock to prevent code fighting itself to change gsettings
-    this._currentlyUpdating = false;
+    //Save original shell functions
+    this._originalCompareItems = AppDisplay._compareItems;
+    this._originalRedisplay = AppDisplay._redisplay;
+    this._originalLoadApps = AppDisplay._loadApps;
     //Save whether or not favourite apps are currently shown
     this._favouriteAppsShown = false;
-    //Save the original _loadApps function
-    this._originalLoadApps = AppDisplay._loadApps;
+    //Create a lock to prevent code fighting itself to change gsettings
+    this._currentlyUpdating = false;
   }
 
-  reorderGrid() {
-    //Alphabetically order the contents of each folder, if enabled
-    if (this.extensionSettings.get_boolean('sort-folder-contents')) {
-      ExtensionHelper.logMessage(_('Reordering folder contents'));
-      AppGridHelper.reorderFolderContents();
+  patchShell() {
+    //Patched functions delcared here for access to extension's variables
+
+    //Patched version of _redisplay() to apply custom order
+    let originalRedisplay = this._originalRedisplay;
+    function _patchedRedisplay() {
+      //Call original redisplay code to handle added and removed items
+      originalRedisplay.call(this);
+      //Call patched redisplay code to reorder the items
+      AppGridHelper.reloadAppGrid();
     }
 
-    //Alphabetically order the grid
-    if (this.shellSettings.is_writable('app-picker-layout')) {
-      //Get the desired order of the grid, including folders
-      let folderPositionSetting = this.extensionSettings.get_string('folder-order-position');
-      let gridOrder = AppGridHelper.getGridOrder(folderPositionSetting);
-      this.shellSettings.set_value('app-picker-layout', new GLib.Variant('aa{sv}', gridOrder));
-
-      //Trigger a refresh of the app grid, if enabled and GNOME 3.38 is running
-      if (this.extensionSettings.get_boolean('auto-refresh-grid') && ShellVersion == 3.38) {
-        ExtensionHelper.logMessage(_('Automatic grid refresh enabled, refreshing grid'));
-        AppGridHelper.reloadAppGrid();
-      }
-
-      ExtensionHelper.logMessage(_('Reordered grid'));
-    } else {
-      ExtensionHelper.logMessage(_('org.gnome.shell app-picker-layout is unwritable, skipping reorder'));
+    //Patched version of _compareItems(), to apply custom order
+    let extensionSettings = this.extensionSettings;
+    let folderSettings = this.folderSettings;
+    function _patchedCompareItems(a, b) {
+      let folderPosition = extensionSettings.get_string('folder-order-position');
+      let folderArray = folderSettings.get_value('folder-children').get_strv();
+      return AppGridHelper.compareItems(a, b, folderPosition, folderArray);
     }
+
+    //Actually patch the internal functions
+    AppDisplay._compareItems = _patchedCompareItems;
+    ExtensionHelper.logMessage(_('Patched item comparison'));
+
+    AppDisplay._redisplay = _patchedRedisplay;
+    ExtensionHelper.logMessage(_('Patched redisplay'));
   }
+
+  unpatchShell() {
+    //Unpatch the internal functions for extension shutdown
+    AppDisplay._compareItems = this._originalCompareItems;
+    ExtensionHelper.logMessage(_('Unpatched item comparison'));
+
+    AppDisplay._redisplay = this._originalRedisplay;
+    ExtensionHelper.logMessage(_('Unpatched redisplay'));
+  }
+
+  //Helper functions
 
   _checkUpdatingLock(logMessage) {
     //Detect lock to avoid multiple changes at once
     if (!this._currentlyUpdating) {
       this._currentlyUpdating = true;
-
       ExtensionHelper.logMessage(logMessage);
+
+      //Alphabetically order the contents of each folder, if enabled
+      if (this.extensionSettings.get_boolean('sort-folder-contents')) {
+        ExtensionHelper.logMessage(_('Reordering folder contents'));
+        AppGridHelper.reorderFolderContents();
+      }
+
       //Wait a small amount of time to avoid clashing with animations
-      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 20, () => {
-        this.reorderGrid();
+      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+        //Redisplay the app grid and release the lock
+        AppDisplay._redisplay();
         this._currentlyUpdating = false;
       });
     }
   }
 
   setShowFavouriteApps(targetState) {
+    //Declare locally for access
     let currentState = this._favouriteAppsShown;
     let shellSettings = this.shellSettings;
     let originalLoadApps = this._originalLoadApps;
@@ -140,14 +160,14 @@ class Extension {
     this._checkUpdatingLock(_('Reordering app grid, due to favourite apps'));
   }
 
-  //Create listeners to trigger reorders of the grid and other actions when needed
+  //Listener functions below
 
   startListeners() {
     this.waitForExternalReorder();
     this.waitForFavouritesChange();
-    this.waitForFolderChange();
     this.waitForSettingsChange();
     this.waitForInstalledAppsChange();
+    this.waitForFolderChange();
 
     //Only needed on GNOME 40
     if (ShellVersion > 3.38) {
@@ -160,17 +180,13 @@ class Extension {
   disconnectListeners() {
     this.shellSettings.disconnect(this.reorderSignal);
     this.shellSettings.disconnect(this.favouriteAppsSignal);
-    this.folderSettings.disconnect(this.foldersChangedSignal);
     this.extensionSettings.disconnect(this.settingsChangedSignal);
     AppSystem.disconnect(this.installedAppsChangedSignal);
+    this.folderSettings.disconnect(this.foldersChangedSignal);
 
     //Disable showing the favourite apps on the app grid
+    this.extensionSettings.disconnect(this.showFavouritesSignal);
     this.setShowFavouriteApps(false);
-
-    //Only disconnect from folder renaming signals if they were connected
-    if (this.folderNameSignals.length) {
-      this.waitForFolderRename('disconnect');
-    }
 
     ExtensionHelper.logMessage(_('Disconnected from listeners'))
   }
@@ -179,54 +195,9 @@ class Extension {
     //Set initial state
     this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
     //Wait for show favourite apps to be toggled
-    this.settingsChangedSignal = this.extensionSettings.connect('changed::show-favourite-apps', () => {
+    this.showFavouritesSignal = this.extensionSettings.connect('changed::show-favourite-apps', () => {
       this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
     });
-  }
-
-  waitForFolderChange() {
-    //If a folder was made or deleted, trigger a reorder
-    this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
-      //Setup listener to trigger reorder when folders are renamed on GNOME 40+
-      //Each time folders update, the folders this connects to need to be refreshed
-      if (ShellVersion > 3.38) {
-        this.waitForFolderRename('reconnect');
-      }
-
-      this._checkUpdatingLock(_('Folders changed, triggering reorder'));
-    });
-
-    //Initially connect to folders to detect renaming
-    if (ShellVersion > 3.38) {
-      this.waitForFolderRename('reconnect');
-    }
-  }
-
-  waitForFolderRename(operation) {
-    if (operation == 'reconnect') {
-      this.waitForFolderRename('disconnect');
-      this.waitForFolderRename('connect');
-    } else if (operation == 'connect') {
-      let folderArray = this.folderSettings.get_value('folder-children').get_strv();
-      folderArray.forEach((folder, i) => {
-
-        this.individualFolderSettings[i] = Gio.Settings.new_with_path('org.gnome.desktop.app-folders.folder', '/org/gnome/desktop/app-folders/folders/' + folder + '/');
-
-        this.folderNameSignals.push(this.individualFolderSettings[i].connect('changed::name', () => {
-          this._checkUpdatingLock(_('Folder renamed, triggering reorder'));
-          //Reconnect to new folders after change
-          this.waitForFolderRename('reconnect');
-        }));
-      });
-    } else if (operation == 'disconnect') {
-      //Disconnect from signals
-      this.folderNameSignals.forEach((signal, i) => {
-        this.individualFolderSettings[i].disconnect(signal);
-      });
-
-      this.folderNameSignals = [];
-      this.individualFolderSettings = [];
-    }
   }
 
   waitForExternalReorder() {
@@ -251,11 +222,17 @@ class Extension {
     });
   }
 
+  waitForFolderChange() {
+    //If a folder was made or deleted, trigger a reorder
+    this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
+      this._checkUpdatingLock(_('Folders changed, triggering reorder'));
+    });
+  }
+
   waitForInstalledAppsChange() {
     //Wait for installed apps to change
     this.installedAppsChangedSignal = AppSystem.connect('installed-changed', () => {
       this._checkUpdatingLock(_('Installed apps changed, triggering reorder'));
     });
   }
-
 }
