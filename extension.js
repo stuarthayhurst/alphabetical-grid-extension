@@ -26,7 +26,7 @@ function enable() {
 
   //Patch shell, reorder and trigger listeners
   gridReorder.patchShell();
-  AppDisplay._redisplay();
+  gridReorder._checkUpdatingLock(_('Reordering app grid'));
   gridReorder.startListeners();
 }
 
