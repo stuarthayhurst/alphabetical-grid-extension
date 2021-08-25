@@ -26,7 +26,7 @@ function enable() {
 
   //Patch shell, reorder and trigger listeners
   gridReorder.patchShell();
-  gridReorder._checkUpdatingLock(_('Reordering app grid'));
+  gridReorder.reorderGrid(_('Reordering app grid'));
   gridReorder.startListeners();
 }
 
@@ -97,7 +97,7 @@ class Extension {
 
   //Helper functions
 
-  _checkUpdatingLock(logMessage) {
+  reorderGrid(logMessage) {
     //Detect lock to avoid multiple changes at once
     if (!this._currentlyUpdating) {
       this._currentlyUpdating = true;
@@ -157,7 +157,7 @@ class Extension {
     }
 
     //Trigger reorder with new changes
-    this._checkUpdatingLock(_('Reordering app grid, due to favourite apps'));
+    this.reorderGrid(_('Reordering app grid, due to favourite apps'));
   }
 
   //Listener functions below
@@ -203,14 +203,14 @@ class Extension {
   waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
     this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
-      this._checkUpdatingLock(_('App grid layout changed, triggering reorder'));
+      this.reorderGrid(_('App grid layout changed, triggering reorder'));
     });
   }
 
   waitForFavouritesChange() {
     //Connect to gsettings and wait for the favourite apps to change
     this.favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
-      this._checkUpdatingLock(_('Favourite apps changed, triggering reorder'));
+      this.reorderGrid(_('Favourite apps changed, triggering reorder'));
     });
   }
 
@@ -218,21 +218,21 @@ class Extension {
     //Connect to gsettings and wait for the extension's settings to change
     this.settingsChangedSignal = this.extensionSettings.connect('changed', () => {
       ExtensionHelper.loggingEnabled = Me.metadata.debug || this.extensionSettings.get_boolean('logging-enabled');
-      this._checkUpdatingLock(_('Extension gsettings values changed, triggering reorder'));
+      this.reorderGrid(_('Extension gsettings values changed, triggering reorder'));
     });
   }
 
   waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
-      this._checkUpdatingLock(_('Folders changed, triggering reorder'));
+      this.reorderGrid(_('Folders changed, triggering reorder'));
     });
   }
 
   waitForInstalledAppsChange() {
     //Wait for installed apps to change
     this.installedAppsChangedSignal = AppSystem.connect('installed-changed', () => {
-      this._checkUpdatingLock(_('Installed apps changed, triggering reorder'));
+      this.reorderGrid(_('Installed apps changed, triggering reorder'));
     });
   }
 }
