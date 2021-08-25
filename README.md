@@ -53,5 +53,12 @@
     - Make your changes and submit a pull request, where it'll shortly be reviewed
     - If any changes are requested, please make the changes and wait for it to be re-reviewed
 
+## Bug reporting / debugging:
+  - A log of what the extension is doing is very helpful for fixing issues
+  - The extension logs to the system logs when enabled, which can be accessed with `journalctl /usr/bin/gnome-shell`
+  - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
+  - To enable logging, the setting can be found under the `Developer settings` section of the extension's settings: ![Enable logging](docs/enable-logging.png)
+
+
 ### Screenshot:
 ![Extension](docs/screenshot.png)
