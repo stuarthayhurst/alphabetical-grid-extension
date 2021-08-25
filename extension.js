@@ -101,10 +101,17 @@ class Extension {
     //Detect lock to avoid multiple changes at once
     if (!this._currentlyUpdating) {
       this._currentlyUpdating = true;
-
       ExtensionHelper.logMessage(logMessage);
+
+      //Alphabetically order the contents of each folder, if enabled
+      if (this.extensionSettings.get_boolean('sort-folder-contents')) {
+        ExtensionHelper.logMessage(_('Reordering folder contents'));
+        AppGridHelper.reorderFolderContents();
+      }
+
       //Wait a small amount of time to avoid clashing with animations
       GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+        //Redisplay the app grid and release the lock
         AppDisplay._redisplay();
         this._currentlyUpdating = false;
       });
