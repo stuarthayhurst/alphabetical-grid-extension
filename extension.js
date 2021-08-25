@@ -20,7 +20,6 @@ function init() {
 }
 
 function enable() {
-  AppSystem = new Shell.AppSystem();
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
 
@@ -35,7 +34,6 @@ function disable() {
   gridReorder.disconnectListeners();
   gridReorder.unpatchShell();
 
-  AppSystem = null;
   gridReorder = null;
 }
 
@@ -181,7 +179,7 @@ class Extension {
     this.shellSettings.disconnect(this.reorderSignal);
     this.shellSettings.disconnect(this.favouriteAppsSignal);
     this.extensionSettings.disconnect(this.settingsChangedSignal);
-    AppSystem.disconnect(this.installedAppsChangedSignal);
+    Shell.AppSystem.disconnect(this.installedAppsChangedSignal);
     this.folderSettings.disconnect(this.foldersChangedSignal);
 
     //Disable showing the favourite apps on the app grid
@@ -231,7 +229,7 @@ class Extension {
 
   waitForInstalledAppsChange() {
     //Wait for installed apps to change
-    this.installedAppsChangedSignal = AppSystem.connect('installed-changed', () => {
+    this.installedAppsChangedSignal = Shell.AppSystem.connect('installed-changed', () => {
       this.reorderGrid(_('Installed apps changed, triggering reorder'));
     });
   }
