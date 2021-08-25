@@ -179,7 +179,7 @@ class Extension {
     this.shellSettings.disconnect(this.reorderSignal);
     this.shellSettings.disconnect(this.favouriteAppsSignal);
     this.extensionSettings.disconnect(this.settingsChangedSignal);
-    Shell.AppSystem.disconnect(this.installedAppsChangedSignal);
+    Shell.AppSystem.get_default().disconnect(this.installedAppsChangedSignal);
     this.folderSettings.disconnect(this.foldersChangedSignal);
 
     //Disable showing the favourite apps on the app grid
@@ -229,7 +229,7 @@ class Extension {
 
   waitForInstalledAppsChange() {
     //Wait for installed apps to change
-    this.installedAppsChangedSignal = Shell.AppSystem.connect('installed-changed', () => {
+    this.installedAppsChangedSignal = Shell.AppSystem.get_default().connect('installed-changed', () => {
       this.reorderGrid(_('Installed apps changed, triggering reorder'));
     });
   }
