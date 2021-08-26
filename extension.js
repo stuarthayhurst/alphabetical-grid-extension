@@ -158,75 +158,75 @@ class Extension {
   //Listener functions below
 
   startListeners() {
-    this.waitForExternalReorder();
-    this.waitForFavouritesChange();
-    this.waitForSettingsChange();
-    this.waitForInstalledAppsChange();
-    this.waitForFolderChange();
+    this._waitForExternalReorder();
+    this._waitForFavouritesChange();
+    this._waitForSettingsChange();
+    this._waitForInstalledAppsChange();
+    this._waitForFolderChange();
 
     //Only needed on GNOME 40
     if (ShellVersion > 3.38) {
-      this.handleShowFavouriteApps();
+      this._handleShowFavouriteApps();
     }
 
     ExtensionHelper.logMessage(_('Connected to listeners'))
   }
 
   disconnectListeners() {
-    this.shellSettings.disconnect(this.reorderSignal);
-    this.shellSettings.disconnect(this.favouriteAppsSignal);
-    this.extensionSettings.disconnect(this.settingsChangedSignal);
-    Shell.AppSystem.get_default().disconnect(this.installedAppsChangedSignal);
-    this.folderSettings.disconnect(this.foldersChangedSignal);
+    this.shellSettings.disconnect(this._reorderSignal);
+    this.shellSettings.disconnect(this._favouriteAppsSignal);
+    this.extensionSettings.disconnect(this._settingsChangedSignal);
+    Shell.AppSystem.get_default().disconnect(this._installedAppsChangedSignal);
+    this.folderSettings.disconnect(this._foldersChangedSignal);
 
     //Disable showing the favourite apps on the app grid
-    this.extensionSettings.disconnect(this.showFavouritesSignal);
+    this.extensionSettings.disconnect(this._showFavouritesSignal);
     this.setShowFavouriteApps(false);
 
     ExtensionHelper.logMessage(_('Disconnected from listeners'))
   }
 
-  handleShowFavouriteApps() {
+  _handleShowFavouriteApps() {
     //Set initial state
     this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
     //Wait for show favourite apps to be toggled
-    this.showFavouritesSignal = this.extensionSettings.connect('changed::show-favourite-apps', () => {
+    this._showFavouritesSignal = this.extensionSettings.connect('changed::show-favourite-apps', () => {
       this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
     });
   }
 
-  waitForExternalReorder() {
+  _waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
-    this.reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
+    this._reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
       this.reorderGrid(_('App grid layout changed, triggering reorder'));
     });
   }
 
-  waitForFavouritesChange() {
+  _waitForFavouritesChange() {
     //Connect to gsettings and wait for the favourite apps to change
-    this.favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
+    this._favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
       this.reorderGrid(_('Favourite apps changed, triggering reorder'));
     });
   }
 
-  waitForSettingsChange() {
+  _waitForSettingsChange() {
     //Connect to gsettings and wait for the extension's settings to change
-    this.settingsChangedSignal = this.extensionSettings.connect('changed', () => {
+    this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
       ExtensionHelper.loggingEnabled = Me.metadata.debug || this.extensionSettings.get_boolean('logging-enabled');
       this.reorderGrid(_('Extension gsettings values changed, triggering reorder'));
     });
   }
 
-  waitForFolderChange() {
+  _waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
-    this.foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
+    this._foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
       this.reorderGrid(_('Folders changed, triggering reorder'));
     });
   }
 
-  waitForInstalledAppsChange() {
+  _waitForInstalledAppsChange() {
     //Wait for installed apps to change
-    this.installedAppsChangedSignal = Shell.AppSystem.get_default().connect('installed-changed', () => {
+    this._installedAppsChangedSignal = Shell.AppSystem.get_default().connect('installed-changed', () => {
       this.reorderGrid(_('Installed apps changed, triggering reorder'));
     });
   }
