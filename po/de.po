@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-04 10:53+0200\n"
+"POT-Creation-Date: 2021-08-26 19:52+0100\n"
 "PO-Revision-Date: 2021-08-04 10:55+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
@@ -18,77 +18,79 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: extension.js:61
+#: extension.js:28
+#, fuzzy
+#| msgid "Reordered grid"
+msgid "Reordering app grid"
+msgstr "Raster wurde neu geordnet"
+
+#: extension.js:81
+msgid "Patched item comparison"
+msgstr ""
+
+#: extension.js:84
+msgid "Patched redisplay"
+msgstr ""
+
+#: extension.js:90
+msgid "Unpatched item comparison"
+msgstr ""
+
+#: extension.js:93
+msgid "Unpatched redisplay"
+msgstr ""
+
+#: extension.js:106
 msgid "Reordering folder contents"
 msgstr "Ordnerinhalt wird neu geordnet"
 
-#: extension.js:74
-msgid "Automatic grid refresh enabled, refreshing grid"
-msgstr ""
-"Automatische Anwendungsraster-Aktualisierung aktiviert, Raster wird "
-"aktualisiert"
-
-#: extension.js:78
-msgid "Reordered grid"
-msgstr "Raster wurde neu geordnet"
-
-#: extension.js:80
-msgid "org.gnome.shell app-picker-layout is unwritable, skipping reorder"
-msgstr ""
-"org.gnome.shell app-picker-layout ist nicht schreibbar, Neuordnung wird "
-"übersprungen"
-
-#: extension.js:117
+#: extension.js:139
 msgid "Favourite apps are already shown"
 msgstr "Favorisierte Anwendungen werden bereits angezeigt"
 
-#: extension.js:119
+#: extension.js:141
 msgid "Favourite apps are already hidden"
 msgstr "Favorisierte Anwendungen werden bereits versteckt"
 
-#: extension.js:124
+#: extension.js:146
 msgid "Showing favourite apps on the app grid"
 msgstr "Favorisierte Anwendungen werden im Raster angezeigt"
 
-#: extension.js:129
+#: extension.js:149
 msgid "Hiding favourite apps on the app grid"
 msgstr "Favorisierte Anwendungen werden im Raster versteckt"
 
-#: extension.js:136
+#: extension.js:155
 msgid "Reordering app grid, due to favourite apps"
 msgstr ""
 "Anwendungsraster wird aufgrund der favorisierten Anwendungen neu geordnet"
 
-#: extension.js:153
+#: extension.js:172
 msgid "Connected to listeners"
 msgstr "Mit Listenern verbunden"
 
-#: extension.js:171
+#: extension.js:186
 msgid "Disconnected from listeners"
 msgstr "Von Listenern getrennt"
 
-#: extension.js:186
-msgid "Folders changed, triggering reorder"
-msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
-
-#: extension.js:204
-msgid "Folder renamed, triggering reorder"
-msgstr "Ordner wurde umbenannt, Neuordnung wird ausgelöst"
-
-#: extension.js:221
+#: extension.js:201
 msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
-#: extension.js:228
+#: extension.js:208
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:235
+#: extension.js:216
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "gsettings-Werte der Erweiterung wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:242
+#: extension.js:223
+msgid "Folders changed, triggering reorder"
+msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
+
+#: extension.js:230
 msgid "Installed apps changed, triggering reorder"
 msgstr "Installierte Anwendungen wurden geändert, Neuordnung wird ausgelöst"
 
@@ -138,54 +140,7 @@ msgctxt "folder-position"
 msgid "End"
 msgstr "Ende"
 
-#: ui/prefs-gtk4.ui:39 ui/prefs.ui:50
-msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
-msgstr ""
-"Legt fest, ob favorisierte Anwendungen im Anwendungsraster angezeigt werden "
-"sollen (GNOME 40+)"
-
-#: ui/prefs-gtk4.ui:53 ui/prefs.ui:69
-msgctxt "setting-name"
-msgid "Show favourite apps on the app grid"
-msgstr "Favorisierte Anwendungen im Raster anzeigen"
-
-#: ui/prefs-gtk4.ui:86 ui/prefs.ui:121
-msgctxt "setting-tooltip"
-msgid "Whether the contents of folders should be sorted alphabetically"
-msgstr ""
-"Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
-
-#: ui/prefs-gtk4.ui:100 ui/prefs.ui:140
-msgctxt "setting-name"
-msgid "Sort folder contents"
-msgstr "Ordnerinhalt sortieren"
-
-#: ui/prefs-gtk4.ui:129 ui/prefs.ui:191
-msgid "Where to place folders when ordering the applications grid"
-msgstr ""
-"Legt fest, an welcher Stelle Ordner im Anwendungsraster angezeigt werden "
-"sollen"
-
-#: ui/prefs-gtk4.ui:143 ui/prefs.ui:210
-msgctxt "setting-name"
-msgid "Position of ordered folders"
-msgstr "Ordnerposition"
-
-#: ui/prefs-gtk4.ui:178 ui/prefs.ui:267
-msgid "Allows displaying the alphabetical order without reloading GNOME Shell"
-msgstr ""
-"Ermöglicht die alphabetische Sortierung ohne einen Neustart der GNOME Shell"
-
-#: ui/prefs-gtk4.ui:192 ui/prefs.ui:286
-msgctxt "setting-name"
-msgid "Automatically refresh the app grid"
-msgstr "Anwendungsraster automatisch aktualisieren"
-
-#: ui/prefs-gtk4.ui:227 ui/prefs.ui:341
-msgid "General settings"
-msgstr "Allgemeine Einstellungen"
-
-#: ui/prefs-gtk4.ui:249 ui/prefs.ui:372
+#: ui/prefs-gtk4.ui:41 ui/prefs.ui:53
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
@@ -195,6 +150,59 @@ msgstr ""
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
 "\">Eine Spende wäre nett :)</a>"
 
-#: ui/prefs-gtk4.ui:273 ui/prefs.ui:407
+#: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
 msgid "GNOME 40+ settings"
 msgstr "Einstellungen für GNOME 40+"
+
+#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
+msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
+msgstr ""
+"Legt fest, ob favorisierte Anwendungen im Anwendungsraster angezeigt werden "
+"sollen (GNOME 40+)"
+
+#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
+msgctxt "setting-name"
+msgid "Show favourite apps on the app grid"
+msgstr "Favorisierte Anwendungen im Raster anzeigen"
+
+#: ui/prefs-gtk4.ui:144 ui/prefs.ui:221
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+#: ui/prefs-gtk4.ui:162 ui/prefs.ui:257
+msgctxt "setting-tooltip"
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr ""
+"Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
+
+#: ui/prefs-gtk4.ui:176 ui/prefs.ui:276
+msgctxt "setting-name"
+msgid "Sort folder contents"
+msgstr "Ordnerinhalt sortieren"
+
+#: ui/prefs-gtk4.ui:206 ui/prefs.ui:327
+msgid "Where to place folders when ordering the applications grid"
+msgstr ""
+"Legt fest, an welcher Stelle Ordner im Anwendungsraster angezeigt werden "
+"sollen"
+
+#: ui/prefs-gtk4.ui:220 ui/prefs.ui:346
+msgctxt "setting-name"
+msgid "Position of ordered folders"
+msgstr "Ordnerposition"
+
+#: ui/prefs-gtk4.ui:269 ui/prefs.ui:425
+#, fuzzy
+#| msgid "General settings"
+msgid "Developer settings"
+msgstr "Allgemeine Einstellungen"
+
+#: ui/prefs-gtk4.ui:287 ui/prefs.ui:461
+msgctxt "setting-tooltip"
+msgid "Allow the extension to send messages to the system logs"
+msgstr ""
+
+#: ui/prefs-gtk4.ui:301 ui/prefs.ui:480
+msgctxt "setting-name"
+msgid "Enable extension logging"
+msgstr ""
