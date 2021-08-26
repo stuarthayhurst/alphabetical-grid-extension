@@ -122,11 +122,11 @@ class Extension {
     let shellSettings = this.shellSettings;
     let originalLoadApps = this._originalLoadApps;
 
-    //Wrapper for _loadApps() to not remove favourite apps
-    function patchedLoadApps() {
+    //Monkey-patched wrapper for _loadApps() to not remove favourite apps
+    function _patchedLoadApps() {
       let originalIsFavorite = AppDisplay._appFavorites.isFavorite;
 
-      //Temporarily disable the code's ability to detect a favourite app
+      //Temporarily disable the shell's ability to detect a favourite app
       AppDisplay._appFavorites.isFavorite = function () { return false; };
       let appList = originalLoadApps.call(this);
       AppDisplay._appFavorites.isFavorite = originalIsFavorite;
@@ -140,19 +140,16 @@ class Extension {
       } else {
         ExtensionHelper.logMessage(_('Favourite apps are already hidden'));
       }
-
       return;
-    } else if (targetState) { //Hide favourite apps, by patching _loadApps()
+
+    } else if (targetState) { //Show favourite apps, by patching _loadApps()
       ExtensionHelper.logMessage(_('Showing favourite apps on the app grid'));
       AppDisplay._loadApps = patchedLoadApps;
-
-      this._favouriteAppsShown = true;
     } else { //Hide favourite apps, by restoring _loadApps()
       ExtensionHelper.logMessage(_('Hiding favourite apps on the app grid'));
       AppDisplay._loadApps = originalLoadApps;
-
-      this._favouriteAppsShown = false;
     }
+    this._favouriteAppsShown = targetState;
 
     //Trigger reorder with new changes
     this.reorderGrid(_('Reordering app grid, due to favourite apps'));
