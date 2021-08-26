@@ -30,8 +30,6 @@ var PrefsWidget = class PrefsWidget {
     //Disable GNOME 40+ settings on GNOME 3.38
     if (ShellVersion < 40) {
       this._builder.get_object('gnome40-box').set_sensitive(false);
-    } else {
-      this._builder.get_object('gnome38-box').set_sensitive(false);
     }
 
     this.settingElements = {
@@ -42,10 +40,6 @@ var PrefsWidget = class PrefsWidget {
       'folder-order-dropdown': {
         'settingKey': 'folder-order-position',
         'bindProperty': 'active-id'
-      },
-      'refresh-grid-switch': {
-        'settingKey': 'auto-refresh-grid',
-        'bindProperty': 'active'
       },
       'show-favourite-apps-switch': {
         'settingKey': 'show-favourite-apps',
