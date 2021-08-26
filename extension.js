@@ -144,7 +144,7 @@ class Extension {
 
     } else if (targetState) { //Show favourite apps, by patching _loadApps()
       ExtensionHelper.logMessage(_('Showing favourite apps on the app grid'));
-      AppDisplay._loadApps = patchedLoadApps;
+      AppDisplay._loadApps = _patchedLoadApps;
     } else { //Hide favourite apps, by restoring _loadApps()
       ExtensionHelper.logMessage(_('Hiding favourite apps on the app grid'));
       AppDisplay._loadApps = originalLoadApps;
