@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-26 19:52+0100\n"
-"PO-Revision-Date: 2021-08-03 17:43+0200\n"
+"PO-Revision-Date: 2021-08-27 14:29+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -19,26 +19,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: extension.js:28
-#, fuzzy
-#| msgid "Reordered grid"
 msgid "Reordering app grid"
-msgstr "Het rooster is herorderd"
+msgstr "Bezig met herordenen…"
 
 #: extension.js:81
 msgid "Patched item comparison"
-msgstr ""
+msgstr "Verschil tussen gepatchte items"
 
 #: extension.js:84
 msgid "Patched redisplay"
-msgstr ""
+msgstr "Patches toepassen op toepassingsoverzicht"
 
 #: extension.js:90
 msgid "Unpatched item comparison"
-msgstr ""
+msgstr "Verschil tussen ongepatchte items"
 
 #: extension.js:93
 msgid "Unpatched redisplay"
-msgstr ""
+msgstr "Ongepatchte items toepassen op toepassingsoverzicht"
 
 #: extension.js:106
 msgid "Reordering folder contents"
@@ -188,17 +186,15 @@ msgid "Position of ordered folders"
 msgstr "Positie van geordende mappen"
 
 #: ui/prefs-gtk4.ui:269 ui/prefs.ui:425
-#, fuzzy
-#| msgid "General settings"
 msgid "Developer settings"
-msgstr "Algemene voorkeuren"
+msgstr "Ontwikkelaarsvoorkeuren"
 
 #: ui/prefs-gtk4.ui:287 ui/prefs.ui:461
 msgctxt "setting-tooltip"
 msgid "Allow the extension to send messages to the system logs"
-msgstr ""
+msgstr "Laat de extensie een logboek aanleggen met daarin alle uitvoer"
 
 #: ui/prefs-gtk4.ui:301 ui/prefs.ui:480
 msgctxt "setting-name"
 msgid "Enable extension logging"
-msgstr ""
+msgstr "Logboek aanleggen"
