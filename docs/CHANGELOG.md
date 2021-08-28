@@ -1,5 +1,16 @@
 ## Changelog:
 
+### v12: - `2021-08-28`
+ - General code, build system and README improvements
+ - Added setting to toggle logging (Previously the metadata had to be modified)
+ - Added debugging section to README
+ - Added GNOME 41 support
+ - Fixed some unnecessary features not being disabled on GNOME 3.38
+ - Fixed greyed out UI elements only being partially greyed out
+ - Fixed shell crashing if apps were moved out of a folder and into the same folder as the source (#29)
+ - Fixed shell crashing randomly when apps are installed / reduce frequency (I couldn't reliably reproduce it to troubleshoot properly)
+ - Restructured Glade .ui files
+
 ### v11: - `2021-08-04`
  - Hotfix: Correct code for upload to GNOME Extensions website
 
