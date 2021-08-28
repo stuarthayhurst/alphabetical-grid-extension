@@ -1,7 +1,7 @@
 SHELL=bash
 UUID=AlphabeticalAppGrid@stuarthayhurst
 
-.PHONY: build package check release translations gtk4 install uninstall clean
+.PHONY: build package check release translations gtk4 prune install uninstall clean
 
 build:
 	glib-compile-schemas schemas
@@ -19,6 +19,7 @@ check:
 release:
 	$(MAKE) gtk4
 	$(MAKE) translations
+	$(MAKE) prune
 	$(MAKE) build
 	$(MAKE) check
 translations:
@@ -26,6 +27,9 @@ translations:
 	./scripts/update-po.sh -a
 gtk4:
 	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
+prune:
+	./clean-svgs.py
+	optipng -o7 -strip all docs/*.png
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
