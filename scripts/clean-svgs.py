@@ -8,15 +8,6 @@ buildDir = "docs"
 et = et.ElementTree()
 targetNamespaces = ["{http://www.inkscape.org/namespaces/inkscape}"]
 
-def getResolutionDirs(searchPath):
-  #Generate a list of directories matching searchPath/*x*
-  resolutionDirs = []
-  for directory in glob.glob(searchPath + "/*x*"):
-    directory = directory.replace(searchPath + "/", "")
-    if os.path.isdir(searchPath + "/" + directory):
-      resolutionDirs.append(directory)
-  resolutionDirs.append("scalable")
-
 def cleanFile(inputFile):
   #Find metadata tag in document
   root = et.parse(inputFile)
