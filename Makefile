@@ -29,7 +29,7 @@ translations:
 gtk4:
 	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
 prune:
-	./clean-svgs.py
+	./scripts/clean-svgs.py
 compress:
 	optipng -o7 -strip all docs/*.png
 install:

@@ -41,8 +41,13 @@ def cleanFile(inputFile):
 
   et.write(inputFile)
 
-#Loop through all svgs
-for file in glob.glob(f"{buildDir}/*.svg"):
+svgFiles = glob.glob(f"{buildDir}/*.svg")
+if svgFiles == []:
+  print("No svg files found to clean")
+  exit(1)
+
+#Loop through all svgs and optimise
+for file in svgFiles:
   cleanFile(file)
 
 print("Cleaned all files")
