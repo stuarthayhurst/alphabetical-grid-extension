@@ -25,6 +25,7 @@
   - `make release`: Updates translations and creates extension zip
   - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
   - `make prune`: Removes rubbish from any .svgs in `docs/`
+  - `make compress`: Losslessly compresses any .pngs in `docs/`
   - `make gtk4`: Creates a GTK 4 UI from the GTK 3 UI file
   - `make translations`: Updates translations
   - `make install`: Installs the extension
