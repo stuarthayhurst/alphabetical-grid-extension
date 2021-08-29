@@ -3,8 +3,7 @@ name: Complete build system test
 
 on:
   push:
-    branches:
-      - '**'
+    branches: '**'
   pull_request:
     branches: '**'
 
@@ -19,7 +18,7 @@ jobs:
         python-version: 3.9
     - name: Install build dependencies
       run: |
-        sudo apt install git make optipng gnome-shell libglib2.0-bin libgtk-4-bin
+        sudo apt install git make optipng gnome-shell libglib2.0-bin
     - name: Check assets are optimised and no extra files have been committed
       run: |
         # Check all assets are space optimised
