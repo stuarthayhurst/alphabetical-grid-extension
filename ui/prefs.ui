@@ -126,7 +126,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes">Allows displaying the favourite apps on the app grid (GNOME 40+)</property>
+                    <property name="tooltip-text" translatable="yes">Allows displaying the favourite apps on the app grid</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
