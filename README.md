@@ -45,7 +45,8 @@
   - optipng (Icons / images)
 
 ## Want to help?
-  - To enable logging from the extension, set `debug` to `true` in `metadata.json`
+  - To enable logging from the extension, follow the instructions in the next section
+  - Alternatively, set `debug` to `true` in `metadata.json`, build and install the extension
   - ### Translations:
     - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
     - `.po` files can be found in `po/`
