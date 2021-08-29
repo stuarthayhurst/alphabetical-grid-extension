@@ -17,7 +17,8 @@ cd "$( cd "$( dirname "$0" )" && pwd )/.." || \
 
 #Update the template file with the strings from the source tree
 echo "Generating 'messages.pot'..."
-xgettext --from-code=UTF-8 \
+xgettext --keyword=C_:1c,2 \
+         --from-code=UTF-8 \
          --add-comments=Translators \
          --copyright-holder="Stuart Hayhurst" \
          --package-name="alphabetical-grid-extension" \
