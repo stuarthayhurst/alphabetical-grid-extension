@@ -37,6 +37,3 @@ jobs:
     - name: Test extension installs
       run: |
         make install
-    - name: Test extension uninstalls
-      run: |
-        make uninstall
