@@ -36,7 +36,7 @@ msgstr "Itemvergleich-Methode entpatched"
 
 #: extension.js:93
 msgid "Unpatched redisplay"
-msgstr "Redisplay-Methode entpatched"
+msgstr ""
 
 #: extension.js:106
 msgid "Reordering folder contents"
