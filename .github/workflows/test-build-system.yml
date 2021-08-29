@@ -18,6 +18,7 @@ jobs:
         python-version: 3.9
     - name: Install build dependencies
       run: |
+        sudo apt update
         sudo apt install git make optipng gnome-shell libglib2.0-bin
     - name: Check assets are optimised and no extra files have been committed
       run: |
