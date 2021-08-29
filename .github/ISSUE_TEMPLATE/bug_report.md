@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Create a bug report to help improve the extension
-title: "[BUG]"
+title: "[Bug] ..."
 labels: bug
 assignees: ''
 
@@ -30,4 +30,4 @@ Help on obtaining a log can be found [here](https://github.com/stuarthayhurst/al
  - Extension version (Run `gnome-extensions info AlphabeticalAppGrid@stuarthayhurst |grep Version`)
 
 **Additional context**
-Add any other context about the problem here.
+Add any other context about the problem here
