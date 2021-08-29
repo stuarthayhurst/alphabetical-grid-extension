@@ -83,18 +83,22 @@ class Extension {
 
     //Actually patch the internal functions
     AppDisplay._compareItems = _patchedCompareItems;
+    //Translators: The extension now uses its own method to compare the items in the app grid.
     ExtensionHelper.logMessage(Gettext.pgettext('log-message','Patched item comparison'));
 
     AppDisplay._redisplay = _patchedRedisplay;
+    //Translators: The extension now uses its own method to display the items in the app grid.
     ExtensionHelper.logMessage(Gettext.pgettext('log-message','Patched redisplay'));
   }
 
   unpatchShell() {
     //Unpatch the internal functions for extension shutdown
     AppDisplay._compareItems = this._originalCompareItems;
+    //Translators: The extension now uses the system method to compare the items in the app grid.
     ExtensionHelper.logMessage(Gettext.pgettext('log-message','Unpatched item comparison'));
 
     AppDisplay._redisplay = this._originalRedisplay;
+    //Translators: The extension now uses the system method to display the items in the app grid.
     ExtensionHelper.logMessage(Gettext.pgettext('log-message','Unpatched redisplay'));
   }
 

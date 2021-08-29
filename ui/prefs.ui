@@ -11,15 +11,15 @@
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes" context="folder-position">Alphabetical</col>
+        <col id="0" translatable="yes" context="folder-position" comments="Folders will appear in alphabetical order, mixed with applications.">Alphabetical</col>
         <col id="1">alphabetical</col>
       </row>
       <row>
-        <col id="0" translatable="yes" context="folder-position">Start</col>
+        <col id="0" translatable="yes" context="folder-position" comments="Folders will appear at the beginning of the app grid, in front of the other apps.">Start</col>
         <col id="1">start</col>
       </row>
       <row>
-        <col id="0" translatable="yes" context="folder-position">End</col>
+        <col id="0" translatable="yes" context="folder-position" comments="Folders will appear at the end of the app grid, behind the other apps.">End</col>
         <col id="1">end</col>
       </row>
     </data>
