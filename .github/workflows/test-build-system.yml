@@ -18,8 +18,8 @@ jobs:
         python-version: 3.9
     - name: Install build dependencies
       run: |
-        sudo apt update
-        sudo apt install --no-install-recommends git make optipng gettext gnome-shell libglib2.0-bin
+        sudo apt-get update
+        sudo apt-get install --no-install-recommends git make optipng gettext gnome-shell libglib2.0-bin
     - name: Check assets are optimised and no extra files have been committed
       run: |
         # Check all assets are space optimised
