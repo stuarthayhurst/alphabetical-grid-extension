@@ -9,16 +9,11 @@ const { GLib, Gio, Shell } = imports.gi;
 const Main = imports.ui.main;
 const ParentalControlsManager = imports.misc.parentalControlsManager;
 
-//Translation imports
-const Gettext = imports.gettext;
-Gettext.textdomain(Me.metadata.uuid);
-Gettext.bindtextdomain(Me.metadata.uuid, ExtensionSystem.extensionMeta[Me.metadata.uuid].path + "/locale");
-
-//Use C_() for translations
-const C_ = Gettext.pgettext;
-
 //Access required objects and systems
 const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
+
+//Use C_() for translations
+const C_ = imports.gettext.domain(Me.metadata.uuid).pgettext;
 
 function init() {
   ExtensionUtils.initTranslations();
