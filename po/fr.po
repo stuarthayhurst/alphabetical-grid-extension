@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-29 15:13+0100\n"
+"POT-Creation-Date: 2021-08-30 12:51+0200\n"
 "PO-Revision-Date: 2021-08-29 14:42+0200\n"
 "Last-Translator: Alan <Alan90000@yahoo.com>\n"
 "Language-Team: \n"
@@ -18,80 +18,138 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #: extension.js:28
+#, fuzzy
+#| msgid "Reordering app grid"
+msgctxt "log-message"
 msgid "Reordering app grid"
 msgstr "Réorganisation de la grille d'applications"
 
-#: extension.js:81
+#. Translators: The extension now uses its own method to compare the items in the app grid.
+#: extension.js:82
+#, fuzzy
+#| msgid "Patched item comparison"
+msgctxt "log-message"
 msgid "Patched item comparison"
 msgstr "Comparaison des éléments corrigés"
 
-#: extension.js:84
+#. Translators: The extension now uses its own method to display the items in the app grid.
+#: extension.js:86
+#, fuzzy
+#| msgid "Patched redisplay"
+msgctxt "log-message"
 msgid "Patched redisplay"
 msgstr "Réaffichage corrigé"
 
-#: extension.js:90
+#. Translators: The extension now uses the system method to compare the items in the app grid.
+#: extension.js:93
+#, fuzzy
+#| msgid "Unpatched item comparison"
+msgctxt "log-message"
 msgid "Unpatched item comparison"
 msgstr "Comparaison d'éléments non corrigés"
 
-#: extension.js:93
+#. Translators: The extension now uses the system method to display the items in the app grid.
+#: extension.js:97
+#, fuzzy
+#| msgid "Unpatched redisplay"
+msgctxt "log-message"
 msgid "Unpatched redisplay"
 msgstr "Réaffichage non corrigé"
 
-#: extension.js:106
+#: extension.js:110
+#, fuzzy
+#| msgid "Reordering folder contents"
+msgctxt "log-message"
 msgid "Reordering folder contents"
 msgstr "Réorganisation du contenu du dossier"
 
-#: extension.js:139
+#: extension.js:143
+#, fuzzy
+#| msgid "Favourite apps are already shown"
+msgctxt "log-message"
 msgid "Favourite apps are already shown"
 msgstr "Les applications préférées sont déjà affichées"
 
-#: extension.js:141
+#: extension.js:145
+#, fuzzy
+#| msgid "Favourite apps are already hidden"
+msgctxt "log-message"
 msgid "Favourite apps are already hidden"
 msgstr "Les applications préférées sont déjà masquées"
 
-#: extension.js:146
+#: extension.js:150
+#, fuzzy
+#| msgid "Showing favourite apps on the app grid"
+msgctxt "log-message"
 msgid "Showing favourite apps on the app grid"
 msgstr "Affichage des applications préférées sur la grille d'applications"
 
-#: extension.js:149
+#: extension.js:153
+#, fuzzy
+#| msgid "Hiding favourite apps on the app grid"
+msgctxt "log-message"
 msgid "Hiding favourite apps on the app grid"
 msgstr "Masquer les applications préférées sur la grille d'applications"
 
-#: extension.js:155
+#: extension.js:159
+#, fuzzy
+#| msgid "Reordering app grid, due to favourite apps"
+msgctxt "log-message"
 msgid "Reordering app grid, due to favourite apps"
 msgstr ""
 "Réorganisation de la grille d'applications, en raison des applications "
 "préférées"
 
-#: extension.js:172
+#: extension.js:176
+#, fuzzy
+#| msgid "Connected to listeners"
+msgctxt "log-message"
 msgid "Connected to listeners"
 msgstr "Connecté aux auditeurs"
 
-#: extension.js:186
+#: extension.js:190
+#, fuzzy
+#| msgid "Disconnected from listeners"
+msgctxt "log-message"
 msgid "Disconnected from listeners"
 msgstr "Déconnecté des auditeurs"
 
-#: extension.js:201
+#: extension.js:205
+#, fuzzy
+#| msgid "App grid layout changed, triggering reorder"
+msgctxt "log-message"
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 "La disposition de la grille d'applications a été modifiée, déclenchant la "
 "réorganisation"
 
-#: extension.js:208
+#: extension.js:212
+#, fuzzy
+#| msgid "Favourite apps changed, triggering reorder"
+msgctxt "log-message"
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Applications préférées modifiées, déclenchant une réorganisation"
 
-#: extension.js:216
+#: extension.js:220
+#, fuzzy
+#| msgid "Extension gsettings values changed, triggering reorder"
+msgctxt "log-message"
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "Les valeurs des paramètres d'extension ont changé, déclenchant la "
 "réorganisation"
 
-#: extension.js:223
+#: extension.js:227
+#, fuzzy
+#| msgid "Folders changed, triggering reorder"
+msgctxt "log-message"
 msgid "Folders changed, triggering reorder"
 msgstr "Les dossiers ont été modifiés, déclenchant la réorganisation"
 
-#: extension.js:230
+#: extension.js:234
+#, fuzzy
+#| msgid "Installed apps changed, triggering reorder"
+msgctxt "log-message"
 msgid "Installed apps changed, triggering reorder"
 msgstr ""
 "Les applications installées ont été modifiées, déclenchant une réorganisation"
@@ -127,22 +185,25 @@ msgstr "À propos de"
 msgid "Alphabetical App Grid Preferences"
 msgstr "Préférences de grille d'applications alphabétique"
 
+#. Folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
 msgctxt "folder-position"
 msgid "Alphabetical"
 msgstr "Alphabétique"
 
+#. Folders will appear at the beginning of the app grid, in front of the other apps.
 #: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
 msgctxt "folder-position"
 msgid "Start"
 msgstr "Démarrer"
 
+#. Folders will appear at the end of the app grid, behind the other apps.
 #: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
 msgctxt "folder-position"
 msgid "End"
 msgstr "Fin"
 
-#: ui/prefs-gtk4.ui:41 ui/prefs.ui:53
+#: ui/prefs-gtk4.ui:45 ui/prefs.ui:53
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
@@ -152,55 +213,57 @@ msgstr ""
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
 "\">Pensez à faire un don :)</a>"
 
-#: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
+#: ui/prefs-gtk4.ui:76 ui/prefs.ui:93
 msgid "GNOME 40+ settings"
 msgstr "Paramètres GNOME 40+"
 
-#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
-msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
+#: ui/prefs-gtk4.ui:94 ui/prefs.ui:129
+#, fuzzy
+#| msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
+msgid "Allows displaying the favourite apps on the app grid"
 msgstr ""
 "Permet d'afficher les applications préférées sur la grille d'applications "
 "(GNOME 40+)"
 
-#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
+#: ui/prefs-gtk4.ui:111 ui/prefs.ui:148
 msgctxt "setting-name"
 msgid "Show favourite apps on the app grid"
 msgstr "Afficher les applications préférées sur la grille d'applications"
 
-#: ui/prefs-gtk4.ui:144 ui/prefs.ui:221
+#: ui/prefs-gtk4.ui:158 ui/prefs.ui:221
 msgid "General settings"
 msgstr "Paramètres généraux"
 
-#: ui/prefs-gtk4.ui:162 ui/prefs.ui:257
+#: ui/prefs-gtk4.ui:176 ui/prefs.ui:257
 msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Si le contenu des dossiers doit être trié par ordre alphabétique"
 
-#: ui/prefs-gtk4.ui:176 ui/prefs.ui:276
+#: ui/prefs-gtk4.ui:193 ui/prefs.ui:276
 msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr "Trier le contenu du dossier"
 
-#: ui/prefs-gtk4.ui:206 ui/prefs.ui:327
+#: ui/prefs-gtk4.ui:222 ui/prefs.ui:327
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 "Où placer les dossiers lors de l'organisation de la grille d'applications"
 
-#: ui/prefs-gtk4.ui:220 ui/prefs.ui:346
+#: ui/prefs-gtk4.ui:239 ui/prefs.ui:346
 msgctxt "setting-name"
 msgid "Position of ordered folders"
 msgstr "Position des dossiers ordonnés"
 
-#: ui/prefs-gtk4.ui:269 ui/prefs.ui:425
+#: ui/prefs-gtk4.ui:293 ui/prefs.ui:425
 msgid "Developer settings"
 msgstr "Paramètres du développeur"
 
-#: ui/prefs-gtk4.ui:287 ui/prefs.ui:461
+#: ui/prefs-gtk4.ui:311 ui/prefs.ui:461
 msgctxt "setting-tooltip"
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Autoriser l'extension à envoyer des messages aux journaux système"
 
-#: ui/prefs-gtk4.ui:301 ui/prefs.ui:480
+#: ui/prefs-gtk4.ui:328 ui/prefs.ui:480
 msgctxt "setting-name"
 msgid "Enable extension logging"
 msgstr "Activer la journalisation des extensions"
