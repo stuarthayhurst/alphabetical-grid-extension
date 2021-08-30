@@ -15,7 +15,6 @@ Gettext.textdomain(Me.metadata.uuid);
 Gettext.bindtextdomain(Me.metadata.uuid, ExtensionSystem.extensionMeta[Me.metadata.uuid].path + "/locale");
 
 //Use _() for translations
-const _ = Gettext.gettext;
 const C_ = Gettext.pgettext;
 
 //Access required objects and systems
