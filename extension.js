@@ -12,8 +12,8 @@ const ParentalControlsManager = imports.misc.parentalControlsManager;
 //Access required objects and systems
 const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
 
-//Use C_() for translations
-const C_ = imports.gettext.domain(Me.metadata.uuid).pgettext;
+//Use _() for translations
+const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
 
 function init() {
   ExtensionUtils.initTranslations();
@@ -25,7 +25,7 @@ function enable() {
 
   //Patch shell, reorder and trigger listeners
   gridReorder.patchShell();
-  gridReorder.reorderGrid(C_('log-message', 'Reordering app grid'));
+  gridReorder.reorderGrid(_('Reordering app grid'));
   gridReorder.startListeners();
 }
 
@@ -79,22 +79,22 @@ class Extension {
     //Actually patch the internal functions
     AppDisplay._compareItems = _patchedCompareItems;
     //Translators: The extension now uses its own method to compare the items in the app grid.
-    ExtensionHelper.logMessage(C_('log-message', 'Patched item comparison'));
+    ExtensionHelper.logMessage(_('Patched item comparison'));
 
     AppDisplay._redisplay = _patchedRedisplay;
     //Translators: The extension now uses its own method to display the items in the app grid.
-    ExtensionHelper.logMessage(C_('log-message', 'Patched redisplay'));
+    ExtensionHelper.logMessage(_('Patched redisplay'));
   }
 
   unpatchShell() {
     //Unpatch the internal functions for extension shutdown
     AppDisplay._compareItems = this._originalCompareItems;
     //Translators: The extension now uses the system method to compare the items in the app grid.
-    ExtensionHelper.logMessage(C_('log-message', 'Unpatched item comparison'));
+    ExtensionHelper.logMessage(_('Unpatched item comparison'));
 
     AppDisplay._redisplay = this._originalRedisplay;
     //Translators: The extension now uses the system method to display the items in the app grid.
-    ExtensionHelper.logMessage(C_('log-message', 'Unpatched redisplay'));
+    ExtensionHelper.logMessage(_('Unpatched redisplay'));
   }
 
   //Helper functions
@@ -107,7 +107,7 @@ class Extension {
 
       //Alphabetically order the contents of each folder, if enabled
       if (this.extensionSettings.get_boolean('sort-folder-contents')) {
-        ExtensionHelper.logMessage(C_('log-message', 'Reordering folder contents'));
+        ExtensionHelper.logMessage(_('Reordering folder contents'));
         AppGridHelper.reorderFolderContents();
       }
 
@@ -140,23 +140,23 @@ class Extension {
 
     if (currentState == targetState) { //Do nothing if the current state and target state match
       if (currentState) {
-        ExtensionHelper.logMessage(C_('log-message', 'Favourite apps are already shown'));
+        ExtensionHelper.logMessage(_('Favourite apps are already shown'));
       } else {
-        ExtensionHelper.logMessage(C_('log-message', 'Favourite apps are already hidden'));
+        ExtensionHelper.logMessage(_('Favourite apps are already hidden'));
       }
       return;
 
     } else if (targetState) { //Show favourite apps, by patching _loadApps()
-      ExtensionHelper.logMessage(C_('log-message', 'Showing favourite apps on the app grid'));
+      ExtensionHelper.logMessage(_('Showing favourite apps on the app grid'));
       AppDisplay._loadApps = _patchedLoadApps;
     } else { //Hide favourite apps, by restoring _loadApps()
-      ExtensionHelper.logMessage(C_('log-message', 'Hiding favourite apps on the app grid'));
+      ExtensionHelper.logMessage(_('Hiding favourite apps on the app grid'));
       AppDisplay._loadApps = originalLoadApps;
     }
     this._favouriteAppsShown = targetState;
 
     //Trigger reorder with new changes
-    this.reorderGrid(C_('log-message', 'Reordering app grid, due to favourite apps'));
+    this.reorderGrid(_('Reordering app grid, due to favourite apps'));
   }
 
   //Listener functions below
@@ -173,7 +173,7 @@ class Extension {
       this._handleShowFavouriteApps();
     }
 
-    ExtensionHelper.logMessage(C_('log-message', 'Connected to listeners'))
+    ExtensionHelper.logMessage(_('Connected to listeners'))
   }
 
   disconnectListeners() {
@@ -187,7 +187,7 @@ class Extension {
     this.extensionSettings.disconnect(this._showFavouritesSignal);
     this.setShowFavouriteApps(false);
 
-    ExtensionHelper.logMessage(C_('log-message', 'Disconnected from listeners'))
+    ExtensionHelper.logMessage(_('Disconnected from listeners'))
   }
 
   _handleShowFavouriteApps() {
@@ -202,14 +202,14 @@ class Extension {
   _waitForExternalReorder() {
     //Connect to gsettings and wait for the order to change
     this._reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
-      this.reorderGrid(C_('log-message', 'App grid layout changed, triggering reorder'));
+      this.reorderGrid(_('App grid layout changed, triggering reorder'));
     });
   }
 
   _waitForFavouritesChange() {
     //Connect to gsettings and wait for the favourite apps to change
     this._favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
-      this.reorderGrid(C_('log-message', 'Favourite apps changed, triggering reorder'));
+      this.reorderGrid(_('Favourite apps changed, triggering reorder'));
     });
   }
 
@@ -217,21 +217,21 @@ class Extension {
     //Connect to gsettings and wait for the extension's settings to change
     this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
       ExtensionHelper.loggingEnabled = Me.metadata.debug || this.extensionSettings.get_boolean('logging-enabled');
-      this.reorderGrid(C_('log-message', 'Extension gsettings values changed, triggering reorder'));
+      this.reorderGrid(_('Extension gsettings values changed, triggering reorder'));
     });
   }
 
   _waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this._foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
-      this.reorderGrid(C_('log-message', 'Folders changed, triggering reorder'));
+      this.reorderGrid(_('Folders changed, triggering reorder'));
     });
   }
 
   _waitForInstalledAppsChange() {
     //Wait for installed apps to change
     this._installedAppsChangedSignal = Shell.AppSystem.get_default().connect('installed-changed', () => {
-      this.reorderGrid(C_('log-message', 'Installed apps changed, triggering reorder'));
+      this.reorderGrid(_('Installed apps changed, triggering reorder'));
     });
   }
 }
