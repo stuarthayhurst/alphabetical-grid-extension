@@ -22,26 +22,22 @@
     </data>
   </object>
   <object class="GtkBox" id="main-prefs">
-    <property name="can-focus">0</property>
     <property name="margin-top">12</property>
     <property name="margin-bottom">10</property>
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkGrid">
-        <property name="can-focus">0</property>
         <property name="margin-start">12</property>
         <property name="margin-end">12</property>
         <property name="column-homogeneous">1</property>
         <child>
           <object class="GtkBox" id="donate-box">
-            <property name="can-focus">0</property>
             <property name="valign">end</property>
             <property name="margin-top">4</property>
             <property name="vexpand">1</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="donate-prompt">
-                <property name="can-focus">0</property>
                 <property name="label" translatable="yes">Found this useful?
 &lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN&quot;&gt;Consider donating :)&lt;/a&gt;</property>
                 <property name="use-markup">1</property>
@@ -56,23 +52,19 @@
         </child>
         <child>
           <object class="GtkBox" id="gnome40-box">
-            <property name="can-focus">0</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="can-focus">0</property>
                 <property name="margin-top">12</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="can-focus">0</property>
                     <property name="margin-start">2</property>
                     <property name="margin-top">4</property>
                     <property name="margin-bottom">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="gnome40-settings-title">
-                        <property name="can-focus">0</property>
                         <property name="label" translatable="yes">GNOME 40+ settings</property>
                         <property name="xalign">0</property>
                         <attributes>
@@ -87,25 +79,22 @@
             </child>
             <child>
               <object class="GtkListBox" id="gnome40-settings">
-                <property name="can-focus">0</property>
                 <property name="selection-mode">none</property>
                 <child>
                   <object class="GtkListBoxRow">
+                    <property name="focusable">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Allows displaying the favourite apps on the app grid</property>
                     <property name="child">
                       <object class="GtkBox">
-                        <property name="can-focus">0</property>
                         <property name="margin-top">12</property>
                         <property name="margin-bottom">12</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="can-focus">0</property>
                             <property name="spacing">32</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="hexpand">1</property>
-                                <property name="can-focus">0</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
                                 <property name="label" translatable="yes">Show favourite apps on the app grid</property>
@@ -114,6 +103,7 @@
                             </child>
                             <child>
                               <object class="GtkSwitch" id="show-favourite-apps-switch">
+                                <property name="focusable">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-end">10</property>
                                 <property name="active">1</property>
@@ -138,23 +128,19 @@
         </child>
         <child>
           <object class="GtkBox" id="general-box">
-            <property name="can-focus">0</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="can-focus">0</property>
                 <property name="margin-top">12</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="can-focus">0</property>
                     <property name="margin-start">2</property>
                     <property name="margin-top">4</property>
                     <property name="margin-bottom">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="settings-title">
-                        <property name="can-focus">0</property>
                         <property name="label" translatable="yes">General settings</property>
                         <property name="xalign">0</property>
                         <attributes>
@@ -169,25 +155,22 @@
             </child>
             <child>
               <object class="GtkListBox" id="general-settings">
-                <property name="can-focus">0</property>
                 <property name="selection-mode">none</property>
                 <child>
                   <object class="GtkListBoxRow">
+                    <property name="focusable">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Whether the contents of folders should be sorted alphabetically</property>
                     <property name="child">
                       <object class="GtkBox">
-                        <property name="can-focus">0</property>
                         <property name="margin-top">12</property>
                         <property name="margin-bottom">12</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="can-focus">0</property>
                             <property name="spacing">32</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="hexpand">1</property>
-                                <property name="can-focus">0</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
                                 <property name="label" translatable="yes">Sort folder contents</property>
@@ -196,6 +179,7 @@
                             </child>
                             <child>
                               <object class="GtkSwitch" id="sort-folders-switch">
+                                <property name="focusable">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-end">10</property>
                                 <property name="active">1</property>
@@ -210,30 +194,27 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="sensitive">0</property>
+                    <property name="focusable">1</property>
                     <property name="child">
-                      <object class="GtkSeparator">
-                        <property name="can-focus">0</property>
-                      </object>
+                      <object class="GtkSeparator"/>
                     </property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkListBoxRow">
+                    <property name="focusable">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Where to place folders when ordering the applications grid</property>
                     <property name="child">
                       <object class="GtkBox">
-                        <property name="can-focus">0</property>
                         <property name="margin-top">12</property>
                         <property name="margin-bottom">12</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="can-focus">0</property>
                             <property name="spacing">32</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="hexpand">1</property>
-                                <property name="can-focus">0</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
                                 <property name="label" translatable="yes" comments="Next to a dropdown with the options &quot;Alphabetical&quot;, &quot;Start&quot; and &quot;End&quot;.">Position of ordered folders</property>
@@ -242,7 +223,6 @@
                             </child>
                             <child>
                               <object class="GtkComboBox" id="folder-order-dropdown">
-                                <property name="can-focus">0</property>
                                 <property name="margin-end">10</property>
                                 <property name="model">folder-positions</property>
                                 <property name="id-column">1</property>
@@ -273,23 +253,19 @@
         </child>
         <child>
           <object class="GtkBox" id="dev-box">
-            <property name="can-focus">0</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="can-focus">0</property>
                 <property name="margin-top">12</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="can-focus">0</property>
                     <property name="margin-start">2</property>
                     <property name="margin-top">4</property>
                     <property name="margin-bottom">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="dev-settings-title">
-                        <property name="can-focus">0</property>
                         <property name="label" translatable="yes">Developer settings</property>
                         <property name="xalign">0</property>
                         <attributes>
@@ -304,25 +280,22 @@
             </child>
             <child>
               <object class="GtkListBox" id="dev-settings">
-                <property name="can-focus">0</property>
                 <property name="selection-mode">none</property>
                 <child>
                   <object class="GtkListBoxRow">
+                    <property name="focusable">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Allow the extension to send messages to the system logs</property>
                     <property name="child">
                       <object class="GtkBox">
-                        <property name="can-focus">0</property>
                         <property name="margin-top">12</property>
                         <property name="margin-bottom">12</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="can-focus">0</property>
                             <property name="spacing">32</property>
                             <child>
                               <object class="GtkLabel">
                                 <property name="hexpand">1</property>
-                                <property name="can-focus">0</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
                                 <property name="label" translatable="yes">Enable extension logging</property>
@@ -331,6 +304,7 @@
                             </child>
                             <child>
                               <object class="GtkSwitch" id="logging-enabled-switch">
+                                <property name="focusable">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-end">10</property>
                                 <property name="active">1</property>
