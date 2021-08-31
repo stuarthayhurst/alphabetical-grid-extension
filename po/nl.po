@@ -1,4 +1,4 @@
-# <LANGUAGE> translation for the Alphabetical App Grid GNOME Shell Extension.
+# Dutch translation for the Alphabetical App Grid GNOME Shell Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-30 12:51+0200\n"
-"PO-Revision-Date: 2021-08-27 14:29+0200\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"POT-Creation-Date: 2021-08-31 13:30+0200\n"
+"PO-Revision-Date: 2021-08-31 13:26+0200\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -19,133 +19,79 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: extension.js:28
-#, fuzzy
-#| msgid "Reordering app grid"
-msgctxt "log-message"
 msgid "Reordering app grid"
 msgstr "Bezig met herordenen…"
 
-#. Translators: The extension now uses its own method to compare the items in the app grid.
+#. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
 #: extension.js:82
-#, fuzzy
-#| msgid "Patched item comparison"
-msgctxt "log-message"
 msgid "Patched item comparison"
 msgstr "Verschil tussen gepatchte items"
 
-#. Translators: The extension now uses its own method to display the items in the app grid.
+#. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
 #: extension.js:86
-#, fuzzy
-#| msgid "Patched redisplay"
-msgctxt "log-message"
 msgid "Patched redisplay"
 msgstr "Patches toepassen op toepassingsoverzicht"
 
-#. Translators: The extension now uses the system method to compare the items in the app grid.
+#. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
 #: extension.js:93
-#, fuzzy
-#| msgid "Unpatched item comparison"
-msgctxt "log-message"
 msgid "Unpatched item comparison"
 msgstr "Verschil tussen ongepatchte items"
 
-#. Translators: The extension now uses the system method to display the items in the app grid.
+#. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
 #: extension.js:97
-#, fuzzy
-#| msgid "Unpatched redisplay"
-msgctxt "log-message"
 msgid "Unpatched redisplay"
 msgstr "Ongepatchte items toepassen op toepassingsoverzicht"
 
 #: extension.js:110
-#, fuzzy
-#| msgid "Reordering folder contents"
-msgctxt "log-message"
 msgid "Reordering folder contents"
 msgstr "Bezig met herordenen…"
 
 #: extension.js:143
-#, fuzzy
-#| msgid "Favourite apps are already shown"
-msgctxt "log-message"
 msgid "Favourite apps are already shown"
 msgstr "Uw favoriete toepassingen worden al getoond"
 
 #: extension.js:145
-#, fuzzy
-#| msgid "Favourite apps are already hidden"
-msgctxt "log-message"
 msgid "Favourite apps are already hidden"
 msgstr "Uw favoriete toepassingen zijn al verborgen"
 
 #: extension.js:150
-#, fuzzy
-#| msgid "Showing favourite apps on the app grid"
-msgctxt "log-message"
 msgid "Showing favourite apps on the app grid"
 msgstr "Uw favoriete toepassingen worden getoond op het rooster"
 
 #: extension.js:153
-#, fuzzy
-#| msgid "Hiding favourite apps on the app grid"
-msgctxt "log-message"
 msgid "Hiding favourite apps on the app grid"
 msgstr "Uw favoriete toepassingen zijn verborgen van het rooster"
 
 #: extension.js:159
-#, fuzzy
-#| msgid "Reordering app grid, due to favourite apps"
-msgctxt "log-message"
 msgid "Reordering app grid, due to favourite apps"
 msgstr "De favoriete toepassingen worden toegevoegd - bezig met herordenen…"
 
 #: extension.js:176
-#, fuzzy
-#| msgid "Connected to listeners"
-msgctxt "log-message"
 msgid "Connected to listeners"
 msgstr "Verbonden met achtergronddienst"
 
 #: extension.js:190
-#, fuzzy
-#| msgid "Disconnected from listeners"
-msgctxt "log-message"
 msgid "Disconnected from listeners"
 msgstr "Verbinding verbroken met achtergronddienst"
 
 #: extension.js:205
-#, fuzzy
-#| msgid "App grid layout changed, triggering reorder"
-msgctxt "log-message"
 msgid "App grid layout changed, triggering reorder"
 msgstr "De toepassingsindeling is gewijzigd - bezig met herordenen…"
 
 #: extension.js:212
-#, fuzzy
-#| msgid "Favourite apps changed, triggering reorder"
-msgctxt "log-message"
 msgid "Favourite apps changed, triggering reorder"
 msgstr "De favoriete toepassingen zijn gewijzigd - bezig met herordenen…"
 
 #: extension.js:220
-#, fuzzy
-#| msgid "Extension gsettings values changed, triggering reorder"
-msgctxt "log-message"
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "De uitbreidingswaarden (gsettings) zijn aangepast - bezig met herordenen…"
 
 #: extension.js:227
-#, fuzzy
-#| msgid "Folders changed, triggering reorder"
-msgctxt "log-message"
 msgid "Folders changed, triggering reorder"
 msgstr "De mappen zijn gewijzigd - bezig met herordenen…"
 
 #: extension.js:234
-#, fuzzy
-#| msgid "Installed apps changed, triggering reorder"
-msgctxt "log-message"
 msgid "Installed apps changed, triggering reorder"
 msgstr "De geïnstalleerde toepassingen zijn gewijzigd - bezig met herordenen…"
 
@@ -180,21 +126,26 @@ msgstr "Over"
 msgid "Alphabetical App Grid Preferences"
 msgstr "Voorkeuren"
 
-#. Folders will appear in alphabetical order, mixed with applications.
+#. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
-msgctxt "folder-position"
 msgid "Alphabetical"
 msgstr "Alfabetisch"
 
-#. Folders will appear at the beginning of the app grid, in front of the other apps.
+#. When this is selected, folders will appear at the beginning of the app grid, in front of the other apps.
 #: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
-msgctxt "folder-position"
+#, fuzzy
+#| msgctxt "folder-position"
+#| msgid "Start"
+msgctxt "position"
 msgid "Start"
 msgstr "Begin"
 
-#. Folders will appear at the end of the app grid, behind the other apps.
+#. When this is selected, folders will appear at the end of the app grid, behind the other apps.
 #: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
-msgctxt "folder-position"
+#, fuzzy
+#| msgctxt "folder-position"
+#| msgid "End"
+msgctxt "position"
 msgid "End"
 msgstr "Einde"
 
@@ -212,16 +163,12 @@ msgstr ""
 msgid "GNOME 40+ settings"
 msgstr "GNOME 40+-voorkeuren"
 
+#. This is a tooltip.
 #: ui/prefs-gtk4.ui:94 ui/prefs.ui:129
-#, fuzzy
-#| msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
 msgid "Allows displaying the favourite apps on the app grid"
-msgstr ""
-"Toont uw favoriete toepassingen op het toepassingsrooster (GNOME 40 en "
-"nieuwer)"
+msgstr "Toont uw favoriete toepassingen op het toepassingsrooster"
 
 #: ui/prefs-gtk4.ui:111 ui/prefs.ui:148
-msgctxt "setting-name"
 msgid "Show favourite apps on the app grid"
 msgstr "Favoriete toepassingen tonen op rooster"
 
@@ -229,22 +176,22 @@ msgstr "Favoriete toepassingen tonen op rooster"
 msgid "General settings"
 msgstr "Algemene voorkeuren"
 
+#. This is a tooltip.
 #: ui/prefs-gtk4.ui:176 ui/prefs.ui:257
-msgctxt "setting-tooltip"
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Of mapinhoud alfabetisch gesorteerd moet worden"
 
 #: ui/prefs-gtk4.ui:193 ui/prefs.ui:276
-msgctxt "setting-name"
 msgid "Sort folder contents"
 msgstr "Mapinhoud sorteren"
 
+#. This is a tooltip.
 #: ui/prefs-gtk4.ui:222 ui/prefs.ui:327
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Waar mappen geplaatst moeten worden op het rooster"
 
+#. Next to a dropdown with the options "Alphabetical", "Start" and "End".
 #: ui/prefs-gtk4.ui:239 ui/prefs.ui:346
-msgctxt "setting-name"
 msgid "Position of ordered folders"
 msgstr "Positie van geordende mappen"
 
@@ -252,12 +199,11 @@ msgstr "Positie van geordende mappen"
 msgid "Developer settings"
 msgstr "Ontwikkelaarsvoorkeuren"
 
+#. This is a tooltip.
 #: ui/prefs-gtk4.ui:311 ui/prefs.ui:461
-msgctxt "setting-tooltip"
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Laat de extensie een logboek aanleggen met daarin alle uitvoer"
 
 #: ui/prefs-gtk4.ui:328 ui/prefs.ui:480
-msgctxt "setting-name"
 msgid "Enable extension logging"
 msgstr "Logboek aanleggen"
