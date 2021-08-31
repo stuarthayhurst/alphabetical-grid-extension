@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-26 19:52+0100\n"
+"POT-Creation-Date: 2021-08-31 13:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,71 +21,75 @@ msgstr ""
 msgid "Reordering app grid"
 msgstr ""
 
-#: extension.js:81
+#. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
+#: extension.js:82
 msgid "Patched item comparison"
 msgstr ""
 
-#: extension.js:84
+#. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
+#: extension.js:86
 msgid "Patched redisplay"
 msgstr ""
 
-#: extension.js:90
+#. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
+#: extension.js:93
 msgid "Unpatched item comparison"
 msgstr ""
 
-#: extension.js:93
+#. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
+#: extension.js:97
 msgid "Unpatched redisplay"
 msgstr ""
 
-#: extension.js:106
+#: extension.js:110
 msgid "Reordering folder contents"
 msgstr ""
 
-#: extension.js:139
+#: extension.js:143
 msgid "Favourite apps are already shown"
 msgstr ""
 
-#: extension.js:141
+#: extension.js:145
 msgid "Favourite apps are already hidden"
 msgstr ""
 
-#: extension.js:146
+#: extension.js:150
 msgid "Showing favourite apps on the app grid"
 msgstr ""
 
-#: extension.js:149
+#: extension.js:153
 msgid "Hiding favourite apps on the app grid"
 msgstr ""
 
-#: extension.js:155
+#: extension.js:159
 msgid "Reordering app grid, due to favourite apps"
 msgstr ""
 
-#: extension.js:172
+#: extension.js:176
 msgid "Connected to listeners"
 msgstr ""
 
-#: extension.js:186
+#: extension.js:190
 msgid "Disconnected from listeners"
 msgstr ""
 
-#: extension.js:201
+#: extension.js:205
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:208
+#: extension.js:212
 msgid "Favourite apps changed, triggering reorder"
 msgstr ""
 
-#: extension.js:216
+#: extension.js:220
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
-#: extension.js:223
+#: extension.js:227
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:230
+#: extension.js:234
 msgid "Installed apps changed, triggering reorder"
 msgstr ""
 
@@ -120,74 +124,75 @@ msgstr ""
 msgid "Alphabetical App Grid Preferences"
 msgstr ""
 
+#. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
-msgctxt "folder-position"
 msgid "Alphabetical"
 msgstr ""
 
+#. When this is selected, folders will appear at the beginning of the app grid, in front of the other apps.
 #: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
-msgctxt "folder-position"
+msgctxt "position"
 msgid "Start"
 msgstr ""
 
+#. When this is selected, folders will appear at the end of the app grid, behind the other apps.
 #: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
-msgctxt "folder-position"
+msgctxt "position"
 msgid "End"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:41 ui/prefs.ui:53
+#: ui/prefs-gtk4.ui:45 ui/prefs.ui:53
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
 "\">Consider donating :)</a>"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
+#: ui/prefs-gtk4.ui:76 ui/prefs.ui:93
 msgid "GNOME 40+ settings"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
-msgid "Allows displaying the favourite apps on the app grid (GNOME 40+)"
+#. This is a tooltip.
+#: ui/prefs-gtk4.ui:94 ui/prefs.ui:129
+msgid "Allows displaying the favourite apps on the app grid"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
-msgctxt "setting-name"
+#: ui/prefs-gtk4.ui:111 ui/prefs.ui:148
 msgid "Show favourite apps on the app grid"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:144 ui/prefs.ui:221
+#: ui/prefs-gtk4.ui:158 ui/prefs.ui:221
 msgid "General settings"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:162 ui/prefs.ui:257
-msgctxt "setting-tooltip"
+#. This is a tooltip.
+#: ui/prefs-gtk4.ui:176 ui/prefs.ui:257
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:176 ui/prefs.ui:276
-msgctxt "setting-name"
+#: ui/prefs-gtk4.ui:193 ui/prefs.ui:276
 msgid "Sort folder contents"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:206 ui/prefs.ui:327
+#. This is a tooltip.
+#: ui/prefs-gtk4.ui:222 ui/prefs.ui:327
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:220 ui/prefs.ui:346
-msgctxt "setting-name"
+#. Next to a dropdown with the options "Alphabetical", "Start" and "End".
+#: ui/prefs-gtk4.ui:239 ui/prefs.ui:346
 msgid "Position of ordered folders"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:269 ui/prefs.ui:425
+#: ui/prefs-gtk4.ui:293 ui/prefs.ui:425
 msgid "Developer settings"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:287 ui/prefs.ui:461
-msgctxt "setting-tooltip"
+#. This is a tooltip.
+#: ui/prefs-gtk4.ui:311 ui/prefs.ui:461
 msgid "Allow the extension to send messages to the system logs"
 msgstr ""
 
-#: ui/prefs-gtk4.ui:301 ui/prefs.ui:480
-msgctxt "setting-name"
+#: ui/prefs-gtk4.ui:328 ui/prefs.ui:480
 msgid "Enable extension logging"
 msgstr ""

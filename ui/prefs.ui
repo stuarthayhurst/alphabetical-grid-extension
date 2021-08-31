@@ -11,15 +11,15 @@
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes" context="folder-position">Alphabetical</col>
+        <col id="0" translatable="yes" comments="When this is selected, folders will appear in alphabetical order, mixed with applications.">Alphabetical</col>
         <col id="1">alphabetical</col>
       </row>
       <row>
-        <col id="0" translatable="yes" context="folder-position">Start</col>
+        <col id="0" translatable="yes" context="position" comments="When this is selected, folders will appear at the beginning of the app grid, in front of the other apps.">Start</col>
         <col id="1">start</col>
       </row>
       <row>
-        <col id="0" translatable="yes" context="folder-position">End</col>
+        <col id="0" translatable="yes" context="position" comments="When this is selected, folders will appear at the end of the app grid, behind the other apps.">End</col>
         <col id="1">end</col>
       </row>
     </data>
@@ -126,7 +126,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes">Allows displaying the favourite apps on the app grid (GNOME 40+)</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Allows displaying the favourite apps on the app grid</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
@@ -145,7 +145,7 @@
                                 <property name="can-focus">False</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
-                                <property name="label" translatable="yes" context="setting-name">Show favourite apps on the app grid</property>
+                                <property name="label" translatable="yes">Show favourite apps on the app grid</property>
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
@@ -254,7 +254,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes" context="setting-tooltip">Whether the contents of folders should be sorted alphabetically</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Whether the contents of folders should be sorted alphabetically</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
@@ -273,7 +273,7 @@
                                 <property name="can-focus">False</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
-                                <property name="label" translatable="yes" context="setting-name">Sort folder contents</property>
+                                <property name="label" translatable="yes">Sort folder contents</property>
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
@@ -324,7 +324,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes">Where to place folders when ordering the applications grid</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Where to place folders when ordering the applications grid</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
@@ -343,7 +343,7 @@
                                 <property name="can-focus">False</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
-                                <property name="label" translatable="yes" context="setting-name">Position of ordered folders</property>
+                                <property name="label" translatable="yes" comments="Next to a dropdown with the options &quot;Alphabetical&quot;, &quot;Start&quot; and &quot;End&quot;.">Position of ordered folders</property>
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
@@ -458,7 +458,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes" context="setting-tooltip">Allow the extension to send messages to the system logs</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Allow the extension to send messages to the system logs</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
@@ -477,7 +477,7 @@
                                 <property name="can-focus">False</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
-                                <property name="label" translatable="yes" context="setting-name">Enable extension logging</property>
+                                <property name="label" translatable="yes">Enable extension logging</property>
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
