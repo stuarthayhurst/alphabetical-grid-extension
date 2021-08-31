@@ -21,17 +21,19 @@
   - Enable the extension
 
 ## Build system usage:
-  - `make build`: Compiles GSettings schemas and creates extension zip
-  - `make check`: Runs checks on built extension
-  - `make install`: Installs the extension
-  - `make uninstall`: Uninstalls the extension
-  - `make clean`: Deletes extension zip and `locale` directory
-  - `make prune`: Removes rubbish from any .svgs in `docs/`
-  - `make compress`: Losslessly compresses any .pngs in `docs/`
-  - `make gtk4`: Creates a GTK 4 UI from the GTK 3 UI file
-  - `make translations`: Updates translations
-  - `make release`: Updates translations and creates extension zip
-  - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
+  - ### Common targets: Regular build system targets to build, install and uninstall
+    - `make build`: Compiles GSettings schemas and creates extension zip
+    - `make check`: Runs checks on built extension zip
+    - `make install`: Installs the extension
+    - `make uninstall`: Uninstalls the extension
+  - ### Development targets: These targets are aimed at developers and translators
+    - `make clean`: Deletes extension zip, `locale` and automatic backups
+    - `make gtk4`: Creates a GTK 4 UI from the GTK 3 UI file (Should be run after any changes to files in `ui/`)
+    - `make translations`: Updates translations
+    - `make prune`: Removes rubbish from any .svgs in `docs/`
+    - `make compress`: Losslessly compresses any .pngs in `docs/`
+    - `make release`: Updates the GTK 4 UI, translations, then creates and checks an extension zip
+    - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
 
 ## Install dependencies:
   - gettext
