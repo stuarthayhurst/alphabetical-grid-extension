@@ -42,10 +42,10 @@
 
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
-  - sed (Translations)
-  - libgtk-4-bin (GTK 4)
-  - python3 (Icons / images)
-  - optipng (Icons / images)
+  - sed (`make translations`)
+  - libgtk-4-bin (`make gtk4`)
+  - python3 (`make prune`)
+  - optipng (`make compress`)
 
 ## Want to help?
   - To enable logging from the extension, follow the instructions in the next section
