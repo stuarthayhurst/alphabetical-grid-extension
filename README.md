@@ -48,18 +48,8 @@
   - optipng (`make compress`)
 
 ## Want to help?
-  - To enable logging from the extension, follow the instructions in the next section
-  - Alternatively, set `debug` to `true` in `metadata.json`, build and install the extension
-  - ### Translations:
-    - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
-    - `.po` files can be found in `po/`
-    - All translations can be refreshed with `make translations`
-    - Strings marked with `fuzzy` may need a better translation
-    - Blank strings need a translation added
-  - ### Code and documentation:
-    - Changes are welcome, as long as they are documented, well explained and necessary
-    - Make your changes and submit a pull request, where it'll shortly be reviewed
-    - If any changes are requested, please make the changes and wait for it to be re-reviewed
+  - Help with the project is always appreciated, refer to `docs/CONTRIBUTING.md` to get started
+  - Documentation, code, translations and UI improvements are all welcome!
 
 ## Bug reporting / debugging:
   - A log of what the extension is doing is very helpful for fixing issues
