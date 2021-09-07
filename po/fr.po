@@ -1,14 +1,16 @@
 # French translation for the Alphabetical App Grid GNOME Shell Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
+#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-31 13:30+0200\n"
-"PO-Revision-Date: 2021-08-31 13:23+0200\n"
+"PO-Revision-Date: 2021-09-07 19:46+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -19,7 +21,7 @@ msgstr ""
 
 #: extension.js:28
 msgid "Reordering app grid"
-msgstr "Réorganisation de la grille d'applications"
+msgstr "Réorganisation de la grille d’applications"
 
 #. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
 #: extension.js:82
@@ -34,7 +36,7 @@ msgstr "Réaffichage corrigé"
 #. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
 #: extension.js:93
 msgid "Unpatched item comparison"
-msgstr "Comparaison d'éléments non corrigés"
+msgstr "Comparaison d’éléments non corrigés"
 
 #. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
 #: extension.js:97
@@ -43,7 +45,7 @@ msgstr "Réaffichage non corrigé"
 
 #: extension.js:110
 msgid "Reordering folder contents"
-msgstr "Réorganisation du contenu du dossier"
+msgstr "Réorganisation du contenu des dossiers"
 
 #: extension.js:143
 msgid "Favourite apps are already shown"
@@ -55,16 +57,16 @@ msgstr "Les applications préférées sont déjà masquées"
 
 #: extension.js:150
 msgid "Showing favourite apps on the app grid"
-msgstr "Affichage des applications préférées sur la grille d'applications"
+msgstr "Affichage des applications préférées sur la grille d’applications"
 
 #: extension.js:153
 msgid "Hiding favourite apps on the app grid"
-msgstr "Masquer les applications préférées sur la grille d'applications"
+msgstr "Masquer les applications préférées sur la grille d’applications"
 
 #: extension.js:159
 msgid "Reordering app grid, due to favourite apps"
 msgstr ""
-"Réorganisation de la grille d'applications, en raison des applications "
+"Réorganisation de la grille d’applications, en raison des applications "
 "préférées"
 
 #: extension.js:176
@@ -78,7 +80,7 @@ msgstr "Déconnecté des auditeurs"
 #: extension.js:205
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
-"La disposition de la grille d'applications a été modifiée, déclenchant la "
+"La disposition de la grille d’applications a été modifiée, déclenchant la "
 "réorganisation"
 
 #: extension.js:212
@@ -88,7 +90,7 @@ msgstr "Applications préférées modifiées, déclenchant une réorganisation"
 #: extension.js:220
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
-"Les valeurs des paramètres d'extension ont changé, déclenchant la "
+"Les valeurs des paramètres d’extension ont changé, déclenchant la "
 "réorganisation"
 
 #: extension.js:227
@@ -105,15 +107,15 @@ msgstr ""
 #. If not, "translate" this string with a whitespace character.
 #: prefs.js:81
 msgid "translator-credits"
-msgstr " "
+msgstr "Philipp Kiemle <philipp.kiemle@gmail.com>"
 
 #: prefs.js:82
 msgid "Alphabetical App Grid"
-msgstr "Grille d'applications alphabétique"
+msgstr "Grille d’applications alphabétique"
 
 #: prefs.js:83
 msgid "Restore the alphabetical ordering of the app grid"
-msgstr "Restaurer l'ordre alphabétique de la grille d'applications"
+msgstr "Restaurer l’ordre alphabétique de la grille d’applications"
 
 #: prefs.js:85
 msgid "© 2021 Stuart Hayhurst"
@@ -125,11 +127,11 @@ msgstr "Contribuer sur GitHub"
 
 #: prefs.js:119
 msgid "About"
-msgstr "À propos de"
+msgstr "À propos"
 
 #: prefs.js:125
 msgid "Alphabetical App Grid Preferences"
-msgstr "Préférences de grille d'applications alphabétique"
+msgstr "Préférences de grille d’applications alphabétique"
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
@@ -140,7 +142,7 @@ msgstr "Alphabétique"
 #: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
 msgctxt "position"
 msgid "Start"
-msgstr "Démarrer"
+msgstr "Début"
 
 #. When this is selected, folders will appear at the end of the app grid, behind the other apps.
 #: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
@@ -154,9 +156,9 @@ msgid ""
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
 "\">Consider donating :)</a>"
 msgstr ""
-"Vous avez trouvé cela utile ?\n"
+"Vous avez trouvé cela utile ?\n"
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
-"\">Pensez à faire un don :)</a>"
+"\">Pensez à faire un don :)</a>"
 
 #: ui/prefs-gtk4.ui:76 ui/prefs.ui:93
 msgid "GNOME 40+ settings"
@@ -166,11 +168,11 @@ msgstr "Paramètres GNOME 40+"
 #: ui/prefs-gtk4.ui:94 ui/prefs.ui:129
 msgid "Allows displaying the favourite apps on the app grid"
 msgstr ""
-"Permet d'afficher les applications préférées sur la grille d'applications"
+"Permet d’afficher les applications préférées sur la grille d’applications"
 
 #: ui/prefs-gtk4.ui:111 ui/prefs.ui:148
 msgid "Show favourite apps on the app grid"
-msgstr "Afficher les applications préférées sur la grille d'applications"
+msgstr "Afficher les applications préférées sur la grille d’applications"
 
 #: ui/prefs-gtk4.ui:158 ui/prefs.ui:221
 msgid "General settings"
@@ -179,7 +181,8 @@ msgstr "Paramètres généraux"
 #. This is a tooltip.
 #: ui/prefs-gtk4.ui:176 ui/prefs.ui:257
 msgid "Whether the contents of folders should be sorted alphabetically"
-msgstr "Si le contenu des dossiers doit être trié par ordre alphabétique"
+msgstr ""
+"Indique si le contenu des dossiers doit être trié par ordre alphabétique"
 
 #: ui/prefs-gtk4.ui:193 ui/prefs.ui:276
 msgid "Sort folder contents"
@@ -189,7 +192,7 @@ msgstr "Trier le contenu du dossier"
 #: ui/prefs-gtk4.ui:222 ui/prefs.ui:327
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
-"Où placer les dossiers lors de l'organisation de la grille d'applications"
+"Où placer les dossiers lors de l’organisation de la grille d’applications"
 
 #. Next to a dropdown with the options "Alphabetical", "Start" and "End".
 #: ui/prefs-gtk4.ui:239 ui/prefs.ui:346
@@ -198,12 +201,12 @@ msgstr "Position des dossiers ordonnés"
 
 #: ui/prefs-gtk4.ui:293 ui/prefs.ui:425
 msgid "Developer settings"
-msgstr "Paramètres du développeur"
+msgstr "Paramètres de développement"
 
 #. This is a tooltip.
 #: ui/prefs-gtk4.ui:311 ui/prefs.ui:461
 msgid "Allow the extension to send messages to the system logs"
-msgstr "Autoriser l'extension à envoyer des messages aux journaux système"
+msgstr "Autoriser l’extension à envoyer des messages aux journaux système"
 
 #: ui/prefs-gtk4.ui:328 ui/prefs.ui:480
 msgid "Enable extension logging"
