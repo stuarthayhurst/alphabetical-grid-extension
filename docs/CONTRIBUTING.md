@@ -43,7 +43,7 @@
 ## Documentation changes:
   - British English should be used in documentation, as well as consistent styling
   - Any new dependencies should be documented under the relevant dependency section
-  - Focumented information should be updated if the behaviour has changed
+  - Documented information should be updated if the behaviour has changed
 
 ## Build system changes:
   - If the behaviour of a target is modified, it should be documented in `README.md`, under "Build system usage"
