@@ -40,9 +40,9 @@ function disable() {
 class Extension {
   constructor() {
     //Load gsettings values for GNOME Shell
-    this.shellSettings = ExtensionUtils.getSettings('org.gnome.shell');
+    this.shellSettings = new Gio.Settings( {schema: 'org.gnome.shell'} );
     //Load gsettings values for folders, to access 'folder-children'
-    this.folderSettings = ExtensionUtils.getSettings('org.gnome.desktop.app-folders');
+    this.folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
     //Load gsettings values for the extension itself
     this.extensionSettings = ExtensionUtils.getSettings();
     //Save original shell functions
