@@ -63,7 +63,7 @@ var PrefsWidget = class PrefsWidget {
   }
 
   showAbout() {
-    let logo = Gtk.Image.new_from_file(Me.path + '/icon.svg');
+    let logo = Gtk.Image.new_from_file(Me.path + '/icon.png');
     if (ShellVersion < 40) { //GTK 3
       logo = logo.get_pixbuf();
     } else { //GTK 4
