@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-31 13:30+0200\n"
+"POT-Creation-Date: 2021-09-21 08:08+0100\n"
 "PO-Revision-Date: 2021-08-31 13:22+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
@@ -144,7 +144,7 @@ msgctxt "position"
 msgid "End"
 msgstr "Ende"
 
-#: ui/prefs-gtk4.ui:45 ui/prefs.ui:53
+#: ui/prefs-gtk4.ui:41 ui/prefs.ui:53
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
@@ -154,57 +154,57 @@ msgstr ""
 "<a href=\"https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"
 "\">Eine Spende wäre nett :)</a>"
 
-#: ui/prefs-gtk4.ui:76 ui/prefs.ui:93
+#: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
 msgid "GNOME 40+ settings"
 msgstr "Einstellungen für GNOME 40+"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:94 ui/prefs.ui:129
+#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
 msgid "Allows displaying the favourite apps on the app grid"
 msgstr ""
 "Legt fest, ob favorisierte Anwendungen im Anwendungsraster angezeigt werden "
 "sollen"
 
-#: ui/prefs-gtk4.ui:111 ui/prefs.ui:148
+#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
 msgid "Show favourite apps on the app grid"
 msgstr "Favorisierte Anwendungen im Raster anzeigen"
 
-#: ui/prefs-gtk4.ui:158 ui/prefs.ui:221
+#: ui/prefs-gtk4.ui:144 ui/prefs.ui:221
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:176 ui/prefs.ui:257
+#: ui/prefs-gtk4.ui:162 ui/prefs.ui:257
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 "Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
 
-#: ui/prefs-gtk4.ui:193 ui/prefs.ui:276
+#: ui/prefs-gtk4.ui:176 ui/prefs.ui:276
 msgid "Sort folder contents"
 msgstr "Ordnerinhalt sortieren"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:222 ui/prefs.ui:327
+#: ui/prefs-gtk4.ui:206 ui/prefs.ui:327
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 "Legt fest, an welcher Stelle Ordner im Anwendungsraster angezeigt werden "
 "sollen"
 
 #. Next to a dropdown with the options "Alphabetical", "Start" and "End".
-#: ui/prefs-gtk4.ui:239 ui/prefs.ui:346
+#: ui/prefs-gtk4.ui:220 ui/prefs.ui:346
 msgid "Position of ordered folders"
 msgstr "Ordnerposition"
 
-#: ui/prefs-gtk4.ui:293 ui/prefs.ui:425
+#: ui/prefs-gtk4.ui:269 ui/prefs.ui:425
 msgid "Developer settings"
 msgstr "Entwickleroptionen"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:311 ui/prefs.ui:461
+#: ui/prefs-gtk4.ui:287 ui/prefs.ui:461
 msgid "Allow the extension to send messages to the system logs"
 msgstr ""
 "Legt fest, ob die Erweiterung Nachrichten an die Systemprotokolle sendet"
 
-#: ui/prefs-gtk4.ui:328 ui/prefs.ui:480
+#: ui/prefs-gtk4.ui:301 ui/prefs.ui:480
 msgid "Enable extension logging"
 msgstr "Protokollierung aktivieren"
