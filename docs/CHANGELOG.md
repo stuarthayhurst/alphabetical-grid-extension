@@ -1,5 +1,17 @@
 ## Changelog:
 
+### v13 - `2021-09-21`
+ - Added icon compressor (`make compress`) and optimised svg icon (`make prune`)
+ - Added French translation (#33, #34) - [Philipp Kiemle](https://github.com/daPhipz) + A couple others
+ - Added build system checks to GitHub CI Pipeline
+ - Added comments for translators and tweaked translation strings (#36)
+ - Added bug report, feature request and pull request templates
+ - Added more documentation on build system targets and debugging (#38)
+ - Added code of conduct and contributing guidelines
+ - Fixed extension icon not showing up on some distros
+ - Use `Gio.Settings` to create GSettings objects
+ - Removed unused imports
+
 ### v12: - `2021-08-28`
  - General code, build system and README improvements
  - Added setting to toggle logging (Previously the metadata had to be modified)
