@@ -1,7 +1,11 @@
+# Build files
 AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip
-locale/
-po/*.po~
+schemas/gschemas.compiled
+build/
+*.mo
+
+# Backups
+*.po~
 *.ui~
 ui/*.ui~
 ui/*#*
-schemas/gschemas.compiled
