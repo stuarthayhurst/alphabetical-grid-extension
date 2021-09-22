@@ -72,5 +72,5 @@ clean:
 	schemas/gschemas.compiled \
 	build \
 	$(LOCALES_MO) \
-	locale/*/LC_MESSAGES/messages.po~ \
+	locale/*/LC_MESSAGES/AlphabeticalAppGrid@stuarthayhurst.po~ \
 	ui/*.ui~
