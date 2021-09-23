@@ -1,5 +1,6 @@
 SHELL=bash
 UUID=AlphabeticalAppGrid@stuarthayhurst
+COMPRESSLEVEL="-o7"
 
 .PHONY: build package check release translations gtk4 prune compress install uninstall clean
 
@@ -17,6 +18,10 @@ check:
 	  echo -e "\nWARNING! Debug mode is enabled, a release shouldn't be published"; exit 1; \
 	fi
 release:
+	if [[ "$(VERSION)" != "" ]]; then \
+	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION),|g" metadata.json; \
+	fi
+	#Call other targets required to make a release
 	$(MAKE) gtk4
 	$(MAKE) translations
 	$(MAKE) prune
@@ -31,7 +36,7 @@ gtk4:
 prune:
 	./scripts/clean-svgs.py
 compress:
-	optipng -o7 -strip all docs/*.png
+	optipng "$(COMPRESSLEVEL)" -strip all docs/*.png
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
