@@ -1,6 +1,8 @@
 SHELL=bash
 UUID=AlphabeticalAppGrid@stuarthayhurst
 
+COMPRESSLEVEL="-o7"
+
 .PHONY: build package check release translations gtk4 prune compress install uninstall clean
 
 build:
@@ -31,7 +33,7 @@ gtk4:
 prune:
 	./scripts/clean-svgs.py
 compress:
-	optipng -o7 -strip all docs/*.png
+	optipng $(COMPRESSLEVEL) -strip all docs/*.png
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:

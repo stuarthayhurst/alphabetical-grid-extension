@@ -32,7 +32,10 @@
     - `make translations`: Updates translations
     - `make prune`: Removes rubbish from any .svgs in `docs/`
     - `make compress`: Losslessly compresses any .pngs in `docs/`
+      - Allows passing `COMPRESSLEVEL="-oX"`, where x is an integer between 0-7
     - `make release`: Updates the GTK 4 UI, translations, then creates and checks an extension zip
+      - Calls `make gtk4 translations prune compress build check`
+      - Supports any variables / arguments supported by these targets
     - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
 
 ## Install dependencies:
