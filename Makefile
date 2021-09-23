@@ -19,6 +19,10 @@ check:
 	  echo -e "\nWARNING! Debug mode is enabled, a release shouldn't be published"; exit 1; \
 	fi
 release:
+	if [[ "$(VERSION)" != "" ]]; then \
+	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION),|g" metadata.json; \
+	fi
+	#Call other targets required to make a release
 	$(MAKE) gtk4
 	$(MAKE) translations
 	$(MAKE) prune
