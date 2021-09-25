@@ -50,7 +50,7 @@ jobs:
     - name: Check release workflow is functional
       run: |
         #Fake gtk4-builder-tool to echo to avoid errors due to no gtk4 packages
-        echo "echo \$@" > /usr/bin/gtk4-builder-tool; chmod +x /usr/bin/gtk4-builder-tool
+        echo "echo \$@" | sudo tee /usr/bin/gtk4-builder-tool; sudo chmod +x /usr/bin/gtk4-builder-tool
         make release
 
     - name: Test extension installs and uninstalls
