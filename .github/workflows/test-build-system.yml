@@ -53,7 +53,6 @@ jobs:
         echo "echo \$@" | sudo tee /usr/bin/gtk4-builder-tool; sudo chmod +x /usr/bin/gtk4-builder-tool
         make release
 
-    - name: Test extension installs and uninstalls
+    - name: Test extension installs
       run: |
         make install
-        make uninstall
