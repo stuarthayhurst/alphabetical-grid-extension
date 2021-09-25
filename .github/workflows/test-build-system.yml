@@ -49,6 +49,8 @@ jobs:
 
     - name: Check release workflow is functional
       run: |
+        #Alias gtk4-builder-tool to echo to avoid errors due to no gtk4 packages
+        alias gtk4-builder-tool="echo"
         make release
 
     - name: Test extension installs and uninstalls
