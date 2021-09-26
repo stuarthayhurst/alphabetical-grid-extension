@@ -53,7 +53,7 @@
 
 ## Want to help?
   - Help with the project is always appreciated, refer to `docs/CONTRIBUTING.md` to get started
-  - Documentation, code, translations and UI improvements are all welcome!
+  - [Documentation](docs/CONTRIBUTING.md#documentation-changes), [code](docs/CONTRIBUTING.md#code-changes), [translations](docs/CONTRIBUTING.md#translations) and UI improvements are all welcome!
 
 ## Bug reporting / debugging:
   - A log of what the extension is doing is very helpful for fixing issues
