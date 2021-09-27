@@ -25,9 +25,7 @@ release:
 	fi
 	#Call other targets required to make a release
 	$(MAKE) gtk4
-	$(MAKE) translations
-	$(MAKE) prune
-	$(MAKE) compress
+	$(MAKE) translations prune compress
 	$(MAKE) build
 	$(MAKE) check
 translations:
