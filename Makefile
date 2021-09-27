@@ -1,10 +1,10 @@
 SHELL=bash
 UUID=AlphabeticalAppGrid@stuarthayhurst
 
-PNG_FILES="docs/icon.png"
 COMPRESSLEVEL="-o7"
+PNG_FILES=$(wildcard ./docs/*.png)
 
-.PHONY: build package check release translations gtk4 prune compress install uninstall clean
+.PHONY: build package check release translations gtk4 prune compress install uninstall clean $(PNG_FILES)
 
 build:
 	glib-compile-schemas schemas
@@ -37,8 +37,10 @@ gtk4:
 	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
 prune:
 	./scripts/clean-svgs.py
-compress: $(PNG_FILES)
-	optipng "$(COMPRESSLEVEL)" -strip all $(PNG_FILES)
+compress:
+	$(MAKE) $(PNG_FILES)
+$(PNG_FILES):
+	optipng "$(COMPRESSLEVEL)" -strip all "$@"
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
