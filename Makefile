@@ -40,6 +40,9 @@ compress:
 $(PNG_FILES):
 	optipng "$(COMPRESSLEVEL)" -strip all "$@"
 install:
+	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
+	  $(MAKE) build; \
+	fi
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
