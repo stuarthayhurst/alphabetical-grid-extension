@@ -30,7 +30,7 @@ jobs:
     - name: Check asset generation target(s) work
       run: |
         make translations
-        git restore po/messages.pot
+        git restore po/
 
     - name: Test extension builds from a clean slate
       run: |
