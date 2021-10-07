@@ -162,7 +162,7 @@ class Extension {
   //Listener functions below
 
   startListeners() {
-    this._waitForExternalReorder();
+    this._waitForGridReorder();
     this._waitForFavouritesChange();
     this._waitForSettingsChange();
     this._waitForInstalledAppsChange();
@@ -178,6 +178,7 @@ class Extension {
 
   disconnectListeners() {
     this.shellSettings.disconnect(this._reorderSignal);
+    Main.overview.disconnect(this._dragReorderSignal);
     this.shellSettings.disconnect(this._favouriteAppsSignal);
     this.extensionSettings.disconnect(this._settingsChangedSignal);
     Shell.AppSystem.get_default().disconnect(this._installedAppsChangedSignal);
@@ -199,10 +200,15 @@ class Extension {
     });
   }
 
-  _waitForExternalReorder() {
+  _waitForGridReorder() {
     //Connect to gsettings and wait for the order to change
     this._reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
       this.reorderGrid(_('App grid layout changed, triggering reorder'));
+    });
+
+   //Connect to the main overview and wait for an item to be dragged
+    this._dragReorderSignal = Main.overview.connect('item-drag-end', () => {
+      this.reorderGrid(_('App movement detected, triggering reorder'));
     });
   }
 
