@@ -173,7 +173,7 @@ class Extension {
       this._handleShowFavouriteApps();
     }
 
-    ExtensionHelper.logMessage(_('Connected to listeners'))
+    ExtensionHelper.logMessage(_('Connected to listeners'));
   }
 
   disconnectListeners() {
@@ -188,7 +188,7 @@ class Extension {
     this.extensionSettings.disconnect(this._showFavouritesSignal);
     this.setShowFavouriteApps(false);
 
-    ExtensionHelper.logMessage(_('Disconnected from listeners'))
+    ExtensionHelper.logMessage(_('Disconnected from listeners'));
   }
 
   _handleShowFavouriteApps() {
