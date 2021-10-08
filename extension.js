@@ -9,6 +9,9 @@ const { GLib, Gio, Shell } = imports.gi;
 const Main = imports.ui.main;
 const ParentalControlsManager = imports.misc.parentalControlsManager;
 
+const Controls = Main.overview._overview._controls;
+const Dash = Controls.dash;
+
 //Access required objects and systems
 const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
 
@@ -162,11 +165,15 @@ class Extension {
   //Listener functions below
 
   startListeners() {
+    //Persistent listeners
     this._waitForGridReorder();
     this._waitForFavouritesChange();
     this._waitForSettingsChange();
     this._waitForInstalledAppsChange();
     this._waitForFolderChange();
+
+    //One time connections
+    this._reorderOnceOnDisplay();
 
     //Only needed on GNOME 40
     if (ShellVersion > 3.38) {
@@ -183,6 +190,10 @@ class Extension {
     this.extensionSettings.disconnect(this._settingsChangedSignal);
     Shell.AppSystem.get_default().disconnect(this._installedAppsChangedSignal);
     this.folderSettings.disconnect(this._foldersChangedSignal);
+
+    if (this._reorderOnceOnDisplaySignal != null) {
+      this.Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
+    }
 
     //Disable showing the favourite apps on the app grid
     this.extensionSettings.disconnect(this._showFavouritesSignal);
@@ -209,6 +220,18 @@ class Extension {
    //Connect to the main overview and wait for an item to be dragged
     this._dragReorderSignal = Main.overview.connect('item-drag-end', () => {
       this.reorderGrid(_('App movement detected, triggering reorder'));
+    });
+  }
+
+  _reorderOnceOnDisplay() {
+    //Reorder once when the app grid is opened
+    this._reorderOnceOnDisplaySignal = Dash.showAppsButton.connect('notify::checked', () => {
+      //Only run required code if app overview toggle is usable
+      if (!Controls._ignoreShowAppsButtonToggle) {
+        this.reorderGrid(_('App grid opened, triggering one-off reorder'));
+        Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
+        this._reorderOnceOnDisplaySignal = null;
+      }
     });
   }
 
