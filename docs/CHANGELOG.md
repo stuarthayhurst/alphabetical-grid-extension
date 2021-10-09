@@ -1,5 +1,13 @@
 ## Changelog:
 
+### v14 - `2021-10-09`
+ - Fixed app grid not being reordered if the same pair of apps were swapped twice
+ - Fixed favourite apps not starting in the correct place
+ - Fixed initial reorder sometimes being incorrect #43
+ - Updated pull request template
+ - Build system improvements #39, #40
+ - README improvements
+
 ### v13 - `2021-09-21`
  - Added icon compressor (`make compress`) and optimised svg icon (`make prune`)
  - Added French translation (#33, #34) - [Philipp Kiemle](https://github.com/daPhipz) + A couple others
