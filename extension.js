@@ -13,7 +13,7 @@ const Controls = Main.overview._overview._controls;
 const Dash = Controls.dash;
 
 //Access required objects and systems
-const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Main.overview._overview._controls._appDisplay;
+const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Controls._appDisplay;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
