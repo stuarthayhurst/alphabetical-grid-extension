@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-21 08:08+0100\n"
+"POT-Creation-Date: 2021-10-09 12:06+0100\n"
 "PO-Revision-Date: 2021-08-31 13:22+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
@@ -18,81 +18,93 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0\n"
 
-#: extension.js:28
+#: extension.js:32
 msgid "Reordering app grid"
 msgstr "Raster wird neu geordnet"
 
 #. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-#: extension.js:82
+#: extension.js:85
 msgid "Patched item comparison"
 msgstr "Itemvergleich-Methode gepatched"
 
 #. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-#: extension.js:86
+#: extension.js:89
 msgid "Patched redisplay"
 msgstr "Redisplay-Methode gepatched"
 
 #. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-#: extension.js:93
+#: extension.js:96
 msgid "Unpatched item comparison"
 msgstr "Itemvergleich-Methode entpatched"
 
 #. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-#: extension.js:97
+#: extension.js:100
 msgid "Unpatched redisplay"
 msgstr "Redisplay-Methode entpatched"
 
-#: extension.js:110
+#: extension.js:113
 msgid "Reordering folder contents"
 msgstr "Ordnerinhalt wird neu geordnet"
 
-#: extension.js:143
+#: extension.js:146
 msgid "Favourite apps are already shown"
 msgstr "Favorisierte Anwendungen werden bereits angezeigt"
 
-#: extension.js:145
+#: extension.js:148
 msgid "Favourite apps are already hidden"
 msgstr "Favorisierte Anwendungen werden bereits versteckt"
 
-#: extension.js:150
+#: extension.js:153
 msgid "Showing favourite apps on the app grid"
 msgstr "Favorisierte Anwendungen werden im Raster angezeigt"
 
-#: extension.js:153
+#: extension.js:156
 msgid "Hiding favourite apps on the app grid"
 msgstr "Favorisierte Anwendungen werden im Raster versteckt"
 
-#: extension.js:159
+#: extension.js:162
 msgid "Reordering app grid, due to favourite apps"
 msgstr ""
 "Anwendungsraster wird aufgrund der favorisierten Anwendungen neu geordnet"
 
-#: extension.js:176
+#: extension.js:183
 msgid "Connected to listeners"
 msgstr "Mit Listenern verbunden"
 
-#: extension.js:190
+#: extension.js:202
 msgid "Disconnected from listeners"
 msgstr "Von Listenern getrennt"
 
-#: extension.js:205
+#: extension.js:217
 msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
-#: extension.js:212
+#: extension.js:222
+#, fuzzy
+#| msgid "App grid layout changed, triggering reorder"
+msgid "App movement detected, triggering reorder"
+msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
+
+#: extension.js:231
+#, fuzzy
+#| msgid "App grid layout changed, triggering reorder"
+msgid "App grid opened, triggering one-off reorder"
+msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
+
+#: extension.js:241
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:220
+#: extension.js:249
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "gsettings-Werte der Erweiterung wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:227
+#: extension.js:256
 msgid "Folders changed, triggering reorder"
 msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:234
+#: extension.js:263
 msgid "Installed apps changed, triggering reorder"
 msgstr "Installierte Anwendungen wurden geändert, Neuordnung wird ausgelöst"
 

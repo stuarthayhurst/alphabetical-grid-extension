@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-21 08:08+0100\n"
+"POT-Creation-Date: 2021-10-09 12:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,79 +17,87 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:28
+#: extension.js:32
 msgid "Reordering app grid"
 msgstr ""
 
 #. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-#: extension.js:82
+#: extension.js:85
 msgid "Patched item comparison"
 msgstr ""
 
 #. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-#: extension.js:86
+#: extension.js:89
 msgid "Patched redisplay"
 msgstr ""
 
 #. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-#: extension.js:93
+#: extension.js:96
 msgid "Unpatched item comparison"
 msgstr ""
 
 #. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-#: extension.js:97
+#: extension.js:100
 msgid "Unpatched redisplay"
 msgstr ""
 
-#: extension.js:110
+#: extension.js:113
 msgid "Reordering folder contents"
 msgstr ""
 
-#: extension.js:143
+#: extension.js:146
 msgid "Favourite apps are already shown"
 msgstr ""
 
-#: extension.js:145
+#: extension.js:148
 msgid "Favourite apps are already hidden"
 msgstr ""
 
-#: extension.js:150
+#: extension.js:153
 msgid "Showing favourite apps on the app grid"
 msgstr ""
 
-#: extension.js:153
+#: extension.js:156
 msgid "Hiding favourite apps on the app grid"
 msgstr ""
 
-#: extension.js:159
+#: extension.js:162
 msgid "Reordering app grid, due to favourite apps"
 msgstr ""
 
-#: extension.js:176
+#: extension.js:183
 msgid "Connected to listeners"
 msgstr ""
 
-#: extension.js:190
+#: extension.js:202
 msgid "Disconnected from listeners"
 msgstr ""
 
-#: extension.js:205
+#: extension.js:217
 msgid "App grid layout changed, triggering reorder"
 msgstr ""
 
-#: extension.js:212
+#: extension.js:222
+msgid "App movement detected, triggering reorder"
+msgstr ""
+
+#: extension.js:231
+msgid "App grid opened, triggering one-off reorder"
+msgstr ""
+
+#: extension.js:241
 msgid "Favourite apps changed, triggering reorder"
 msgstr ""
 
-#: extension.js:220
+#: extension.js:249
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 
-#: extension.js:227
+#: extension.js:256
 msgid "Folders changed, triggering reorder"
 msgstr ""
 
-#: extension.js:234
+#: extension.js:263
 msgid "Installed apps changed, triggering reorder"
 msgstr ""
 
