@@ -115,10 +115,12 @@ class Extension {
       }
 
       //Wait a small amount of time to avoid clashing with animations
-      GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
+      this._reorderGridTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
         //Redisplay the app grid and release the lock
         AppDisplay._redisplay();
         this._currentlyUpdating = false;
+        this._reorderGridTimeoutId = null;
+        return GLib.SOURCE_REMOVE;
       });
     }
   }
@@ -198,6 +200,11 @@ class Extension {
     //Disable showing the favourite apps on the app grid
     this.extensionSettings.disconnect(this._showFavouritesSignal);
     this.setShowFavouriteApps(false);
+
+    //Clean up timeout sources
+    if (this._reorderGridTimeoutId != null) {
+      GLib.Source.remove(this._reorderGridTimeoutId);
+    }
 
     ExtensionHelper.logMessage(_('Disconnected from listeners'));
   }
