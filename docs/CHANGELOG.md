@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v15 - `2021-10-09`
+ - Hotfix: Actually disconnect from GLib timeouts
+
 ### v14 - `2021-10-09`
  - Fixed app grid not being reordered if the same pair of apps were swapped twice
  - Fixed favourite apps not starting in the correct place
