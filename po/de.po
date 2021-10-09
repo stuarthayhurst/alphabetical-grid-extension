@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-10-09 12:06+0100\n"
-"PO-Revision-Date: 2021-08-31 13:22+0200\n"
+"PO-Revision-Date: 2021-10-09 13:31+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Lokalize 20.12.3\n"
 
 #: extension.js:32
 msgid "Reordering app grid"
@@ -80,16 +80,14 @@ msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
 #: extension.js:222
-#, fuzzy
-#| msgid "App grid layout changed, triggering reorder"
 msgid "App movement detected, triggering reorder"
-msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
+msgstr ""
+"Anwendungsbewegung erfasst, Layout des Anwendungsrasters wurde geändert,"
+" Neuordung wird ausgelöst"
 
 #: extension.js:231
-#, fuzzy
-#| msgid "App grid layout changed, triggering reorder"
 msgid "App grid opened, triggering one-off reorder"
-msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
+msgstr "Anwendungsraster wurde geöffnet, einmalige Neuordung wird ausgelöst"
 
 #: extension.js:241
 msgid "Favourite apps changed, triggering reorder"
