@@ -192,7 +192,7 @@ class Extension {
     this.folderSettings.disconnect(this._foldersChangedSignal);
 
     if (this._reorderOnceOnDisplaySignal != null) {
-      this.Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
+      Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
     }
 
     //Disable showing the favourite apps on the app grid
