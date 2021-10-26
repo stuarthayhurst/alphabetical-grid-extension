@@ -59,7 +59,8 @@
   - A log of what the extension is doing is very helpful for fixing issues
   - The extension logs to the system logs when enabled, which can be accessed with `journalctl /usr/bin/gnome-shell`
   - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
-  - To enable logging, the setting can be found under the `Developer settings` section of the extension's settings: ![Enable logging](docs/enable-logging.png)
+  - To enable logging, the setting can be found under the `Developer settings` section of the extension's settings:
+![Enable logging](docs/enable-logging.png)
 
 ### Credits:
   - `scripts/update-po.sh` and `scripts/update-pot.sh` were derived from [Fly-Pie](https://github.com/Schneegans/Fly-Pie), originally licensed under the [MIT license](https://github.com/Schneegans/Fly-Pie/blob/develop/LICENSE)
