@@ -51,6 +51,11 @@
   - python3 (`make prune`)
   - optipng (`make compress`)
 
+## What happened to the show favourites option?
+  - Maintaining this feature was going to end up complicated and messy
+  - It was also out of scope, and [this](https://extensions.gnome.org/extension/4485/favourites-in-appgrid/) extension did the job better
+  - With this in mind, the feature was removed in release `v16`
+
 ## Want to help?
   - Help with the project is always appreciated, refer to `docs/CONTRIBUTING.md` to get started
   - [Documentation](docs/CONTRIBUTING.md#documentation-changes), [code](docs/CONTRIBUTING.md#code-changes), [translations](docs/CONTRIBUTING.md#translations) and UI improvements are all welcome!
