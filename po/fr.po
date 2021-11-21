@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-21 20:51+0000\n"
-"PO-Revision-Date: 2021-09-07 19:46+0200\n"
+"PO-Revision-Date: 2021-11-21 23:51+0100\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -62,20 +62,12 @@ msgstr ""
 "réorganisation"
 
 #: extension.js:169
-#, fuzzy
-#| msgid "App grid layout changed, triggering reorder"
 msgid "App movement detected, triggering reorder"
-msgstr ""
-"La disposition de la grille d’applications a été modifiée, déclenchant la "
-"réorganisation"
+msgstr "La grille d’applications a été modifiée, déclenchant la réorganisation"
 
 #: extension.js:178
-#, fuzzy
-#| msgid "App grid layout changed, triggering reorder"
 msgid "App grid opened, triggering one-off reorder"
-msgstr ""
-"La disposition de la grille d’applications a été modifiée, déclenchant la "
-"réorganisation"
+msgstr "La grille d’applications a été ouverte, déclenchant la réorganisation"
 
 #: extension.js:188
 msgid "Favourite apps changed, triggering reorder"
