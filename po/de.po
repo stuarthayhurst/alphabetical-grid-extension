@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 12:06+0100\n"
+"POT-Creation-Date: 2021-11-21 20:51+0000\n"
 "PO-Revision-Date: 2021-10-09 13:31+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
@@ -23,117 +23,96 @@ msgid "Reordering app grid"
 msgstr "Raster wird neu geordnet"
 
 #. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-#: extension.js:85
+#: extension.js:82
 msgid "Patched item comparison"
 msgstr "Itemvergleich-Methode gepatched"
 
 #. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-#: extension.js:89
+#: extension.js:86
 msgid "Patched redisplay"
 msgstr "Redisplay-Methode gepatched"
 
 #. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-#: extension.js:96
+#: extension.js:93
 msgid "Unpatched item comparison"
 msgstr "Itemvergleich-Methode entpatched"
 
 #. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-#: extension.js:100
+#: extension.js:97
 msgid "Unpatched redisplay"
 msgstr "Redisplay-Methode entpatched"
 
-#: extension.js:113
+#: extension.js:110
 msgid "Reordering folder contents"
 msgstr "Ordnerinhalt wird neu geordnet"
 
-#: extension.js:146
-msgid "Favourite apps are already shown"
-msgstr "Favorisierte Anwendungen werden bereits angezeigt"
-
-#: extension.js:148
-msgid "Favourite apps are already hidden"
-msgstr "Favorisierte Anwendungen werden bereits versteckt"
-
-#: extension.js:153
-msgid "Showing favourite apps on the app grid"
-msgstr "Favorisierte Anwendungen werden im Raster angezeigt"
-
-#: extension.js:156
-msgid "Hiding favourite apps on the app grid"
-msgstr "Favorisierte Anwendungen werden im Raster versteckt"
-
-#: extension.js:162
-msgid "Reordering app grid, due to favourite apps"
-msgstr ""
-"Anwendungsraster wird aufgrund der favorisierten Anwendungen neu geordnet"
-
-#: extension.js:183
+#: extension.js:138
 msgid "Connected to listeners"
 msgstr "Mit Listenern verbunden"
 
-#: extension.js:202
+#: extension.js:158
 msgid "Disconnected from listeners"
 msgstr "Von Listenern getrennt"
 
-#: extension.js:217
+#: extension.js:164
 msgid "App grid layout changed, triggering reorder"
 msgstr "Layout des Anwendungsrasters wurde geändert, Neuordung wird ausgelöst"
 
-#: extension.js:222
+#: extension.js:169
 msgid "App movement detected, triggering reorder"
 msgstr ""
-"Anwendungsbewegung erfasst, Layout des Anwendungsrasters wurde geändert,"
-" Neuordung wird ausgelöst"
+"Anwendungsbewegung erfasst, Layout des Anwendungsrasters wurde geändert, "
+"Neuordung wird ausgelöst"
 
-#: extension.js:231
+#: extension.js:178
 msgid "App grid opened, triggering one-off reorder"
 msgstr "Anwendungsraster wurde geöffnet, einmalige Neuordung wird ausgelöst"
 
-#: extension.js:241
+#: extension.js:188
 msgid "Favourite apps changed, triggering reorder"
 msgstr "Favorisierte Anwendungen wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:249
+#: extension.js:196
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "gsettings-Werte der Erweiterung wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:256
+#: extension.js:203
 msgid "Folders changed, triggering reorder"
 msgstr "Ordner wurden geändert, Neuordnung wird ausgelöst"
 
-#: extension.js:263
+#: extension.js:210
 msgid "Installed apps changed, triggering reorder"
 msgstr "Installierte Anwendungen wurden geändert, Neuordnung wird ausgelöst"
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:81
+#: prefs.js:72
 msgid "translator-credits"
 msgstr "Philipp Kiemle <philipp.kiemle@gmail.com>, 2021"
 
-#: prefs.js:82
+#: prefs.js:73
 msgid "Alphabetical App Grid"
 msgstr "Alphabetical App Grid"
 
-#: prefs.js:83
+#: prefs.js:74
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr "Stellt die alphabetische Sortierung des Anwendungsrasters wieder her"
 
-#: prefs.js:85
+#: prefs.js:76
 msgid "© 2021 Stuart Hayhurst"
 msgstr "© 2021 Stuart Hayhurst"
 
-#: prefs.js:89
+#: prefs.js:80
 msgid "Contribute on GitHub"
 msgstr "Mitwirken auf GitHub"
 
-#: prefs.js:119
+#: prefs.js:110
 msgid "About"
 msgstr "Info"
 
-#: prefs.js:125
+#: prefs.js:116
 msgid "Alphabetical App Grid Preferences"
 msgstr "Alphabetical App Grid-Einstellungen"
 
@@ -165,56 +144,41 @@ msgstr ""
 "\">Eine Spende wäre nett :)</a>"
 
 #: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
-msgid "GNOME 40+ settings"
-msgstr "Einstellungen für GNOME 40+"
-
-#. This is a tooltip.
-#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
-msgid "Allows displaying the favourite apps on the app grid"
-msgstr ""
-"Legt fest, ob favorisierte Anwendungen im Anwendungsraster angezeigt werden "
-"sollen"
-
-#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
-msgid "Show favourite apps on the app grid"
-msgstr "Favorisierte Anwendungen im Raster anzeigen"
-
-#: ui/prefs-gtk4.ui:144 ui/prefs.ui:221
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:162 ui/prefs.ui:257
+#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
 "Legt fest, ob Ordnerinhalte ebenfalls alphabetisch geordnet werden sollen"
 
-#: ui/prefs-gtk4.ui:176 ui/prefs.ui:276
+#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
 msgid "Sort folder contents"
 msgstr "Ordnerinhalt sortieren"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:206 ui/prefs.ui:327
+#: ui/prefs-gtk4.ui:130 ui/prefs.ui:199
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
 "Legt fest, an welcher Stelle Ordner im Anwendungsraster angezeigt werden "
 "sollen"
 
 #. Next to a dropdown with the options "Alphabetical", "Start" and "End".
-#: ui/prefs-gtk4.ui:220 ui/prefs.ui:346
+#: ui/prefs-gtk4.ui:144 ui/prefs.ui:218
 msgid "Position of ordered folders"
 msgstr "Ordnerposition"
 
-#: ui/prefs-gtk4.ui:269 ui/prefs.ui:425
+#: ui/prefs-gtk4.ui:193 ui/prefs.ui:297
 msgid "Developer settings"
 msgstr "Entwickleroptionen"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:287 ui/prefs.ui:461
+#: ui/prefs-gtk4.ui:211 ui/prefs.ui:333
 msgid "Allow the extension to send messages to the system logs"
 msgstr ""
 "Legt fest, ob die Erweiterung Nachrichten an die Systemprotokolle sendet"
 
-#: ui/prefs-gtk4.ui:301 ui/prefs.ui:480
+#: ui/prefs-gtk4.ui:225 ui/prefs.ui:352
 msgid "Enable extension logging"
 msgstr "Protokollierung aktivieren"

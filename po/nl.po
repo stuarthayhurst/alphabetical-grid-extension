@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-09 12:06+0100\n"
+"POT-Creation-Date: 2021-11-21 20:51+0000\n"
 "PO-Revision-Date: 2021-10-09 13:30+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -23,114 +23,94 @@ msgid "Reordering app grid"
 msgstr "Bezig met herordenen…"
 
 #. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-#: extension.js:85
+#: extension.js:82
 msgid "Patched item comparison"
 msgstr "Verschil tussen gepatchte items"
 
 #. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-#: extension.js:89
+#: extension.js:86
 msgid "Patched redisplay"
 msgstr "Patches toepassen op toepassingsoverzicht"
 
 #. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-#: extension.js:96
+#: extension.js:93
 msgid "Unpatched item comparison"
 msgstr "Verschil tussen ongepatchte items"
 
 #. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-#: extension.js:100
+#: extension.js:97
 msgid "Unpatched redisplay"
 msgstr "Ongepatchte items toepassen op toepassingsoverzicht"
 
-#: extension.js:113
+#: extension.js:110
 msgid "Reordering folder contents"
 msgstr "Bezig met herordenen…"
 
-#: extension.js:146
-msgid "Favourite apps are already shown"
-msgstr "Uw favoriete toepassingen worden al getoond"
-
-#: extension.js:148
-msgid "Favourite apps are already hidden"
-msgstr "Uw favoriete toepassingen zijn al verborgen"
-
-#: extension.js:153
-msgid "Showing favourite apps on the app grid"
-msgstr "Uw favoriete toepassingen worden getoond op het rooster"
-
-#: extension.js:156
-msgid "Hiding favourite apps on the app grid"
-msgstr "Uw favoriete toepassingen zijn verborgen van het rooster"
-
-#: extension.js:162
-msgid "Reordering app grid, due to favourite apps"
-msgstr "De favoriete toepassingen worden toegevoegd - bezig met herordenen…"
-
-#: extension.js:183
+#: extension.js:138
 msgid "Connected to listeners"
 msgstr "Verbonden met achtergronddienst"
 
-#: extension.js:202
+#: extension.js:158
 msgid "Disconnected from listeners"
 msgstr "Verbinding verbroken met achtergronddienst"
 
-#: extension.js:217
+#: extension.js:164
 msgid "App grid layout changed, triggering reorder"
 msgstr "De toepassingsindeling is gewijzigd - bezig met herordenen…"
 
-#: extension.js:222
+#: extension.js:169
 msgid "App movement detected, triggering reorder"
 msgstr "Toepassingsverplaatsing gedetecteerd - bezig met herordenen…"
 
-#: extension.js:231
+#: extension.js:178
 msgid "App grid opened, triggering one-off reorder"
 msgstr "Het toepassingsrooster is geopend - bezig met herordenen…"
 
-#: extension.js:241
+#: extension.js:188
 msgid "Favourite apps changed, triggering reorder"
 msgstr "De favoriete toepassingen zijn gewijzigd - bezig met herordenen…"
 
-#: extension.js:249
+#: extension.js:196
 msgid "Extension gsettings values changed, triggering reorder"
 msgstr ""
 "De uitbreidingswaarden (gsettings) zijn aangepast - bezig met herordenen…"
 
-#: extension.js:256
+#: extension.js:203
 msgid "Folders changed, triggering reorder"
 msgstr "De mappen zijn gewijzigd - bezig met herordenen…"
 
-#: extension.js:263
+#: extension.js:210
 msgid "Installed apps changed, triggering reorder"
 msgstr "De geïnstalleerde toepassingen zijn gewijzigd - bezig met herordenen…"
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:81
+#: prefs.js:72
 msgid "translator-credits"
 msgstr "Heimen Stoffels <vistausss@fastmail.com>"
 
-#: prefs.js:82
+#: prefs.js:73
 msgid "Alphabetical App Grid"
 msgstr "Alfabetisch toepassingsrooster"
 
-#: prefs.js:83
+#: prefs.js:74
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr "Herstel de alfabetische sortering van het toepassingsrooster"
 
-#: prefs.js:85
+#: prefs.js:76
 msgid "© 2021 Stuart Hayhurst"
 msgstr "© 2021 Stuart Hayhurst"
 
-#: prefs.js:89
+#: prefs.js:80
 msgid "Contribute on GitHub"
 msgstr "Meehelpen op GitHub"
 
-#: prefs.js:119
+#: prefs.js:110
 msgid "About"
 msgstr "Over"
 
-#: prefs.js:125
+#: prefs.js:116
 msgid "Alphabetical App Grid Preferences"
 msgstr "Voorkeuren"
 
@@ -162,50 +142,37 @@ msgstr ""
 "\">Overweeg dan een donatie :)</a>"
 
 #: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
-msgid "GNOME 40+ settings"
-msgstr "GNOME 40+-voorkeuren"
-
-#. This is a tooltip.
-#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
-msgid "Allows displaying the favourite apps on the app grid"
-msgstr "Toont uw favoriete toepassingen op het toepassingsrooster"
-
-#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
-msgid "Show favourite apps on the app grid"
-msgstr "Favoriete toepassingen tonen op rooster"
-
-#: ui/prefs-gtk4.ui:144 ui/prefs.ui:221
 msgid "General settings"
 msgstr "Algemene voorkeuren"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:162 ui/prefs.ui:257
+#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Of mapinhoud alfabetisch gesorteerd moet worden"
 
-#: ui/prefs-gtk4.ui:176 ui/prefs.ui:276
+#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
 msgid "Sort folder contents"
 msgstr "Mapinhoud sorteren"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:206 ui/prefs.ui:327
+#: ui/prefs-gtk4.ui:130 ui/prefs.ui:199
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Waar mappen geplaatst moeten worden op het rooster"
 
 #. Next to a dropdown with the options "Alphabetical", "Start" and "End".
-#: ui/prefs-gtk4.ui:220 ui/prefs.ui:346
+#: ui/prefs-gtk4.ui:144 ui/prefs.ui:218
 msgid "Position of ordered folders"
 msgstr "Positie van geordende mappen"
 
-#: ui/prefs-gtk4.ui:269 ui/prefs.ui:425
+#: ui/prefs-gtk4.ui:193 ui/prefs.ui:297
 msgid "Developer settings"
 msgstr "Ontwikkelaarsvoorkeuren"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:287 ui/prefs.ui:461
+#: ui/prefs-gtk4.ui:211 ui/prefs.ui:333
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Laat de extensie een logboek aanleggen met daarin alle uitvoer"
 
-#: ui/prefs-gtk4.ui:301 ui/prefs.ui:480
+#: ui/prefs-gtk4.ui:225 ui/prefs.ui:352
 msgid "Enable extension logging"
 msgstr "Logboek aanleggen"
