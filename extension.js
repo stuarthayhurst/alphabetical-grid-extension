@@ -51,9 +51,6 @@ class Extension {
     //Save original shell functions
     this._originalCompareItems = AppDisplay._compareItems;
     this._originalRedisplay = AppDisplay._redisplay;
-    this._originalLoadApps = AppDisplay._loadApps;
-    //Save whether or not favourite apps are currently shown
-    this._favouriteAppsShown = false;
     //Create a lock to prevent code fighting itself to change gsettings
     this._currentlyUpdating = false;
   }
@@ -125,45 +122,6 @@ class Extension {
     }
   }
 
-  setShowFavouriteApps(targetState) {
-    //Declare locally for access
-    let currentState = this._favouriteAppsShown;
-    let shellSettings = this.shellSettings;
-    let originalLoadApps = this._originalLoadApps;
-
-    //Monkey-patched wrapper for _loadApps() to not remove favourite apps
-    function _patchedLoadApps() {
-      let originalIsFavorite = AppDisplay._appFavorites.isFavorite;
-
-      //Temporarily disable the shell's ability to detect a favourite app
-      AppDisplay._appFavorites.isFavorite = function () { return false; };
-      let appList = originalLoadApps.call(this);
-      AppDisplay._appFavorites.isFavorite = originalIsFavorite;
-
-      return appList;
-    }
-
-    if (currentState == targetState) { //Do nothing if the current state and target state match
-      if (currentState) {
-        ExtensionHelper.logMessage(_('Favourite apps are already shown'));
-      } else {
-        ExtensionHelper.logMessage(_('Favourite apps are already hidden'));
-      }
-      return;
-
-    } else if (targetState) { //Show favourite apps, by patching _loadApps()
-      ExtensionHelper.logMessage(_('Showing favourite apps on the app grid'));
-      AppDisplay._loadApps = _patchedLoadApps;
-    } else { //Hide favourite apps, by restoring _loadApps()
-      ExtensionHelper.logMessage(_('Hiding favourite apps on the app grid'));
-      AppDisplay._loadApps = originalLoadApps;
-    }
-    this._favouriteAppsShown = targetState;
-
-    //Trigger reorder with new changes
-    this.reorderGrid(_('Reordering app grid, due to favourite apps'));
-  }
-
   //Listener functions below
 
   startListeners() {
@@ -176,11 +134,6 @@ class Extension {
 
     //One time connections
     this._reorderOnceOnDisplay();
-
-    //Only needed on GNOME 40
-    if (ShellVersion > 3.38) {
-      this._handleShowFavouriteApps();
-    }
 
     ExtensionHelper.logMessage(_('Connected to listeners'));
   }
@@ -197,25 +150,12 @@ class Extension {
       Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
     }
 
-    //Disable showing the favourite apps on the app grid
-    this.extensionSettings.disconnect(this._showFavouritesSignal);
-    this.setShowFavouriteApps(false);
-
     //Clean up timeout sources
     if (this._reorderGridTimeoutId != null) {
       GLib.Source.remove(this._reorderGridTimeoutId);
     }
 
     ExtensionHelper.logMessage(_('Disconnected from listeners'));
-  }
-
-  _handleShowFavouriteApps() {
-    //Set initial state
-    this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
-    //Wait for show favourite apps to be toggled
-    this._showFavouritesSignal = this.extensionSettings.connect('changed::show-favourite-apps', () => {
-      this.setShowFavouriteApps(this.extensionSettings.get_boolean('show-favourite-apps'));
-    });
   }
 
   _waitForGridReorder() {
