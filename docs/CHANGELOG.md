@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v16 - `2021-11-22`
+ - README and changelog fixes
+ - Minor Makefile improvement (Fixed -o7 quotes ending before content starts)
+ - Removed "Show favourite apps on the app grid" option, as it's out of the project's scope
+   - Use [this](https://extensions.gnome.org/extension/4485/favourites-in-appgrid/) extension instead
+
 ### v15 - `2021-10-09`
  - Hotfix: Actually disconnect from GLib timeouts
 
