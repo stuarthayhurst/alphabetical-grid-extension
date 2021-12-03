@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v17 - `to-be-released`
+ - Updated donation link
+
 ### v16 - `2021-11-22`
  - README and changelog fixes
  - Minor Makefile improvement (Fixed -o7 quotes ending before content starts)
