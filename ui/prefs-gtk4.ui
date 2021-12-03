@@ -39,7 +39,7 @@
             <child>
               <object class="GtkLabel" id="donate-prompt">
                 <property name="label" translatable="yes">Found this useful?
-&lt;a href=&quot;https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN&quot;&gt;Consider donating :)&lt;/a&gt;</property>
+&lt;a href=&quot;https://paypal.me/stuartahayhurst&quot;&gt;Consider donating :)&lt;/a&gt;</property>
                 <property name="use-markup">1</property>
                 <property name="justify">center</property>
               </object>

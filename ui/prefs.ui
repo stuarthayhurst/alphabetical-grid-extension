@@ -51,7 +51,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">Found this useful?
-&lt;a href="https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN"&gt;Consider donating :)&lt;/a&gt;</property>
+&lt;a href="https://paypal.me/stuartahayhurst"&gt;Consider donating :)&lt;/a&gt;</property>
                 <property name="use-markup">True</property>
                 <property name="justify">center</property>
               </object>
