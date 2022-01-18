@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-03 17:54+0000\n"
+"POT-Creation-Date: 2022-01-18 09:41+0000\n"
 "PO-Revision-Date: 2021-11-21 23:51+0100\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
@@ -104,8 +104,8 @@ msgid "Restore the alphabetical ordering of the app grid"
 msgstr "Restaurer l’ordre alphabétique de la grille d’applications"
 
 #: prefs.js:76
-msgid "© 2021 Stuart Hayhurst"
-msgstr "© 2021 Stuart Hayhurst"
+msgid "© 2022 Stuart Hayhurst"
+msgstr "© 2022 Stuart Hayhurst"
 
 #: prefs.js:80
 msgid "Contribute on GitHub"
@@ -142,8 +142,7 @@ msgid ""
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating :)</a>"
 msgstr ""
 "Vous avez trouvé cela utile ?\n"
-"<a href=\"https://paypal.me/stuartahayhurst"
-"\">Pensez à faire un don :)</a>"
+"<a href=\"https://paypal.me/stuartahayhurst\">Pensez à faire un don :)</a>"
 
 #: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
 msgid "General settings"

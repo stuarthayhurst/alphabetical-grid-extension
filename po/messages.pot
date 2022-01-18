@@ -1,5 +1,5 @@
 # <LANGUAGE> translation for the Alphabetical App Grid GNOME Shell Extension.
-# Copyright (C) 2021 Stuart Hayhurst
+# Copyright (C) 2022 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-03 17:54+0000\n"
+"POT-Creation-Date: 2022-01-18 09:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,7 +97,7 @@ msgid "Restore the alphabetical ordering of the app grid"
 msgstr ""
 
 #: prefs.js:76
-msgid "© 2021 Stuart Hayhurst"
+msgid "© 2022 Stuart Hayhurst"
 msgstr ""
 
 #: prefs.js:80

@@ -73,7 +73,7 @@ var PrefsWidget = class PrefsWidget {
       program_name: _('Alphabetical App Grid'),
       comments: _('Restore the alphabetical ordering of the app grid'),
       license_type: Gtk.License.GPL_3_0,
-      copyright: _('© 2021 Stuart Hayhurst'),
+      copyright: _('© 2022 Stuart Hayhurst'),
       logo: logo,
       version: 'v' + Me.metadata.version.toString(),
       website: Me.metadata.url.toString(),
