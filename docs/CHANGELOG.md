@@ -1,7 +1,9 @@
 ## Changelog:
 
-### v17 - `to-be-released`
+### v17 - `2022-01-18`
  - Updated donation link
+ - Updated copyright year
+ - Silenced build system icon output
 
 ### v16 - `2021-11-22`
  - README and changelog fixes
