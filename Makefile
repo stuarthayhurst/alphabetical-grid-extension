@@ -38,7 +38,7 @@ prune:
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
-	optipng "$(COMPRESSLEVEL)" -strip all "$@"
+	optipng "$(COMPRESSLEVEL)" -quiet -strip all "$@"
 install:
 	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
 	  $(MAKE) build; \
