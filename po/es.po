@@ -1,0 +1,174 @@
+# Spanish translation for the Alphabetical App Grid GNOME Shell Extension.
+# Copyright (C) 2022 Stuart Hayhurst
+# This file is distributed under the same license as the alphabetical-grid-extension package.
+# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alphabetical-grid-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-28 19:50+0100\n"
+"PO-Revision-Date: 2022-01-28 20:17+0100\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: extension.js:32
+msgid "Reordering app grid"
+msgstr "Reordenación del tablero de aplicaciones"
+
+#. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
+#: extension.js:82
+msgid "Patched item comparison"
+msgstr "Comparación de elementos parcheados"
+
+#. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
+#: extension.js:86
+msgid "Patched redisplay"
+msgstr "Redistribución parcheada"
+
+#. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
+#: extension.js:93
+msgid "Unpatched item comparison"
+msgstr "Comparación de elementos sin parches"
+
+#. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
+#: extension.js:97
+msgid "Unpatched redisplay"
+msgstr "Redistribución sin parches"
+
+#: extension.js:110
+msgid "Reordering folder contents"
+msgstr "Reordenación del contenido de las carpetas"
+
+#: extension.js:138
+msgid "Connected to listeners"
+msgstr "Conectado con los receptores"
+
+#: extension.js:158
+msgid "Disconnected from listeners"
+msgstr "Desconectado de los receptores"
+
+#: extension.js:164
+msgid "App grid layout changed, triggering reorder"
+msgstr "El diseño del tablero de aplicaciones ha cambiado, provocando un reordenamiento"
+
+#: extension.js:169
+msgid "App movement detected, triggering reorder"
+msgstr "Detectado el movimiento de una aplicación, lo que provoca la reordenación"
+
+#: extension.js:178
+msgid "App grid opened, triggering one-off reorder"
+msgstr "Abierto el tablero de aplicaciones, lo que provoca un reordenamiento puntual"
+
+#: extension.js:188
+msgid "Favourite apps changed, triggering reorder"
+msgstr "Las aplicaciones favoritas han cambiado, provocando un reordenamiento"
+
+#: extension.js:196
+msgid "Extension gsettings values changed, triggering reorder"
+msgstr "Los valores gsettings de la extensión han cambiado, provocando un reordenamiento"
+
+#: extension.js:203
+msgid "Folders changed, triggering reorder"
+msgstr "Las carpetas se han modificado, lo que ha provocado una reordenación"
+
+#: extension.js:210
+msgid "Installed apps changed, triggering reorder"
+msgstr "Las aplicaciones instaladas han cambiado, provocando un reordenamiento"
+
+#. Translators: Do not translate literally. If you want, you can enter your
+#. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
+#. If not, "translate" this string with a whitespace character.
+#: prefs.js:72
+msgid "translator-credits"
+msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2022"
+
+#: prefs.js:73
+msgid "Alphabetical App Grid"
+msgstr "Tablero alfabético de aplicaciones"
+
+#: prefs.js:74
+msgid "Restore the alphabetical ordering of the app grid"
+msgstr "Restablecer el orden alfabético del tablero de aplicaciones"
+
+#: prefs.js:76
+msgid " 2022 Stuart Hayhurst"
+msgstr " 2022 Stuart Hayhurst"
+
+#: prefs.js:80
+msgid "Contribute on GitHub"
+msgstr "Contribuir en GitHub"
+
+#: prefs.js:110
+msgid "About"
+msgstr "Acerca de"
+
+#: prefs.js:116
+msgid "Alphabetical App Grid Preferences"
+msgstr "Preferencias de Tablero alfabético de aplicaciones"
+
+#. When this is selected, folders will appear in alphabetical order, mixed with applications.
+#: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
+msgid "Alphabetical"
+msgstr "Alfabético"
+
+#. When this is selected, folders will appear at the beginning of the app grid, in front of the other apps.
+#: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
+msgctxt "position"
+msgid "Start"
+msgstr "Inicio"
+
+#. When this is selected, folders will appear at the end of the app grid, behind the other apps.
+#: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
+msgctxt "position"
+msgid "End"
+msgstr "Final"
+
+#: ui/prefs-gtk4.ui:41 ui/prefs.ui:53
+msgid ""
+"Found this useful?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating :)</a>"
+msgstr ""
+"¿Le ha resultado útil?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Considere hacer un donativo :)</a>"
+
+#: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
+msgid "General settings"
+msgstr "Ajustes generales"
+
+#. This is a tooltip.
+#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
+
+#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
+msgid "Sort folder contents"
+msgstr "Ordenar el contenido de las carpetas"
+
+#. This is a tooltip.
+#: ui/prefs-gtk4.ui:130 ui/prefs.ui:199
+msgid "Where to place folders when ordering the applications grid"
+msgstr "Dónde colocar las carpetas al ordenar el tablero de aplicaciones"
+
+#. Next to a dropdown with the options "Alphabetical", "Start" and "End".
+#: ui/prefs-gtk4.ui:144 ui/prefs.ui:218
+msgid "Position of ordered folders"
+msgstr "Posición de las carpetas ordenadas"
+
+#: ui/prefs-gtk4.ui:193 ui/prefs.ui:297
+msgid "Developer settings"
+msgstr "Ajustes para el desarrollador"
+
+#. This is a tooltip.
+#: ui/prefs-gtk4.ui:211 ui/prefs.ui:333
+msgid "Allow the extension to send messages to the system logs"
+msgstr "Permitir que la extensión envíe mensajes a los registros del sistema"
+
+#: ui/prefs-gtk4.ui:225 ui/prefs.ui:352
+msgid "Enable extension logging"
+msgstr "Activar el registro de extensiones"
