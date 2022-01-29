@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-28 19:50+0100\n"
+"POT-Creation-Date: 2022-01-29 10:30+0000\n"
 "PO-Revision-Date: 2022-01-28 20:17+0100\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: \n"
@@ -55,15 +55,19 @@ msgstr "Desconectado de los receptores"
 
 #: extension.js:164
 msgid "App grid layout changed, triggering reorder"
-msgstr "El diseño del tablero de aplicaciones ha cambiado, provocando un reordenamiento"
+msgstr ""
+"El diseño del tablero de aplicaciones ha cambiado, provocando un "
+"reordenamiento"
 
 #: extension.js:169
 msgid "App movement detected, triggering reorder"
-msgstr "Detectado el movimiento de una aplicación, lo que provoca la reordenación"
+msgstr ""
+"Detectado el movimiento de una aplicación, lo que provoca la reordenación"
 
 #: extension.js:178
 msgid "App grid opened, triggering one-off reorder"
-msgstr "Abierto el tablero de aplicaciones, lo que provoca un reordenamiento puntual"
+msgstr ""
+"Abierto el tablero de aplicaciones, lo que provoca un reordenamiento puntual"
 
 #: extension.js:188
 msgid "Favourite apps changed, triggering reorder"
@@ -71,7 +75,9 @@ msgstr "Las aplicaciones favoritas han cambiado, provocando un reordenamiento"
 
 #: extension.js:196
 msgid "Extension gsettings values changed, triggering reorder"
-msgstr "Los valores gsettings de la extensión han cambiado, provocando un reordenamiento"
+msgstr ""
+"Los valores gsettings de la extensión han cambiado, provocando un "
+"reordenamiento"
 
 #: extension.js:203
 msgid "Folders changed, triggering reorder"
@@ -97,8 +103,8 @@ msgid "Restore the alphabetical ordering of the app grid"
 msgstr "Restablecer el orden alfabético del tablero de aplicaciones"
 
 #: prefs.js:76
-msgid " 2022 Stuart Hayhurst"
-msgstr " 2022 Stuart Hayhurst"
+msgid "© 2022 Stuart Hayhurst"
+msgstr "© 2022 Stuart Hayhurst"
 
 #: prefs.js:80
 msgid "Contribute on GitHub"
@@ -135,7 +141,8 @@ msgid ""
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating :)</a>"
 msgstr ""
 "¿Le ha resultado útil?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Considere hacer un donativo :)</a>"
+"<a href=\"https://paypal.me/stuartahayhurst\">Considere hacer un "
+"donativo :)</a>"
 
 #: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
 msgid "General settings"
