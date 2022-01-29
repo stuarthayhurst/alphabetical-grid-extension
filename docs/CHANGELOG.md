@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v17 - `2022-01-29`
+ - Added Spanish translation - [Óscar](https://github.com/oscfdezdz)
+
 ### v17 - `2022-01-18`
  - Updated donation link
  - Updated copyright year
