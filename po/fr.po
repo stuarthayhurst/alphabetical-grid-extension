@@ -1,5 +1,5 @@
 # French translation for the Alphabetical App Grid GNOME Shell Extension.
-# Copyright (C) 2021 Stuart Hayhurst
+# Copyright (C) 2022 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
 #
 # Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-18 09:41+0000\n"
+"POT-Creation-Date: 2022-02-18 22:17+0000\n"
 "PO-Revision-Date: 2021-11-21 23:51+0100\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
@@ -18,75 +18,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
-
-#: extension.js:32
-msgid "Reordering app grid"
-msgstr "Réorganisation de la grille d’applications"
-
-#. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-#: extension.js:82
-msgid "Patched item comparison"
-msgstr "Comparaison des éléments corrigés"
-
-#. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-#: extension.js:86
-msgid "Patched redisplay"
-msgstr "Réaffichage corrigé"
-
-#. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-#: extension.js:93
-msgid "Unpatched item comparison"
-msgstr "Comparaison d’éléments non corrigés"
-
-#. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-#: extension.js:97
-msgid "Unpatched redisplay"
-msgstr "Réaffichage non corrigé"
-
-#: extension.js:110
-msgid "Reordering folder contents"
-msgstr "Réorganisation du contenu des dossiers"
-
-#: extension.js:138
-msgid "Connected to listeners"
-msgstr "Connecté aux auditeurs"
-
-#: extension.js:158
-msgid "Disconnected from listeners"
-msgstr "Déconnecté des auditeurs"
-
-#: extension.js:164
-msgid "App grid layout changed, triggering reorder"
-msgstr ""
-"La disposition de la grille d’applications a été modifiée, déclenchant la "
-"réorganisation"
-
-#: extension.js:169
-msgid "App movement detected, triggering reorder"
-msgstr "La grille d’applications a été modifiée, déclenchant la réorganisation"
-
-#: extension.js:178
-msgid "App grid opened, triggering one-off reorder"
-msgstr "La grille d’applications a été ouverte, déclenchant la réorganisation"
-
-#: extension.js:188
-msgid "Favourite apps changed, triggering reorder"
-msgstr "Applications préférées modifiées, déclenchant une réorganisation"
-
-#: extension.js:196
-msgid "Extension gsettings values changed, triggering reorder"
-msgstr ""
-"Les valeurs des paramètres d’extension ont changé, déclenchant la "
-"réorganisation"
-
-#: extension.js:203
-msgid "Folders changed, triggering reorder"
-msgstr "Les dossiers ont été modifiés, déclenchant la réorganisation"
-
-#: extension.js:210
-msgid "Installed apps changed, triggering reorder"
-msgstr ""
-"Les applications installées ont été modifiées, déclenchant une réorganisation"
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-29 10:30+0000\n"
+"POT-Creation-Date: 2022-02-18 22:17+0000\n"
 "PO-Revision-Date: 2022-01-28 20:17+0100\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: \n"
@@ -16,76 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0.1\n"
-
-#: extension.js:32
-msgid "Reordering app grid"
-msgstr "Reordenación del tablero de aplicaciones"
-
-#. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-#: extension.js:82
-msgid "Patched item comparison"
-msgstr "Comparación de elementos parcheados"
-
-#. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-#: extension.js:86
-msgid "Patched redisplay"
-msgstr "Redistribución parcheada"
-
-#. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-#: extension.js:93
-msgid "Unpatched item comparison"
-msgstr "Comparación de elementos sin parches"
-
-#. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-#: extension.js:97
-msgid "Unpatched redisplay"
-msgstr "Redistribución sin parches"
-
-#: extension.js:110
-msgid "Reordering folder contents"
-msgstr "Reordenación del contenido de las carpetas"
-
-#: extension.js:138
-msgid "Connected to listeners"
-msgstr "Conectado con los receptores"
-
-#: extension.js:158
-msgid "Disconnected from listeners"
-msgstr "Desconectado de los receptores"
-
-#: extension.js:164
-msgid "App grid layout changed, triggering reorder"
-msgstr ""
-"El diseño del tablero de aplicaciones ha cambiado, provocando un "
-"reordenamiento"
-
-#: extension.js:169
-msgid "App movement detected, triggering reorder"
-msgstr ""
-"Detectado el movimiento de una aplicación, lo que provoca la reordenación"
-
-#: extension.js:178
-msgid "App grid opened, triggering one-off reorder"
-msgstr ""
-"Abierto el tablero de aplicaciones, lo que provoca un reordenamiento puntual"
-
-#: extension.js:188
-msgid "Favourite apps changed, triggering reorder"
-msgstr "Las aplicaciones favoritas han cambiado, provocando un reordenamiento"
-
-#: extension.js:196
-msgid "Extension gsettings values changed, triggering reorder"
-msgstr ""
-"Los valores gsettings de la extensión han cambiado, provocando un "
-"reordenamiento"
-
-#: extension.js:203
-msgid "Folders changed, triggering reorder"
-msgstr "Las carpetas se han modificado, lo que ha provocado una reordenación"
-
-#: extension.js:210
-msgid "Installed apps changed, triggering reorder"
-msgstr "Las aplicaciones instaladas han cambiado, provocando un reordenamiento"
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."

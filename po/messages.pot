@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-18 09:42+0000\n"
+"POT-Creation-Date: 2022-02-18 22:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,70 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: extension.js:32
-msgid "Reordering app grid"
-msgstr ""
-
-#. Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-#: extension.js:82
-msgid "Patched item comparison"
-msgstr ""
-
-#. Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-#: extension.js:86
-msgid "Patched redisplay"
-msgstr ""
-
-#. Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-#: extension.js:93
-msgid "Unpatched item comparison"
-msgstr ""
-
-#. Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-#: extension.js:97
-msgid "Unpatched redisplay"
-msgstr ""
-
-#: extension.js:110
-msgid "Reordering folder contents"
-msgstr ""
-
-#: extension.js:138
-msgid "Connected to listeners"
-msgstr ""
-
-#: extension.js:158
-msgid "Disconnected from listeners"
-msgstr ""
-
-#: extension.js:164
-msgid "App grid layout changed, triggering reorder"
-msgstr ""
-
-#: extension.js:169
-msgid "App movement detected, triggering reorder"
-msgstr ""
-
-#: extension.js:178
-msgid "App grid opened, triggering one-off reorder"
-msgstr ""
-
-#: extension.js:188
-msgid "Favourite apps changed, triggering reorder"
-msgstr ""
-
-#: extension.js:196
-msgid "Extension gsettings values changed, triggering reorder"
-msgstr ""
-
-#: extension.js:203
-msgid "Folders changed, triggering reorder"
-msgstr ""
-
-#: extension.js:210
-msgid "Installed apps changed, triggering reorder"
-msgstr ""
 
 #. Translators: Do not translate literally. If you want, you can enter your
 #. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
