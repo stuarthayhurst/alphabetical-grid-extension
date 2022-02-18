@@ -1,7 +1,11 @@
 ## Changelog:
 
-### v17 - `2022-01-29`
- - Added Spanish translation - [Óscar](https://github.com/oscfdezdz)
+### v19 - `2022-02-18`
+ - Added Russian translation - [Nikolay](https://github.com/sngvy) (#52)
+ - Stop translating log messages, as they're for debugging
+
+### v18 - `2022-01-29`
+ - Added Spanish translation - [Óscar](https://github.com/oscfdezdz) (#49)
 
 ### v17 - `2022-01-18`
  - Updated donation link
