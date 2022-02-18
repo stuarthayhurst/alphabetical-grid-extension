@@ -29,7 +29,7 @@ function enable() {
   //Patch shell, reorder and trigger listeners
   gridReorder.patchShell();
   gridReorder.startListeners();
-  gridReorder.reorderGrid(_('Reordering app grid'));
+  gridReorder.reorderGrid('Reordering app grid');
 }
 
 function disable() {
@@ -79,22 +79,22 @@ class Extension {
     //Actually patch the internal functions
     AppDisplay._compareItems = _patchedCompareItems;
     //Translators: This is a log message. The extension now uses its own method to compare the items in the app grid.
-    ExtensionHelper.logMessage(_('Patched item comparison'));
+    ExtensionHelper.logMessage('Patched item comparison');
 
     AppDisplay._redisplay = _patchedRedisplay;
     //Translators: This is a log message. The extension now uses its own method to display the items in the app grid.
-    ExtensionHelper.logMessage(_('Patched redisplay'));
+    ExtensionHelper.logMessage('Patched redisplay');
   }
 
   unpatchShell() {
     //Unpatch the internal functions for extension shutdown
     AppDisplay._compareItems = this._originalCompareItems;
     //Translators: This is a log message. The extension now uses the system method to compare the items in the app grid.
-    ExtensionHelper.logMessage(_('Unpatched item comparison'));
+    ExtensionHelper.logMessage('Unpatched item comparison');
 
     AppDisplay._redisplay = this._originalRedisplay;
     //Translators: This is a log message. The extension now uses the system method to display the items in the app grid.
-    ExtensionHelper.logMessage(_('Unpatched redisplay'));
+    ExtensionHelper.logMessage('Unpatched redisplay');
   }
 
   //Helper functions
@@ -107,7 +107,7 @@ class Extension {
 
       //Alphabetically order the contents of each folder, if enabled
       if (this.extensionSettings.get_boolean('sort-folder-contents')) {
-        ExtensionHelper.logMessage(_('Reordering folder contents'));
+        ExtensionHelper.logMessage('Reordering folder contents');
         AppGridHelper.reorderFolderContents();
       }
 
@@ -135,7 +135,7 @@ class Extension {
     //One time connections
     this._reorderOnceOnDisplay();
 
-    ExtensionHelper.logMessage(_('Connected to listeners'));
+    ExtensionHelper.logMessage('Connected to listeners');
   }
 
   disconnectListeners() {
@@ -155,18 +155,18 @@ class Extension {
       GLib.Source.remove(this._reorderGridTimeoutId);
     }
 
-    ExtensionHelper.logMessage(_('Disconnected from listeners'));
+    ExtensionHelper.logMessage('Disconnected from listeners');
   }
 
   _waitForGridReorder() {
     //Connect to gsettings and wait for the order to change
     this._reorderSignal = this.shellSettings.connect('changed::app-picker-layout', () => {
-      this.reorderGrid(_('App grid layout changed, triggering reorder'));
+      this.reorderGrid('App grid layout changed, triggering reorder');
     });
 
    //Connect to the main overview and wait for an item to be dragged
     this._dragReorderSignal = Main.overview.connect('item-drag-end', () => {
-      this.reorderGrid(_('App movement detected, triggering reorder'));
+      this.reorderGrid('App movement detected, triggering reorder');
     });
   }
 
@@ -175,7 +175,7 @@ class Extension {
     this._reorderOnceOnDisplaySignal = Dash.showAppsButton.connect('notify::checked', () => {
       //Only run required code if app overview toggle is usable
       if (!Controls._ignoreShowAppsButtonToggle) {
-        this.reorderGrid(_('App grid opened, triggering one-off reorder'));
+        this.reorderGrid('App grid opened, triggering one-off reorder');
         Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
         this._reorderOnceOnDisplaySignal = null;
       }
@@ -185,7 +185,7 @@ class Extension {
   _waitForFavouritesChange() {
     //Connect to gsettings and wait for the favourite apps to change
     this._favouriteAppsSignal = this.shellSettings.connect('changed::favorite-apps', () => {
-      this.reorderGrid(_('Favourite apps changed, triggering reorder'));
+      this.reorderGrid('Favourite apps changed, triggering reorder');
     });
   }
 
@@ -193,21 +193,21 @@ class Extension {
     //Connect to gsettings and wait for the extension's settings to change
     this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
       ExtensionHelper.loggingEnabled = Me.metadata.debug || this.extensionSettings.get_boolean('logging-enabled');
-      this.reorderGrid(_('Extension gsettings values changed, triggering reorder'));
+      this.reorderGrid('Extension gsettings values changed, triggering reorder');
     });
   }
 
   _waitForFolderChange() {
     //If a folder was made or deleted, trigger a reorder
     this._foldersChangedSignal = this.folderSettings.connect('changed::folder-children', () => {
-      this.reorderGrid(_('Folders changed, triggering reorder'));
+      this.reorderGrid('Folders changed, triggering reorder');
     });
   }
 
   _waitForInstalledAppsChange() {
     //Wait for installed apps to change
     this._installedAppsChangedSignal = Shell.AppSystem.get_default().connect('installed-changed', () => {
-      this.reorderGrid(_('Installed apps changed, triggering reorder'));
+      this.reorderGrid('Installed apps changed, triggering reorder');
     });
   }
 }
