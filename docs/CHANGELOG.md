@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v20 - `2022-03-12`
+ - Russian translation fixes (#53, #54)
+ - GNOME 42 support (no changes required)
+
 ### v19 - `2022-02-18`
  - Added Russian translation - [Nikolay](https://github.com/sngvy) (#52)
  - Stop translating log messages, as they're for debugging
