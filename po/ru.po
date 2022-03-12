@@ -24,7 +24,7 @@ msgstr ""
 #. If not, "translate" this string with a whitespace character.
 #: prefs.js:72
 msgid "translator-credits"
-msgstr " "
+msgstr "sngvy"
 
 #: prefs.js:73
 msgid "Alphabetical App Grid"
@@ -48,7 +48,7 @@ msgstr "Информация"
 
 #: prefs.js:116
 msgid "Alphabetical App Grid Preferences"
-msgstr ""
+msgstr "Настройки Alphabetical App Grid"
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
@@ -87,7 +87,7 @@ msgstr "Должно ли содержимое папок сортировать
 
 #: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
 msgid "Sort folder contents"
-msgstr "Сортировать содержимое папки"
+msgstr "Сортировать содержимое папок"
 
 #. This is a tooltip.
 #: ui/prefs-gtk4.ui:130 ui/prefs.ui:199
@@ -101,7 +101,7 @@ msgstr "Положение упорядоченных папок"
 
 #: ui/prefs-gtk4.ui:193 ui/prefs.ui:297
 msgid "Developer settings"
-msgstr "Для разрабочтиков"
+msgstr "Для разработчиков"
 
 #. This is a tooltip.
 #: ui/prefs-gtk4.ui:211 ui/prefs.ui:333
