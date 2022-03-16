@@ -18,13 +18,15 @@ var PrefsWidget = class PrefsWidget {
     this.widget = new Gtk.ScrolledWindow();
     this._builder.set_translation_domain(Me.metadata.uuid);
 
-    //Use different API methods for GTK 3 / 4
-    if (ShellVersion < 40) { //GTK 3
+    //Create settings page differently for GNOME 40+ and 3.38
+    if (ShellVersion >= 40) {
+      //GNOME 40+
+      this._builder.add_from_file(Me.path + '/prefs-gtk4.ui');
+      this.widget = this._builder.get_object('main-prefs');
+    } else {
+      //GNOME 3.38
       this._builder.add_from_file(Me.path + '/prefs.ui');
       this.widget.add(this._builder.get_object('main-prefs'));
-    } else { //GTK 4
-      this._builder.add_from_file(Me.path + '/prefs-gtk4.ui');
-      this.widget.set_child(this._builder.get_object('main-prefs'));
     }
 
     this.settingElements = {
