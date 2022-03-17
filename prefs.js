@@ -6,6 +6,7 @@ const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
 const { Gtk, Gio } = imports.gi;
+const Adw = ShellVersion >= 42 ? imports.gi.Adw : null;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
@@ -15,7 +16,6 @@ var PrefsWidget = class PrefsWidget {
     this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.alphabetical-app-grid');
 
     this._builder = new Gtk.Builder();
-    this.widget = new Gtk.ScrolledWindow();
     this._builder.set_translation_domain(Me.metadata.uuid);
 
     this.createPreferences();
@@ -23,16 +23,15 @@ var PrefsWidget = class PrefsWidget {
   }
 
   createPreferences() {
-    //Create settings page differently for GNOME 40+ and 3.38
+    //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
-      //GNOME 40+
       this._builder.add_from_file(Me.path + '/prefs-gtk4.ui');
-      this.widget = this._builder.get_object('main-prefs');
     } else {
-      //GNOME 3.38
       this._builder.add_from_file(Me.path + '/prefs.ui');
-      this.widget.add(this._builder.get_object('main-prefs'));
     }
+
+    //Get the settings container widget
+    this.widget = this._builder.get_object('main-prefs');
 
     this.settingElements = {
       'sort-folders-switch': {
@@ -98,9 +97,35 @@ function init() {
   ExtensionUtils.initTranslations();
 }
 
+function fillPreferencesWindow(window) {
+  let settingsWindow = new PrefsWidget();
+  let settingsPage = new Adw.PreferencesPage();
+  let settingsGroup = new Adw.PreferencesGroup();
+
+  //Setup pages
+  settingsPage.set_title('Settings');
+  settingsPage.set_title('settings-page');
+
+  //Create group for settings
+  settingsGroup.add(settingsWindow.widget);
+
+  //Build the pages
+  settingsPage.add(settingsGroup);
+
+  //Add the pages to the window
+  window.add(settingsPage);
+}
+
 function buildPrefsWidget() {
   let settingsWindow = new PrefsWidget();
-  let settingsWidget = settingsWindow.widget;
+  let settingsWidget = new Gtk.ScrolledWindow();
+
+  //Create settings page differently for GNOME 40+ and 3.38
+  if (ShellVersion >= 40) {
+    settingsWidget.set_child(settingsWindow.widget);
+  } else {
+    settingsWidget.add(settingsWindow.widget);
+  }
 
   //Enable all elements differently for GNOME 40+ and 3.38
   if (ShellVersion >= 40) {
