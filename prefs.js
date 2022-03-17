@@ -60,7 +60,7 @@ var PrefsWidget = class PrefsWidget {
   }
 
   createAbout() {
-    let logo = Gtk.Image.new_from_file(Me.path + '/icon.png');
+    let logo = Gtk.Image.new_from_file(Me.path + '/icon.svg');
     //Different method to get image data for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
       logo = logo.get_paintable();
@@ -118,7 +118,7 @@ function fillPreferencesWindow(window) {
 
   //Fill in the about widget
   builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
-  builder.get_object('extension-icon').set_from_file(Me.path + '/icon.png');
+  builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
 
   //Build the about page
   aboutPage.set_title('About');
