@@ -18,6 +18,11 @@ var PrefsWidget = class PrefsWidget {
     this.widget = new Gtk.ScrolledWindow();
     this._builder.set_translation_domain(Me.metadata.uuid);
 
+    this.createPreferences();
+    this.createAbout();
+  }
+
+  createPreferences() {
     //Create settings page differently for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
       //GNOME 40+
@@ -55,7 +60,7 @@ var PrefsWidget = class PrefsWidget {
     });
   }
 
-  showAbout() {
+  createAbout() {
     let logo = Gtk.Image.new_from_file(Me.path + '/icon.png');
     //Different method to get image data for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
@@ -64,11 +69,9 @@ var PrefsWidget = class PrefsWidget {
       logo = logo.get_pixbuf();
     }
 
-    //Create and display an about menu when requested
-    let aboutDialog = new Gtk.AboutDialog({
-      authors: [
-        'Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'
-      ],
+    //Create about page
+    this.aboutDialog = new Gtk.AboutDialog({
+      authors: ['Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'],
       //Translators: Do not translate literally. If you want, you can enter your
       //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
       //If not, "translate" this string with a whitespace character.
@@ -83,7 +86,11 @@ var PrefsWidget = class PrefsWidget {
       website_label: _('Contribute on GitHub'),
       modal: true
     });
-    aboutDialog.present();
+  }
+
+  showAbout() {
+    //Show the about page as a modal
+    this.aboutDialog.present();
   }
 }
 
