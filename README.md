@@ -30,11 +30,10 @@
     - `make clean`: Deletes extension zip, `locale` and automatic backups
     - `make gtk4`: Creates a GTK 4 UI from the GTK 3 UI file (Should be run after any changes to files in `ui/`)
     - `make translations`: Updates translations
-    - `make prune`: Removes rubbish from any .svgs in `docs/`
     - `make compress`: Losslessly compresses any .pngs in `docs/`
       - Allows passing `COMPRESSLEVEL="-oX"`, where x is an integer between 0-7
     - `make release`: Updates the GTK 4 UI, translations, then creates and checks an extension zip
-      - Calls `make gtk4 translations prune compress build check`
+      - Calls `make gtk4 translations compress build check`
       - Supports any variables / arguments supported by these targets
       - Also allows passing `VERSION="XX"`, where XX is the version to update `metadata.json` to
     - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
@@ -48,7 +47,6 @@
   - `All install dependencies`
   - sed (`make translations`)
   - libgtk-4-bin (`make gtk4`)
-  - python3 (`make prune`)
   - optipng (`make compress`)
 
 ## What happened to the show favourites option?

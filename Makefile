@@ -4,7 +4,7 @@ COMPRESSLEVEL=-o7
 
 PNG_FILES=$(wildcard ./docs/*.png)
 
-.PHONY: build package check release translations gtk4 prune compress install uninstall clean $(PNG_FILES)
+.PHONY: build package check release translations gtk4 compress install uninstall clean $(PNG_FILES)
 
 build:
 	glib-compile-schemas schemas
@@ -25,7 +25,7 @@ release:
 	fi
 	#Call other targets required to make a release
 	$(MAKE) gtk4
-	$(MAKE) translations prune compress
+	$(MAKE) translations compress
 	$(MAKE) build
 	$(MAKE) check
 translations:
@@ -34,8 +34,6 @@ translations:
 gtk4:
 	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
 	gtk4-builder-tool simplify --3to4 ui/about.ui > ui/about-gtk4.ui
-prune:
-	./scripts/clean-svgs.py
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
