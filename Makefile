@@ -1,8 +1,8 @@
-SHELL=bash
-UUID=AlphabeticalAppGrid@stuarthayhurst
-COMPRESSLEVEL=-o7
+SHELL = bash
+UUID = AlphabeticalAppGrid@stuarthayhurst
+COMPRESSLEVEL = -o7
 
-PNG_FILES=$(wildcard ./docs/*.png)
+PNG_FILES = $(wildcard ./docs/*.png)
 
 .PHONY: build package check release translations gtk4 compress install uninstall clean $(PNG_FILES)
 
@@ -46,4 +46,5 @@ install:
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
-	rm -rf locale schemas/gschemas.compiled po/*.po~ *.ui~ ui/*.ui~ ui/*.ui# "$(UUID).shell-extension.zip"
+	@rm -rfv locale schemas/gschemas.compiled "$(UUID).shell-extension.zip"
+	@rm -rfv po/*.po~ *.ui~ ui/*.ui~ ui/*.ui#
