@@ -25,9 +25,9 @@ var PrefsWidget = class PrefsWidget {
   createPreferences() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/prefs-gtk4.ui');
+      this._builder.add_from_file(Me.path + '/ui/prefs-gtk4.ui');
     } else {
-      this._builder.add_from_file(Me.path + '/prefs.ui');
+      this._builder.add_from_file(Me.path + '/ui/prefs.ui');
     }
 
     //Get the settings container widget
@@ -114,7 +114,7 @@ function fillPreferencesWindow(window) {
   //Get about widget
   let builder = new Gtk.Builder();
   builder.set_translation_domain(Me.metadata.uuid);
-  builder.add_from_file(Me.path + '/about-gtk4.ui');
+  builder.add_from_file(Me.path + '/ui/about-gtk4.ui');
   let aboutWidget = builder.get_object('about-page');
 
   //Fill in the about widget

@@ -6,11 +6,11 @@ PNG_FILES=$(wildcard ./docs/*.png)
 
 .PHONY: build package check release translations gtk4 compress install uninstall clean $(PNG_FILES)
 
-build:
+build: clean
 	glib-compile-schemas schemas
 	$(MAKE) package
 package:
-	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=docs/icon.svg --extra-source=ui/prefs.ui --extra-source=ui/prefs-gtk4.ui --extra-source=ui/about-gtk4.ui --extra-source=lib
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=docs/icon.svg --extra-source=ui --extra-source=lib
 check:
 	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
 	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
@@ -46,4 +46,4 @@ install:
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
-	rm -rf locale schemas/gschemas.compiled po/*.po~ *.ui~ ui/*.ui~ "$(UUID).shell-extension.zip"
+	rm -rf locale schemas/gschemas.compiled po/*.po~ *.ui~ ui/*.ui~ ui/*.ui# "$(UUID).shell-extension.zip"
