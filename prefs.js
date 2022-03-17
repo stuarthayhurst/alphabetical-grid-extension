@@ -70,7 +70,7 @@ var PrefsWidget = class PrefsWidget {
     }
 
     //Create about page
-    this.aboutDialog = new Gtk.AboutDialog({
+    this.aboutDialogue = new Gtk.AboutDialog({
       authors: ['Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'],
       //Translators: Do not translate literally. If you want, you can enter your
       //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
@@ -90,7 +90,7 @@ var PrefsWidget = class PrefsWidget {
 
   showAbout() {
     //Show the about page as a modal
-    this.aboutDialog.present();
+    this.aboutDialogue.present();
   }
 }
 
