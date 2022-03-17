@@ -98,7 +98,7 @@ function init() {
 }
 
 function fillPreferencesWindow(window) {
-  //Create settings page
+  //Create pages and widgets
   let settingsWindow = new PrefsWidget();
   let settingsPage = new Adw.PreferencesPage();
   let settingsGroup = new Adw.PreferencesGroup();
