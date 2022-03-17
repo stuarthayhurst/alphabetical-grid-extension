@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
     - name: Install build dependencies
       run: |
         sudo apt-get update
@@ -24,7 +20,6 @@ jobs:
     - name: Check asset optimisation targets work
       run: |
         # Check all assets are space optimised
-        make prune
         make compress COMPRESSLEVEL="-o0"
 
     - name: Check asset generation target(s) work
