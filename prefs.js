@@ -57,10 +57,11 @@ var PrefsWidget = class PrefsWidget {
 
   showAbout() {
     let logo = Gtk.Image.new_from_file(Me.path + '/icon.png');
-    if (ShellVersion < 40) { //GTK 3
-      logo = logo.get_pixbuf();
-    } else { //GTK 4
+    //Different method to get image data for GNOME 40+ and 3.38
+    if (ShellVersion >= 40) {
       logo = logo.get_paintable();
+    } else {
+      logo = logo.get_pixbuf();
     }
 
     //Create and display an about menu when requested
@@ -93,18 +94,21 @@ function init() {
 function buildPrefsWidget() {
   let settingsWindow = new PrefsWidget();
   let settingsWidget = settingsWindow.widget;
-  if (ShellVersion < 40) { //GTK 3
-    settingsWidget.show_all();
-  } else { //GTK 4
+
+  //Enable all elements differently for GNOME 40+ and 3.38
+  if (ShellVersion >= 40) {
     settingsWidget.show();
+  } else {
+    settingsWidget.show_all();
   }
 
+  //Add an 'About' button to the top bar, when window is ready
   settingsWidget.connect('realize', () => {
     let window;
-    if (ShellVersion < 40) { //GTK 3
-      window = settingsWidget.get_toplevel();
-    } else { //GTK 4
+    if (ShellVersion >= 40) {
       window = settingsWidget.get_root();
+    } else {
+      window = settingsWidget.get_toplevel();
     }
     let headerBar = window.get_titlebar();
 
