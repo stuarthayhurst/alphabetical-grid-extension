@@ -106,7 +106,7 @@ function fillPreferencesWindow(window) {
   let aboutGroup = new Adw.PreferencesGroup();
 
   //Build the settings page
-  settingsPage.set_title('Settings');
+  settingsPage.set_title(_('Settings'));
   settingsGroup.add(settingsWindow.widget);
   settingsPage.add(settingsGroup);
 
@@ -121,7 +121,7 @@ function fillPreferencesWindow(window) {
   builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
 
   //Build the about page
-  aboutPage.set_title('About');
+  aboutPage.set_title(_('About'));
   aboutGroup.add(aboutWidget);
   aboutPage.add(aboutGroup);
 
