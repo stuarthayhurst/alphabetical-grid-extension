@@ -10,7 +10,7 @@ build:
 	glib-compile-schemas schemas
 	$(MAKE) package
 package:
-	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=docs/icon.png --extra-source=ui/prefs.ui --extra-source=ui/prefs-gtk4.ui --extra-source=lib
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=docs/icon.png --extra-source=ui/prefs.ui --extra-source=ui/prefs-gtk4.ui --extra-source=ui/about-gtk4.ui --extra-source=lib
 check:
 	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
 	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
@@ -33,6 +33,7 @@ translations:
 	./scripts/update-po.sh -a
 gtk4:
 	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
+	gtk4-builder-tool simplify --3to4 ui/about.ui > ui/about-gtk4.ui
 prune:
 	./scripts/clean-svgs.py
 compress:

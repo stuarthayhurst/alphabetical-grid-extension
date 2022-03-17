@@ -98,22 +98,36 @@ function init() {
 }
 
 function fillPreferencesWindow(window) {
+  //Create settings page
   let settingsWindow = new PrefsWidget();
   let settingsPage = new Adw.PreferencesPage();
   let settingsGroup = new Adw.PreferencesGroup();
+  let aboutPage = new Adw.PreferencesPage();
+  let aboutGroup = new Adw.PreferencesGroup();
 
-  //Setup pages
+  //Build the settings page
   settingsPage.set_title('Settings');
-  settingsPage.set_title('settings-page');
-
-  //Create group for settings
   settingsGroup.add(settingsWindow.widget);
-
-  //Build the pages
   settingsPage.add(settingsGroup);
+
+  //Get about widget
+  let builder = new Gtk.Builder();
+  builder.set_translation_domain(Me.metadata.uuid);
+  builder.add_from_file(Me.path + '/about-gtk4.ui');
+  let aboutWidget = builder.get_object('about-page');
+
+  //Fill in the about widget
+  builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
+  builder.get_object('extension-icon').set_from_file(Me.path + '/icon.png');
+
+  //Build the about page
+  aboutPage.set_title('About');
+  aboutGroup.add(aboutWidget);
+  aboutPage.add(aboutGroup);
 
   //Add the pages to the window
   window.add(settingsPage);
+  window.add(aboutPage);
 }
 
 function buildPrefsWidget() {

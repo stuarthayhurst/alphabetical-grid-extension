@@ -38,7 +38,7 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="donate-prompt">
-                <property name="label" translatable="yes">Found this useful?
+                <property name="label" translatable="1">Found this useful?
 &lt;a href=&quot;https://paypal.me/stuartahayhurst&quot;&gt;Consider donating :)&lt;/a&gt;</property>
                 <property name="use-markup">1</property>
                 <property name="justify">center</property>
@@ -65,7 +65,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="settings-title">
-                        <property name="label" translatable="yes">General settings</property>
+                        <property name="label" translatable="1">General settings</property>
                         <property name="xalign">0</property>
                         <attributes>
                           <attribute name="weight" value="bold"></attribute>
@@ -83,7 +83,7 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>
-                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Whether the contents of folders should be sorted alphabetically</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip.">Whether the contents of folders should be sorted alphabetically</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="margin-top">12</property>
@@ -97,7 +97,7 @@
                                 <property name="hexpand">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
-                                <property name="label" translatable="yes">Sort folder contents</property>
+                                <property name="label" translatable="1">Sort folder contents</property>
                                 <property name="xalign">0</property>
                               </object>
                             </child>
@@ -127,7 +127,7 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>
-                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Where to place folders when ordering the applications grid</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip.">Where to place folders when ordering the applications grid</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="margin-top">12</property>
@@ -141,7 +141,7 @@
                                 <property name="hexpand">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
-                                <property name="label" translatable="yes" comments="Next to a dropdown with the options &quot;Alphabetical&quot;, &quot;Start&quot; and &quot;End&quot;.">Position of ordered folders</property>
+                                <property name="label" translatable="1" comments="Next to a dropdown with the options &quot;Alphabetical&quot;, &quot;Start&quot; and &quot;End&quot;.">Position of ordered folders</property>
                                 <property name="xalign">0</property>
                               </object>
                             </child>
@@ -190,7 +190,7 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="dev-settings-title">
-                        <property name="label" translatable="yes">Developer settings</property>
+                        <property name="label" translatable="1">Developer settings</property>
                         <property name="xalign">0</property>
                         <attributes>
                           <attribute name="weight" value="bold"></attribute>
@@ -208,7 +208,7 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>
-                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Allow the extension to send messages to the system logs</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip.">Allow the extension to send messages to the system logs</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="margin-top">12</property>
@@ -222,7 +222,7 @@
                                 <property name="hexpand">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
-                                <property name="label" translatable="yes">Enable extension logging</property>
+                                <property name="label" translatable="1">Enable extension logging</property>
                                 <property name="xalign">0</property>
                               </object>
                             </child>
