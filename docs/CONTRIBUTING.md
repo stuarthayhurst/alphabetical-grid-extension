@@ -28,15 +28,15 @@
 
 ## Translations:
   - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
-  - `.po` files can be found in `po/`
+  - `.po` files can be found in `extension/po/`
   - All translations can be refreshed with `make translations`
   - Strings marked with `fuzzy` may need a better translation
   - Blank strings need a translation added
-  - If changes to the strings in `ui/*.ui` were made, `make gtk4` should be run 
+  - If changes to the strings in `extension/ui/*.ui` were made, `make gtk4` should be run
 
 ## UI Changes:
-  - UI files are located in `ui/`, please use Glade to modify them
-  - The GTK+ 4 UI file shouldn't be manually edited, instead generated with `make gtk4`
+  - UI files are located in `extension/ui/`, please use Glade to modify them
+  - The GTK+ 4 UI files shouldn't be manually edited, instead generated with `make gtk4`
   - No deprecated values should be used, and the UI files should be verified by Glade after modifications
     - Files can be verified by going into the project settings in Glade, then verifying objects though the pop-up
 
@@ -56,7 +56,7 @@
   - After changes have been made, run `make build; make check` to check the built bundle is alright
   - The extension can be removed with `make uninstall`, if it's non-functional
   - Debugging information can be found in `README.md`, under "Bug reporting / debugging"
-  - Debugging mode can be enabled by setting `debug` to `true` in `metadata.json`, or a setting can be toggled in the extension's preferences
+  - Debugging mode can be enabled by setting `debug` to `true` in `extension/metadata.json`, or a setting can be toggled in the extension's preferences
 
 ## Submitting a pull request:
   - When you believe your contribution to be complete, submit a pull request
