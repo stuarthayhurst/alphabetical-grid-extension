@@ -4,6 +4,7 @@
 #Change to repository root and exit on failure
 set -e
 cd "$( cd "$( dirname "$0" )" && pwd )/.." || exit 1
+cd "extension" || exit 1
 
 #Update the template file with the strings from the source files
 echo "Generating 'messages.pot'..."

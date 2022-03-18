@@ -19,6 +19,7 @@ promptNewTranslation() {
 #Change to repository root and exit on failure
 set -e
 cd "$( cd "$( dirname "$0" )" && pwd )/.." || exit 1
+cd "extension" || exit 1
 
 if [[ "$1" == "-l" ]]; then #Update / create one specific '.po' file
   #Check if a valid language code was given
