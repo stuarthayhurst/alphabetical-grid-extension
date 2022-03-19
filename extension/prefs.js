@@ -129,7 +129,7 @@ function buildPrefsWidget() {
     settingsWidget.show_all();
   }
 
-  //Modify top bar to add a page menu and title, when the window is ready
+  //Modify top bar to add a page menu, when the window is ready
   settingsWidget.connect('realize', () => {
     let window = ShellVersion >= 40 ? settingsWidget.get_root() : settingsWidget.get_toplevel();
     let headerBar = window.get_titlebar();
@@ -137,9 +137,6 @@ function buildPrefsWidget() {
     //Add page switching menu to header
     headerBar.pack_start(switcher);
     switcher.show();
-
-    //Modify header bar title
-    headerBar.title = _('Alphabetical App Grid Preferences');
   });
 
   return settingsWidget;
