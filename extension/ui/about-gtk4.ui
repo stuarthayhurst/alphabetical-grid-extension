@@ -50,14 +50,21 @@
           </object>
         </child>
         <child>
-          <object class="GtkLabel">
-            <property name="label" translatable="1">This program comes with absolutely no warranty.</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel">
-            <property name="label" translatable="1">See the &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GNU General Public Licence, version 3 or later&lt;/a&gt; for details.</property>
-            <property name="use-markup">1</property>
+          <object class="GtkBox">
+            <property name="valign">end</property>
+            <property name="vexpand">1</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="1">This program comes with absolutely no warranty.</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="1">See the &lt;a href=&quot;https://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;GNU General Public Licence, version 3 or later&lt;/a&gt; for details.</property>
+                <property name="use-markup">1</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
