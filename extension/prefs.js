@@ -60,36 +60,17 @@ var PrefsWidget = class PrefsWidget {
   }
 
   createAbout() {
-    let logo = Gtk.Image.new_from_file(Me.path + '/icon.svg');
-    //Different method to get image data for GNOME 40+ and 3.38
+    //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
-      logo = logo.get_paintable();
+      this._builder.add_from_file(Me.path + '/ui/about-gtk4.ui');
     } else {
-      logo = logo.get_pixbuf();
+      this._builder.add_from_file(Me.path + '/ui/about.ui');
     }
 
-    //Create about page
-    this.aboutDialogue = new Gtk.AboutDialog({
-      authors: ['Stuart Hayhurst <stuart.a.hayhurst@gmail.com>'],
-      //Translators: Do not translate literally. If you want, you can enter your
-      //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
-      //If not, "translate" this string with a whitespace character.
-      translator_credits: _('translator-credits'),
-      program_name: _('Alphabetical App Grid'),
-      comments: _('Restore the alphabetical ordering of the app grid'),
-      license_type: Gtk.License.GPL_3_0,
-      copyright: _('© 2022 Stuart Hayhurst'),
-      logo: logo,
-      version: 'v' + Me.metadata.version.toString(),
-      website: Me.metadata.url.toString(),
-      website_label: _('Contribute on GitHub'),
-      modal: true
-    });
-  }
-
-  showAbout() {
-    //Show the about page as a modal
-    this.aboutDialogue.present();
+    //Get the about page and fill in values
+    this.aboutWidget = this._builder.get_object('about-page');
+    this._builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
+    this._builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
   }
 }
 
@@ -111,20 +92,10 @@ function fillPreferencesWindow(window) {
   settingsGroup.add(settingsWindow.widget);
   settingsPage.add(settingsGroup);
 
-  //Get about widget
-  let builder = new Gtk.Builder();
-  builder.set_translation_domain(Me.metadata.uuid);
-  builder.add_from_file(Me.path + '/ui/about-gtk4.ui');
-  let aboutWidget = builder.get_object('about-page');
-
-  //Fill in the about widget
-  builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
-  builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
-
   //Build the about page
   aboutPage.set_title(_('About'));
   aboutPage.set_icon_name('help-about-symbolic');
-  aboutGroup.add(aboutWidget);
+  aboutGroup.add(settingsWindow.aboutWidget);
   aboutPage.add(aboutGroup);
 
   //Add the pages to the window
@@ -136,11 +107,19 @@ function buildPrefsWidget() {
   let settingsWindow = new PrefsWidget();
   let settingsWidget = new Gtk.ScrolledWindow();
 
-  //Create settings page differently for GNOME 40+ and 3.38
+  //Use a stack to store pages
+  let settingsStack = new Gtk.Stack();
+  settingsStack.add_titled(settingsWindow.widget, 'settings', _('Settings'))
+  settingsStack.add_titled(settingsWindow.aboutWidget, 'about', _('About'));
+
+  let switcher = new Gtk.StackSwitcher();
+  switcher.set_stack(settingsStack);
+
+  //Add the stack to the scrolled window
   if (ShellVersion >= 40) {
-    settingsWidget.set_child(settingsWindow.widget);
+    settingsWidget.set_child(settingsStack);
   } else {
-    settingsWidget.add(settingsWindow.widget);
+    settingsWidget.add(settingsStack);
   }
 
   //Enable all elements differently for GNOME 40+ and 3.38
@@ -150,7 +129,7 @@ function buildPrefsWidget() {
     settingsWidget.show_all();
   }
 
-  //Add an 'About' button to the top bar, when window is ready
+  //Modify top bar to add a page menu and title, when the window is ready
   settingsWidget.connect('realize', () => {
     let window;
     if (ShellVersion >= 40) {
@@ -160,16 +139,12 @@ function buildPrefsWidget() {
     }
     let headerBar = window.get_titlebar();
 
-    //Create a button on the header bar and show the about menu when clicked
-    let aboutButton = Gtk.Button.new_with_label(_('About'));
-    aboutButton.connect('clicked', () => {
-      settingsWindow.showAbout();
-    });
+    //Add page switching menu to header
+    headerBar.pack_start(switcher);
+    switcher.show();
 
-    //Modify header bar title and add about menu button
+    //Modify header bar title
     headerBar.title = _('Alphabetical App Grid Preferences');
-    headerBar.pack_start(aboutButton);
-    aboutButton.show();
   });
 
   return settingsWidget;
