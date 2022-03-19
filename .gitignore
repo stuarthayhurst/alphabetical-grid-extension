@@ -2,6 +2,8 @@
 AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip
 extension/locale/
 extension/schemas/gschemas.compiled
+locale/
+schemas/gschemas.compiled
 
 #Backups
 *.po~
