@@ -109,7 +109,7 @@ function buildPrefsWidget() {
 
   //Use a stack to store pages
   let pageStack = new Gtk.Stack();
-  pageStack.add_titled(prefsPages.preferencesWidget, 'settings', _('Settings'))
+  pageStack.add_titled(prefsPages.preferencesWidget, 'settings', _('Settings'));
   pageStack.add_titled(prefsPages.aboutWidget, 'about', _('About'));
 
   let pageSwitcher = new Gtk.StackSwitcher();
