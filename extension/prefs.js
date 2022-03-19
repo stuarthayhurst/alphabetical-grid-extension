@@ -135,7 +135,11 @@ function buildPrefsWidget() {
     let headerBar = window.get_titlebar();
 
     //Add page switching menu to header
-    headerBar.pack_start(pageSwitcher);
+    if (ShellVersion >= 40) {
+      headerBar.set_title_widget(pageSwitcher);
+    } else {
+      headerBar.set_custom_title(pageSwitcher);
+    }
     pageSwitcher.show();
   });
 
