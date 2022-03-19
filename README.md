@@ -31,11 +31,11 @@
     - `make gtk4`: Creates a GTK 4 UI from the GTK 3 UI file (Should be run after any changes to files in `ui/`)
     - `make translations`: Updates translations
     - `make compress`: Losslessly compresses any .pngs in `docs/`
-      - Allows passing `COMPRESSLEVEL="-oX"`, where x is an integer between 0-7
+      - Allows passing `COMPRESSLEVEL="-oX"`, where `x` is an integer between 0-7
     - `make release`: Updates the GTK 4 UI, translations, then creates and checks an extension zip
       - Calls `make gtk4 translations compress build check`
       - Supports any variables / arguments supported by these targets
-      - Also allows passing `VERSION="XX"`, where XX is the version to update `metadata.json` to
+      - Also allows passing `VERSION="XX"`, where `XX` is the version to update `metadata.json` to
     - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
 
 ## Install dependencies:
