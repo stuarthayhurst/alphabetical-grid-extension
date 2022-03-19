@@ -78,6 +78,7 @@ function init() {
   ExtensionUtils.initTranslations();
 }
 
+//Create preferences window for GNOME 42+
 function fillPreferencesWindow(window) {
   //Create pages and widgets
   let prefsPages = new PrefsPages();
@@ -103,6 +104,7 @@ function fillPreferencesWindow(window) {
   window.add(aboutPage);
 }
 
+//Create preferences window for GNOME 3.38-41
 function buildPrefsWidget() {
   let prefsPages = new PrefsPages();
   let settingsWindow = new Gtk.ScrolledWindow();
