@@ -25,7 +25,7 @@ jobs:
     - name: Check asset generation target(s) work
       run: |
         make translations
-        git restore po/
+        git restore extension/po/
 
     - name: Test extension builds from a clean slate
       run: |
