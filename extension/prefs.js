@@ -11,7 +11,7 @@ const Adw = ShellVersion >= 42 ? imports.gi.Adw : null;
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
 
-var PrefsWidget = class PrefsWidget {
+var PrefsPages = class PrefsPages {
   constructor() {
     this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.alphabetical-app-grid');
 
@@ -31,7 +31,7 @@ var PrefsWidget = class PrefsWidget {
     }
 
     //Get the settings container widget
-    this.widget = this._builder.get_object('main-prefs');
+    this.preferencesWidget = this._builder.get_object('main-prefs');
 
     this.settingElements = {
       'sort-folders-switch': {
@@ -80,7 +80,7 @@ function init() {
 
 function fillPreferencesWindow(window) {
   //Create pages and widgets
-  let settingsWindow = new PrefsWidget();
+  let prefsPages = new PrefsPages();
   let settingsPage = new Adw.PreferencesPage();
   let settingsGroup = new Adw.PreferencesGroup();
   let aboutPage = new Adw.PreferencesPage();
@@ -89,13 +89,13 @@ function fillPreferencesWindow(window) {
   //Build the settings page
   settingsPage.set_title(_('Settings'));
   settingsPage.set_icon_name('preferences-system-symbolic');
-  settingsGroup.add(settingsWindow.widget);
+  settingsGroup.add(prefsPages.preferencesWidget);
   settingsPage.add(settingsGroup);
 
   //Build the about page
   aboutPage.set_title(_('About'));
   aboutPage.set_icon_name('help-about-symbolic');
-  aboutGroup.add(settingsWindow.aboutWidget);
+  aboutGroup.add(prefsPages.aboutWidget);
   aboutPage.add(aboutGroup);
 
   //Add the pages to the window
@@ -104,40 +104,40 @@ function fillPreferencesWindow(window) {
 }
 
 function buildPrefsWidget() {
-  let settingsWindow = new PrefsWidget();
-  let settingsWidget = new Gtk.ScrolledWindow();
+  let prefsPages = new PrefsPages();
+  let settingsWindow = new Gtk.ScrolledWindow();
 
   //Use a stack to store pages
-  let settingsStack = new Gtk.Stack();
-  settingsStack.add_titled(settingsWindow.widget, 'settings', _('Settings'))
-  settingsStack.add_titled(settingsWindow.aboutWidget, 'about', _('About'));
+  let pageStack = new Gtk.Stack();
+  pageStack.add_titled(prefsPages.preferencesWidget, 'settings', _('Settings'))
+  pageStack.add_titled(prefsPages.aboutWidget, 'about', _('About'));
 
-  let switcher = new Gtk.StackSwitcher();
-  switcher.set_stack(settingsStack);
+  let pageSwitcher = new Gtk.StackSwitcher();
+  pageSwitcher.set_stack(pageStack);
 
   //Add the stack to the scrolled window
   if (ShellVersion >= 40) {
-    settingsWidget.set_child(settingsStack);
+    settingsWindow.set_child(pageStack);
   } else {
-    settingsWidget.add(settingsStack);
+    settingsWindow.add(pageStack);
   }
 
   //Enable all elements differently for GNOME 40+ and 3.38
   if (ShellVersion >= 40) {
-    settingsWidget.show();
+    settingsWindow.show();
   } else {
-    settingsWidget.show_all();
+    settingsWindow.show_all();
   }
 
   //Modify top bar to add a page menu, when the window is ready
-  settingsWidget.connect('realize', () => {
-    let window = ShellVersion >= 40 ? settingsWidget.get_root() : settingsWidget.get_toplevel();
+  settingsWindow.connect('realize', () => {
+    let window = ShellVersion >= 40 ? settingsWindow.get_root() : settingsWindow.get_toplevel();
     let headerBar = window.get_titlebar();
 
     //Add page switching menu to header
-    headerBar.pack_start(switcher);
-    switcher.show();
+    headerBar.pack_start(pageSwitcher);
+    pageSwitcher.show();
   });
 
-  return settingsWidget;
+  return settingsWindow;
 }
