@@ -131,12 +131,7 @@ function buildPrefsWidget() {
 
   //Modify top bar to add a page menu and title, when the window is ready
   settingsWidget.connect('realize', () => {
-    let window;
-    if (ShellVersion >= 40) {
-      window = settingsWidget.get_root();
-    } else {
-      window = settingsWidget.get_toplevel();
-    }
+    let window = ShellVersion >= 40 ? settingsWidget.get_root() : settingsWidget.get_toplevel();
     let headerBar = window.get_titlebar();
 
     //Add page switching menu to header
