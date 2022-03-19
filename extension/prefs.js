@@ -123,7 +123,7 @@ function fillPreferencesWindow(window) {
 
   //Build the about page
   aboutPage.set_title(_('About'));
-  settingsPage.set_icon_name('help-about-symbolic');
+  aboutPage.set_icon_name('help-about-symbolic');
   aboutGroup.add(aboutWidget);
   aboutPage.add(aboutGroup);
 
