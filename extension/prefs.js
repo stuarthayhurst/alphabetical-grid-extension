@@ -72,7 +72,9 @@ var PrefsPages = class PrefsPages {
     this._builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
     this._builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
 
-    //Get the translator credit string from the translation
+    //Translators: Do not translate literally. If you want, you can enter your
+    //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR"
+    //If not, "translate" this string with a whitespace character.
     let translator = _('translator-credits');
     if (translator == 'translator-credits' || translator.trim().length == 0) {
       //Don't setup translation credits if there aren't any

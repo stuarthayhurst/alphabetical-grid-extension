@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-18 22:17+0000\n"
+"POT-Creation-Date: 2022-03-20 22:13+0000\n"
 "PO-Revision-Date: 2022-01-28 20:17+0100\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: \n"
@@ -18,35 +18,53 @@ msgstr ""
 "X-Generator: Poedit 3.0.1\n"
 
 #. Translators: Do not translate literally. If you want, you can enter your
-#. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR."
+#. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR"
 #. If not, "translate" this string with a whitespace character.
-#: prefs.js:72
+#: prefs.js:78
 msgid "translator-credits"
 msgstr "Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2022"
 
-#: prefs.js:73
-msgid "Alphabetical App Grid"
-msgstr "Tablero alfabético de aplicaciones"
+#: prefs.js:99
+msgid "Translated by"
+msgstr ""
 
-#: prefs.js:74
-msgid "Restore the alphabetical ordering of the app grid"
-msgstr "Restablecer el orden alfabético del tablero de aplicaciones"
+#: prefs.js:119 prefs.js:142
+msgid "Settings"
+msgstr ""
 
-#: prefs.js:76
-msgid "© 2022 Stuart Hayhurst"
-msgstr "© 2022 Stuart Hayhurst"
-
-#: prefs.js:80
-msgid "Contribute on GitHub"
-msgstr "Contribuir en GitHub"
-
-#: prefs.js:110
+#: prefs.js:125 prefs.js:143
 msgid "About"
 msgstr "Acerca de"
 
-#: prefs.js:116
-msgid "Alphabetical App Grid Preferences"
-msgstr "Preferencias de Tablero alfabético de aplicaciones"
+#: ui/about.ui:35
+msgid "Alphabetical App Grid"
+msgstr "Tablero alfabético de aplicaciones"
+
+#: ui/about.ui:64
+msgid "Restore the alphabetical ordering of the app grid"
+msgstr "Restablecer el orden alfabético del tablero de aplicaciones"
+
+#: ui/about.ui:77
+msgid ""
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribute on GitHub</a>"
+msgstr ""
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribuir en GitHub</a>"
+
+#: ui/about.ui:91
+msgid "© 2022 Stuart Hayhurst"
+msgstr "© 2022 Stuart Hayhurst"
+
+#: ui/about.ui:111
+msgid "This program comes with absolutely no warranty."
+msgstr ""
+
+#: ui/about.ui:123
+msgid ""
+"See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
+"Public Licence, version 3 or later</a> for details."
+msgstr ""
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
@@ -65,47 +83,47 @@ msgctxt "position"
 msgid "End"
 msgstr "Final"
 
-#: ui/prefs-gtk4.ui:41 ui/prefs.ui:53
+#: ui/prefs.ui:53
 msgid ""
 "Found this useful?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating :)</a>"
+"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
 msgstr ""
 "¿Le ha resultado útil?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Considere hacer un "
-"donativo :)</a>"
+"<a href=\"https://paypal.me/stuartahayhurst\">Considere hacer un donativo</"
+"a> :)"
 
-#: ui/prefs-gtk4.ui:68 ui/prefs.ui:93
+#: ui/prefs.ui:93
 msgid "General settings"
 msgstr "Ajustes generales"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:86 ui/prefs.ui:129
+#: ui/prefs.ui:129
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
 
-#: ui/prefs-gtk4.ui:100 ui/prefs.ui:148
+#: ui/prefs.ui:148
 msgid "Sort folder contents"
 msgstr "Ordenar el contenido de las carpetas"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:130 ui/prefs.ui:199
+#: ui/prefs.ui:199
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Dónde colocar las carpetas al ordenar el tablero de aplicaciones"
 
 #. Next to a dropdown with the options "Alphabetical", "Start" and "End".
-#: ui/prefs-gtk4.ui:144 ui/prefs.ui:218
+#: ui/prefs.ui:218
 msgid "Position of ordered folders"
 msgstr "Posición de las carpetas ordenadas"
 
-#: ui/prefs-gtk4.ui:193 ui/prefs.ui:297
+#: ui/prefs.ui:297
 msgid "Developer settings"
 msgstr "Ajustes para el desarrollador"
 
 #. This is a tooltip.
-#: ui/prefs-gtk4.ui:211 ui/prefs.ui:333
+#: ui/prefs.ui:333
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Permitir que la extensión envíe mensajes a los registros del sistema"
 
-#: ui/prefs-gtk4.ui:225 ui/prefs.ui:352
+#: ui/prefs.ui:352
 msgid "Enable extension logging"
 msgstr "Activar el registro de extensiones"
