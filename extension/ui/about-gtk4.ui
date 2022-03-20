@@ -44,9 +44,10 @@
           </object>
         </child>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="extension-credits">
             <property name="margin-bottom">6</property>
             <property name="label" translatable="1">© 2022 Stuart Hayhurst</property>
+            <property name="use-markup">1</property>
           </object>
         </child>
         <child>

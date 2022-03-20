@@ -71,6 +71,32 @@ var PrefsPages = class PrefsPages {
     this.aboutWidget = this._builder.get_object('about-page');
     this._builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
     this._builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
+
+    //Get the translator credit string from the translation
+    let translator = _('translator-credits');
+    if (translator == 'translator-credits' || translator.trim().length == 0) {
+      //Don't setup translation credits if there aren't any
+      return;
+    }
+
+    //Get a translator email enclosed by '<>'
+    let translatorEmail = translator.substring(
+      translator.indexOf('<') + 1,
+      translator.indexOf('>')
+    );
+
+    //Replace email with clickable link, if present
+    if (translatorEmail != '') {
+      let translatorName = translator.split(' <')[0];
+      translator = '<a href="mailto::' + translatorEmail + '">' + translatorName + '</a>'
+    }
+
+    //Create the formatted translator string
+    let creditsLabel = this._builder.get_object('extension-credits');
+    let creditString = creditsLabel.get_label() + '\n';
+    creditString = creditString + _('Translated by') + ': ' + translator;
+
+    creditsLabel.set_label(creditString);
   }
 }
 
