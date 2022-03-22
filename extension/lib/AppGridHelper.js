@@ -43,7 +43,7 @@ function orderByDisplayName(inputArray) {
   let outputArray = [];
 
   //Loop through array contents and get their display names
-  inputArray.forEach((currentTarget, i) => {
+  inputArray.forEach((currentTarget) => {
     let displayName;
 
     let appInfo = Shell.AppSystem.get_default().lookup_app(currentTarget);
