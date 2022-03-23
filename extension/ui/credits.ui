@@ -52,13 +52,15 @@
     </child>
     <child>
       <!-- n-columns=2 n-rows=2 -->
-      <object class="GtkGrid">
+      <object class="GtkGrid" id="credits-grid">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="column-homogeneous">True</property>
         <child>
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="margin-bottom">2</property>
             <property name="hexpand">True</property>
             <property name="label" translatable="yes">Extension developers:</property>
           </object>
@@ -71,6 +73,7 @@
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="margin-bottom">2</property>
             <property name="hexpand">True</property>
             <property name="label" translatable="yes">Translators:</property>
           </object>
@@ -80,29 +83,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="extension-developers">
+          <object class="GtkSeparator">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="valign">start</property>
-            <property name="vexpand">True</property>
-            <property name="use-markup">True</property>
           </object>
           <packing>
             <property name="left-attach">0</property>
             <property name="top-attach">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="extension-translators">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="valign">start</property>
-            <property name="vexpand">True</property>
-            <property name="use-markup">True</property>
-          </object>
-          <packing>
-            <property name="left-attach">1</property>
-            <property name="top-attach">1</property>
+            <property name="width">2</property>
           </packing>
         </child>
       </object>

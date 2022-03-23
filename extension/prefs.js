@@ -105,8 +105,12 @@ var PrefsPages = class PrefsPages {
       this._builder.add_from_file(Me.path + '/ui/credits.ui');
     }
 
-    //Get the credits page
+    //Set the icon
+    this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
+
+    //Get the credits page and grid
     this.creditsWidget = this._builder.get_object('credits-page');
+    let creditsGrid = this._builder.get_object('credits-grid');
 
     //Read in the saved extension credits
     let [success, data] = GLib.file_get_contents(Me.path + '/credits.json');
@@ -118,22 +122,36 @@ var PrefsPages = class PrefsPages {
     let developerStrings = this._getCredits(data, 'developers');
     let translatorStrings = this._getCredits(data, 'translators');
 
-    //Set the icon
-    this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
+    //Set the target number of rows to the required amount
+    let developerCount = developerStrings.length;
+    let translatorCount = translatorStrings.length;
+    let rowCount = developerCount > translatorCount ? developerCount : translatorCount;
 
-    //Display the developer credits
-    let developerLabel = this._builder.get_object('extension-developers');
-    developerStrings.forEach((developerString) => {
-      developerLabel.set_label(developerLabel.get_label() + "\n" + developerString);
-    });
+    //Add the credit and a separator for each row
+    for (let i = 0; i < rowCount; i++) {
+      let baseRow = i * 2
+      //Append a row for credits
+      creditsGrid.insert_row(baseRow + 2);
 
-    //Display the translator credits
-    let translatorLabel = this._builder.get_object('extension-translators');
-    translatorStrings.forEach((translatorString) => {
-      translatorLabel.set_label(translatorLabel.get_label() + "\n" + translatorString);
-    });
+      //If there are developers left to append, do it
+      if (developerCount > i) {
+        let developerLabel = new Gtk.Label();
+        developerLabel.set_markup(developerStrings[i]);
+        creditsGrid.attach(developerLabel, 0, baseRow + 2, 1, 1);
+      }
+
+      //If there are translators left to append, do it
+      if (translatorCount > i) {
+        let translatorLabel = new Gtk.Label();
+        translatorLabel.set_markup(translatorStrings[i]);
+        creditsGrid.attach(translatorLabel, 1, baseRow + 2, 1, 1);
+      }
+
+      //Add a separator
+      creditsGrid.insert_row(baseRow + 3);
+      creditsGrid.attach(new Gtk.Separator(), 0, baseRow + 3, 2, 1);
+    }
   }
-
 }
 
 function init() {
