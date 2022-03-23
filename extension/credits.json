@@ -1,0 +1,30 @@
+{
+  "developers": [
+    {
+      "name": "Stuart Hayhurst",
+      "contact": "stuart.a.hayhurst@gmail.com"
+    }
+  ],
+  "translators": [
+    {
+      "name": "Philipp Kiemle",
+      "contact": "philipp.kiemle@gmail.com",
+      "year": "2021"
+    },
+    {
+      "name": "Heimen Stoffels",
+      "contact": "vistausss@fastmail.com",
+      "year": "2021"
+    },
+    {
+      "name": "Óscar Fernández Díaz",
+      "contact": "oscfdezdz@tuta.io",
+      "year": "2022"
+    },
+    {
+      "name": "sngvy",
+      "contact": "",
+      "year": "2022"
+    }
+  ]
+}
