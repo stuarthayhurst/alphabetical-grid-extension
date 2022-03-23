@@ -11,7 +11,7 @@ build: clean
 	$(MAKE) package
 package:
 	cd "extension"; \
-	gnome-extensions pack --force --podir=po --extra-source=../LICENSE.txt --extra-source=../docs/CHANGELOG.md --extra-source=../docs/icon.svg --extra-source=ui --extra-source=lib; \
+	gnome-extensions pack --force --podir=po --extra-source=../LICENSE.txt --extra-source=../docs/CHANGELOG.md --extra-source=../docs/icon.svg --extra-source=credits.json --extra-source=ui --extra-source=lib; \
 	mv "$(UUID).shell-extension.zip" ../
 check:
 	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
@@ -36,6 +36,7 @@ translations:
 gtk4:
 	gtk4-builder-tool simplify --3to4 extension/ui/prefs.ui > extension/ui/prefs-gtk4.ui
 	gtk4-builder-tool simplify --3to4 extension/ui/about.ui > extension/ui/about-gtk4.ui
+	gtk4-builder-tool simplify --3to4 extension/ui/credits.ui > extension/ui/credits-gtk4.ui
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
