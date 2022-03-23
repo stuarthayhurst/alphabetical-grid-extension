@@ -5,7 +5,7 @@ const { ExtensionHelper } = Me.imports.lib;
 const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
-const { Gtk, Gio } = imports.gi;
+const { Gtk, Gio, GLib } = imports.gi;
 const Adw = ShellVersion >= 42 ? imports.gi.Adw : null;
 
 //Use _() for translations
@@ -20,6 +20,30 @@ var PrefsPages = class PrefsPages {
 
     this.createPreferences();
     this.createAbout();
+    this.createCredits();
+  }
+
+  _getCredits(creditDataRaw, creditType) {
+    let creditStrings = [];
+    let creditsData = JSON.parse(creditDataRaw);
+    creditsData[creditType].forEach((creditUser, i) => {
+      //Build the credit string for each individual
+      let string = creditUser['name'];
+
+      //Use the year if given
+      if (creditUser['year'] != '' && creditUser['year'] != undefined) {
+        string = string + ', ' + creditUser['year'];
+      }
+
+      //If given, use the email as a clickable link
+      if (creditUser['contact'] != '') {
+        string = '<a href="mailto::' + creditUser['contact'] + '">' + string + '</a>'
+      }
+
+      creditStrings.push(string);
+    });
+
+    return creditStrings;
   }
 
   createPreferences() {
@@ -71,35 +95,45 @@ var PrefsPages = class PrefsPages {
     this.aboutWidget = this._builder.get_object('about-page');
     this._builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
     this._builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
+  }
 
-    //Translators: Do not translate literally. If you want, you can enter your
-    //contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR"
-    //If not, "translate" this string with a whitespace character.
-    let translator = _('translator-credits');
-    if (translator == 'translator-credits' || translator.trim().length == 0) {
-      //Don't setup translation credits if there aren't any
+  createCredits() {
+    //Read in the saved extension credits
+    let [success, data] = GLib.file_get_contents(Me.path + '/credits.json');
+    if (!success) {
       return;
     }
 
-    //Get a translator email enclosed by '<>'
-    let translatorEmail = translator.substring(
-      translator.indexOf('<') + 1,
-      translator.indexOf('>')
-    );
+    //Parse the credits
+    let developerStrings = this._getCredits(data, 'developers');
+    let translatorStrings = this._getCredits(data, 'translators');
 
-    //Replace email with clickable link, if present
-    if (translatorEmail != '') {
-      let translatorName = translator.split(' <')[0];
-      translator = '<a href="mailto::' + translatorEmail + '">' + translatorName + '</a>'
+    //Use different UI file for GNOME 40+ and 3.38
+    if (ShellVersion >= 40) {
+      this._builder.add_from_file(Me.path + '/ui/credits-gtk4.ui');
+    } else {
+      this._builder.add_from_file(Me.path + '/ui/credits.ui');
     }
 
-    //Create the formatted translator string
-    let creditsLabel = this._builder.get_object('extension-credits');
-    let creditString = creditsLabel.get_label() + '\n';
-    creditString = creditString + _('Translated by') + ': ' + translator;
+    //Get the credits page and fill in values
+    this.creditsWidget = this._builder.get_object('credits-page');
 
-    creditsLabel.set_label(creditString);
+    //Set the icon
+    this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
+
+    //Display the developer credits
+    let developerLabel = this._builder.get_object('extension-developers');
+    developerStrings.forEach((developerString) => {
+      developerLabel.set_label(developerLabel.get_label() + "\n" + developerString);
+    });
+
+    //Display the translator credits
+    let translatorLabel = this._builder.get_object('extension-translators');
+    translatorStrings.forEach((translatorString) => {
+      translatorLabel.set_label(translatorLabel.get_label() + "\n" + translatorString);
+    });
   }
+
 }
 
 function init() {
@@ -114,6 +148,8 @@ function fillPreferencesWindow(window) {
   let settingsGroup = new Adw.PreferencesGroup();
   let aboutPage = new Adw.PreferencesPage();
   let aboutGroup = new Adw.PreferencesGroup();
+  let creditsPage = new Adw.PreferencesPage();
+  let creditsGroup = new Adw.PreferencesGroup();
 
   //Build the settings page
   settingsPage.set_title(_('Settings'));
@@ -127,9 +163,16 @@ function fillPreferencesWindow(window) {
   aboutGroup.add(prefsPages.aboutWidget);
   aboutPage.add(aboutGroup);
 
+  //Build the about page
+  creditsPage.set_title(_('Credits'));
+  creditsPage.set_icon_name('system-users-symbolic');
+  creditsGroup.add(prefsPages.creditsWidget);
+  creditsPage.add(creditsGroup);
+
   //Add the pages to the window
   window.add(settingsPage);
   window.add(aboutPage);
+  window.add(creditsPage);
 }
 
 //Create preferences window for GNOME 3.38-41
@@ -141,6 +184,7 @@ function buildPrefsWidget() {
   let pageStack = new Gtk.Stack();
   pageStack.add_titled(prefsPages.preferencesWidget, 'settings', _('Settings'));
   pageStack.add_titled(prefsPages.aboutWidget, 'about', _('About'));
+  pageStack.add_titled(prefsPages.creditsWidget, 'credits', _('Credits'));
 
   let pageSwitcher = new Gtk.StackSwitcher();
   pageSwitcher.set_stack(pageStack);
