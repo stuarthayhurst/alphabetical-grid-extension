@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-20 22:13+0000\n"
+"POT-Creation-Date: 2022-03-23 20:15+0000\n"
 "PO-Revision-Date: 2021-10-09 13:30+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -18,26 +18,19 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. Translators: Do not translate literally. If you want, you can enter your
-#. contact details here: "FIRSTNAME LASTNAME <email@addre.ss>, YEAR"
-#. If not, "translate" this string with a whitespace character.
-#: prefs.js:78
-msgid "translator-credits"
-msgstr "Heimen Stoffels <vistausss@fastmail.com>"
-
-#: prefs.js:99
-msgid "Translated by"
-msgstr ""
-
-#: prefs.js:119 prefs.js:142
+#: prefs.js:173 prefs.js:203
 msgid "Settings"
 msgstr ""
 
-#: prefs.js:125 prefs.js:143
+#: prefs.js:179 prefs.js:204
 msgid "About"
 msgstr "Over"
 
-#: ui/about.ui:35
+#: prefs.js:185 prefs.js:205
+msgid "Credits"
+msgstr ""
+
+#: ui/about.ui:35 ui/credits.ui:35
 msgid "Alphabetical App Grid"
 msgstr "Alfabetisch toepassingsrooster"
 
@@ -53,18 +46,26 @@ msgstr ""
 "<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
 "extension\">Meehelpen op GitHub</a>"
 
-#: ui/about.ui:91
-msgid "© 2022 Stuart Hayhurst"
-msgstr "© 2022 Stuart Hayhurst"
-
-#: ui/about.ui:111
+#: ui/about.ui:110
 msgid "This program comes with absolutely no warranty."
 msgstr ""
 
-#: ui/about.ui:123
+#: ui/about.ui:122
 msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
 "Public Licence, version 3 or later</a> for details."
+msgstr ""
+
+#: ui/credits.ui:65
+msgid "Extension developers:"
+msgstr ""
+
+#: ui/credits.ui:78
+msgid "Translators:"
+msgstr ""
+
+#: ui/credits.ui:114
+msgid "Thanks to everyone who helped make and translate this extension :)"
 msgstr ""
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
