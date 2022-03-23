@@ -98,6 +98,16 @@ var PrefsPages = class PrefsPages {
   }
 
   createCredits() {
+    //Use different UI file for GNOME 40+ and 3.38
+    if (ShellVersion >= 40) {
+      this._builder.add_from_file(Me.path + '/ui/credits-gtk4.ui');
+    } else {
+      this._builder.add_from_file(Me.path + '/ui/credits.ui');
+    }
+
+    //Get the credits page
+    this.creditsWidget = this._builder.get_object('credits-page');
+
     //Read in the saved extension credits
     let [success, data] = GLib.file_get_contents(Me.path + '/credits.json');
     if (!success) {
@@ -107,16 +117,6 @@ var PrefsPages = class PrefsPages {
     //Parse the credits
     let developerStrings = this._getCredits(data, 'developers');
     let translatorStrings = this._getCredits(data, 'translators');
-
-    //Use different UI file for GNOME 40+ and 3.38
-    if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/credits-gtk4.ui');
-    } else {
-      this._builder.add_from_file(Me.path + '/ui/credits.ui');
-    }
-
-    //Get the credits page and fill in values
-    this.creditsWidget = this._builder.get_object('credits-page');
 
     //Set the icon
     this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
