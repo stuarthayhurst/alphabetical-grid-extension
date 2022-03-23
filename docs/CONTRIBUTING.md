@@ -33,6 +33,8 @@
   - Strings marked with `fuzzy` may need a better translation
   - Blank strings need a translation added
   - If changes to the strings in `extension/ui/*.ui` were made, `make gtk4` should be run
+  - If you want, you can add yourself to `extension/credits.json`, in the `translators` section
+    - This is displayed in the `Credits` section of the extension preferences menu
 
 ## UI Changes:
   - UI files are located in `extension/ui/`, please use Glade to modify them
