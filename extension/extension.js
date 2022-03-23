@@ -7,7 +7,6 @@ const ShellVersion = ExtensionHelper.shellVersion;
 //Main imports
 const { GLib, Gio, Shell } = imports.gi;
 const Main = imports.ui.main;
-const ParentalControlsManager = imports.misc.parentalControlsManager;
 
 const Controls = Main.overview._overview._controls;
 const Dash = Controls.dash;
