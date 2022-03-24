@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-23 20:15+0000\n"
-"PO-Revision-Date: 2021-10-09 13:30+0200\n"
+"POT-Creation-Date: 2022-03-23 20:17+0000\n"
+"PO-Revision-Date: 2022-03-24 14:40+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: prefs.js:173 prefs.js:203
 msgid "Settings"
-msgstr ""
+msgstr "Voorkeuren"
 
 #: prefs.js:179 prefs.js:204
 msgid "About"
@@ -28,7 +28,7 @@ msgstr "Over"
 
 #: prefs.js:185 prefs.js:205
 msgid "Credits"
-msgstr ""
+msgstr "Met dank aan"
 
 #: ui/about.ui:35 ui/credits.ui:35
 msgid "Alphabetical App Grid"
@@ -40,33 +40,37 @@ msgstr "Herstel de alfabetische sortering van het toepassingsrooster"
 
 #: ui/about.ui:77
 msgid ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
-"extension\">Contribute on GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
+"\">Contribute on GitHub</a>"
 msgstr ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
-"extension\">Meehelpen op GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
+"\">Meehelpen op GitHub</a>"
 
 #: ui/about.ui:110
 msgid "This program comes with absolutely no warranty."
-msgstr ""
+msgstr "Deze toepassing wordt geleverd zonder enige vorm van garantie."
 
 #: ui/about.ui:122
 msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
 "Public Licence, version 3 or later</a> for details."
 msgstr ""
+"Bekijk voor meer informatie de <a href=\"https://www.gnu.org/licenses/"
+"gpl-3.0.html\">GNU General Public Licence, version 3 of nieuwer</a>."
 
 #: ui/credits.ui:65
 msgid "Extension developers:"
-msgstr ""
+msgstr "Ontwikkelaars:"
 
 #: ui/credits.ui:78
 msgid "Translators:"
-msgstr ""
+msgstr "Vertalers:"
 
 #: ui/credits.ui:114
 msgid "Thanks to everyone who helped make and translate this extension :)"
 msgstr ""
+"Met dank aan iedereen die geholpen heeft om deze uitbreiding te maken en "
+"vertalen. 🙂"
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
