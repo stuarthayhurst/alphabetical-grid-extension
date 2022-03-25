@@ -1,7 +1,7 @@
 # French translation for the Alphabetical App Grid GNOME Shell Extension.
 # Copyright (C) 2022 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
-# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021-2022.
 #
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 
 #: prefs.js:173 prefs.js:203
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
 #: prefs.js:179 prefs.js:204
 msgid "About"
@@ -47,25 +47,25 @@ msgstr ""
 
 #: ui/about.ui:110
 msgid "This program comes with absolutely no warranty."
-msgstr ""
+msgstr "Ce programme est livré sans aucune garantie."
 
 #: ui/about.ui:122
 msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
 "Public Licence, version 3 or later</a> for details."
-msgstr ""
+msgstr "Consultez la <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General Public Licence, version 3 ou ultérieure</a> pour plus de détails."
 
 #: ui/credits.ui:65
 msgid "Extension developers:"
-msgstr ""
+msgstr "Développeurs de l’extension:"
 
 #: ui/credits.ui:78
 msgid "Translators:"
-msgstr ""
+msgstr "Traducteurs:"
 
 #: ui/credits.ui:114
 msgid "Thanks to everyone who helped make and translate this extension :)"
-msgstr ""
+msgstr "Merci à tous ceux qui ont aidé à créer et à traduire cette extension :)"
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
@@ -90,7 +90,7 @@ msgid ""
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
 msgstr ""
 "Vous avez trouvé cela utile ?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Pensez à faire un don</a> :)"
+"<a href=\"https://paypal.me/stuartahayhurst\">Pensez à faire un don</a> :)"
 
 #: ui/prefs.ui:93
 msgid "General settings"
