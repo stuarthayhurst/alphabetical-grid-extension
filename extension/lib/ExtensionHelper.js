@@ -1,5 +1,5 @@
 /* exported shellVersion */
-const shellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
+var shellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Helper function to send log messages
 var loggingEnabled = false;

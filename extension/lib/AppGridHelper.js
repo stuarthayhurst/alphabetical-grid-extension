@@ -8,8 +8,9 @@ const ShellVersion = ExtensionHelper.shellVersion;
 const { GLib, Gio, Shell } = imports.gi;
 const Main = imports.ui.main;
 
-//Get access to the AppDisplay
-const AppDisplay = ShellVersion >= 40 ? Main.overview._overview._controls._appDisplay : Main.overview.viewSelector.appDisplay;
+//Get access to the AppDisplay, also used by extension.js
+/* exported AppDisplay*/
+var AppDisplay = ShellVersion >= 40 ? Main.overview._overview._controls._appDisplay : Main.overview.viewSelector.appDisplay;
 
 let folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
 
