@@ -30,14 +30,14 @@ var PrefsPages = class PrefsPages {
       //Build the credit string for each individual
       let string = creditUser['name'];
 
-      //Use the year if given
-      if (creditUser['year'] != '' && creditUser['year'] != undefined) {
-        string = string + ', ' + creditUser['year'];
-      }
-
       //If given, use the email as a clickable link
       if (creditUser['contact'] != '') {
         string = '<a href="mailto::' + creditUser['contact'] + '">' + string + '</a>'
+      }
+
+      //Use the year if given
+      if (creditUser['year'] != '' && creditUser['year'] != undefined) {
+        string = string + ' ' + creditUser['year'];
       }
 
       creditStrings.push(string);
