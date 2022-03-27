@@ -1,5 +1,6 @@
 //Main imports / globals
 const Config = imports.misc.config;
+/* exported shellVersion */
 var shellVersion = parseFloat(Config.PACKAGE_VERSION);
 
 //Functions to assist program operation

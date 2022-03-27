@@ -14,10 +14,12 @@ const Dash = Controls.dash;
 //Access required objects and systems
 const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Controls._appDisplay;
 
+/* exported init */
 function init() {
   ExtensionUtils.initTranslations();
 }
 
+/* exported enable */
 function enable() {
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
@@ -28,6 +30,7 @@ function enable() {
   gridReorder.reorderGrid('Reordering app grid');
 }
 
+/* exported disable */
 function disable() {
   //Disconnect from events and clean up
   gridReorder.disconnectListeners();

@@ -14,6 +14,7 @@ const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : M
 let folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
 
 //Reorders folder contents
+/* exported reorderFolderContents */
 function reorderFolderContents() {
   //Get array of folders from 'folder-children' key
   let folderArray = folderSettings.get_value('folder-children').get_strv();
@@ -74,6 +75,7 @@ function alphabeticalSort(a, b) {
   return aName.localeCompare(bName);
 }
 
+/* exported compareItems */
 function compareItems(a, b, folderPosition, folderArray) {
   //Skip extra steps if a regular alphabetical order is required
   if (folderPosition == 'alphabetical') {
@@ -104,6 +106,7 @@ function compareItems(a, b, folderPosition, folderArray) {
   }
 }
 
+/* exported reloadAppGrid */
 function reloadAppGrid() {
   //Array of apps, sorted according to extension preferences
   let apps = AppDisplay._loadApps().sort(AppDisplay._compareItems.bind(AppDisplay));
