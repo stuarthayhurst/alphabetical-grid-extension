@@ -15,7 +15,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install --no-install-recommends git make optipng gettext gnome-shell libglib2.0-bin
+        sudo apt-get install --no-install-recommends git make optipng gettext gnome-shell libglib2.0-bin libgtk-4-bin
 
     - name: Check asset optimisation targets work
       run: |
@@ -44,8 +44,6 @@ jobs:
 
     - name: Check release workflow is functional
       run: |
-        #Fake gtk4-builder-tool to echo to avoid errors due to no gtk4 packages
-        echo "echo \$@" | sudo tee /usr/bin/gtk4-builder-tool; sudo chmod +x /usr/bin/gtk4-builder-tool
         make release
 
     - name: Test extension installs
