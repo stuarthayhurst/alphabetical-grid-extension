@@ -1,12 +1,8 @@
-//Main imports / globals
-const Config = imports.misc.config;
 /* exported shellVersion */
-const shellVersion = parseFloat(Config.PACKAGE_VERSION);
+const shellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
-//Functions to assist program operation
-
+//Helper function to send log messages
 var loggingEnabled = false;
-
 function logMessage(message) {
   if (loggingEnabled) {
     date = new Date();
