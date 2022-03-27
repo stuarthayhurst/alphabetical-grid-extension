@@ -2,17 +2,15 @@
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const { AppGridHelper, ExtensionHelper } = Me.imports.lib;
-const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
 const { GLib, Gio, Shell } = imports.gi;
 const Main = imports.ui.main;
 
+//Access required objects and systems
+const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 const Dash = Controls.dash;
-
-//Access required objects and systems
-const AppDisplay = ShellVersion < 40 ? Main.overview.viewSelector.appDisplay : Controls._appDisplay;
 
 /* exported init */
 function init() {
