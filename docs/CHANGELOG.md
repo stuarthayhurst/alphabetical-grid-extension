@@ -1,5 +1,16 @@
 ## Changelog:
 
+### v21 - `2022-04-06`
+ - Reimplement UI using pages
+ - Added a new 'About' page, with support for GNOME 42
+ - Added a new 'Credits' page, for extension developers and translators
+ - Replaced preferences title with page switcher
+ - Replaced extension icon with an svg
+ - Miscellaneous settings menu design improvements
+ - Updated README and showcase screenshots
+ - General code fixes (Primarily target GNOME 40+, styling, code quality improvements)
+ - Build system improvements (Output, structure)
+
 ### v20 - `2022-03-12`
  - Russian translation fixes (#53, #54)
  - GNOME 42 support (no changes required)
