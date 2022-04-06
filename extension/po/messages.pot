@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-23 20:17+0000\n"
+"POT-Creation-Date: 2022-04-06 13:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: prefs.js:173 prefs.js:203
+#: prefs.js:175 prefs.js:205
 msgid "Settings"
 msgstr ""
 
-#: prefs.js:179 prefs.js:204
+#: prefs.js:181 prefs.js:206
 msgid "About"
 msgstr ""
 
-#: prefs.js:185 prefs.js:205
+#: prefs.js:187 prefs.js:207
 msgid "Credits"
 msgstr ""
 

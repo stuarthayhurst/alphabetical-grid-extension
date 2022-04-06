@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-23 20:15+0000\n"
+"POT-Creation-Date: 2022-04-06 13:10+0100\n"
 "PO-Revision-Date: 2022-03-23 21:36+0100\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: \n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: prefs.js:173 prefs.js:203
+#: prefs.js:175 prefs.js:205
 msgid "Settings"
 msgstr "Configuración"
 
-#: prefs.js:179 prefs.js:204
+#: prefs.js:181 prefs.js:206
 msgid "About"
 msgstr "Acerca de"
 
-#: prefs.js:185 prefs.js:205
+#: prefs.js:187 prefs.js:207
 msgid "Credits"
 msgstr "Créditos"
 
@@ -39,11 +39,11 @@ msgstr "Restablecer el orden alfabético del tablero de aplicaciones"
 
 #: ui/about.ui:77
 msgid ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
-"\">Contribute on GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribute on GitHub</a>"
 msgstr ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
-"\">Contribuir en GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribuir en GitHub</a>"
 
 #: ui/about.ui:110
 msgid "This program comes with absolutely no warranty."
@@ -67,8 +67,7 @@ msgstr "Traductores:"
 
 #: ui/credits.ui:114
 msgid "Thanks to everyone who helped make and translate this extension :)"
-msgstr ""
-"Gracias a todos los que ayudaron a hacer y traducir esta extensión :)"
+msgstr "Gracias a todos los que ayudaron a hacer y traducir esta extensión :)"
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
