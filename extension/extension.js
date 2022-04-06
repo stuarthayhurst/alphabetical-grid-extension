@@ -1,3 +1,5 @@
+/* exported init enable disable */
+
 //Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
@@ -12,12 +14,10 @@ const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 const Dash = Controls.dash;
 
-/* exported init */
 function init() {
   ExtensionUtils.initTranslations();
 }
 
-/* exported enable */
 function enable() {
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
@@ -28,7 +28,6 @@ function enable() {
   gridReorder.reorderGrid('Reordering app grid');
 }
 
-/* exported disable */
 function disable() {
   //Disconnect from events and clean up
   gridReorder.disconnectListeners();

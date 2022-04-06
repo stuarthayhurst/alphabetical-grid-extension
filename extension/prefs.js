@@ -1,3 +1,5 @@
+/* exported init fillPreferencesWindow buildPrefsWidget */
+
 //Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
@@ -154,13 +156,11 @@ var PrefsPages = class PrefsPages {
   }
 }
 
-/* exported init */
 function init() {
   ExtensionUtils.initTranslations();
 }
 
 //Create preferences window for GNOME 42+
-/* exported fillPreferencesWindow */
 function fillPreferencesWindow(window) {
   //Create pages and widgets
   let prefsPages = new PrefsPages();
@@ -196,7 +196,6 @@ function fillPreferencesWindow(window) {
 }
 
 //Create preferences window for GNOME 3.38-41
-/* exported buildPrefsWidget */
 function buildPrefsWidget() {
   let prefsPages = new PrefsPages();
   let settingsWindow = new Gtk.ScrolledWindow();
