@@ -60,7 +60,7 @@ class Extension {
       //Call original redisplay code to handle added and removed items
       originalRedisplay.call(this);
       //Call patched redisplay code to reorder the items
-      AppGridHelper.reloadAppGrid();
+      AppGridHelper.reloadAppGrid.call(AppDisplay);
     }
 
     //Patched version of _compareItems(), to apply custom order
@@ -72,7 +72,7 @@ class Extension {
       return AppGridHelper.compareItems(a, b, folderPosition, folderArray);
     }
 
-    //Actually patch the internal functions
+    //Patch the internal functions
     AppDisplay._compareItems = _patchedCompareItems;
     ExtensionHelper.logMessage('Patched item comparison');
 

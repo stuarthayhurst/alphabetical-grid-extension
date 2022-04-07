@@ -111,16 +111,16 @@ function compareItems(a, b, folderPosition, folderArray) {
 //Called during custom _redisplay()
 function reloadAppGrid() {
   //Array of apps, sorted according to extension preferences
-  let apps = AppDisplay._loadApps().sort(AppDisplay._compareItems.bind(AppDisplay));
-  const { itemsPerPage } = AppDisplay._grid;
+  let apps = this._loadApps().sort(this._compareItems.bind(this));
+  const { itemsPerPage } = this._grid;
 
   //Move each app to correct grid postion
   apps.forEach((icon, i) => {
     const page = Math.floor(i / itemsPerPage);
     const position = i % itemsPerPage;
-    AppDisplay._moveItem(icon, page, position);
+    this._moveItem(icon, page, position);
   });
 
   //Emit 'view-loaded' signal
-  AppDisplay.emit('view-loaded');
+  this.emit('view-loaded');
 }
