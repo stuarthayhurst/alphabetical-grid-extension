@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v22 - `2022-04-07`
+ - Fixed folders not being updated when contents change
+
 ### v21 - `2022-04-06`
  - Reimplement UI using pages
  - Added a new 'About' page, with support for GNOME 42
