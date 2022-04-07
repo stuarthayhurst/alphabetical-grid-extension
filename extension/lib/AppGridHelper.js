@@ -37,6 +37,11 @@ function reorderFolderContents() {
       }
     }
   });
+
+  //Refresh the folders
+  AppDisplay._folderIcons.forEach((folder) => {
+    folder.view._redisplay();
+  });
 }
 
 //Returns an ordered version of 'inputArray', ordered by display name
