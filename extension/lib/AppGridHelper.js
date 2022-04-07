@@ -70,12 +70,14 @@ function orderByDisplayName(inputArray) {
   return outputArray;
 }
 
+//Helper to provide alphabetical ordering
 function alphabeticalSort(a, b) {
   let aName = a.name.toLowerCase();
   let bName = b.name.toLowerCase();
   return aName.localeCompare(bName);
 }
 
+//Replaces shell's _compareItems() to provide custom order
 function compareItems(a, b, folderPosition, folderArray) {
   //Skip extra steps if a regular alphabetical order is required
   if (folderPosition == 'alphabetical') {
@@ -106,6 +108,7 @@ function compareItems(a, b, folderPosition, folderArray) {
   }
 }
 
+//Called during custom _redisplay()
 function reloadAppGrid() {
   //Array of apps, sorted according to extension preferences
   let apps = AppDisplay._loadApps().sort(AppDisplay._compareItems.bind(AppDisplay));

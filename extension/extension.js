@@ -47,7 +47,7 @@ class Extension {
     //Save original shell functions
     this._originalCompareItems = AppDisplay._compareItems;
     this._originalRedisplay = AppDisplay._redisplay;
-    //Create a lock to prevent code fighting itself to change gsettings
+    //Create a lock to prevent code triggering multiple reorders at once
     this._currentlyUpdating = false;
   }
 
