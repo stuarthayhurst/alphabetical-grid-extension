@@ -23,6 +23,7 @@ function enable() {
   ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
 
   //Patch shell, reorder and trigger listeners
+  AppDisplay._redisplay();
   gridReorder.patchShell();
   gridReorder.startListeners();
   gridReorder.reorderGrid('Reordering app grid');
@@ -93,7 +94,7 @@ class Extension {
 
   reorderGrid(logMessage) {
     //Detect lock to avoid multiple changes at once
-    if (!this._currentlyUpdating) {
+    if (!this._currentlyUpdating && !AppDisplay._pageManager._updatingPages) {
       this._currentlyUpdating = true;
       ExtensionHelper.logMessage(logMessage);
 
