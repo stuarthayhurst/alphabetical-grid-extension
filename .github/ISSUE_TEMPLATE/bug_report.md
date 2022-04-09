@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+## Before reporting any bug, make sure you read [this](https://github.com/stuarthayhurst/alphabetical-grid-extension#bug-reporting--debugging)
+
 **Describe the issue**
 A clear and concise description of what the bug is
 

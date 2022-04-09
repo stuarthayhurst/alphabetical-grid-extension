@@ -59,6 +59,8 @@
   - [Documentation](docs/CONTRIBUTING.md#documentation-changes), [code](docs/CONTRIBUTING.md#code-changes), [translations](docs/CONTRIBUTING.md#translations) and UI improvements are all welcome!
 
 ## Bug reporting / debugging:
+  - If you were simply told "Error" while installing, reboot and if there's still an issue
+    - When installing an extension from GNOME's extension site, this is normal
   - A log of what the extension is doing is very helpful for fixing issues
   - The extension logs to the system logs when enabled, which can be accessed with `journalctl /usr/bin/gnome-shell`
   - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
