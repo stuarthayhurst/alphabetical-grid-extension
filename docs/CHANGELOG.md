@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v23 - `2022-04-16`
+ - Fixed large amounts of apps missing from the app grid (#59)
+ - Improved troubleshooting section in README
+
 ### v22 - `2022-04-07`
  - Fixed folders not being updated when contents change
 
