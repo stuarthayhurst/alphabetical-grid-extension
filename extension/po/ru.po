@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-06 13:10+0100\n"
-"PO-Revision-Date: 2022-02-09 19:56+0300\n"
+"PO-Revision-Date: 2022-04-18 21:17+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #: prefs.js:175 prefs.js:205
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: prefs.js:181 prefs.js:206
 msgid "About"
@@ -29,7 +29,7 @@ msgstr "Информация"
 
 #: prefs.js:187 prefs.js:207
 msgid "Credits"
-msgstr ""
+msgstr "Благодарности"
 
 #: ui/about.ui:35 ui/credits.ui:35
 msgid "Alphabetical App Grid"
@@ -41,33 +41,35 @@ msgstr "Восстанавливает алфавитный порядок се�
 
 #: ui/about.ui:77
 msgid ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
-"extension\">Contribute on GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
+"\">Contribute on GitHub</a>"
 msgstr ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
-"extension\">Внести свой вклад на GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
+"\">Внести свой вклад на GitHub</a>"
 
 #: ui/about.ui:110
 msgid "This program comes with absolutely no warranty."
-msgstr ""
+msgstr "Эта программа поставляется без каких-либо гарантий."
 
 #: ui/about.ui:122
 msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
 "Public Licence, version 3 or later</a> for details."
 msgstr ""
+"Подробнее см. <a href=\"https://www.gnu.org/licenses/gpl-3.0.html"
+"\">Стандартная общественная лицензия GNU, версия 3 или более поздняя</a>."
 
 #: ui/credits.ui:65
 msgid "Extension developers:"
-msgstr ""
+msgstr "Разработчики расширения:"
 
 #: ui/credits.ui:78
 msgid "Translators:"
-msgstr ""
+msgstr "Переводчики:"
 
 #: ui/credits.ui:114
 msgid "Thanks to everyone who helped make and translate this extension :)"
-msgstr ""
+msgstr "Спасибо всем, кто помог сделать и перевести это расширение :)"
 
 #. When this is selected, folders will appear in alphabetical order, mixed with applications.
 #: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
