@@ -1,0 +1,130 @@
+# Italian translation for the Alphabetical App Grid GNOME Shell Extension.
+# Copyright (C) 2022 Stuart Hayhurst
+# This file is distributed under the same license as the alphabetical-grid-extension package.
+# Albano Battistella <albano_battistella@hotmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alphabetical-grid-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-06 13:10+0100\n"
+"PO-Revision-Date: 2022-04-24 13:55+0100\n"
+"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
+"Language-Team: Italian <LL@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: prefs.js:175 prefs.js:205
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: prefs.js:181 prefs.js:206
+msgid "About"
+msgstr "Informazioni"
+
+#: prefs.js:187 prefs.js:207
+msgid "Credits"
+msgstr "Crediti"
+
+#: ui/about.ui:35 ui/credits.ui:35
+msgid "Alphabetical App Grid"
+msgstr "Griglia App Alfabetica"
+
+#: ui/about.ui:64
+msgid "Restore the alphabetical ordering of the app grid"
+msgstr "Ripristina l'ordine alfabetico della griglia delle app"
+
+#: ui/about.ui:77
+msgid ""
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribute on GitHub</a>"
+msgstr ""
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribuisci su GitHub</a>"
+
+#: ui/about.ui:110
+msgid "This program comes with absolutely no warranty."
+msgstr "Questo programma viene fornito senza alcuna garanzia."
+
+#: ui/about.ui:122
+msgid ""
+"See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
+"Public Licence, version 3 or later</a> for details."
+msgstr ""
+"Vedi <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">Licenza "
+"GNU General Public, versione 3 o successive</a> per dettagli."
+
+#: ui/credits.ui:65
+msgid "Extension developers:"
+msgstr "Sviluppatori estensione:"
+
+#: ui/credits.ui:78
+msgid "Translators:"
+msgstr "Traduttori:"
+
+#: ui/credits.ui:114
+msgid "Thanks to everyone who helped make and translate this extension :)"
+msgstr "Grazie a tutti coloro che hanno contribuito a creare e tradurre questa estensione :)"
+
+#. When this is selected, folders will appear in alphabetical order, mixed with applications.
+#: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
+msgid "Alphabetical"
+msgstr "Alfabetico"
+
+#. When this is selected, folders will appear at the beginning of the app grid, in front of the other apps.
+#: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
+msgctxt "position"
+msgid "Start"
+msgstr "Inizio"
+
+#. When this is selected, folders will appear at the end of the app grid, behind the other apps.
+#: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
+msgctxt "position"
+msgid "End"
+msgstr "Fine"
+
+#: ui/prefs.ui:53
+msgid ""
+"Found this useful?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
+msgstr ""
+"L'hai trovata utile?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Considera una donazione</a> :)"
+
+#: ui/prefs.ui:93
+msgid "General settings"
+msgstr "Impostazioni generali"
+
+#. This is a tooltip.
+#: ui/prefs.ui:129
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr "Indica se il contenuto delle cartelle deve essere ordinato alfabeticamente"
+
+#: ui/prefs.ui:148
+msgid "Sort folder contents"
+msgstr "Ordina il contenuto della cartella"
+
+#. This is a tooltip.
+#: ui/prefs.ui:199
+msgid "Where to place folders when ordering the applications grid"
+msgstr "Dove posizionare le cartelle quando si ordina la griglia delle applicazioni"
+
+#. Next to a dropdown with the options "Alphabetical", "Start" and "End".
+#: ui/prefs.ui:218
+msgid "Position of ordered folders"
+msgstr "Posizione delle cartelle ordinate"
+
+#: ui/prefs.ui:297
+msgid "Developer settings"
+msgstr "Impostazioni sviluppatore"
+
+#. This is a tooltip.
+#: ui/prefs.ui:333
+msgid "Allow the extension to send messages to the system logs"
+msgstr "Consenti all'interno di inviare messaggi ai registri di sistema"
+
+#: ui/prefs.ui:352
+msgid "Enable extension logging"
+msgstr "Abilita la registrazione dell'estensione"
