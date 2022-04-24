@@ -1,3 +1,9 @@
+**If the pull request is for a translation, please fill in the following:**
+ - Do you want to be credited (`extension/credits.json`): Yes / No
+   - Name:
+   - Contact email (optional):
+ - Alternatively, you can modify the file yourself, and ignore this
+
 ## Pull request summary:
  - What does the pull request do? Why is it necessary?
 
@@ -9,7 +15,8 @@
  - Have any new dependencies, quirks, options or makefile targets been documented?
 
 ## Todo:
- - Is there anything left to do? If so, mention that here, as well as marking the pull request as a draft if the changes left are significant
+ - Is there anything left to do?
+   - If so, mark the pull request as a draft to avoid any confusion
 
 ## Related issues / pull requests:
  - If the pull request requires another pull request to be merged first, please make note of this in the summary and mark the pull request as WIP
