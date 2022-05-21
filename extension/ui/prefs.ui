@@ -126,7 +126,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Whether the contents of folders should be sorted alphabetically</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Whether the contents of folders should be sorted alphabetically</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
@@ -196,7 +196,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Where to place folders when ordering the applications grid</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Where to place folders when ordering the applications grid</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>
@@ -330,7 +330,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Allow the extension to send messages to the system logs</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Allow the extension to send messages to the system logs</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>

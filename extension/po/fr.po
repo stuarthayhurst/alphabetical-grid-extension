@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-06 13:10+0100\n"
+"POT-Creation-Date: 2022-05-21 12:47+0100\n"
 "PO-Revision-Date: 2021-11-21 23:51+0100\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
@@ -99,7 +99,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Paramètres généraux"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:129
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr ""
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Sort folder contents"
 msgstr "Trier le contenu du dossier"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:199
 msgid "Where to place folders when ordering the applications grid"
 msgstr ""
@@ -124,7 +124,7 @@ msgstr "Position des dossiers ordonnés"
 msgid "Developer settings"
 msgstr "Paramètres de développement"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:333
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Autoriser l’extension à envoyer des messages aux journaux système"

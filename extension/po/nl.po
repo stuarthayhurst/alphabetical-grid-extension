@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-06 13:10+0100\n"
+"POT-Creation-Date: 2022-05-21 12:47+0100\n"
 "PO-Revision-Date: 2022-03-24 14:40+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Algemene voorkeuren"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:129
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Of mapinhoud alfabetisch gesorteerd moet worden"
@@ -110,7 +110,7 @@ msgstr "Of mapinhoud alfabetisch gesorteerd moet worden"
 msgid "Sort folder contents"
 msgstr "Mapinhoud sorteren"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:199
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Waar mappen geplaatst moeten worden op het rooster"
@@ -124,7 +124,7 @@ msgstr "Positie van geordende mappen"
 msgid "Developer settings"
 msgstr "Ontwikkelaarsvoorkeuren"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:333
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Laat de extensie een logboek aanleggen met daarin alle uitvoer"

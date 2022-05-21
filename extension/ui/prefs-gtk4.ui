@@ -83,7 +83,7 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>
-                    <property name="tooltip-text" translatable="1" comments="This is a tooltip.">Whether the contents of folders should be sorted alphabetically</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip">Whether the contents of folders should be sorted alphabetically</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="margin-top">12</property>
@@ -127,7 +127,7 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>
-                    <property name="tooltip-text" translatable="1" comments="This is a tooltip.">Where to place folders when ordering the applications grid</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip">Where to place folders when ordering the applications grid</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="margin-top">12</property>
@@ -208,7 +208,7 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>
-                    <property name="tooltip-text" translatable="1" comments="This is a tooltip.">Allow the extension to send messages to the system logs</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip">Allow the extension to send messages to the system logs</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="margin-top">12</property>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-06 13:10+0100\n"
+"POT-Creation-Date: 2022-05-21 12:47+0100\n"
 "PO-Revision-Date: 2022-04-18 21:17+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #: prefs.js:175 prefs.js:205
@@ -41,11 +41,11 @@ msgstr "Восстанавливает алфавитный порядок се�
 
 #: ui/about.ui:77
 msgid ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
-"\">Contribute on GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribute on GitHub</a>"
 msgstr ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension"
-"\">Внести свой вклад на GitHub</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Внести свой вклад на GitHub</a>"
 
 #: ui/about.ui:110
 msgid "This program comes with absolutely no warranty."
@@ -56,8 +56,8 @@ msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
 "Public Licence, version 3 or later</a> for details."
 msgstr ""
-"Подробнее см. <a href=\"https://www.gnu.org/licenses/gpl-3.0.html"
-"\">Стандартная общественная лицензия GNU, версия 3 или более поздняя</a>."
+"Подробнее см. <a href=\"https://www.gnu.org/licenses/gpl-3.0."
+"html\">Стандартная общественная лицензия GNU, версия 3 или более поздняя</a>."
 
 #: ui/credits.ui:65
 msgid "Extension developers:"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Общие настройки"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:129
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Должно ли содержимое папок сортироваться по алфавиту"
@@ -110,7 +110,7 @@ msgstr "Должно ли содержимое папок сортировать
 msgid "Sort folder contents"
 msgstr "Сортировать содержимое папок"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:199
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Где размещать папки при упорядочивании сетки приложений"
@@ -124,7 +124,7 @@ msgstr "Положение упорядоченных папок"
 msgid "Developer settings"
 msgstr "Для разработчиков"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:333
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Разрешить расширению отправлять сообщения в системные журналы"

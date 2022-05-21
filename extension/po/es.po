@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-06 13:10+0100\n"
+"POT-Creation-Date: 2022-05-21 12:47+0100\n"
 "PO-Revision-Date: 2022-03-23 21:36+0100\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: \n"
@@ -99,7 +99,7 @@ msgstr ""
 msgid "General settings"
 msgstr "Ajustes generales"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:129
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
@@ -108,7 +108,7 @@ msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
 msgid "Sort folder contents"
 msgstr "Ordenar el contenido de las carpetas"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:199
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Dónde colocar las carpetas al ordenar el tablero de aplicaciones"
@@ -122,7 +122,7 @@ msgstr "Posición de las carpetas ordenadas"
 msgid "Developer settings"
 msgstr "Ajustes para el desarrollador"
 
-#. This is a tooltip.
+#. This is a tooltip
 #: ui/prefs.ui:333
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Permitir que la extensión envíe mensajes a los registros del sistema"
