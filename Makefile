@@ -23,7 +23,7 @@ check:
 	fi
 release:
 	@if [[ "$(VERSION)" != "" ]]; then \
-	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION),|g" metadata.json; \
+	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION),|g" extension/metadata.json; \
 	fi
 	#Call other targets required to make a release
 	$(MAKE) gtk4
