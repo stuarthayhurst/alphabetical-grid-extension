@@ -1,5 +1,13 @@
 ## Changelog:
 
+### v24 - `2022-05-27`
+ - Updated Russian translation (#61)
+ - Added Italian translation - [Albano](https://github.com/albanobattistella) (#64)
+ - Added Taiwanese Mandarin translation - [Oliver](https://github.com/olivertzeng) (#68)
+ - Updated pull request template
+ - Updated GitHub runner to Ubuntu 22.04
+ - Build system fixes
+
 ### v23 - `2022-04-16`
  - Fixed large amounts of apps missing from the app grid (#59)
  - Improved troubleshooting section in README
