@@ -1,7 +1,7 @@
 # Arabic translation for the Alphabetical App Grid GNOME Shell Extension.
 # Copyright (C) 2022 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
-# Omar TS <ots@duck.com>, 2021-2022.
+# Omar TS <ots@duck.com>, 2022
 #
 msgid ""
 msgstr ""
@@ -92,7 +92,7 @@ msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
 msgstr ""
-"Vهل وجدت هذا مفيدًا؟ \ n"
+"Vهل وجدت هذا مفيدًا؟ \n"
 "<a href=\"https://paypal.me/stuartahayhurst\">فكر في تقديم تبرع </a> :)"
 
 #: ui/prefs.ui:93
