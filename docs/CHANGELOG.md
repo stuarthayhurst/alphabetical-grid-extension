@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v25 - `2022-07-22`
+ - Added Arabic translation - [Omar](https://github.com/ots25) (#69)
+ - README fixes (#70)
+
 ### v24 - `2022-05-27`
  - Updated Russian translation (#61)
  - Added Italian translation - [Albano](https://github.com/albanobattistella) (#64)
