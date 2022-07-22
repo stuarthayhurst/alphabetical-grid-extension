@@ -9,9 +9,9 @@
 ![Extension](docs/icon.png)
 
 ## Install the extension from releases:
-  - Extract the zip to `~/.local/share/gnome-shell-extensions/AlphabeticalAppGrid@stuarthayhurst/`
-  - Reload GNOME
-  - Enable the extension
+  - Extract the zip to `~/.local/share/gnome-shell/extensions/AlphabeticalAppGrid@stuarthayhurst/`
+  - Reload GNOME: <kbd>ALT</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>, <kbd>ENTER</kbd>
+  - Enable the extension: `gnome-extensions enable AlphabeticalAppGrid@stuarthayhurst`
 
 ## Install the extension from source:
   - Make sure the install dependencies are installed
