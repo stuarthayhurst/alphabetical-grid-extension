@@ -10,6 +10,7 @@
 
 ## Install the extension from releases:
   - Extract the zip to `~/.local/share/gnome-shell/extensions/AlphabeticalAppGrid@stuarthayhurst/`
+    - Alternatively: `gnome-extensions install "AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip" --force`
   - Reload GNOME: <kbd>ALT</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>, <kbd>ENTER</kbd>
   - Enable the extension: `gnome-extensions enable AlphabeticalAppGrid@stuarthayhurst`
 
