@@ -17,7 +17,7 @@
   - Please report large issues before submitting a pull request to fix them
   - If you are working on your own issue, use that report as a space to track information and progress relating to the issue
   - If any help is required, please make it known, instead of silently dropping the issue
-    - There's a label to use when help if wanted, to make searching for the issues easier
+    - There's a label to use when help is wanted, to make searching for the issues easier
 
 ## General changes:
   - To work on the project, for the repository first, so you can make changes to your copy
