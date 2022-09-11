@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v26 - `2022-09-11`:
+ - Added GNOME 43 metadata support
+
 ### v25 - `2022-07-22`
  - Added Arabic translation - [Omar](https://github.com/ots25) (#69)
  - README fixes (#70)
