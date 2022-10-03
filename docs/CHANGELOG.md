@@ -1,13 +1,13 @@
 ## Changelog:
 
-### v26 - `2022-09-11`:
+### v26: - `2022-09-11`
  - Added GNOME 43 metadata support
 
-### v25 - `2022-07-22`
+### v25: - `2022-07-22`
  - Added Arabic translation - [Omar](https://github.com/ots25) (#69)
  - README fixes (#70)
 
-### v24 - `2022-05-27`
+### v24: - `2022-05-27`
  - Updated Russian translation (#61)
  - Added Italian translation - [Albano](https://github.com/albanobattistella) (#64)
  - Added Taiwanese Mandarin translation - [Oliver](https://github.com/olivertzeng) (#68)
@@ -15,14 +15,14 @@
  - Updated GitHub runner to Ubuntu 22.04
  - Build system fixes
 
-### v23 - `2022-04-16`
+### v23: - `2022-04-16`
  - Fixed large amounts of apps missing from the app grid (#59)
  - Improved troubleshooting section in README
 
-### v22 - `2022-04-07`
+### v22: - `2022-04-07`
  - Fixed folders not being updated when contents change
 
-### v21 - `2022-04-06`
+### v21: - `2022-04-06`
  - Reimplement UI using pages
  - Added a new 'About' page, with support for GNOME 42
  - Added a new 'Credits' page, for extension developers and translators
@@ -33,32 +33,32 @@
  - General code fixes (Primarily target GNOME 40+, styling, code quality improvements)
  - Build system improvements (Output, structure)
 
-### v20 - `2022-03-12`
+### v20: - `2022-03-12`
  - Russian translation fixes (#53, #54)
  - GNOME 42 support (no changes required)
 
-### v19 - `2022-02-18`
+### v19: - `2022-02-18`
  - Added Russian translation - [Nikolay](https://github.com/sngvy) (#52)
  - Stop translating log messages, as they're for debugging
 
-### v18 - `2022-01-29`
+### v18: - `2022-01-29`
  - Added Spanish translation - [Óscar](https://github.com/oscfdezdz) (#49)
 
-### v17 - `2022-01-18`
+### v17: - `2022-01-18`
  - Updated donation link
  - Updated copyright year
  - Silenced build system icon output
 
-### v16 - `2021-11-22`
+### v16: - `2021-11-22`
  - README and changelog fixes
  - Minor Makefile improvement (Fixed -o7 quotes ending before content starts)
  - Removed "Show favourite apps on the app grid" option, as it's out of the project's scope
    - Use [this](https://extensions.gnome.org/extension/4485/favourites-in-appgrid/) extension instead
 
-### v15 - `2021-10-09`
+### v15: - `2021-10-09`
  - Hotfix: Actually disconnect from GLib timeouts
 
-### v14 - `2021-10-09`
+### v14: - `2021-10-09`
  - Fixed app grid not being reordered if the same pair of apps were swapped twice
  - Fixed favourite apps not starting in the correct place
  - Fixed initial reorder sometimes being incorrect #43
@@ -66,7 +66,7 @@
  - Build system improvements #39, #40
  - README improvements
 
-### v13 - `2021-09-21`
+### v13: - `2021-09-21`
  - Added icon compressor (`make compress`) and optimised svg icon (`make prune`)
  - Added French translation (#33, #34) - [Philipp Kiemle](https://github.com/daPhipz) + A couple others
  - Added build system checks to GitHub CI Pipeline
