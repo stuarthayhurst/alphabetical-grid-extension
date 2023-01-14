@@ -7,7 +7,7 @@ PNG_FILES = $(wildcard ./docs/*.png)
 .PHONY: build package check release translations gtk4 compress install uninstall clean $(PNG_FILES)
 
 build: clean
-	glib-compile-schemas extension/schemas
+	glib-compile-schemas --strict extension/schemas
 	$(MAKE) package
 package:
 	cd "extension"; \
