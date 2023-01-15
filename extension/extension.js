@@ -56,10 +56,7 @@ class Extension {
     //Patched functions delcared here for access to extension's variables
 
     //Patched version of _redisplay() to apply custom order
-    let originalRedisplay = this._originalRedisplay;
     function _patchedRedisplay() {
-      //Call original redisplay code to handle added and removed items
-      originalRedisplay.call(this);
       //Call patched redisplay code to reorder the items
       AppGridHelper.reloadAppGrid.call(AppDisplay);
     }
