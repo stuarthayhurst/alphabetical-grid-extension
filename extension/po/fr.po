@@ -27,7 +27,7 @@ msgstr "À propos"
 
 #: prefs.js:187 prefs.js:207
 msgid "Credits"
-msgstr ""
+msgstr "Crédits"
 
 #: ui/about.ui:35 ui/credits.ui:35
 msgid "Alphabetical App Grid"
