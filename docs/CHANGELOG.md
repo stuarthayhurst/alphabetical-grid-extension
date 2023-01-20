@@ -1,5 +1,12 @@
 ## Changelog:
 
+### v27: - `2023-01-20`
+ - README improvements (styling, dependencies)
+ - Updated copyright year
+ - Fixed some issues with missing app entries
+ - Updated French translation (#74)
+ - Added Occitan translation - [Mejans](https://github.com/Mejans) (#74)
+
 ### v26: - `2022-09-11`
  - Added GNOME 43 metadata support
 
