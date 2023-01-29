@@ -68,6 +68,7 @@
   - The extension logs to the system logs when enabled, which can be accessed with `journalctl /usr/bin/gnome-shell`
   - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
   - To enable logging, the setting can be found under the `Developer settings` section of the extension's settings:
+  
 ![Enable logging](docs/enable-logging.png)
 
 ### Credits:
