@@ -25,41 +25,32 @@
     </data>
   </object>
   <object class="GtkBox" id="main-prefs">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
+    <property name="visible">1</property>
     <property name="margin-top">12</property>
     <property name="margin-bottom">10</property>
     <property name="orientation">vertical</property>
+    <!-- n-columns=1 n-rows=3 -->
     <child>
-      <!-- n-columns=1 n-rows=3 -->
       <object class="GtkGrid">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
+        <property name="visible">1</property>
         <property name="margin-start">12</property>
         <property name="margin-end">12</property>
-        <property name="column-homogeneous">True</property>
+        <property name="column-homogeneous">1</property>
         <child>
           <object class="GtkBox" id="donate-box">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="visible">1</property>
             <property name="valign">end</property>
             <property name="margin-top">4</property>
-            <property name="vexpand">True</property>
+            <property name="vexpand">1</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="donate-prompt">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="visible">1</property>
                 <property name="label" translatable="yes">Found this useful?
-&lt;a href="https://paypal.me/stuartahayhurst"&gt;Consider donating&lt;/a&gt; :)</property>
-                <property name="use-markup">True</property>
+&lt;a href=&quot;https://paypal.me/stuartahayhurst&quot;&gt;Consider donating&lt;/a&gt; :)</property>
+                <property name="use-markup">1</property>
                 <property name="justify">center</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
           </object>
           <packing>
@@ -69,27 +60,23 @@
         </child>
         <child>
           <object class="GtkBox" id="general-box">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="visible">1</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="visible">1</property>
                 <property name="margin-top">12</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
+                    <property name="visible">1</property>
                     <property name="margin-start">2</property>
                     <property name="margin-top">4</property>
                     <property name="margin-bottom">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="settings-title">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="visible">1</property>
                         <property name="label" translatable="yes">General settings</property>
                         <property name="xalign">0</property>
                         <attributes>
@@ -97,83 +84,58 @@
                           <attribute name="scale" value="1"/>
                         </attributes>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkListBox" id="general-settings">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="visible">1</property>
                 <property name="selection-mode">none</property>
                 <child>
                   <object class="GtkListBoxRow">
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
+                    <property name="visible">1</property>
+                    <property name="can-focus">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Whether the contents of folders should be sorted alphabetically</property>
                     <child>
                       <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="visible">1</property>
                         <property name="margin-top">12</property>
                         <property name="margin-bottom">12</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="visible">True</property>
-                            <property name="can-focus">False</property>
+                            <property name="visible">1</property>
                             <property name="spacing">32</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="can-focus">False</property>
+                                <property name="visible">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
                                 <property name="label" translatable="yes">Sort folder contents</property>
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
+                                <property name="expand">1</property>
                               </packing>
                             </child>
                             <child>
                               <object class="GtkSwitch" id="sort-folders-switch">
-                                <property name="visible">True</property>
-                                <property name="can-focus">True</property>
+                                <property name="visible">1</property>
+                                <property name="can-focus">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-end">10</property>
-                                <property name="active">True</property>
+                                <property name="active">1</property>
                               </object>
                               <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                       </object>
                     </child>
@@ -181,53 +143,46 @@
                 </child>
                 <child>
                   <object class="GtkListBoxRow">
-                    <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can-focus">True</property>
+                    <property name="visible">1</property>
+                    <property name="sensitive">0</property>
+                    <property name="can-focus">1</property>
                     <child>
                       <object class="GtkSeparator">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="visible">1</property>
                       </object>
                     </child>
                   </object>
                 </child>
                 <child>
                   <object class="GtkListBoxRow">
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
+                    <property name="visible">1</property>
+                    <property name="can-focus">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Where to place folders when ordering the applications grid</property>
                     <child>
                       <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="visible">1</property>
                         <property name="margin-top">12</property>
                         <property name="margin-bottom">12</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="visible">True</property>
-                            <property name="can-focus">False</property>
+                            <property name="visible">1</property>
                             <property name="spacing">32</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="can-focus">False</property>
+                                <property name="visible">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
                                 <property name="label" translatable="yes" comments="Next to a dropdown with the options &quot;Alphabetical&quot;, &quot;Start&quot; and &quot;End&quot;.">Position of ordered folders</property>
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
+                                <property name="expand">1</property>
                               </packing>
                             </child>
                             <child>
                               <object class="GtkComboBox" id="folder-order-dropdown">
-                                <property name="visible">True</property>
-                                <property name="can-focus">False</property>
+                                <property name="visible">1</property>
                                 <property name="margin-end">10</property>
                                 <property name="model">folder-positions</property>
                                 <property name="id-column">1</property>
@@ -239,17 +194,10 @@
                                 </child>
                               </object>
                               <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                       </object>
                     </child>
@@ -260,8 +208,6 @@
                 </style>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -273,27 +219,23 @@
         </child>
         <child>
           <object class="GtkBox" id="dev-box">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="visible">1</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="visible">1</property>
                 <property name="margin-top">12</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
+                    <property name="visible">1</property>
                     <property name="margin-start">2</property>
                     <property name="margin-top">4</property>
                     <property name="margin-bottom">6</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="dev-settings-title">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="visible">1</property>
                         <property name="label" translatable="yes">Developer settings</property>
                         <property name="xalign">0</property>
                         <attributes>
@@ -301,83 +243,58 @@
                           <attribute name="scale" value="1"/>
                         </attributes>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkListBox" id="dev-settings">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="visible">1</property>
                 <property name="selection-mode">none</property>
                 <child>
                   <object class="GtkListBoxRow">
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
+                    <property name="visible">1</property>
+                    <property name="can-focus">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Allow the extension to send messages to the system logs</property>
                     <child>
                       <object class="GtkBox">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="visible">1</property>
                         <property name="margin-top">12</property>
                         <property name="margin-bottom">12</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkBox">
-                            <property name="visible">True</property>
-                            <property name="can-focus">False</property>
+                            <property name="visible">1</property>
                             <property name="spacing">32</property>
                             <child>
                               <object class="GtkLabel">
-                                <property name="visible">True</property>
-                                <property name="can-focus">False</property>
+                                <property name="visible">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-start">10</property>
                                 <property name="label" translatable="yes">Enable extension logging</property>
                                 <property name="xalign">0</property>
                               </object>
                               <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
+                                <property name="expand">1</property>
                               </packing>
                             </child>
                             <child>
                               <object class="GtkSwitch" id="logging-enabled-switch">
-                                <property name="visible">True</property>
-                                <property name="can-focus">True</property>
+                                <property name="visible">1</property>
+                                <property name="can-focus">1</property>
                                 <property name="valign">center</property>
                                 <property name="margin-end">10</property>
-                                <property name="active">True</property>
+                                <property name="active">1</property>
                               </object>
                               <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
                           </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">0</property>
-                          </packing>
                         </child>
                       </object>
                     </child>
@@ -388,8 +305,6 @@
                 </style>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
             </child>
@@ -400,11 +315,6 @@
           </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
     </child>
   </object>
 </interface>
