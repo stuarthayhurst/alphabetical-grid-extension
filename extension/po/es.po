@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 12:47+0100\n"
+"POT-Creation-Date: 2023-02-11 12:21+0000\n"
 "PO-Revision-Date: 2022-03-23 21:36+0100\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: \n"
@@ -29,15 +29,15 @@ msgstr "Acerca de"
 msgid "Credits"
 msgstr "Créditos"
 
-#: ui/about.ui:35 ui/credits.ui:35
+#: ui/about.ui:26 ui/credits.ui:26
 msgid "Alphabetical App Grid"
 msgstr "Tablero alfabético de aplicaciones"
 
-#: ui/about.ui:64
+#: ui/about.ui:49
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr "Restablecer el orden alfabético del tablero de aplicaciones"
 
-#: ui/about.ui:77
+#: ui/about.ui:59
 msgid ""
 "<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
 "extension\">Contribute on GitHub</a>"
@@ -45,11 +45,11 @@ msgstr ""
 "<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
 "extension\">Contribuir en GitHub</a>"
 
-#: ui/about.ui:110
+#: ui/about.ui:85
 msgid "This program comes with absolutely no warranty."
 msgstr "Este programa viene sin ninguna garantía."
 
-#: ui/about.ui:122
+#: ui/about.ui:91
 msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
 "Public Licence, version 3 or later</a> for details."
@@ -57,15 +57,15 @@ msgstr ""
 "Consulte la <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">Licencia "
 "Pública General de GNU, versión 3 o posterior</a> para más detalles."
 
-#: ui/credits.ui:65
+#: ui/credits.ui:47
 msgid "Extension developers:"
 msgstr "Desarrolladores de la extensión:"
 
-#: ui/credits.ui:78
+#: ui/credits.ui:59
 msgid "Translators:"
 msgstr "Traductores:"
 
-#: ui/credits.ui:114
+#: ui/credits.ui:90
 msgid "Thanks to everyone who helped make and translate this extension :)"
 msgstr "Gracias a todos los que ayudaron a hacer y traducir esta extensión :)"
 
@@ -86,7 +86,7 @@ msgctxt "position"
 msgid "End"
 msgstr "Final"
 
-#: ui/prefs.ui:53
+#: ui/prefs.ui:49
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
@@ -95,38 +95,38 @@ msgstr ""
 "<a href=\"https://paypal.me/stuartahayhurst\">Considere hacer un donativo</"
 "a> :)"
 
-#: ui/prefs.ui:93
+#: ui/prefs.ui:80
 msgid "General settings"
 msgstr "Ajustes generales"
 
 #. This is a tooltip
-#: ui/prefs.ui:129
+#: ui/prefs.ui:103
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
 
-#: ui/prefs.ui:148
+#: ui/prefs.ui:119
 msgid "Sort folder contents"
 msgstr "Ordenar el contenido de las carpetas"
 
 #. This is a tooltip
-#: ui/prefs.ui:199
+#: ui/prefs.ui:160
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Dónde colocar las carpetas al ordenar el tablero de aplicaciones"
 
 #. Next to a dropdown with the options "Alphabetical", "Start" and "End".
-#: ui/prefs.ui:218
+#: ui/prefs.ui:176
 msgid "Position of ordered folders"
 msgstr "Posición de las carpetas ordenadas"
 
-#: ui/prefs.ui:297
+#: ui/prefs.ui:239
 msgid "Developer settings"
 msgstr "Ajustes para el desarrollador"
 
 #. This is a tooltip
-#: ui/prefs.ui:333
+#: ui/prefs.ui:262
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Permitir que la extensión envíe mensajes a los registros del sistema"
 
-#: ui/prefs.ui:352
+#: ui/prefs.ui:278
 msgid "Enable extension logging"
 msgstr "Activar el registro de extensiones"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 12:47+0100\n"
+"POT-Creation-Date: 2023-02-11 12:21+0000\n"
 "PO-Revision-Date: 2022-5-26 HO:MI+ZONE\n"
 "Last-Translator: Oliver Tzeng (曾嘉禾)<olivertzengolivertzeng@gmail.com>\n"
 "Language-Team: \n"
@@ -29,43 +29,43 @@ msgstr "關於"
 msgid "Credits"
 msgstr "貢獻人員"
 
-#: ui/about.ui:35 ui/credits.ui:35
+#: ui/about.ui:26 ui/credits.ui:26
 msgid "Alphabetical App Grid"
 msgstr "Alphabetical App Grid"
 
-#: ui/about.ui:64
+#: ui/about.ui:49
 msgid "Restore the alphabetical ordering of the app grid"
 msgstr "讓應用程式按照字母順序"
 
-#: ui/about.ui:77
+#: ui/about.ui:59
 msgid ""
 "<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
 "extension\">Contribute on GitHub</a>"
 msgstr ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
-"extension\">在GitHub上貢獻</a>"
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-extension\">在"
+"GitHub上貢獻</a>"
 
-#: ui/about.ui:110
+#: ui/about.ui:85
 msgid "This program comes with absolutely no warranty."
 msgstr "這個程式不包含任何擔保"
 
-#: ui/about.ui:122
+#: ui/about.ui:91
 msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
 "Public Licence, version 3 or later</a> for details."
 msgstr ""
-"更多相關細節"
-"請參考GNU General Public License<a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">授權條款"
+"更多相關細節請參考GNU General Public License<a href=\"https://www.gnu.org/"
+"licenses/gpl-3.0.html\">授權條款"
 
-#: ui/credits.ui:65
+#: ui/credits.ui:47
 msgid "Extension developers:"
 msgstr "開發者："
 
-#: ui/credits.ui:78
+#: ui/credits.ui:59
 msgid "Translators:"
 msgstr "翻譯："
 
-#: ui/credits.ui:114
+#: ui/credits.ui:90
 msgid "Thanks to everyone who helped make and translate this extension :)"
 msgstr "感謝幫忙開發和翻譯的人們(｡・ω・｡)"
 
@@ -86,7 +86,7 @@ msgctxt "position"
 msgid "End"
 msgstr "結尾"
 
-#: ui/prefs.ui:53
+#: ui/prefs.ui:49
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
@@ -94,38 +94,38 @@ msgstr ""
 "好用ㄇ?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">斗內一下</a> ლ(́◕◞౪◟◕‵ლ)"
 
-#: ui/prefs.ui:93
+#: ui/prefs.ui:80
 msgid "General settings"
 msgstr "設定"
 
 #. This is a tooltip
-#: ui/prefs.ui:129
+#: ui/prefs.ui:103
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "讓資料夾內應用程式也按照字母順序"
 
-#: ui/prefs.ui:148
+#: ui/prefs.ui:119
 msgid "Sort folder contents"
 msgstr "歸納資料夾內容"
 
 #. This is a tooltip
-#: ui/prefs.ui:199
+#: ui/prefs.ui:160
 msgid "Where to place folders when ordering the applications grid"
 msgstr "在定位應用程式時要在哪裡放資料夾"
 
 #. Next to a dropdown with the options "Alphabetical", "Start" and "End".
-#: ui/prefs.ui:218
+#: ui/prefs.ui:176
 msgid "Position of ordered folders"
 msgstr "排序後的資料夾位置"
 
-#: ui/prefs.ui:297
+#: ui/prefs.ui:239
 msgid "Developer settings"
 msgstr "開發者設定"
 
 #. This is a tooltip
-#: ui/prefs.ui:333
+#: ui/prefs.ui:262
 msgid "Allow the extension to send messages to the system logs"
 msgstr "允許傳送資料給開發者"
 
-#: ui/prefs.ui:352
+#: ui/prefs.ui:278
 msgid "Enable extension logging"
 msgstr ""
