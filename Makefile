@@ -1,6 +1,6 @@
 SHELL = bash
 UUID = AlphabeticalAppGrid@stuarthayhurst
-COMPRESSLEVEL = -o7
+COMPRESSLEVEL ?= -o7
 
 BUILD_DIR = build
 PNG_FILES = $(wildcard ./docs/*.png)
