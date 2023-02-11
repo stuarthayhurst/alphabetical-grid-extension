@@ -26,8 +26,8 @@ var PrefsPages = class PrefsPages {
   }
 
   _getCredits(creditDataRaw, creditType) {
-    let creditStrings = [];
     let creditsData = JSON.parse(creditDataRaw);
+    let creditStrings = [];
     creditsData[creditType].forEach((creditUser) => {
       //Build the credit string for each individual
       let string = creditUser['name'];
@@ -119,6 +119,7 @@ var PrefsPages = class PrefsPages {
     if (!success) {
       return;
     }
+    data = String.fromCharCode(...data);
 
     //Parse the credits
     let developerStrings = this._getCredits(data, 'developers');
