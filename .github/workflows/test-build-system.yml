@@ -32,7 +32,7 @@ jobs:
         echo "echo \$@" | sudo tee /usr/bin/gtk-builder-tool; sudo chmod +x /usr/bin/gtk-builder-tool
         make gtk4
 
-    - name: Test extension builds from a clean slate
+    - name: Test extension builds from current state
       run: |
         make build
 
