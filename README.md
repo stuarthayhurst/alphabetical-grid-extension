@@ -20,8 +20,8 @@
   - Make sure the install dependencies are installed
   - `make build`
   - `make install`
-  - Reload GNOME
-  - Enable the extension
+  - Reload GNOME: <kbd>ALT</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>, <kbd>ENTER</kbd>
+  - Enable the extension: `gnome-extensions enable AlphabeticalAppGrid@stuarthayhurst`
 
 ## Build system usage:
   - ### Common targets: Regular build system targets to build, install and uninstall
