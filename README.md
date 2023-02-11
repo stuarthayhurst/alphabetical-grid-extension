@@ -31,7 +31,7 @@
     - `make uninstall`: Uninstalls the extension
   - ### Development targets: These targets are aimed at developers and translators
     - `make clean`: Deletes extension zip, `locale` and automatic backups
-    - `make gtk4`: Creates a GTK 4 UI from the GTK 3 UI file (Should be run after any changes to files in `ui/`)
+    - `make gtk4`: Simplifies and converts UI files (Should be run after any changes to files in `ui/`)
     - `make translations`: Updates translations
     - `make compress`: Losslessly compresses any .pngs in `docs/`
       - Allows passing `COMPRESSLEVEL="-o[X]"`, where `[X]` is an integer between 0-7
@@ -49,6 +49,7 @@
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
   - sed (`make translations`)
+  - libgtk-3-bin (`make gtk4`)
   - libgtk-4-bin (`make gtk4`)
   - optipng (`make compress`)
 
