@@ -10,7 +10,8 @@ build: clean
 	glib-compile-schemas --strict extension/schemas
 	$(MAKE) package
 package:
-	cd "extension"; \
+	@echo "Packing files..."
+	@cd "extension"; \
 	gnome-extensions pack --force --podir=po --extra-source=../LICENSE.txt --extra-source=../docs/CHANGELOG.md --extra-source=../docs/icon.svg --extra-source=credits.json --extra-source=ui --extra-source=lib; \
 	mv "$(UUID).shell-extension.zip" ../
 check:
@@ -40,6 +41,7 @@ gtk4:
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
+	@echo "Compressing $@..."
 	optipng $(COMPRESSLEVEL) -quiet -strip all "$@"
 install:
 	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
