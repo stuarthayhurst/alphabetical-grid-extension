@@ -24,7 +24,7 @@ package:
 	--extra-source=credits.json \
 	--extra-source=ui/ \
 	--extra-source=lib/ \
-	-o ../build/
+	-o ../$(BUILD_DIR)/
 check:
 	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
 	  echo -e "\nWARNING! Extension zip couldn't be found"; exit 1; \
