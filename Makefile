@@ -46,6 +46,9 @@ translations:
 	./scripts/update-pot.sh
 	./scripts/update-po.sh -a
 gtk4:
+	gtk-builder-tool simplify --replace extension/ui/prefs.ui
+	gtk-builder-tool simplify --replace extension/ui/about.ui
+	gtk-builder-tool simplify --replace extension/ui/credits.ui
 	gtk4-builder-tool simplify --3to4 extension/ui/prefs.ui > extension/ui/prefs-gtk4.ui
 	gtk4-builder-tool simplify --3to4 extension/ui/about.ui > extension/ui/about-gtk4.ui
 	gtk4-builder-tool simplify --3to4 extension/ui/credits.ui > extension/ui/credits-gtk4.ui
