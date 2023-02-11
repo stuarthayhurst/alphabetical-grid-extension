@@ -27,5 +27,5 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: extension-bundle
+        name: AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip
         path: build/AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip
