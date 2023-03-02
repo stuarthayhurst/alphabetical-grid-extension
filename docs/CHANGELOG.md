@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v28: - `2023-03-02`
+ - Build system, runner and README improvements
+ - Simplify UI file definitions
+ - Fixed warning about unsupported use of array.toString()
+ - Added GNOME 44 support
+
 ### v27: - `2023-01-20`
  - README improvements (styling, dependencies)
  - Updated copyright year
