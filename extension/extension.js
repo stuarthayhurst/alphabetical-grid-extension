@@ -123,7 +123,7 @@ class Extension {
     this._waitForFolderChange();
 
     //One time connections
-    this._reorderOnceOnDisplay();
+    this._reorderOnDisplay();
 
     ExtensionHelper.logMessage('Connected to listeners');
   }
@@ -135,10 +135,7 @@ class Extension {
     this.extensionSettings.disconnect(this._settingsChangedSignal);
     Shell.AppSystem.get_default().disconnect(this._installedAppsChangedSignal);
     this.folderSettings.disconnect(this._foldersChangedSignal);
-
-    if (this._reorderOnceOnDisplaySignal != null) {
-      Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
-    }
+    Dash.showAppsButton.disconnect(this._reorderOnDisplaySignal);
 
     //Clean up timeout sources
     if (this._reorderGridTimeoutId != null) {
@@ -160,14 +157,12 @@ class Extension {
     });
   }
 
-  _reorderOnceOnDisplay() {
+  _reorderOnDisplay() {
     //Reorder once when the app grid is opened
-    this._reorderOnceOnDisplaySignal = Dash.showAppsButton.connect('notify::checked', () => {
+    this._reorderOnDisplaySignal = Dash.showAppsButton.connect('notify::checked', () => {
       //Only run required code if app overview toggle is usable
       if (!Controls._ignoreShowAppsButtonToggle) {
-        this.reorderGrid('App grid opened, triggering one-off reorder');
-        Dash.showAppsButton.disconnect(this._reorderOnceOnDisplaySignal);
-        this._reorderOnceOnDisplaySignal = null;
+        this.reorderGrid('App grid opened, triggering reorder');
       }
     });
   }
