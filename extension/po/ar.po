@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-11 12:21+0000\n"
+"POT-Creation-Date: 2023-03-08 22:47+0000\n"
 "PO-Revision-Date: 2022-06-17 13:00+0100\n"
 "Last-Translator: Omar TS <ots@duck.com>>\n"
 "Language-Team: \n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
 
-#: prefs.js:175 prefs.js:205
+#: prefs.js:176 prefs.js:206
 msgid "Settings"
 msgstr "إعدادات"
 
-#: prefs.js:181 prefs.js:206
+#: prefs.js:182 prefs.js:207
 msgid "About"
 msgstr "حول"
 
-#: prefs.js:187 prefs.js:207
+#: prefs.js:188 prefs.js:208
 msgid "Credits"
 msgstr "إشادات"
 
