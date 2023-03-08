@@ -95,7 +95,7 @@ msgstr ""
 
 #: ui/prefs.ui:80
 msgid "General settings"
-msgstr "Configurações gerais"
+msgstr "Configurações gerais" 
 
 #. This is a tooltip
 #: ui/prefs.ui:103
