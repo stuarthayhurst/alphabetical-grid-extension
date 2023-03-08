@@ -1,4 +1,4 @@
-# <LANGUAGE> translation for the Alphabetical App Grid GNOME Shell Extension.
+# Portuguese translation for the Alphabetical App Grid GNOME Shell Extension.
 # Copyright (C) 2023 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
 # Vinícius <vrpedrinho@gmail.com>, 2023.
