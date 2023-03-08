@@ -1,0 +1,130 @@
+# <LANGUAGE> translation for the Alphabetical App Grid GNOME Shell Extension.
+# Copyright (C) 2023 Stuart Hayhurst
+# This file is distributed under the same license as the alphabetical-grid-extension package.
+# Vinícius <vrpedrinho@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alphabetical-grid-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-11 12:21+0000\n"
+"PO-Revision-Date: 2023-03-07 19:55-0300\n"
+"Last-Translator: Vinícius <vrpedrinho@gmail.com>\n"
+"Language-Team: Language [pt\n"
+"Language: [pt_BR]\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: prefs.js:175 prefs.js:205
+msgid "Settings"
+msgstr "Configurações"
+
+#: prefs.js:181 prefs.js:206
+msgid "About"
+msgstr "Sobre"
+
+#: prefs.js:187 prefs.js:207
+msgid "Credits"
+msgstr "Créditos"
+
+#: ui/about.ui:26 ui/credits.ui:26
+msgid "Alphabetical App Grid"
+msgstr ""
+
+#: ui/about.ui:49
+msgid "Restore the alphabetical ordering of the app grid"
+msgstr "Restaure a ordem alfabética na grade de aplicativos"
+
+#: ui/about.ui:59
+msgid ""
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribute on GitHub</a>"
+msgstr ""
+"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
+"extension\">Contribua no GitHub</a>"
+
+#: ui/about.ui:85
+msgid "This program comes with absolutely no warranty."
+msgstr "Este programa não acompanha absolutamente nenhuma garantia."
+
+#: ui/about.ui:91
+msgid ""
+"See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
+"Public Licence, version 3 or later</a> for details."
+msgstr ""
+"Veja a <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
+"Public Licence, versão 3 ou posterior</a> para detalhes."
+
+#: ui/credits.ui:47
+msgid "Extension developers:"
+msgstr "Desenvolvedores da extensão:"
+
+#: ui/credits.ui:59
+msgid "Translators:"
+msgstr "Tradutores:"
+
+#: ui/credits.ui:90
+msgid "Thanks to everyone who helped make and translate this extension :)"
+msgstr "Abrigado a todos que ajudaram a fazer e traduzir esta extensão"
+
+#. When this is selected, folders will appear in alphabetical order, mixed with applications.
+#: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
+msgid "Alphabetical"
+msgstr "Alfabético"
+
+#. When this is selected, folders will appear at the beginning of the app grid, in front of the other apps.
+#: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
+msgctxt "position"
+msgid "Start"
+msgstr "Início"
+
+#. When this is selected, folders will appear at the end of the app grid, behind the other apps.
+#: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
+msgctxt "position"
+msgid "End"
+msgstr "Fim"
+
+#: ui/prefs.ui:49
+msgid ""
+"Found this useful?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
+msgstr ""
+"Achou isto útil?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Considere doar</a> :)"
+
+#: ui/prefs.ui:80
+msgid "General settings"
+msgstr "Configurações gerais" 
+
+#. This is a tooltip
+#: ui/prefs.ui:103
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr "Se o conteúdo das pastas deve ser organizado alfabeticamente"
+
+#: ui/prefs.ui:119
+msgid "Sort folder contents"
+msgstr "Organizar conteúdos das pastas"
+
+#. This is a tooltip
+#: ui/prefs.ui:160
+msgid "Where to place folders when ordering the applications grid"
+msgstr "Onde posicionar as pastas quando ordenar as aplicações"
+
+#. Next to a dropdown with the options "Alphabetical", "Start" and "End".
+#: ui/prefs.ui:176
+msgid "Position of ordered folders"
+msgstr "Posição das pastas ordenadas"
+
+#: ui/prefs.ui:239
+msgid "Developer settings"
+msgstr "Configurações de desenvolvedor"
+
+#. This is a tooltip
+#: ui/prefs.ui:262
+msgid "Allow the extension to send messages to the system logs"
+msgstr "Permitir que a extensão envie mensagens ao sistema de logs"
+
+#: ui/prefs.ui:278
+msgid "Enable extension logging"
+msgstr "Habilitar log da extensão"
