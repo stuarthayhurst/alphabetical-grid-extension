@@ -119,7 +119,11 @@ var PrefsPages = class PrefsPages {
     if (!success) {
       return;
     }
-    data = String.fromCharCode(...data);
+
+    //On GNOME 41+ use a TextDecoder to decode the file's contents
+    if (ShellVersion >= 41) {
+      data = new TextDecoder().decode(data);
+    }
 
     //Parse the credits
     let developerStrings = this._getCredits(data, 'developers');
