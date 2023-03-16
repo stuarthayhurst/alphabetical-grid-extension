@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v29 - `2023-03-16`
+ - Fixed warnings about accessing `St.Button` after disposal
+ - Fix app grid not being correctly ordered when opened in some cases (#63, #65)
+ - Added Portuguese translation - [Vinicius](https://github.com/vinaooo) (#78)
+ - Fixed some characters being loaded incorrectly on the credits page
+
 ### v28: - `2023-03-02`
  - Build system, runner and README improvements
  - Simplify UI file definitions
