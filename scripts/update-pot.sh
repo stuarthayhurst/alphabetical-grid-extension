@@ -7,7 +7,6 @@ cd "$( cd "$( dirname "$0" )" && pwd )/.." || exit 1
 cd "extension" || exit 1
 
 #Update the template file with the strings from the source files
-echo "Generating 'messages.pot'..."
 xgettext --from-code=UTF-8 \
          --add-comments=Translators \
          --copyright-holder="Stuart Hayhurst" \
@@ -20,4 +19,4 @@ sed -i '1s/.*/# <LANGUAGE> translation for the Alphabetical App Grid GNOME Shell
 sed -i "2s/.*/# Copyright (C) $(date +%Y) Stuart Hayhurst/" po/messages.pot
 sed -i '17s/CHARSET/UTF-8/' po/messages.pot
 
-echo "'messages.pot' generated!"
+echo "Generated translation list"
