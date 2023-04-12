@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the alphabetical-grid-extension package.
 # Oliver Tzeng (曾嘉禾)<olivertzengolivertzeng@gmail.com>, 2022.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
