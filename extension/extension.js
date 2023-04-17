@@ -54,7 +54,7 @@ class Extension {
   }
 
   patchShell() {
-    //Patched functions delcared here for access to extension's variables
+    //Patched functions declared here for access to extension's variables
 
     //Patched version of _redisplay() to apply custom order
     function _patchedRedisplay() {
