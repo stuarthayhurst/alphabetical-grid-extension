@@ -5,6 +5,9 @@
   "gettext-domain": "AlphabeticalAppGrid@stuarthayhurst",
   "settings-schema": "org.gnome.shell.extensions.alphabetical-app-grid",
   "url": "https://github.com/stuarthayhurst/alphabetical-grid-extension",
+  "donations": {
+    "paypal": "stuartahayhurst"
+  },
   "shell-version": [
     "3.38",
     "40",
