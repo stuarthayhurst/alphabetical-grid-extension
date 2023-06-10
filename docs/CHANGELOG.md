@@ -1,6 +1,11 @@
 ## Changelog:
 
-### v29 - `2023-03-16`
+### v30: - `2023-06-10`
+ - Added Czech translation - [Amereyeu](https://github.com/Amereyeu) (#79)
+ - Added donation information to metadata
+ - Updated build system output
+
+### v29: - `2023-03-16`
  - Fixed warnings about accessing `St.Button` after disposal
  - Fix app grid not being correctly ordered when opened in some cases (#63, #65)
  - Added Portuguese translation - [Vinicius](https://github.com/vinaooo) (#78)
