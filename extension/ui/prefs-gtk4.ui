@@ -117,8 +117,8 @@
                 </child>
                 <child>
                   <object class="GtkListBoxRow">
-                    <property name="sensitive">0</property>
                     <property name="focusable">1</property>
+                    <property name="activatable">0</property>
                     <property name="child">
                       <object class="GtkSeparator"/>
                     </property>
