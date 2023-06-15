@@ -23,8 +23,7 @@ package:
 	--extra-source=../docs/CHANGELOG.md \
 	--extra-source=../docs/icon.svg \
 	--extra-source=credits.json \
-	--extra-source=ui/gtk3/ \
-	--extra-source=ui/gtk4/ \
+	--extra-source=ui/ \
 	--extra-source=lib/ \
 	-o ../$(BUILD_DIR)/
 check:
