@@ -51,9 +51,9 @@ var PrefsPages = class PrefsPages {
   createPreferences() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/prefs-gtk4.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk4/prefs.ui');
     } else {
-      this._builder.add_from_file(Me.path + '/ui/prefs.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk3/prefs.ui');
     }
 
     //Get the settings container widget
@@ -88,9 +88,9 @@ var PrefsPages = class PrefsPages {
   createAbout() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/about-gtk4.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk4/about.ui');
     } else {
-      this._builder.add_from_file(Me.path + '/ui/about.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk3/about.ui');
     }
 
     //Get the about page and fill in values
@@ -102,9 +102,9 @@ var PrefsPages = class PrefsPages {
   createCredits() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/credits-gtk4.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk4/credits.ui');
     } else {
-      this._builder.add_from_file(Me.path + '/ui/credits.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk3/credits.ui');
     }
 
     //Set the icon
