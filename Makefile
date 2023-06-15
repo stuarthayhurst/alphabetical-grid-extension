@@ -3,10 +3,11 @@ UUID = AlphabeticalAppGrid@stuarthayhurst
 COMPRESSLEVEL ?= -o7
 
 BUILD_DIR ?= build
+UI_FILES = $(wildcard ./extension/ui/gtk3/*.ui)
 PNG_FILES = $(wildcard ./docs/*.png)
 BUNDLE_PATH = "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
-.PHONY: build package check release translations gtk4 compress install uninstall clean $(PNG_FILES)
+.PHONY: build package check release translations gtk4 compress install uninstall clean $(UI_FILES) $(PNG_FILES)
 
 build: clean
 	@mkdir -p $(BUILD_DIR)
@@ -22,7 +23,8 @@ package:
 	--extra-source=../docs/CHANGELOG.md \
 	--extra-source=../docs/icon.svg \
 	--extra-source=credits.json \
-	--extra-source=ui/ \
+	--extra-source=ui/gtk3/ \
+	--extra-source=ui/gtk4/ \
 	--extra-source=lib/ \
 	-o ../$(BUILD_DIR)/
 check:
@@ -46,12 +48,14 @@ translations:
 	@./scripts/update-pot.sh
 	@./scripts/update-po.sh -a
 gtk4:
-	gtk-builder-tool simplify --replace extension/ui/prefs.ui
-	gtk-builder-tool simplify --replace extension/ui/about.ui
-	gtk-builder-tool simplify --replace extension/ui/credits.ui
-	gtk4-builder-tool simplify --3to4 extension/ui/prefs.ui > extension/ui/prefs-gtk4.ui
-	gtk4-builder-tool simplify --3to4 extension/ui/about.ui > extension/ui/about-gtk4.ui
-	gtk4-builder-tool simplify --3to4 extension/ui/credits.ui > extension/ui/credits-gtk4.ui
+	@$(MAKE) $(UI_FILES)
+$(UI_FILES):
+	@fileNameGtk4=$@; \
+	fileNameGtk4="$${fileNameGtk4//gtk3/gtk4}"; \
+	echo "Cleaning $@"; \
+	gtk-builder-tool simplify --replace "$@"; \
+	echo "Converting $@ -> $$fileNameGtk4"; \
+	gtk4-builder-tool simplify --3to4 "$@" > "$$fileNameGtk4"
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
