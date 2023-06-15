@@ -32,6 +32,7 @@
   - ### Development targets: These targets are aimed at developers and translators
     - `make clean`: Deletes extension zip, `locale` and automatic backups
     - `make gtk4`: Simplifies and converts UI files (Should be run after any changes to files in `ui/`)
+      - Supports multiple threads (`-j$(nproc)`)
     - `make translations`: Updates translations
     - `make compress`: Losslessly compresses any .pngs in `docs/`
       - Allows passing `COMPRESSLEVEL="-o[X]"`, where `[X]` is an integer between 0-7
