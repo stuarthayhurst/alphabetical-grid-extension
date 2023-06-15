@@ -26,30 +26,10 @@
     <property name="margin-bottom">10</property>
     <property name="orientation">vertical</property>
     <child>
-      <object class="GtkGrid">
+      <object class="GtkBox">
         <property name="margin-start">12</property>
         <property name="margin-end">12</property>
-        <property name="column-homogeneous">1</property>
-        <child>
-          <object class="GtkBox" id="donate-box">
-            <property name="valign">end</property>
-            <property name="margin-top">4</property>
-            <property name="vexpand">1</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkLabel" id="donate-prompt">
-                <property name="label" translatable="1">Found this useful?
-&lt;a href=&quot;https://paypal.me/stuartahayhurst&quot;&gt;Consider donating&lt;/a&gt; :)</property>
-                <property name="use-markup">1</property>
-                <property name="justify">center</property>
-              </object>
-            </child>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">2</property>
-            </layout>
-          </object>
-        </child>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox" id="general-box">
             <property name="orientation">vertical</property>
@@ -169,10 +149,6 @@
                 </style>
               </object>
             </child>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">0</property>
-            </layout>
           </object>
         </child>
         <child>
@@ -245,10 +221,22 @@
                 </style>
               </object>
             </child>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">1</property>
-            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="donate-box">
+            <property name="valign">end</property>
+            <property name="margin-top">4</property>
+            <property name="vexpand">1</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkLabel" id="donate-prompt">
+                <property name="label" translatable="1">Found this useful?
+&lt;a href=&quot;https://paypal.me/stuartahayhurst&quot;&gt;Consider donating&lt;/a&gt; :)</property>
+                <property name="use-markup">1</property>
+                <property name="justify">center</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
