@@ -59,7 +59,7 @@ compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
 	@echo "Compressing $@..."
-	optipng $(COMPRESSLEVEL) -quiet -strip all "$@"
+	@optipng $(COMPRESSLEVEL) -quiet -strip all "$@"
 install:
 	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
 	  $(MAKE) build; \
