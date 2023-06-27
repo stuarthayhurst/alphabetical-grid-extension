@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v31: - `2023-06-27`
+ - Use correct property to make GtkSeparator unselectable
+ - Use GtkBox as parent element, instead of GtkGrid
+ - General code cleanup
+ - Build system optimisation
+
 ### v30: - `2023-06-10`
  - Added Czech translation - [Amereyeu](https://github.com/Amereyeu) (#79)
  - Added donation information to metadata
