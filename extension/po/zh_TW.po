@@ -127,4 +127,4 @@ msgstr "允許傳送資料給開發者"
 
 #: ui/prefs.ui:278
 msgid "Enable extension logging"
-msgstr ""
+msgstr "紀錄使用情況"
