@@ -43,8 +43,7 @@ release:
 	$(MAKE) build
 	$(MAKE) check
 translations:
-	@./scripts/update-pot.sh
-	@./scripts/update-po.sh -a
+	@BUILD_DIR=$(BUILD_DIR) ./scripts/update-po.sh -a
 gtk4:
 	@$(MAKE) $(UI_FILES)
 $(UI_FILES):
