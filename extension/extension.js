@@ -4,7 +4,6 @@
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const { AppGridHelper, ExtensionHelper } = Me.imports.lib;
-const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
 const { GLib, Gio, Shell } = imports.gi;
@@ -162,12 +161,6 @@ class Extension {
   }
 
   _reorderOnDisplay() {
-    //Ignore this signal on GNOME 3.38
-    if (ShellVersion < 40) {
-      this._reorderOnDisplaySignal = null;
-      return;
-    }
-
     //Reorder when the app grid is opened
     this._reorderOnDisplaySignal = Controls._stateAdjustment.connect('notify::value', () => {
       if (Controls._stateAdjustment.value == OverviewControls.ControlsState.APP_GRID) {

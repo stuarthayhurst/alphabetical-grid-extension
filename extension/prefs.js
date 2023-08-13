@@ -49,12 +49,7 @@ var PrefsPages = class PrefsPages {
   }
 
   createPreferences() {
-    //Use different UI file for GNOME 40+ and 3.38
-    if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/gtk4/prefs.ui');
-    } else {
-      this._builder.add_from_file(Me.path + '/ui/gtk3/prefs.ui');
-    }
+    this._builder.add_from_file(Me.path + '/ui/gtk4/prefs.ui');
 
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');
@@ -86,12 +81,7 @@ var PrefsPages = class PrefsPages {
   }
 
   createAbout() {
-    //Use different UI file for GNOME 40+ and 3.38
-    if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/gtk4/about.ui');
-    } else {
-      this._builder.add_from_file(Me.path + '/ui/gtk3/about.ui');
-    }
+    this._builder.add_from_file(Me.path + '/ui/gtk4/about.ui');
 
     //Get the about page and fill in values
     this.aboutWidget = this._builder.get_object('about-page');
@@ -100,12 +90,7 @@ var PrefsPages = class PrefsPages {
   }
 
   createCredits() {
-    //Use different UI file for GNOME 40+ and 3.38
-    if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/gtk4/credits.ui');
-    } else {
-      this._builder.add_from_file(Me.path + '/ui/gtk3/credits.ui');
-    }
+    this._builder.add_from_file(Me.path + '/ui/gtk4/credits.ui');
 
     //Set the icon
     this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
@@ -200,7 +185,7 @@ function fillPreferencesWindow(window) {
   window.add(creditsPage);
 }
 
-//Create preferences window for GNOME 3.38-41
+//Create preferences window for GNOME 40-41
 function buildPrefsWidget() {
   let prefsPages = new PrefsPages();
   let settingsWindow = new Gtk.ScrolledWindow();
@@ -215,30 +200,18 @@ function buildPrefsWidget() {
   pageSwitcher.set_stack(pageStack);
 
   //Add the stack to the scrolled window
-  if (ShellVersion >= 40) {
-    settingsWindow.set_child(pageStack);
-  } else {
-    settingsWindow.add(pageStack);
-  }
+  settingsWindow.set_child(pageStack);
 
-  //Enable all elements differently for GNOME 40+ and 3.38
-  if (ShellVersion >= 40) {
-    settingsWindow.show();
-  } else {
-    settingsWindow.show_all();
-  }
+  //Enable all elements
+  settingsWindow.show();
 
   //Modify top bar to add a page menu, when the window is ready
   settingsWindow.connect('realize', () => {
-    let window = ShellVersion >= 40 ? settingsWindow.get_root() : settingsWindow.get_toplevel();
+    let window = settingsWindow.get_root();
     let headerBar = window.get_titlebar();
 
     //Add page switching menu to header
-    if (ShellVersion >= 40) {
-      headerBar.set_title_widget(pageSwitcher);
-    } else {
-      headerBar.set_custom_title(pageSwitcher);
-    }
+    headerBar.set_title_widget(pageSwitcher);
     pageSwitcher.show();
   });
 
