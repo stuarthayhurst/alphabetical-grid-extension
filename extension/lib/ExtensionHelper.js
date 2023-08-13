@@ -1,6 +1,4 @@
-/* exported shellVersion loggingEnabled logMessage */
-
-var shellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
+/* exported loggingEnabled logMessage */
 
 //Helper function to send log messages
 var loggingEnabled = false;

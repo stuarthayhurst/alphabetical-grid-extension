@@ -3,12 +3,10 @@
 //Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
-const { ExtensionHelper } = Me.imports.lib;
-const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
 const { Gtk, Gio, GLib } = imports.gi;
-const Adw = ShellVersion >= 42 ? imports.gi.Adw : null;
+const Adw = imports.gi.Adw;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
@@ -105,10 +103,8 @@ var PrefsPages = class PrefsPages {
       return;
     }
 
-    //On GNOME 41+ use a TextDecoder to decode the file's contents
-    if (ShellVersion >= 41) {
-      data = new TextDecoder().decode(data);
-    }
+    //Decode the file's contents
+    data = new TextDecoder().decode(data);
 
     //Parse the credits
     let developerStrings = this._getCredits(data, 'developers');
@@ -150,7 +146,7 @@ function init() {
   ExtensionUtils.initTranslations();
 }
 
-//Create preferences window for GNOME 42+
+//Create preferences window with libadwaita
 function fillPreferencesWindow(window) {
   //Create pages and widgets
   let prefsPages = new PrefsPages();
@@ -183,37 +179,4 @@ function fillPreferencesWindow(window) {
   window.add(settingsPage);
   window.add(aboutPage);
   window.add(creditsPage);
-}
-
-//Create preferences window for GNOME 40-41
-function buildPrefsWidget() {
-  let prefsPages = new PrefsPages();
-  let settingsWindow = new Gtk.ScrolledWindow();
-
-  //Use a stack to store pages
-  let pageStack = new Gtk.Stack();
-  pageStack.add_titled(prefsPages.preferencesWidget, 'settings', _('Settings'));
-  pageStack.add_titled(prefsPages.aboutWidget, 'about', _('About'));
-  pageStack.add_titled(prefsPages.creditsWidget, 'credits', _('Credits'));
-
-  let pageSwitcher = new Gtk.StackSwitcher();
-  pageSwitcher.set_stack(pageStack);
-
-  //Add the stack to the scrolled window
-  settingsWindow.set_child(pageStack);
-
-  //Enable all elements
-  settingsWindow.show();
-
-  //Modify top bar to add a page menu, when the window is ready
-  settingsWindow.connect('realize', () => {
-    let window = settingsWindow.get_root();
-    let headerBar = window.get_titlebar();
-
-    //Add page switching menu to header
-    headerBar.set_title_widget(pageSwitcher);
-    pageSwitcher.show();
-  });
-
-  return settingsWindow;
 }
