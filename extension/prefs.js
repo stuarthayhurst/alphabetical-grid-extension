@@ -150,33 +150,25 @@ function init() {
 function fillPreferencesWindow(window) {
   //Create pages and widgets
   let prefsPages = new PrefsPages();
-  let settingsPage = new Adw.PreferencesPage();
-  let settingsGroup = new Adw.PreferencesGroup();
-  let aboutPage = new Adw.PreferencesPage();
-  let aboutGroup = new Adw.PreferencesGroup();
-  let creditsPage = new Adw.PreferencesPage();
-  let creditsGroup = new Adw.PreferencesGroup();
 
-  //Build the settings page
-  settingsPage.set_title(_('Settings'));
-  settingsPage.set_icon_name('preferences-system-symbolic');
-  settingsGroup.add(prefsPages.preferencesWidget);
-  settingsPage.add(settingsGroup);
+  let pageInfos = [
+    //Title, icon, widget
+    [_('Settings'), 'preferences-system-symbolic', prefsPages.preferencesWidget],
+    [_('About'), 'help-about-symbolic', prefsPages.aboutWidget],
+    [_('Credits'), 'system-users-symbolic', prefsPages.creditsWidget]
+  ];
 
-  //Build the about page
-  aboutPage.set_title(_('About'));
-  aboutPage.set_icon_name('help-about-symbolic');
-  aboutGroup.add(prefsPages.aboutWidget);
-  aboutPage.add(aboutGroup);
+  pageInfos.forEach((pageInfo) => {
+    let page = new Adw.PreferencesPage();
+    let group = new Adw.PreferencesGroup();
 
-  //Build the about page
-  creditsPage.set_title(_('Credits'));
-  creditsPage.set_icon_name('system-users-symbolic');
-  creditsGroup.add(prefsPages.creditsWidget);
-  creditsPage.add(creditsGroup);
+    //Build the group and page
+    page.set_title(pageInfo[0]);
+    page.set_icon_name(pageInfo[1]);
+    group.add(pageInfo[2]);
+    page.add(group);
 
-  //Add the pages to the window
-  window.add(settingsPage);
-  window.add(aboutPage);
-  window.add(creditsPage);
+    //Add to the window
+    window.add(page);
+  });
 }
