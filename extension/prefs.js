@@ -49,7 +49,7 @@ var PrefsPages = class PrefsPages {
   }
 
   createPreferences() {
-    this._builder.add_from_file(Me.path + '/ui/gtk4/prefs.ui');
+    this._builder.add_from_file(Me.path + '/gtk4/prefs.ui');
 
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');
@@ -81,7 +81,7 @@ var PrefsPages = class PrefsPages {
   }
 
   createAbout() {
-    this._builder.add_from_file(Me.path + '/ui/gtk4/about.ui');
+    this._builder.add_from_file(Me.path + '/gtk4/about.ui');
 
     //Get the about page and fill in values
     this.aboutWidget = this._builder.get_object('about-page');
@@ -90,7 +90,7 @@ var PrefsPages = class PrefsPages {
   }
 
   createCredits() {
-    this._builder.add_from_file(Me.path + '/ui/gtk4/credits.ui');
+    this._builder.add_from_file(Me.path + '/gtk4/credits.ui');
 
     //Set the icon
     this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
