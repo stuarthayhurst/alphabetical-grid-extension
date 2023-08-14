@@ -6,6 +6,7 @@
   "settings-schema": "org.gnome.shell.extensions.alphabetical-app-grid",
   "url": "https://github.com/stuarthayhurst/alphabetical-grid-extension",
   "donations": {
+    "github": "stuarthayhurst",
     "paypal": "stuartahayhurst"
   },
   "shell-version": [
