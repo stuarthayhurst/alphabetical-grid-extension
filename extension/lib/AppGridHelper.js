@@ -3,15 +3,13 @@
 //Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
-const { ExtensionHelper } = Me.imports.lib;
-const ShellVersion = ExtensionHelper.shellVersion;
 
 //Main imports
 const { GLib, Gio, Shell } = imports.gi;
 const Main = imports.ui.main;
 
 //Get access to the AppDisplay, also used by extension.js
-var AppDisplay = ShellVersion >= 40 ? Main.overview._overview._controls._appDisplay : Main.overview.viewSelector.appDisplay;
+var AppDisplay = Main.overview._overview._controls._appDisplay;
 
 let folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
 
