@@ -1,4 +1,4 @@
-/* exported init enable disable */
+/* exported ExtensionManager */
 
 //Local imports
 import * as AppGridHelper from './lib/AppGridHelper.js';
@@ -16,33 +16,35 @@ import * as OverviewControls from 'resource:///org/gnome/shell/ui/overviewContro
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 
-function enable() {
-  gridReorder = new Extension();
-  ExtensionHelper.loggingEnabled = gridReorder.extensionSettings.get_boolean('logging-enabled');
+export default class ExtensionManager {
+  enable() {
+    this._gridReorder = new AppGridExtension(this.getSettings());
+    ExtensionHelper.loggingEnabled = this._gridReorder.extensionSettings.get_boolean('logging-enabled');
 
-  //Patch shell, reorder and trigger listeners
-  AppDisplay._redisplay();
-  gridReorder.patchShell();
-  gridReorder.startListeners();
-  gridReorder.reorderGrid('Reordering app grid');
+    //Patch shell, reorder and trigger listeners
+    AppDisplay._redisplay();
+    this._gridReorder.patchShell();
+    this._gridReorder.startListeners();
+    this._gridReorder.reorderGrid('Reordering app grid');
+  }
+
+   disable() {
+    //Disconnect from events and clean up
+    this._gridReorder.disconnectListeners();
+    this._gridReorder.unpatchShell();
+
+    this._gridReorder = null;
+  }
 }
 
-function disable() {
-  //Disconnect from events and clean up
-  gridReorder.disconnectListeners();
-  gridReorder.unpatchShell();
-
-  gridReorder = null;
-}
-
-class Extension {
-  constructor() {
+class AppGridExtension {
+  constructor(extensionSettings) {
     //Load gsettings values for GNOME Shell
     this.shellSettings = new Gio.Settings( {schema: 'org.gnome.shell'} );
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
     //Load gsettings values for the extension itself
-    this.extensionSettings = ExtensionUtils.getSettings();
+    this.extensionSettings = extensionSettings;
     //Save original shell functions
     this._originalCompareItems = AppDisplay._compareItems;
     this._originalRedisplay = AppDisplay._redisplay;
