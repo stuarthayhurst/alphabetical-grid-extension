@@ -1,22 +1,22 @@
-/* exported init fillPreferencesWindow buildPrefsWidget */
-
-//Local extension imports
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
+/* exported AppGridPreferences */
 
 //Main imports
-const { Gtk, Gio, GLib } = imports.gi;
-const Adw = imports.gi.Adw;
+import Gtk from 'gi://Gtk';
+import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
+import Adw from 'gi://Adw';
 
-//Use _() for translations
-const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
+//Extension system imports
+import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 var PrefsPages = class PrefsPages {
-  constructor() {
-    this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.alphabetical-app-grid');
+  constructor(path, uuid, version, settings) {
+    this._settings = settings;
+    this._path = path;
+    this._version = version;
 
     this._builder = new Gtk.Builder();
-    this._builder.set_translation_domain(Me.metadata.uuid);
+    this._builder.set_translation_domain(uuid);
 
     this.createPreferences();
     this.createAbout();
@@ -47,7 +47,7 @@ var PrefsPages = class PrefsPages {
   }
 
   createPreferences() {
-    this._builder.add_from_file(Me.path + '/gtk4/prefs.ui');
+    this._builder.add_from_file(this._path + '/gtk4/prefs.ui');
 
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');
@@ -79,26 +79,26 @@ var PrefsPages = class PrefsPages {
   }
 
   createAbout() {
-    this._builder.add_from_file(Me.path + '/gtk4/about.ui');
+    this._builder.add_from_file(this._path + '/gtk4/about.ui');
 
     //Get the about page and fill in values
     this.aboutWidget = this._builder.get_object('about-page');
-    this._builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
-    this._builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
+    this._builder.get_object('extension-version').set_label('v' + this._version.toString());
+    this._builder.get_object('extension-icon').set_from_file(this._path + '/icon.svg');
   }
 
   createCredits() {
-    this._builder.add_from_file(Me.path + '/gtk4/credits.ui');
+    this._builder.add_from_file(this._path + '/gtk4/credits.ui');
 
     //Set the icon
-    this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
+    this._builder.get_object('extension-credits-icon').set_from_file(this._path + '/icon.svg');
 
     //Get the credits page and grid
     this.creditsWidget = this._builder.get_object('credits-page');
     let creditsGrid = this._builder.get_object('credits-grid');
 
     //Read in the saved extension credits
-    let [success, data] = GLib.file_get_contents(Me.path + '/credits.json');
+    let [success, data] = GLib.file_get_contents(this._path + '/credits.json');
     if (!success) {
       return;
     }
@@ -142,33 +142,33 @@ var PrefsPages = class PrefsPages {
   }
 }
 
-function init() {
-  ExtensionUtils.initTranslations();
-}
+export default class AppGridPreferences extends ExtensionPreferences {
+  //Create preferences window with libadwaita
+  fillPreferencesWindow(window) {
+    //Create pages and widgets
+    let prefsPages = new PrefsPages(this.path, this.uuid,
+                                    this.metadata.version,
+                                    this.getSettings());
 
-//Create preferences window with libadwaita
-function fillPreferencesWindow(window) {
-  //Create pages and widgets
-  let prefsPages = new PrefsPages();
+    let pageInfos = [
+      //Title, icon, widget
+      [_('Settings'), 'preferences-system-symbolic', prefsPages.preferencesWidget],
+      [_('About'), 'help-about-symbolic', prefsPages.aboutWidget],
+      [_('Credits'), 'system-users-symbolic', prefsPages.creditsWidget]
+    ];
 
-  let pageInfos = [
-    //Title, icon, widget
-    [_('Settings'), 'preferences-system-symbolic', prefsPages.preferencesWidget],
-    [_('About'), 'help-about-symbolic', prefsPages.aboutWidget],
-    [_('Credits'), 'system-users-symbolic', prefsPages.creditsWidget]
-  ];
+    pageInfos.forEach((pageInfo) => {
+      let page = new Adw.PreferencesPage();
+      let group = new Adw.PreferencesGroup();
 
-  pageInfos.forEach((pageInfo) => {
-    let page = new Adw.PreferencesPage();
-    let group = new Adw.PreferencesGroup();
+      //Build the group and page
+      page.set_title(pageInfo[0]);
+      page.set_icon_name(pageInfo[1]);
+      group.add(pageInfo[2]);
+      page.add(group);
 
-    //Build the group and page
-    page.set_title(pageInfo[0]);
-    page.set_icon_name(pageInfo[1]);
-    group.add(pageInfo[2]);
-    page.add(group);
-
-    //Add to the window
-    window.add(page);
-  });
+      //Add to the window
+      window.add(page);
+    });
+  }
 }
