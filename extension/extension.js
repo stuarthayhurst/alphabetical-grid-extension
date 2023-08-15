@@ -12,11 +12,14 @@ import Shell from 'gi://Shell';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as OverviewControls from 'resource:///org/gnome/shell/ui/overviewControls.js';
 
+//Extension system imports
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+
 //Access required objects and systems
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 
-export default class ExtensionManager {
+export default class ExtensionManager extends Extension {
   enable() {
     this._gridReorder = new AppGridExtension(this.getSettings());
     ExtensionHelper.loggingEnabled = this._gridReorder.extensionSettings.get_boolean('logging-enabled');
