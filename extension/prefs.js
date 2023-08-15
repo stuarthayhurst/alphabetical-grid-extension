@@ -18,9 +18,9 @@ var PrefsPages = class PrefsPages {
     this._builder = new Gtk.Builder();
     this._builder.set_translation_domain(uuid);
 
-    this.createPreferences();
-    this.createAbout();
-    this.createCredits();
+    this._createPreferences();
+    this._createAbout();
+    this._createCredits();
   }
 
   _getCredits(creditDataRaw, creditType) {
@@ -46,7 +46,7 @@ var PrefsPages = class PrefsPages {
     return creditStrings;
   }
 
-  createPreferences() {
+  _createPreferences() {
     this._builder.add_from_file(this._path + '/gtk4/prefs.ui');
 
     //Get the settings container widget
@@ -78,7 +78,7 @@ var PrefsPages = class PrefsPages {
     });
   }
 
-  createAbout() {
+  _createAbout() {
     this._builder.add_from_file(this._path + '/gtk4/about.ui');
 
     //Get the about page and fill in values
@@ -87,7 +87,7 @@ var PrefsPages = class PrefsPages {
     this._builder.get_object('extension-icon').set_from_file(this._path + '/icon.svg');
   }
 
-  createCredits() {
+  _createCredits() {
     this._builder.add_from_file(this._path + '/gtk4/credits.ui');
 
     //Set the icon
