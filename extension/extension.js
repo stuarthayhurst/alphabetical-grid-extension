@@ -18,11 +18,11 @@ import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 
-let loggingEnabled = false;
+var loggingEnabled = false;
 function logMessage(message) {
   if (loggingEnabled) {
-    date = new Date();
-    timestamp = date.toTimeString().split(' ')[0];
+    let date = new Date();
+    let timestamp = date.toTimeString().split(' ')[0];
     log('alphabetical-app-grid [' + timestamp + ']: ' + message);
   }
 }
