@@ -2,7 +2,6 @@
 
 //Local imports
 import * as AppGridHelper from './lib/AppGridHelper.js';
-import * as ExtensionHelper from './lib/ExtensionHelper.js';
 
 //Main imports
 import GLib from 'gi://GLib';
@@ -19,10 +18,19 @@ import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 
+let loggingEnabled = false;
+function logMessage(message) {
+  if (loggingEnabled) {
+    date = new Date();
+    timestamp = date.toTimeString().split(' ')[0];
+    log('alphabetical-app-grid [' + timestamp + ']: ' + message);
+  }
+}
+
 export default class ExtensionManager extends Extension {
   enable() {
     this._gridReorder = new AppGridExtension(this.getSettings());
-    ExtensionHelper.loggingEnabled = this._gridReorder.extensionSettings.get_boolean('logging-enabled');
+    loggingEnabled = this._gridReorder.extensionSettings.get_boolean('logging-enabled');
 
     //Patch shell, reorder and trigger listeners
     AppDisplay._redisplay();
@@ -75,32 +83,32 @@ class AppGridExtension {
 
     //Patch the internal functions
     AppDisplay._compareItems = _patchedCompareItems;
-    ExtensionHelper.logMessage('Patched item comparison');
+    logMessage('Patched item comparison');
 
     AppDisplay._redisplay = _patchedRedisplay;
-    ExtensionHelper.logMessage('Patched redisplay');
+    logMessage('Patched redisplay');
   }
 
   unpatchShell() {
     //Unpatch the internal functions for extension shutdown
     AppDisplay._compareItems = this._originalCompareItems;
-    ExtensionHelper.logMessage('Unpatched item comparison');
+    logMessage('Unpatched item comparison');
 
     AppDisplay._redisplay = this._originalRedisplay;
-    ExtensionHelper.logMessage('Unpatched redisplay');
+    logMessage('Unpatched redisplay');
   }
 
   //Helper functions
 
-  reorderGrid(logMessage) {
+  reorderGrid(logText) {
     //Detect lock to avoid multiple changes at once
     if (!this._currentlyUpdating && !AppDisplay._pageManager._updatingPages) {
       this._currentlyUpdating = true;
-      ExtensionHelper.logMessage(logMessage);
+      logMessage(logText);
 
       //Alphabetically order the contents of each folder, if enabled
       if (this.extensionSettings.get_boolean('sort-folder-contents')) {
-        ExtensionHelper.logMessage('Reordering folder contents');
+        logMessage('Reordering folder contents');
         AppGridHelper.reorderFolderContents();
       }
 
@@ -128,7 +136,7 @@ class AppGridExtension {
     //One time connections
     this._reorderOnDisplay();
 
-    ExtensionHelper.logMessage('Connected to listeners');
+    logMessage('Connected to listeners');
   }
 
   disconnectListeners() {
@@ -148,7 +156,7 @@ class AppGridExtension {
       GLib.Source.remove(this._reorderGridTimeoutId);
     }
 
-    ExtensionHelper.logMessage('Disconnected from listeners');
+    logMessage('Disconnected from listeners');
   }
 
   _waitForGridReorder() {
@@ -182,7 +190,7 @@ class AppGridExtension {
   _waitForSettingsChange() {
     //Connect to gsettings and wait for the extension's settings to change
     this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
-      ExtensionHelper.loggingEnabled = this.extensionSettings.get_boolean('logging-enabled');
+      loggingEnabled = this.extensionSettings.get_boolean('logging-enabled');
       this.reorderGrid('Extension gsettings values changed, triggering reorder');
     });
   }
