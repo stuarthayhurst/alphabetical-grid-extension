@@ -1,28 +1,26 @@
-/* exported init fillPreferencesWindow buildPrefsWidget */
-
-//Local extension imports
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-const { ExtensionHelper } = Me.imports.lib;
-const ShellVersion = ExtensionHelper.shellVersion;
+/* exported AppGridPreferences */
 
 //Main imports
-const { Gtk, Gio, GLib } = imports.gi;
-const Adw = ShellVersion >= 42 ? imports.gi.Adw : null;
+import Gtk from 'gi://Gtk';
+import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
+import Adw from 'gi://Adw';
 
-//Use _() for translations
-const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
+//Extension system imports
+import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 var PrefsPages = class PrefsPages {
-  constructor() {
-    this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.alphabetical-app-grid');
+  constructor(path, uuid, version, settings) {
+    this._settings = settings;
+    this._path = path;
+    this._version = version;
 
     this._builder = new Gtk.Builder();
-    this._builder.set_translation_domain(Me.metadata.uuid);
+    this._builder.set_translation_domain(uuid);
 
-    this.createPreferences();
-    this.createAbout();
-    this.createCredits();
+    this._createPreferences();
+    this._createAbout();
+    this._createCredits();
   }
 
   _getCredits(creditDataRaw, creditType) {
@@ -48,13 +46,8 @@ var PrefsPages = class PrefsPages {
     return creditStrings;
   }
 
-  createPreferences() {
-    //Use different UI file for GNOME 40+ and 3.38
-    if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/gtk4/prefs.ui');
-    } else {
-      this._builder.add_from_file(Me.path + '/ui/gtk3/prefs.ui');
-    }
+  _createPreferences() {
+    this._builder.add_from_file(this._path + '/gtk4/prefs.ui');
 
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');
@@ -85,45 +78,33 @@ var PrefsPages = class PrefsPages {
     });
   }
 
-  createAbout() {
-    //Use different UI file for GNOME 40+ and 3.38
-    if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/gtk4/about.ui');
-    } else {
-      this._builder.add_from_file(Me.path + '/ui/gtk3/about.ui');
-    }
+  _createAbout() {
+    this._builder.add_from_file(this._path + '/gtk4/about.ui');
 
     //Get the about page and fill in values
     this.aboutWidget = this._builder.get_object('about-page');
-    this._builder.get_object('extension-version').set_label('v' + Me.metadata.version.toString());
-    this._builder.get_object('extension-icon').set_from_file(Me.path + '/icon.svg');
+    this._builder.get_object('extension-version').set_label('v' + this._version.toString());
+    this._builder.get_object('extension-icon').set_from_file(this._path + '/icon.svg');
   }
 
-  createCredits() {
-    //Use different UI file for GNOME 40+ and 3.38
-    if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/gtk4/credits.ui');
-    } else {
-      this._builder.add_from_file(Me.path + '/ui/gtk3/credits.ui');
-    }
+  _createCredits() {
+    this._builder.add_from_file(this._path + '/gtk4/credits.ui');
 
     //Set the icon
-    this._builder.get_object('extension-credits-icon').set_from_file(Me.path + '/icon.svg');
+    this._builder.get_object('extension-credits-icon').set_from_file(this._path + '/icon.svg');
 
     //Get the credits page and grid
     this.creditsWidget = this._builder.get_object('credits-page');
     let creditsGrid = this._builder.get_object('credits-grid');
 
     //Read in the saved extension credits
-    let [success, data] = GLib.file_get_contents(Me.path + '/credits.json');
+    let [success, data] = GLib.file_get_contents(this._path + '/credits.json');
     if (!success) {
       return;
     }
 
-    //On GNOME 41+ use a TextDecoder to decode the file's contents
-    if (ShellVersion >= 41) {
-      data = new TextDecoder().decode(data);
-    }
+    //Decode the file's contents
+    data = new TextDecoder().decode(data);
 
     //Parse the credits
     let developerStrings = this._getCredits(data, 'developers');
@@ -161,86 +142,33 @@ var PrefsPages = class PrefsPages {
   }
 }
 
-function init() {
-  ExtensionUtils.initTranslations();
-}
+export default class AppGridPreferences extends ExtensionPreferences {
+  //Create preferences window with libadwaita
+  fillPreferencesWindow(window) {
+    //Create pages and widgets
+    let prefsPages = new PrefsPages(this.path, this.uuid,
+                                    this.metadata.version,
+                                    this.getSettings());
 
-//Create preferences window for GNOME 42+
-function fillPreferencesWindow(window) {
-  //Create pages and widgets
-  let prefsPages = new PrefsPages();
-  let settingsPage = new Adw.PreferencesPage();
-  let settingsGroup = new Adw.PreferencesGroup();
-  let aboutPage = new Adw.PreferencesPage();
-  let aboutGroup = new Adw.PreferencesGroup();
-  let creditsPage = new Adw.PreferencesPage();
-  let creditsGroup = new Adw.PreferencesGroup();
+    let pageInfos = [
+      //Title, icon, widget
+      [_('Settings'), 'preferences-system-symbolic', prefsPages.preferencesWidget],
+      [_('About'), 'help-about-symbolic', prefsPages.aboutWidget],
+      [_('Credits'), 'system-users-symbolic', prefsPages.creditsWidget]
+    ];
 
-  //Build the settings page
-  settingsPage.set_title(_('Settings'));
-  settingsPage.set_icon_name('preferences-system-symbolic');
-  settingsGroup.add(prefsPages.preferencesWidget);
-  settingsPage.add(settingsGroup);
+    pageInfos.forEach((pageInfo) => {
+      let page = new Adw.PreferencesPage();
+      let group = new Adw.PreferencesGroup();
 
-  //Build the about page
-  aboutPage.set_title(_('About'));
-  aboutPage.set_icon_name('help-about-symbolic');
-  aboutGroup.add(prefsPages.aboutWidget);
-  aboutPage.add(aboutGroup);
+      //Build the group and page
+      page.set_title(pageInfo[0]);
+      page.set_icon_name(pageInfo[1]);
+      group.add(pageInfo[2]);
+      page.add(group);
 
-  //Build the about page
-  creditsPage.set_title(_('Credits'));
-  creditsPage.set_icon_name('system-users-symbolic');
-  creditsGroup.add(prefsPages.creditsWidget);
-  creditsPage.add(creditsGroup);
-
-  //Add the pages to the window
-  window.add(settingsPage);
-  window.add(aboutPage);
-  window.add(creditsPage);
-}
-
-//Create preferences window for GNOME 3.38-41
-function buildPrefsWidget() {
-  let prefsPages = new PrefsPages();
-  let settingsWindow = new Gtk.ScrolledWindow();
-
-  //Use a stack to store pages
-  let pageStack = new Gtk.Stack();
-  pageStack.add_titled(prefsPages.preferencesWidget, 'settings', _('Settings'));
-  pageStack.add_titled(prefsPages.aboutWidget, 'about', _('About'));
-  pageStack.add_titled(prefsPages.creditsWidget, 'credits', _('Credits'));
-
-  let pageSwitcher = new Gtk.StackSwitcher();
-  pageSwitcher.set_stack(pageStack);
-
-  //Add the stack to the scrolled window
-  if (ShellVersion >= 40) {
-    settingsWindow.set_child(pageStack);
-  } else {
-    settingsWindow.add(pageStack);
+      //Add to the window
+      window.add(page);
+    });
   }
-
-  //Enable all elements differently for GNOME 40+ and 3.38
-  if (ShellVersion >= 40) {
-    settingsWindow.show();
-  } else {
-    settingsWindow.show_all();
-  }
-
-  //Modify top bar to add a page menu, when the window is ready
-  settingsWindow.connect('realize', () => {
-    let window = ShellVersion >= 40 ? settingsWindow.get_root() : settingsWindow.get_toplevel();
-    let headerBar = window.get_titlebar();
-
-    //Add page switching menu to header
-    if (ShellVersion >= 40) {
-      headerBar.set_title_widget(pageSwitcher);
-    } else {
-      headerBar.set_custom_title(pageSwitcher);
-    }
-    pageSwitcher.show();
-  });
-
-  return settingsWindow;
 }

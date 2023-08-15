@@ -11,7 +11,6 @@ BUNDLE_PATH = "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
 build: clean
 	@mkdir -p $(BUILD_DIR)
-	glib-compile-schemas --strict extension/schemas --targetdir $(BUILD_DIR)
 	$(MAKE) package
 package:
 	@mkdir -p $(BUILD_DIR)
@@ -23,7 +22,7 @@ package:
 	--extra-source=../docs/CHANGELOG.md \
 	--extra-source=../docs/icon.svg \
 	--extra-source=credits.json \
-	--extra-source=ui/ \
+	--extra-source=ui/gtk4/ \
 	--extra-source=lib/ \
 	-o ../$(BUILD_DIR)/
 check:
@@ -44,8 +43,7 @@ release:
 	$(MAKE) build
 	$(MAKE) check
 translations:
-	@./scripts/update-pot.sh
-	@./scripts/update-po.sh -a
+	@BUILD_DIR=$(BUILD_DIR) ./scripts/update-po.sh -a
 gtk4:
 	@$(MAKE) $(UI_FILES)
 $(UI_FILES):
