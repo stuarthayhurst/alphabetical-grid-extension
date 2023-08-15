@@ -1,18 +1,20 @@
 /* exported init enable disable */
 
-//Local extension imports
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-const { AppGridHelper, ExtensionHelper } = Me.imports.lib;
+//Local imports
+import * as AppGridHelper from './lib/AppGridHelper.js';
+import * as ExtensionHelper from './lib/ExtensionHelper.js';
 
 //Main imports
-const { GLib, Gio, Shell } = imports.gi;
-const Main = imports.ui.main;
+import GLib from 'gi://GLib';
+import Gio from 'gi://Gio';
+import Shell from 'gi://Shell';
+
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+import * as OverviewControls from 'resource:///org/gnome/shell/ui/overviewControls.js';
 
 //Access required objects and systems
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
-const OverviewControls = imports.ui.overviewControls;
 
 function init() {
   ExtensionUtils.initTranslations();
