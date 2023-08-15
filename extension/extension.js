@@ -22,7 +22,7 @@ function init() {
 
 function enable() {
   gridReorder = new Extension();
-  ExtensionHelper.loggingEnabled = Me.metadata.debug || gridReorder.extensionSettings.get_boolean('logging-enabled');
+  ExtensionHelper.loggingEnabled = gridReorder.extensionSettings.get_boolean('logging-enabled');
 
   //Patch shell, reorder and trigger listeners
   AppDisplay._redisplay();
@@ -181,7 +181,7 @@ class Extension {
   _waitForSettingsChange() {
     //Connect to gsettings and wait for the extension's settings to change
     this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
-      ExtensionHelper.loggingEnabled = Me.metadata.debug || this.extensionSettings.get_boolean('logging-enabled');
+      ExtensionHelper.loggingEnabled = this.extensionSettings.get_boolean('logging-enabled');
       this.reorderGrid('Extension gsettings values changed, triggering reorder');
     });
   }
