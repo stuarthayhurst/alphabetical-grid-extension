@@ -16,10 +16,6 @@ import * as OverviewControls from 'resource:///org/gnome/shell/ui/overviewContro
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 
-function init() {
-  ExtensionUtils.initTranslations();
-}
-
 function enable() {
   gridReorder = new Extension();
   ExtensionHelper.loggingEnabled = gridReorder.extensionSettings.get_boolean('logging-enabled');
