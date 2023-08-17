@@ -11,6 +11,17 @@ export var AppDisplay = Main.overview._overview._controls._appDisplay;
 
 let folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
 
+//Helpers to provide alphabetical ordering
+function alphabeticalSort(a, b) {
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+  return a.localeCompare(b);
+}
+
+function alphabeticalSortName(a, b) {
+  return alphabeticalSort(a.name, b.name);
+}
+
 //Reorders folder contents
 export function reorderFolderContents() {
   //Get array of folders from 'folder-children' key
@@ -60,29 +71,18 @@ function orderByDisplayName(inputArray) {
   });
 
   //Alphabetically sort the folder's contents, by the display name
-  outputArray.sort((a, b) => {
-    a = a.toLowerCase();
-    b = b.toLowerCase();
-    return a.localeCompare(b);
-  });
+  outputArray.sort(alphabeticalSort);
 
   //Replace each element with the app's .desktop filename
   outputArray.forEach((currentTarget, i) => { outputArray[i] = currentTarget.desktopFile; });
   return outputArray;
 }
 
-//Helper to provide alphabetical ordering
-function alphabeticalSort(a, b) {
-  let aName = a.name.toLowerCase();
-  let bName = b.name.toLowerCase();
-  return aName.localeCompare(bName);
-}
-
 //Replaces shell's _compareItems() to provide custom order
 export function compareItems(a, b, folderPosition, folderArray) {
   //Skip extra steps if a regular alphabetical order is required
   if (folderPosition == 'alphabetical') {
-    return alphabeticalSort(a, b);
+    return alphabeticalSortName(a, b);
   }
 
   let isAFolder = folderArray.includes(a._id);
@@ -90,7 +90,7 @@ export function compareItems(a, b, folderPosition, folderArray) {
 
   //If they're both folders or both apps, order alphabetically
   if (isAFolder == isBFolder) {
-    return alphabeticalSort(a, b);
+    return alphabeticalSortName(a, b);
   }
 
   //If one is a folder, move it to the configured position
