@@ -12,7 +12,7 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as OverviewControls from 'resource:///org/gnome/shell/ui/overviewControls.js';
 
 //Extension system imports
-import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import {Extension, InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 //Access required objects and systems
 const AppDisplay = AppGridHelper.AppDisplay;
@@ -50,22 +50,18 @@ export default class ExtensionManager extends Extension {
 
 class AppGridExtension {
   constructor(extensionSettings) {
+    this._injectionManager = new InjectionManager();
     //Load gsettings values for GNOME Shell
     this.shellSettings = new Gio.Settings( {schema: 'org.gnome.shell'} );
     //Load gsettings values for folders, to access 'folder-children'
     this.folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
     //Load gsettings values for the extension itself
     this.extensionSettings = extensionSettings;
-    //Save original shell functions
-    this._originalCompareItems = AppDisplay._compareItems;
-    this._originalRedisplay = AppDisplay._redisplay;
     //Create a lock to prevent code triggering multiple reorders at once
     this._currentlyUpdating = false;
   }
 
   patchShell() {
-    //Patched functions declared here for access to extension's variables
-
     //Patched version of _redisplay() to apply custom order
     function _patchedRedisplay() {
       //Call patched redisplay code to reorder the items
@@ -82,19 +78,17 @@ class AppGridExtension {
     }
 
     //Patch the internal functions
-    AppDisplay._compareItems = _patchedCompareItems;
+    this._injectionManager.overrideMethod(AppDisplay, '_compareItems', _patchedCompareItems);
     logMessage('Patched item comparison');
 
-    AppDisplay._redisplay = _patchedRedisplay;
+    this._injectionManager.overrideMethod(AppDisplay, '_redisplay', _patchedRedisplay);
     logMessage('Patched redisplay');
   }
 
   unpatchShell() {
     //Unpatch the internal functions for extension shutdown
-    AppDisplay._compareItems = this._originalCompareItems;
+    this._injectionManager.clear();
     logMessage('Unpatched item comparison');
-
-    AppDisplay._redisplay = this._originalRedisplay;
     logMessage('Unpatched redisplay');
   }
 
