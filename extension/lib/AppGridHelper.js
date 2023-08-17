@@ -94,19 +94,7 @@ export function compareItems(a, b, folderPosition, folderArray) {
   }
 
   //If one is a folder, move it to the configured position
-  if (isAFolder) { //Item a is the folder
-    if (folderPosition == 'start') {
-      return -1; //Move a before b
-    } else {
-      return 1; //Move a after b
-    }
-  } else { //Item b is the folder
-    if (folderPosition == 'start') {
-      return 1; //Move a after b
-    } else {
-      return -1; //Move a before b
-    }
-  }
+  return (folderPosition === 'start') ^ isAFolder ? 1 : -1;
 }
 
 //Called during custom _redisplay()
