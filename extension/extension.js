@@ -29,8 +29,9 @@ function logMessage(message) {
 
 export default class ExtensionManager extends Extension {
   enable() {
-    this._gridReorder = new AppGridExtension(this.getSettings());
-    loggingEnabled = this._gridReorder._extensionSettings.get_boolean('logging-enabled');
+    let extensionSettings = this.getSettings();
+    this._gridReorder = new AppGridExtension(extensionSettings);
+    loggingEnabled = extensionSettings.get_boolean('logging-enabled');
 
     //Patch shell, reorder and trigger listeners
     AppDisplay._redisplay();
