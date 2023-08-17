@@ -62,26 +62,24 @@ class AppGridExtension {
   }
 
   patchShell() {
-    //Patched version of _redisplay() to apply custom order
-    function _patchedRedisplay() {
-      //Call patched redisplay code to reorder the items
-      AppGridHelper.reloadAppGrid.call(AppDisplay);
-    }
-
     //Patched version of _compareItems(), to apply custom order
     let extensionSettings = this.extensionSettings;
     let folderSettings = this.folderSettings;
     function _patchedCompareItems(a, b) {
       let folderPosition = extensionSettings.get_string('folder-order-position');
       let folderArray = folderSettings.get_value('folder-children').get_strv();
-      return AppGridHelper.compareItems(a, b, folderPosition, folderArray);
+      return AppGridHelper.compareItems.call(this, a, b, folderPosition, folderArray);
     }
 
     //Patch the internal functions
-    this._injectionManager.overrideMethod(AppDisplay, '_compareItems', _patchedCompareItems);
+    this._injectionManager.overrideMethod(AppDisplay, '_compareItems', () => {
+      return _patchedCompareItems.bind(AppDisplay);
+    });
     logMessage('Patched item comparison');
 
-    this._injectionManager.overrideMethod(AppDisplay, '_redisplay', _patchedRedisplay);
+    this._injectionManager.overrideMethod(AppDisplay, '_redisplay', () => {
+      return AppGridHelper.reloadAppGrid.bind(AppDisplay);
+    });
     logMessage('Patched redisplay');
   }
 
