@@ -6,8 +6,6 @@ on:
     branches: '**'
   pull_request:
     branches: '**'
-  release:
-    types: [published]
 
 jobs:
   build:
@@ -17,7 +15,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install --no-install-recommends make gettext gnome-shell libglib2.0-bin
+        sudo apt-get install --no-install-recommends make gettext gnome-shell
 
     - name: Build the extension bundle
       run: |
