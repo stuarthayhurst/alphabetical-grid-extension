@@ -9,7 +9,7 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 //Get access to the AppDisplay, also used by extension.js
 export var AppDisplay = Main.overview._overview._controls._appDisplay;
 
-let folderSettings = new Gio.Settings( {schema: 'org.gnome.desktop.app-folders'} );
+let folderSettings = new Gio.Settings({schema: 'org.gnome.desktop.app-folders'});
 
 //Helpers to provide alphabetical ordering
 function alphabeticalSort(a, b) {
@@ -74,7 +74,7 @@ function orderByDisplayName(inputArray) {
   outputArray.sort(alphabeticalSort);
 
   //Replace each element with the app's .desktop filename
-  outputArray.forEach((currentTarget, i) => { outputArray[i] = currentTarget.desktopFile; });
+  outputArray.forEach((currentTarget, i) => {outputArray[i] = currentTarget.desktopFile;});
   return outputArray;
 }
 
@@ -118,7 +118,7 @@ export function reloadAppGrid() {
   });
 
   //Move each app to the correct grid postion
-  const { itemsPerPage } = this._grid;
+  const {itemsPerPage} = this._grid;
   newApps.forEach((icon, i) => {
     const page = Math.floor(i / itemsPerPage);
     const position = i % itemsPerPage;
