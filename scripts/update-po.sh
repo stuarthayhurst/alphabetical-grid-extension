@@ -19,7 +19,7 @@ promptNewTranslation() {
 #Update translation file $1
 updateTranslation() {
   echo -n "Updating '$1': "
-  msgmerge --previous -U --quiet "$1" "../$BUILD_DIR/messages.pot"
+  msgmerge --no-fuzzy-matching --previous -U --quiet "$1" "../$BUILD_DIR/messages.pot"
   msgfmt --check --verbose --output-file=/dev/null "$1"
 }
 
