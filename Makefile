@@ -6,7 +6,7 @@ BUILD_DIR ?= build
 PNG_FILES = $(wildcard ./docs/*.png)
 BUNDLE_PATH = "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
-.PHONY: build package check release translations compress install uninstall clean $(UI_FILES) $(PNG_FILES)
+.PHONY: build package check release translations compress install uninstall clean $(PNG_FILES)
 
 build: clean
 	@mkdir -p $(BUILD_DIR)
