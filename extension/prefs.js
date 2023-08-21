@@ -104,7 +104,7 @@ export default class AppGridPrefs extends ExtensionPreferences {
       //Group ID, setting key, title, subtitle
       ['general', 'sort-folder-contents', _('Sort folder contents'), _('')],
       ['general', 'folder-order-position',  _('Position of ordered folders'), _('')],
-      ['developer', 'logging-enabled-switch',  _('Enable extension logging'), _('')]
+      ['developer', 'logging-enabled',  _('Enable extension logging'), _('')]
     ];
 
     //Create settings page from info
