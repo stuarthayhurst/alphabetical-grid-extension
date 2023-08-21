@@ -17,7 +17,7 @@ xgettext --from-code=UTF-8 \
          --copyright-holder="Stuart Hayhurst" \
          --package-name="alphabetical-grid-extension" \
          --output="$BUILD_DIR/messages.pot" \
-         -- extension/*.js extension/ui/*/*.ui
+         -- extension/*.js
 
 #Replace some lines of the header with our own
 sed -i '1s/.*/# <LANGUAGE> translation for the Alphabetical App Grid GNOME Shell Extension./' "$BUILD_DIR/messages.pot"
