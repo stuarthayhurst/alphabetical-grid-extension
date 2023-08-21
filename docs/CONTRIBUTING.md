@@ -55,7 +55,6 @@
   - After changes have been made, run `make build; make check` to check the built bundle is alright
   - The extension can be removed with `make uninstall`, if it's non-functional
   - Debugging information can be found in `README.md`, under "Bug reporting / debugging"
-  - Debugging mode can be enabled by setting `debug` to `true` in `extension/metadata.json`, or a setting can be toggled in the extension's preferences
 
 ## Submitting a pull request:
   - When you believe your contribution to be complete, submit a pull request
