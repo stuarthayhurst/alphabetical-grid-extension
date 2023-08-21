@@ -36,13 +36,11 @@
     - `make uninstall`: Uninstalls the extension
   - ### Development targets: These targets are aimed at developers and translators
     - `make clean`: Deletes extension zip, `locale` and automatic backups
-    - `make gtk4`: Simplifies and converts UI files (Should be run after any changes to files in `ui/`)
-      - Supports multiple threads (`-j$(nproc)`)
     - `make translations`: Updates translations
     - `make compress`: Losslessly compresses any .pngs in `docs/`
       - Allows passing `COMPRESSLEVEL="-o[X]"`, where `[X]` is an integer between 0-7
-    - `make release`: Updates the GTK 4 UI, translations, then creates and checks an extension zip
-      - Calls `make gtk4 translations compress build check`
+    - `make release`: Updates translations, then creates and checks an extension zip
+      - Calls `make translations compress build check`
       - Supports any variables / arguments supported by these targets
       - Also allows passing `VERSION="[XX]"`, where `[XX]` is the version to update `metadata.json` to
     - `make package`: Creates the extension zip from the project's current state (Only useful for debugging)
@@ -54,8 +52,6 @@
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
   - sed (`make translations`)
-  - libgtk-3-bin (`make gtk4`)
-  - libgtk-4-bin (`make gtk4`)
   - optipng (`make compress`)
 
 ## What happened to the show favourites option?
