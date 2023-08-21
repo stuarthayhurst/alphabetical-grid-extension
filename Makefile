@@ -3,11 +3,10 @@ UUID = AlphabeticalAppGrid@stuarthayhurst
 COMPRESSLEVEL ?= -o7
 
 BUILD_DIR ?= build
-UI_FILES = $(wildcard ./extension/ui/gtk3/*.ui)
 PNG_FILES = $(wildcard ./docs/*.png)
 BUNDLE_PATH = "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
-.PHONY: build package check release translations gtk4 compress install uninstall clean $(UI_FILES) $(PNG_FILES)
+.PHONY: build package check release translations compress install uninstall clean $(UI_FILES) $(PNG_FILES)
 
 build: clean
 	@mkdir -p $(BUILD_DIR)
@@ -35,21 +34,11 @@ release:
 	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION),|g" extension/metadata.json; \
 	fi
 	#Call other targets required to make a release
-	$(MAKE) gtk4
 	$(MAKE) translations compress
 	$(MAKE) build
 	$(MAKE) check
 translations:
 	@BUILD_DIR=$(BUILD_DIR) ./scripts/update-po.sh -a
-gtk4:
-	@$(MAKE) $(UI_FILES)
-$(UI_FILES):
-	@fileNameGtk4=$@; \
-	fileNameGtk4="$${fileNameGtk4//gtk3/gtk4}"; \
-	echo "Cleaning $@"; \
-	gtk-builder-tool simplify --replace "$@"; \
-	echo "Converting $@ -> $$fileNameGtk4"; \
-	gtk4-builder-tool simplify --3to4 "$@" > "$$fileNameGtk4"
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
