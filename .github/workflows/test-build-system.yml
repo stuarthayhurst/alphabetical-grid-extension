@@ -15,7 +15,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install --no-install-recommends git make optipng gettext gnome-shell libgtk-4-bin
+        sudo apt-get install --no-install-recommends git make optipng gettext gnome-shell
 
     - name: Check asset optimisation targets work
       run: |
@@ -26,11 +26,6 @@ jobs:
       run: |
         make translations
         git restore extension/po/
-
-    - name: Check GTK 4 UI generation works
-      run: |
-        echo "echo \$@" | sudo tee /usr/bin/gtk-builder-tool; sudo chmod +x /usr/bin/gtk-builder-tool
-        make gtk4 "-j$(nproc)"
 
     - name: Test extension builds from current state
       run: |
