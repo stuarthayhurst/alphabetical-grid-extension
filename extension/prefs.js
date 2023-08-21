@@ -1,4 +1,4 @@
-/* exported AppGridPreferences */
+/* exported AppGridPrefs */
 
 //Main imports
 import Gtk from 'gi://Gtk';
@@ -142,7 +142,7 @@ var PrefsPages = class PrefsPages {
   }
 }
 
-export default class AppGridPreferences extends ExtensionPreferences {
+export default class AppGridPrefs extends ExtensionPreferences {
   //Create preferences window with libadwaita
   fillPreferencesWindow(window) {
     //Create pages and widgets

@@ -1,4 +1,4 @@
-/* exported ExtensionManager */
+/* exported AppGridManager */
 
 //Local imports
 import * as AppGridHelper from './lib/AppGridHelper.js';
@@ -18,7 +18,7 @@ import {Extension, InjectionManager} from 'resource:///org/gnome/shell/extension
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 
-export default class ExtensionManager extends Extension {
+export default class AppGridManager extends Extension {
   enable() {
     let extensionSettings = this.getSettings();
     this._gridReorder = new AppGridExtension(extensionSettings);
