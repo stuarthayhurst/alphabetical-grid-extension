@@ -10,7 +10,7 @@
   - New or improved translations
   - Fixes and additions to documentation
   - Bug fixes and feature additions
-  - GUI improvements
+  - UI improvements
 
 ## Working with issues:
   - If someone else is already working on a reported issue, feel free help them out. Please don't try and commandeer the issue, if you want to work on something on your own, find another issue
@@ -32,15 +32,12 @@
   - All translations can be refreshed with `make translations`
   - Strings marked with `fuzzy` may need a better translation
   - Blank strings need a translation added
-  - If changes to the strings in `extension/ui/gtk3/*.ui` were made, `make gtk4` should be run
-  - If you want, you can add yourself to `extension/credits.json`, in the `translators` section
-    - This is displayed in the `Credits` section of the extension preferences menu
 
-## UI Changes:
-  - UI files are located in `extension/ui/`, please use Glade to modify them
-  - The GTK+ 4 UI files shouldn't be manually edited, instead generated with `make gtk4`
-  - No deprecated values should be used, and the UI files should be verified by Glade after modifications
-    - Files can be verified by going into the project settings in Glade, then verifying objects though the pop-up
+## UI changes:
+  - The UI is built programmatically with `libadwaita`, in `extension/prefs.js`
+  - Changes to this must be compatible with the oldest version of GNOME supported
+    - If this won't work, it can be conditionally enabled
+    - If there's a good enough reason to drop the old version, this is also an option
 
 ## Documentation changes:
   - British English should be used in documentation, as well as consistent styling
