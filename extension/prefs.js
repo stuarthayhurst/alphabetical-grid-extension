@@ -102,9 +102,9 @@ export default class AppGridPrefs extends ExtensionPreferences {
 
     let settingsInfo = [
       //Group ID, setting key, title, subtitle
-      ['general', 'sort-folder-contents', _('Sort folder contents'), _('')],
-      ['general', 'folder-order-position',  _('Position of ordered folders'), _('')],
-      ['developer', 'logging-enabled',  _('Enable extension logging'), _('')]
+      ['general', 'sort-folder-contents', _('Sort folder contents'), _('Whether the contents of folders should be sorted alphabetically')],
+      ['general', 'folder-order-position',  _('Position of ordered folders'), _('Where to place folders when ordering the applications grid')],
+      ['developer', 'logging-enabled',  _('Enable extension logging'), _('Allow the extension to send messages to the system logs')]
     ];
 
     //Create settings page from info
