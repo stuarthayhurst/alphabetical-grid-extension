@@ -1,15 +1,15 @@
 # Italian translation for the Alphabetical App Grid GNOME Shell Extension.
 # Copyright (C) 2022 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
-# Albano Battistella <albano_battistella@hotmail.com>, 2022.
+# Albano Battistella <albano_battistella@hotmail.com>, 2022,2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-22 13:36+0100\n"
-"PO-Revision-Date: 2022-04-24 13:55+0100\n"
-"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
+"PO-Revision-Date: 2023-08-22 20:55+0100\n"
+"Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -36,12 +36,12 @@ msgstr "Alfabetico"
 #. Translators: 'Start' means 'Place folders at the start'
 #: extension/prefs.js:132
 msgid "Start"
-msgstr ""
+msgstr "Inizio"
 
 #. Translators: 'End' means 'Place folders at the end'
 #: extension/prefs.js:134
 msgid "End"
-msgstr ""
+msgstr "Fine"
 
 #: extension/prefs.js:139
 msgid "Sort folder contents"
@@ -71,28 +71,28 @@ msgstr "Consenti all'interno di inviare messaggi ai registri di sistema"
 
 #: extension/prefs.js:150
 msgid "Report an issue"
-msgstr ""
+msgstr "Segnala un problema"
 
 #: extension/prefs.js:150
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "Tracker dei problemi di GitHub"
 
 #: extension/prefs.js:151
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Dona tramite GitHub"
 
 #: extension/prefs.js:151
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Diventa uno sponsor"
 
 #: extension/prefs.js:152
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Dona tramite PayPal"
 
 #: extension/prefs.js:152
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Grazie per il vostro sostegno :)"
 
 #: extension/prefs.js:154
 msgid "Links"
-msgstr ""
+msgstr "Link"
