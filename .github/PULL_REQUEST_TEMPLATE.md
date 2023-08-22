@@ -1,9 +1,3 @@
-**If the pull request is for a translation, please fill in the following:**
- - Do you want to be credited (`extension/credits.json`): Yes / No
-   - Name:
-   - Contact email (optional):
- - Alternatively, you can modify the file yourself, and ignore this
-
 ## Pull request summary:
  - What does the pull request do? Why is it necessary?
 
