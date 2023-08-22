@@ -42,19 +42,46 @@ class PrefsPage extends Adw.PreferencesPage {
         return;
       }
 
-      //Create a row with a switch, title and subtitle
-      let settingRow = new Adw.SwitchRow({
-        title: settingInfo[2],
-        subtitle: settingInfo[3]
-      });
+      //Handle type-specific setup
+      let settingRow = null;
+      if (settingInfo[4] === null) {
+        //Create a row with a switch, title and subtitle
+        settingRow = new Adw.SwitchRow({
+          title: settingInfo[2],
+          subtitle: settingInfo[3]
+        });
 
-      //Connect the switch to the setting
-      this._extensionSettings.bind(
-        settingInfo[1], //GSettings key to bind to
-        settingRow, //Object to bind to
-        'active', //The property to share
-        Gio.SettingsBindFlags.DEFAULT
-      );
+        //Connect the row's element to the setting
+        this._extensionSettings.bind(
+          settingInfo[1], //GSettings key to bind to
+          settingRow, //Object to bind to
+          'active', //The property to share
+          Gio.SettingsBindFlags.DEFAULT
+        );
+
+      } else {
+        //Store the options for the setting
+        let stringList = new Gtk.StringList();
+        settingInfo[4].forEach((entry) => {
+          stringList.append(entry[1]);
+        });
+
+        //Create a row with a combo box, title and subtitle
+        settingRow = new Adw.ComboRow({
+          title: settingInfo[2],
+          subtitle: settingInfo[3],
+          model: stringList
+        });
+        settingRow._dropdownData = [...settingInfo[4]];
+        settingRow._settingKey = settingInfo[1];
+
+        settingRow.connect('notify::selected-item', (row) => {
+          let index = row.get_selected();
+          let value = row._dropdownData[index][0];
+          this._extensionSettings.set_string(row._settingKey, value);
+        });
+
+      }
 
       //Add the row to the group, and save for later
       this._settingGroups[settingInfo[0]].add(settingRow);
@@ -100,11 +127,21 @@ export default class AppGridPrefs extends ExtensionPreferences {
       ['developer', _('Developer settings')]
     ];
 
+    let dropdownOptions = [
+      //Setting value, translated label
+      //Translators: 'Alphabetical' means 'Place folders alphabetically, among other items'
+      ['alphabetical', _('Alphabetical')],
+      //Translators: 'Start' means 'Place folders at the start'
+      ['start', _('Start')],
+      //Translators: 'End' means 'Place folders at the end'
+      ['end', _('End')]
+    ];
+
     let settingsInfo = [
-      //Group ID, setting key, title, subtitle
-      ['general', 'sort-folder-contents', _('Sort folder contents'), _('Whether the contents of folders should be sorted alphabetically')],
-      ['general', 'folder-order-position',  _('Position of ordered folders'), _('Where to place folders when ordering the applications grid')],
-      ['developer', 'logging-enabled',  _('Enable extension logging'), _('Allow the extension to send messages to the system logs')]
+      //Group ID, setting key, title, subtitle, extra data
+      ['general', 'sort-folder-contents', _('Sort folder contents'), _('Whether the contents of folders should be sorted alphabetically'), null],
+      ['general', 'folder-order-position',  _('Position of ordered folders'), _('Where to place folders when ordering the applications grid'), dropdownOptions],
+      ['developer', 'logging-enabled',  _('Enable extension logging'), _('Allow the extension to send messages to the system logs'), null]
     ];
 
     //Create settings page from info
