@@ -1,132 +1,83 @@
 # Spanish translation for the Alphabetical App Grid GNOME Shell Extension.
 # Copyright (C) 2022 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
-# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2022.
+# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2022-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-08 22:47+0000\n"
-"PO-Revision-Date: 2022-03-23 21:36+0100\n"
+"POT-Creation-Date: 2023-08-22 09:32+0200\n"
+"PO-Revision-Date: 2023-08-22 09:37+0200\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
-"Language-Team: \n"
+"Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Gtranslator 45.alpha0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: prefs.js:176 prefs.js:206
+#: extension/prefs.js:95
 msgid "Settings"
 msgstr "Configuración"
 
-#: prefs.js:182 prefs.js:207
-msgid "About"
-msgstr "Acerca de"
-
-#: prefs.js:188 prefs.js:208
-msgid "Credits"
-msgstr "Créditos"
-
-#: ui/about.ui:26 ui/credits.ui:26
-msgid "Alphabetical App Grid"
-msgstr "Tablero alfabético de aplicaciones"
-
-#: ui/about.ui:49
-msgid "Restore the alphabetical ordering of the app grid"
-msgstr "Restablecer el orden alfabético del tablero de aplicaciones"
-
-#: ui/about.ui:59
-msgid ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
-"extension\">Contribute on GitHub</a>"
-msgstr ""
-"<a href=\"https://github.com/stuarthayhurst/alphabetical-grid-"
-"extension\">Contribuir en GitHub</a>"
-
-#: ui/about.ui:85
-msgid "This program comes with absolutely no warranty."
-msgstr "Este programa viene sin ninguna garantía."
-
-#: ui/about.ui:91
-msgid ""
-"See the <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU General "
-"Public Licence, version 3 or later</a> for details."
-msgstr ""
-"Consulte la <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">Licencia "
-"Pública General de GNU, versión 3 o posterior</a> para más detalles."
-
-#: ui/credits.ui:47
-msgid "Extension developers:"
-msgstr "Desarrolladores de la extensión:"
-
-#: ui/credits.ui:59
-msgid "Translators:"
-msgstr "Traductores:"
-
-#: ui/credits.ui:90
-msgid "Thanks to everyone who helped make and translate this extension :)"
-msgstr "Gracias a todos los que ayudaron a hacer y traducir esta extensión :)"
-
-#. When this is selected, folders will appear in alphabetical order, mixed with applications.
-#: ui/prefs-gtk4.ui:11 ui/prefs.ui:14
-msgid "Alphabetical"
-msgstr "Alfabético"
-
-#. When this is selected, folders will appear at the beginning of the app grid, in front of the other apps.
-#: ui/prefs-gtk4.ui:15 ui/prefs.ui:18
-msgctxt "position"
-msgid "Start"
-msgstr "Inicio"
-
-#. When this is selected, folders will appear at the end of the app grid, behind the other apps.
-#: ui/prefs-gtk4.ui:19 ui/prefs.ui:22
-msgctxt "position"
-msgid "End"
-msgstr "Final"
-
-#: ui/prefs.ui:49
-msgid ""
-"Found this useful?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
-msgstr ""
-"¿Le ha resultado útil?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Considere hacer un donativo</"
-"a> :)"
-
-#: ui/prefs.ui:80
+#: extension/prefs.js:99
 msgid "General settings"
-msgstr "Ajustes generales"
+msgstr "Configuración general"
 
-#. This is a tooltip
-#: ui/prefs.ui:103
-msgid "Whether the contents of folders should be sorted alphabetically"
-msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
+#: extension/prefs.js:100
+msgid "Developer settings"
+msgstr "Configuración del desarrollador"
 
-#: ui/prefs.ui:119
+#: extension/prefs.js:105
 msgid "Sort folder contents"
 msgstr "Ordenar el contenido de las carpetas"
 
-#. This is a tooltip
-#: ui/prefs.ui:160
-msgid "Where to place folders when ordering the applications grid"
-msgstr "Dónde colocar las carpetas al ordenar el tablero de aplicaciones"
+#: extension/prefs.js:105
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
 
-#. Next to a dropdown with the options "Alphabetical", "Start" and "End".
-#: ui/prefs.ui:176
+#: extension/prefs.js:106
 msgid "Position of ordered folders"
 msgstr "Posición de las carpetas ordenadas"
 
-#: ui/prefs.ui:239
-msgid "Developer settings"
-msgstr "Ajustes para el desarrollador"
+#: extension/prefs.js:106
+msgid "Where to place folders when ordering the applications grid"
+msgstr "Dónde colocar las carpetas al ordenar el tablero de aplicaciones"
 
-#. This is a tooltip
-#: ui/prefs.ui:262
+#: extension/prefs.js:107
+msgid "Enable extension logging"
+msgstr "Activar el registro de extensiones"
+
+#: extension/prefs.js:107
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Permitir que la extensión envíe mensajes a los registros del sistema"
 
-#: ui/prefs.ui:278
-msgid "Enable extension logging"
-msgstr "Activar el registro de extensiones"
+#: extension/prefs.js:116
+msgid "Report an issue"
+msgstr "Informar de un problema"
+
+#: extension/prefs.js:116
+msgid "GitHub issue tracker"
+msgstr "Registro de incidencias en GitHub"
+
+#: extension/prefs.js:117
+msgid "Donate via GitHub"
+msgstr "Donar vía GitHub"
+
+#: extension/prefs.js:117
+msgid "Become a sponsor"
+msgstr "Conviértase en patrocinador"
+
+#: extension/prefs.js:118
+msgid "Donate via PayPal"
+msgstr "Donar vía PayPal"
+
+#: extension/prefs.js:118
+msgid "Thanks for your support :)"
+msgstr "Gracias por su apoyo :)"
+
+#: extension/prefs.js:120
+msgid "Links"
+msgstr "Enlaces"
