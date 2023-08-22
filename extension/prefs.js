@@ -19,7 +19,6 @@ class PrefsPage extends Adw.PreferencesPage {
 
     this._extensionSettings = settings;
     this._settingGroups = {};
-    this._settingRows = {};
 
     //Setup settings
     this._createGroups(groupsInfo);
@@ -80,12 +79,10 @@ class PrefsPage extends Adw.PreferencesPage {
           let value = row._dropdownData[index][0];
           this._extensionSettings.set_string(row._settingKey, value);
         });
-
       }
 
-      //Add the row to the group, and save for later
+      //Add the row to the group
       this._settingGroups[settingInfo[0]].add(settingRow);
-      this._settingRows[settingInfo[1]] = settingRow;
     });
   }
 
