@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-22 09:32+0200\n"
+"POT-Creation-Date: 2023-08-22 13:36+0100\n"
 "PO-Revision-Date: 2023-08-22 09:37+0200\n"
 "Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
 "Language-Team: Spanish\n"
@@ -18,66 +18,81 @@ msgstr ""
 "X-Generator: Gtranslator 45.alpha0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: extension/prefs.js:95
+#: extension/prefs.js:119
 msgid "Settings"
 msgstr "Configuración"
 
-#: extension/prefs.js:99
+#: extension/prefs.js:123
 msgid "General settings"
 msgstr "Configuración general"
 
-#: extension/prefs.js:100
+#: extension/prefs.js:124
 msgid "Developer settings"
 msgstr "Configuración del desarrollador"
 
-#: extension/prefs.js:105
+#. Translators: 'Alphabetical' means 'Place folders alphabetically, among other items'
+#: extension/prefs.js:130
+msgid "Alphabetical"
+msgstr ""
+
+#. Translators: 'Start' means 'Place folders at the start'
+#: extension/prefs.js:132
+msgid "Start"
+msgstr ""
+
+#. Translators: 'End' means 'Place folders at the end'
+#: extension/prefs.js:134
+msgid "End"
+msgstr ""
+
+#: extension/prefs.js:139
 msgid "Sort folder contents"
 msgstr "Ordenar el contenido de las carpetas"
 
-#: extension/prefs.js:105
+#: extension/prefs.js:139
 msgid "Whether the contents of folders should be sorted alphabetically"
 msgstr "Si el contenido de las carpetas debe ordenarse alfabéticamente"
 
-#: extension/prefs.js:106
+#: extension/prefs.js:140
 msgid "Position of ordered folders"
 msgstr "Posición de las carpetas ordenadas"
 
-#: extension/prefs.js:106
+#: extension/prefs.js:140
 msgid "Where to place folders when ordering the applications grid"
 msgstr "Dónde colocar las carpetas al ordenar el tablero de aplicaciones"
 
-#: extension/prefs.js:107
+#: extension/prefs.js:141
 msgid "Enable extension logging"
 msgstr "Activar el registro de extensiones"
 
-#: extension/prefs.js:107
+#: extension/prefs.js:141
 msgid "Allow the extension to send messages to the system logs"
 msgstr "Permitir que la extensión envíe mensajes a los registros del sistema"
 
-#: extension/prefs.js:116
+#: extension/prefs.js:150
 msgid "Report an issue"
 msgstr "Informar de un problema"
 
-#: extension/prefs.js:116
+#: extension/prefs.js:150
 msgid "GitHub issue tracker"
 msgstr "Registro de incidencias en GitHub"
 
-#: extension/prefs.js:117
+#: extension/prefs.js:151
 msgid "Donate via GitHub"
 msgstr "Donar vía GitHub"
 
-#: extension/prefs.js:117
+#: extension/prefs.js:151
 msgid "Become a sponsor"
 msgstr "Conviértase en patrocinador"
 
-#: extension/prefs.js:118
+#: extension/prefs.js:152
 msgid "Donate via PayPal"
 msgstr "Donar vía PayPal"
 
-#: extension/prefs.js:118
+#: extension/prefs.js:152
 msgid "Thanks for your support :)"
 msgstr "Gracias por su apoyo :)"
 
-#: extension/prefs.js:120
+#: extension/prefs.js:154
 msgid "Links"
 msgstr "Enlaces"
