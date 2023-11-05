@@ -39,12 +39,12 @@ msgstr "По алфавиту"
 #. Translators: 'Start' means 'Place folders at the start'
 #: extension/prefs.js:132
 msgid "Start"
-msgstr ""
+msgstr "Начало"
 
 #. Translators: 'End' means 'Place folders at the end'
 #: extension/prefs.js:134
 msgid "End"
-msgstr ""
+msgstr "Конец"
 
 #: extension/prefs.js:139
 msgid "Sort folder contents"
@@ -72,28 +72,28 @@ msgstr "Разрешить расширению отправлять сообщ�
 
 #: extension/prefs.js:150
 msgid "Report an issue"
-msgstr ""
+msgstr "Сообщить о неполадках"
 
 #: extension/prefs.js:150
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "Трекер проблем GitHub"
 
 #: extension/prefs.js:151
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Пожертвовать через GitHub"
 
 #: extension/prefs.js:151
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Стать спонсором"
 
 #: extension/prefs.js:152
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Пожертвовать через PayPal"
 
 #: extension/prefs.js:152
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Спасибо за вашу поддержку :)"
 
 #: extension/prefs.js:154
 msgid "Links"
-msgstr ""
+msgstr "Ссылки"
