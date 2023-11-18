@@ -1,5 +1,10 @@
 ## Changelog:
 
+### v36: - `2023-11-18`
+ - Updated Spanish translation (#85)
+ - Updated Russian translation (#86)
+ - Updated GitHub runners
+
 ### v35: - `2023-09-17`
  - Updated Italian translation (#84)
 
