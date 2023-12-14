@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-15 01:44+0300\n"
-"PO-Revision-Date: 2023-12-15 01:51+0300\n"
+"PO-Revision-Date: 2023-12-15 01:56+0300\n"
 "Last-Translator: Hakan Kayra Dogan <hkayrad@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -38,7 +38,7 @@ msgstr "Alfabetik"
 #. Translators: 'Start' means 'Place folders at the start'
 #: extension/prefs.js:132
 msgid "Start"
-msgstr "Başla"
+msgstr "Baş"
 
 #. Translators: 'End' means 'Place folders at the end'
 #: extension/prefs.js:134
