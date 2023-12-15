@@ -1,0 +1,98 @@
+# <LANGUAGE> translation for the Alphabetical App Grid GNOME Shell Extension.
+# Copyright (C) 2023 Stuart Hayhurst
+# This file is distributed under the same license as the alphabetical-grid-extension package.
+# Hakan Kayra Dogan <hkayrad@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alphabetical-grid-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-15 01:44+0300\n"
+"PO-Revision-Date: 2023-12-15 01:56+0300\n"
+"Last-Translator: Hakan Kayra Dogan <hkayrad@gmail.com>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#: extension/prefs.js:119
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: extension/prefs.js:123
+msgid "General settings"
+msgstr "Genel ayarlar"
+
+#: extension/prefs.js:124
+msgid "Developer settings"
+msgstr "Geliştirici seçenekleri"
+
+#. Translators: 'Alphabetical' means 'Place folders alphabetically, among other items'
+#: extension/prefs.js:130
+msgid "Alphabetical"
+msgstr "Alfabetik"
+
+#. Translators: 'Start' means 'Place folders at the start'
+#: extension/prefs.js:132
+msgid "Start"
+msgstr "Baş"
+
+#. Translators: 'End' means 'Place folders at the end'
+#: extension/prefs.js:134
+msgid "End"
+msgstr "Son"
+
+#: extension/prefs.js:139
+msgid "Sort folder contents"
+msgstr "Klasör içeriklerini sırala"
+
+#: extension/prefs.js:139
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr "Klasör içerikleri alfabetik olarak düzenlenmeli mi"
+
+#: extension/prefs.js:140
+msgid "Position of ordered folders"
+msgstr "Sıralı klasörlerin konumu"
+
+#: extension/prefs.js:140
+msgid "Where to place folders when ordering the applications grid"
+msgstr "Klasörlerin uygulama ızgarasında nerede konumlandırılacağı"
+
+#: extension/prefs.js:141
+msgid "Enable extension logging"
+msgstr "Eklenti için günlük tutmayı aktifleştir"
+
+#: extension/prefs.js:141
+msgid "Allow the extension to send messages to the system logs"
+msgstr "Eklentinin sistem günlüklerine mesaj iletmesine izin ver"
+
+#: extension/prefs.js:150
+msgid "Report an issue"
+msgstr "Hata bildir"
+
+#: extension/prefs.js:150
+msgid "GitHub issue tracker"
+msgstr "GitHub hata takipçisi"
+
+#: extension/prefs.js:151
+msgid "Donate via GitHub"
+msgstr "GitHub ile Bağış Yap"
+
+#: extension/prefs.js:151
+msgid "Become a sponsor"
+msgstr "Sponsor ol"
+
+#: extension/prefs.js:152
+msgid "Donate via PayPal"
+msgstr "PayPal ile Bağış Yap"
+
+#: extension/prefs.js:152
+msgid "Thanks for your support :)"
+msgstr "Desteğin içi teşekkürler :)"
+
+#: extension/prefs.js:154
+msgid "Links"
+msgstr "Bağlantılar"
