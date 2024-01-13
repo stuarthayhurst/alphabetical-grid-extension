@@ -1,0 +1,96 @@
+# Japanese translation for the Alphabetical App Grid GNOME Shell Extension.
+# Copyright (C) 2024 Stuart Hayhurst
+# This file is distributed under the same license as the alphabetical-grid-extension package.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: alphabetical-grid-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-13 13:12+0900\n"
+"PO-Revision-Date: 2024-01-13 13:51+0900\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension/prefs.js:119
+msgid "Settings"
+msgstr "設定"
+
+#: extension/prefs.js:123
+msgid "General settings"
+msgstr "一般設定"
+
+#: extension/prefs.js:124
+msgid "Developer settings"
+msgstr "開発者用設定"
+
+#. Translators: 'Alphabetical' means 'Place folders alphabetically, among other items'
+#: extension/prefs.js:130
+msgid "Alphabetical"
+msgstr "アルファベット順"
+
+#. Translators: 'Start' means 'Place folders at the start'
+#: extension/prefs.js:132
+msgid "Start"
+msgstr "先頭"
+
+#. Translators: 'End' means 'Place folders at the end'
+#: extension/prefs.js:134
+msgid "End"
+msgstr "末尾"
+
+#: extension/prefs.js:139
+msgid "Sort folder contents"
+msgstr "フォルダーの内容を並べ替える"
+
+#: extension/prefs.js:139
+msgid "Whether the contents of folders should be sorted alphabetically"
+msgstr "フォルダーの内容をアルファベット順に並べ替えるかどうか"
+
+#: extension/prefs.js:140
+msgid "Position of ordered folders"
+msgstr "フォルダーの位置"
+
+#: extension/prefs.js:140
+msgid "Where to place folders when ordering the applications grid"
+msgstr "アプリケーショングリッドを順番に並べる際、フォルダーをどこに配置するか"
+
+#: extension/prefs.js:141
+msgid "Enable extension logging"
+msgstr "拡張機能のログを有効にする"
+
+#: extension/prefs.js:141
+msgid "Allow the extension to send messages to the system logs"
+msgstr "システムログへのメッセージの送信を拡張機能に許可します"
+
+#: extension/prefs.js:150
+msgid "Report an issue"
+msgstr "不具合を報告"
+
+#: extension/prefs.js:150
+msgid "GitHub issue tracker"
+msgstr "GitHub イシュートラッカー"
+
+#: extension/prefs.js:151
+msgid "Donate via GitHub"
+msgstr "GitHub で寄付する"
+
+#: extension/prefs.js:151
+msgid "Become a sponsor"
+msgstr "スポンサーになりましょう"
+
+#: extension/prefs.js:152
+msgid "Donate via PayPal"
+msgstr "PayPal で寄付する"
+
+#: extension/prefs.js:152
+msgid "Thanks for your support :)"
+msgstr "ご支援いただきありがとうございます :)"
+
+#: extension/prefs.js:154
+msgid "Links"
+msgstr "リンク"
