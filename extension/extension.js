@@ -21,20 +21,16 @@ const Controls = Main.overview._overview._controls;
 export default class AppGridManager extends Extension {
   enable() {
     let extensionSettings = this.getSettings();
-    this._gridReorder = new AppGridExtension(extensionSettings);
 
-    //Patch shell, reorder and trigger listeners
+    //Patch shell, setup listeners and reorder
     AppDisplay._redisplay();
-    this._gridReorder.patchShell();
-    this._gridReorder.connectListeners();
+    this._gridReorder = new AppGridExtension(extensionSettings);
     this._gridReorder.reorderGrid('Reordering app grid');
   }
 
    disable() {
-    //Disconnect from events and clean up
+    //Disconnect from events, unpatch shell and clean up
     this._gridReorder.destroy();
-    this._gridReorder.unpatchShell();
-
     this._gridReorder = null;
   }
 }
@@ -49,46 +45,10 @@ class AppGridExtension {
 
     this._loggingEnabled = this._extensionSettings.get_boolean('logging-enabled');
     this._currentlyUpdating = false;
+
+    this._gridReorder._patchShell();
+    this._gridReorder._connectListeners();
   }
-
-  _logMessage(message) {
-    if (this._loggingEnabled) {
-      let date = new Date();
-      let timestamp = date.toTimeString().split(' ')[0];
-      log('alphabetical-app-grid [' + timestamp + ']: ' + message);
-    }
-  }
-
-  patchShell() {
-    //Patched version of _compareItems(), to apply custom order
-    let extensionSettings = this._extensionSettings;
-    let folderSettings = this._folderSettings;
-    function _patchedCompareItems(a, b) {
-      let folderPosition = extensionSettings.get_string('folder-order-position');
-      let folderArray = folderSettings.get_value('folder-children').get_strv();
-      return AppGridHelper.compareItems.call(this, a, b, folderPosition, folderArray);
-    }
-
-    //Patch the internal functions
-    this._injectionManager.overrideMethod(AppDisplay, '_compareItems', () => {
-      return _patchedCompareItems.bind(AppDisplay);
-    });
-    this._logMessage('Patched item comparison');
-
-    this._injectionManager.overrideMethod(AppDisplay, '_redisplay', () => {
-      return AppGridHelper.reloadAppGrid.bind(AppDisplay);
-    });
-    this._logMessage('Patched redisplay');
-  }
-
-  unpatchShell() {
-    //Unpatch the internal functions for extension shutdown
-    this._injectionManager.clear();
-    this._logMessage('Unpatched item comparison');
-    this._logMessage('Unpatched redisplay');
-  }
-
-  //Helper functions
 
   reorderGrid(logText) {
     //Detect lock to avoid multiple changes at once
@@ -127,9 +87,44 @@ class AppGridExtension {
     }
 
     this._logMessage('Disconnected from listeners / timeouts');
+
+    //Unpatch the internal functions for extension shutdown
+    this._injectionManager.clear();
+    this._logMessage('Unpatched item comparison');
+    this._logMessage('Unpatched redisplay');
   }
 
-  connectListeners() {
+  _logMessage(message) {
+    if (this._loggingEnabled) {
+      let date = new Date();
+      let timestamp = date.toTimeString().split(' ')[0];
+      log('alphabetical-app-grid [' + timestamp + ']: ' + message);
+    }
+  }
+
+  _patchShell() {
+    //Patched version of _compareItems(), to apply custom order
+    let extensionSettings = this._extensionSettings;
+    let folderSettings = this._folderSettings;
+    function _patchedCompareItems(a, b) {
+      let folderPosition = extensionSettings.get_string('folder-order-position');
+      let folderArray = folderSettings.get_value('folder-children').get_strv();
+      return AppGridHelper.compareItems.call(this, a, b, folderPosition, folderArray);
+    }
+
+    //Patch the internal functions
+    this._injectionManager.overrideMethod(AppDisplay, '_compareItems', () => {
+      return _patchedCompareItems.bind(AppDisplay);
+    });
+    this._logMessage('Patched item comparison');
+
+    this._injectionManager.overrideMethod(AppDisplay, '_redisplay', () => {
+      return AppGridHelper.reloadAppGrid.bind(AppDisplay);
+    });
+    this._logMessage('Patched redisplay');
+  }
+
+  _connectListeners() {
     //Connect to gsettings and wait for the order or favourites to change
     this._shellSettings.connectObject(
       'changed::app-picker-layout',
