@@ -47,8 +47,8 @@ class AppGridExtension {
     this._loggingEnabled = this._extensionSettings.get_boolean('logging-enabled');
     this._currentlyUpdating = false;
 
-    this._gridReorder._patchShell();
-    this._gridReorder._connectListeners();
+    this._patchShell();
+    this._connectListeners();
   }
 
   reorderGrid(logText) {
