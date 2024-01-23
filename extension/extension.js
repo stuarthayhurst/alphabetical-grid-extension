@@ -17,6 +17,7 @@ import {Extension, InjectionManager} from 'resource:///org/gnome/shell/extension
 //Access required objects and systems
 const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
+const AppSystem = Shell.AppSystem.get_default();
 
 export default class AppGridManager extends Extension {
   enable() {
@@ -76,7 +77,7 @@ class AppGridExtension {
   destroy() {
     Main.overview.disconnectObject(this);
     Controls._stateAdjustment.disconnectObject(this);
-    Shell.AppSystem.get_default().disconnectObject(this);
+    AppSystem.disconnectObject(this);
     this._shellSettings.disconnectObject(this);
     this._extensionSettings.disconnectObject(this);
     this._folderSettings.disconnectObject(this);
@@ -150,7 +151,7 @@ class AppGridExtension {
     this);
 
     //Reorder when installed apps change
-    Shell.AppSystem.get_default().connectObject('installed-changed',
+    AppSystem.connectObject('installed-changed',
       () => this.reorderGrid('Installed apps changed, triggering reorder'),
     this);
 
