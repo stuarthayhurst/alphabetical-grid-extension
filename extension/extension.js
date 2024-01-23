@@ -26,7 +26,7 @@ export default class AppGridManager extends Extension {
     //Patch shell, reorder and trigger listeners
     AppDisplay._redisplay();
     this._gridReorder.patchShell();
-    this._gridReorder.startListeners();
+    this._gridReorder.connectListeners();
     this._gridReorder.reorderGrid('Reordering app grid');
   }
 
@@ -114,14 +114,12 @@ class AppGridExtension {
   }
 
   destroy() {
-    this._shellSettings.disconnectObject(this);
     Main.overview.disconnectObject(this);
+    Controls._stateAdjustment.disconnectObject(this);
+    Shell.AppSystem.get_default().disconnectObject(this);
     this._shellSettings.disconnectObject(this);
     this._extensionSettings.disconnectObject(this);
-    Shell.AppSystem.get_default().disconnectObject(this);
     this._folderSettings.disconnectObject(this);
-
-    Controls._stateAdjustment.disconnectObject(this);
 
     //Clean up timeout sources
     if (this._reorderGridTimeoutId != null) {
@@ -131,69 +129,43 @@ class AppGridExtension {
     this._logMessage('Disconnected from listeners / timeouts');
   }
 
-  startListeners() {
-    //Persistent listeners
-    this._waitForGridReorder();
-    this._waitForFavouritesChange();
-    this._waitForSettingsChange();
-    this._waitForInstalledAppsChange();
-    this._waitForFolderChange();
+  connectListeners() {
+    //Connect to gsettings and wait for the order or favourites to change
+    this._shellSettings.connectObject(
+      'changed::app-picker-layout',
+      () => this.reorderGrid('App grid layout changed, triggering reorder'),
+      'changed::favorite-apps',
+      () => this.reorderGrid('Favourite apps changed, triggering reorder'),
+      this);
 
-    //One time connections
-    this._reorderOnDisplay();
+    //Connect to the main overview and wait for an item to be dragged
+    this._dragReorderSignal = Main.overview.connectObject('item-drag-end',
+      () => this.reorderGrid('App movement detected, triggering reorder'),
+      this);
 
-    this._logMessage('Connected to listeners');
-  }
-
-  //Listener functions below
-
-  _waitForGridReorder() {
-    //Connect to gsettings and wait for the order to change
-    this._shellSettings.connectObject('changed::app-picker-layout', () => {
-      this.reorderGrid('App grid layout changed, triggering reorder');
+    //Connect to gsettings and wait for the extension's settings to change
+    this._extensionSettings.connectObject('changed', () => {
+      this._loggingEnabled = this._extensionSettings.get_boolean('logging-enabled');
+      this.reorderGrid('Extension gsettings values changed, triggering reorder');
     }, this);
 
-   //Connect to the main overview and wait for an item to be dragged
-    this._dragReorderSignal = Main.overview.connectObject('item-drag-end', () => {
-      this.reorderGrid('App movement detected, triggering reorder');
-    }, this);
-  }
+    //Reorder when a folder is made or destroyed
+    this._folderSettings.connectObject('changed::folder-children',
+      () => this.reorderGrid('Folders changed, triggering reorder'),
+    this);
 
-  _reorderOnDisplay() {
+    //Reorder when installed apps change
+    Shell.AppSystem.get_default().connectObject('installed-changed',
+      () => this.reorderGrid('Installed apps changed, triggering reorder'),
+    this);
+
     //Reorder when the app grid is opened
     Controls._stateAdjustment.connectObject('notify::value', () => {
       if (Controls._stateAdjustment.value == OverviewControls.ControlsState.APP_GRID) {
         this.reorderGrid('App grid opened, triggering reorder');
       }
     }, this);
-  }
 
-  _waitForFavouritesChange() {
-    //Connect to gsettings and wait for the favourite apps to change
-    this._shellSettings.connectObject('changed::favorite-apps', () => {
-      this.reorderGrid('Favourite apps changed, triggering reorder');
-    }, this);
-  }
-
-  _waitForSettingsChange() {
-    //Connect to gsettings and wait for the extension's settings to change
-    this._extensionSettings.connectObject('changed', () => {
-      this._loggingEnabled = this._extensionSettings.get_boolean('logging-enabled');
-      this.reorderGrid('Extension gsettings values changed, triggering reorder');
-    }, this);
-  }
-
-  _waitForFolderChange() {
-    //If a folder was made or deleted, trigger a reorder
-    this._folderSettings.connectObject('changed::folder-children', () => {
-      this.reorderGrid('Folders changed, triggering reorder');
-    }, this);
-  }
-
-  _waitForInstalledAppsChange() {
-    //Wait for installed apps to change
-    Shell.AppSystem.get_default().connectObject('installed-changed', () => {
-      this.reorderGrid('Installed apps changed, triggering reorder');
-    }, this);
+    this._logMessage('Connected to listeners');
   }
 }
