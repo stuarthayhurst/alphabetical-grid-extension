@@ -139,21 +139,21 @@ class AppGridExtension {
       () => this.reorderGrid('App movement detected, triggering reorder'),
       this);
 
+    //Reorder when a folder is made or destroyed
+    this._folderSettings.connectObject('changed::folder-children',
+      () => this.reorderGrid('Folders changed, triggering reorder'),
+      this);
+
+    //Reorder when installed apps change
+    AppSystem.connectObject('installed-changed',
+      () => this.reorderGrid('Installed apps changed, triggering reorder'),
+      this);
+
     //Connect to gsettings and wait for the extension's settings to change
     this._extensionSettings.connectObject('changed', () => {
       this._loggingEnabled = this._extensionSettings.get_boolean('logging-enabled');
       this.reorderGrid('Extension gsettings values changed, triggering reorder');
     }, this);
-
-    //Reorder when a folder is made or destroyed
-    this._folderSettings.connectObject('changed::folder-children',
-      () => this.reorderGrid('Folders changed, triggering reorder'),
-    this);
-
-    //Reorder when installed apps change
-    AppSystem.connectObject('installed-changed',
-      () => this.reorderGrid('Installed apps changed, triggering reorder'),
-    this);
 
     //Reorder when the app grid is opened
     Controls._stateAdjustment.connectObject('notify::value', () => {
