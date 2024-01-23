@@ -55,11 +55,11 @@ class AppGridExtension {
     //Detect lock to avoid multiple changes at once
     if (!this._currentlyUpdating && !AppDisplay._pageManager._updatingPages) {
       this._currentlyUpdating = true;
-      this._logMessage(logText);
+      this._debugMessage(logText);
 
       //Alphabetically order the contents of each folder, if enabled
       if (this._extensionSettings.get_boolean('sort-folder-contents')) {
-        this._logMessage('Reordering folder contents');
+        this._debugMessage('Reordering folder contents');
         AppGridHelper.reorderFolderContents();
       }
 
@@ -87,15 +87,15 @@ class AppGridExtension {
       GLib.Source.remove(this._reorderGridTimeoutId);
     }
 
-    this._logMessage('Disconnected from listeners / timeouts');
+    this._debugMessage('Disconnected from listeners / timeouts');
 
     //Unpatch the internal functions for extension shutdown
     this._injectionManager.clear();
-    this._logMessage('Unpatched item comparison');
-    this._logMessage('Unpatched redisplay');
+    this._debugMessage('Unpatched item comparison');
+    this._debugMessage('Unpatched redisplay');
   }
 
-  _logMessage(message) {
+  _debugMessage(message) {
     if (this._loggingEnabled) {
       let date = new Date();
       let timestamp = date.toTimeString().split(' ')[0];
@@ -117,12 +117,12 @@ class AppGridExtension {
     this._injectionManager.overrideMethod(AppDisplay, '_compareItems', () => {
       return _patchedCompareItems.bind(AppDisplay);
     });
-    this._logMessage('Patched item comparison');
+    this._debugMessage('Patched item comparison');
 
     this._injectionManager.overrideMethod(AppDisplay, '_redisplay', () => {
       return AppGridHelper.reloadAppGrid.bind(AppDisplay);
     });
-    this._logMessage('Patched redisplay');
+    this._debugMessage('Patched redisplay');
   }
 
   _connectListeners() {
@@ -162,6 +162,6 @@ class AppGridExtension {
       }
     }, this);
 
-    this._logMessage('Connected to listeners');
+    this._debugMessage('Connected to listeners');
   }
 }
