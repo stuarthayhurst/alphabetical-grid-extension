@@ -1,5 +1,10 @@
 ## Changelog:
 
+### v37: - `2024-01-24`
+ - Updated extension to use newer GJS features
+ - Added Turkish translation - [Hakan](https://github.com/hkayrad) (#88)
+ - Added Japanese translation - [Ryo](https://github.com/ryonakano) (#89)
+
 ### v36: - `2023-11-18`
  - Updated Spanish translation (#85)
  - Updated Russian translation (#86)
