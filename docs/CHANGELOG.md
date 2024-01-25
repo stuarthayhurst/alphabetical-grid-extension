@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v38: - `2024-01-25`
+ - Move AppSystem inside the constructor, to meet review guidelines
+
 ### v37: - `2024-01-24`
  - Updated extension to use newer GJS features
  - Added Turkish translation - [Hakan](https://github.com/hkayrad) (#88)
