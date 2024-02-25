@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v39: - `2024-02-25`
+ - Added support for GNOME 46
+
 ### v38: - `2024-01-25`
  - Move AppSystem inside the constructor, to meet review guidelines
 
