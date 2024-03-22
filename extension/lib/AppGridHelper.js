@@ -99,6 +99,11 @@ export function compareItems(a, b, folderPosition, folderArray) {
 
 //Called during custom _redisplay()
 export function reloadAppGrid() {
+  //Refresh folders
+  this._folderIcons.forEach((icon) => {
+    icon.view._redisplay();
+  });
+
   //Existing apps
   let currentApps = this._orderedItems.slice();
   let currentAppIds = currentApps.map(icon => icon.id);
