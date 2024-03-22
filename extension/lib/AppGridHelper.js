@@ -6,8 +6,6 @@ import Gio from 'gi://Gio';
 import Shell from 'gi://Shell';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
-let folderSettings = new Gio.Settings({schema: 'org.gnome.desktop.app-folders'});
-
 //Helpers to provide alphabetical ordering
 function alphabeticalSort(a, b) {
   a = a.toLowerCase();
@@ -15,10 +13,10 @@ function alphabeticalSort(a, b) {
   return a.localeCompare(b);
 }
 
-//Reorders folder contents
+//Reorders folder contents, called with this as the extension's instance
 export function reorderFolderContents() {
   //Get array of folders from 'folder-children' key
-  let folderArray = folderSettings.get_value('folder-children').get_strv();
+  let folderArray = this._folderSettings.get_value('folder-children').get_strv();
 
   //Loop through all folders, and reorder their contents
   folderArray.forEach((targetFolder) => {
