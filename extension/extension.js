@@ -23,7 +23,6 @@ export default class AppGridManager extends Extension {
     let extensionSettings = this.getSettings();
 
     //Patch shell, setup listeners and reorder
-    AppDisplay._redisplay();
     this._gridReorder = new AppGridExtension(extensionSettings);
     this._gridReorder.reorderGrid('Reordering app grid');
   }
