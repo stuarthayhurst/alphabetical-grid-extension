@@ -4,7 +4,6 @@
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 import Shell from 'gi://Shell';
-import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 //Helpers to provide alphabetical ordering
 function alphabeticalSort(a, b) {
