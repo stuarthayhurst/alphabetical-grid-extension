@@ -38,7 +38,7 @@ class AppGridExtension {
   constructor(extensionSettings) {
     this._injectionManager = new InjectionManager();
     this._appSystem = Shell.AppSystem.get_default();
-    this._appDisplay = Main.overview._overview._controls._appDisplay;
+    this._appDisplay = Controls._appDisplay;
 
     this._extensionSettings = extensionSettings;
     this._shellSettings = new Gio.Settings({schema: 'org.gnome.shell'});
