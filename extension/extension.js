@@ -8,6 +8,7 @@ import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 import Shell from 'gi://Shell';
 
+import * as AppDisplay from 'resource:///org/gnome/shell/ui/appDisplay.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as OverviewControls from 'resource:///org/gnome/shell/ui/overviewControls.js';
 
@@ -104,26 +105,42 @@ class AppGridExtension {
     }
   }
 
-  _patchShell() {
+
+  _patchCompareItems() {
+    this._debugMessage('Patching _compareItems');
+
     //Patched version of _compareItems(), to apply custom order
     let extensionSettings = this._extensionSettings;
     let folderSettings = this._folderSettings;
-    function _patchedCompareItems(a, b) {
+    return function _compareItemsWrapper(a, b) {
       let folderPosition = extensionSettings.get_string('folder-order-position');
       let folderArray = folderSettings.get_value('folder-children').get_strv();
       return AppGridHelper.compareItems.call(this, a, b, folderPosition, folderArray);
-    }
+    };
+  }
 
-    //Patch the internal functions
-    this._injectionManager.overrideMethod(this._appDisplay, '_compareItems', () => {
-      this._debugMessage('Patched _compareItems');
-      return _patchedCompareItems.bind(this._appDisplay);
-    });
+  _patchShell() {
+    //Patch the app comparison
+    this._injectionManager.overrideMethod(AppDisplay.AppDisplay.prototype,
+      '_compareItems', () => {
+        this._debugMessage('Patching _compareItems');
 
-    this._injectionManager.overrideMethod(this._appDisplay, '_redisplay', () => {
-      this._debugMessage('Patched _redisplay');
-      return AppGridHelper.reloadAppGrid.bind(this._appDisplay);
-    });
+        //Patched version of _compareItems(), to apply custom order
+        let extensionSettings = this._extensionSettings;
+        let folderSettings = this._folderSettings;
+        return function _compareItemsWrapper(a, b) {
+          let folderPosition = extensionSettings.get_string('folder-order-position');
+          let folderArray = folderSettings.get_value('folder-children').get_strv();
+          return AppGridHelper.compareItems.call(this, a, b, folderPosition, folderArray);
+        };
+      });
+
+    //Patch the app grid redisplay
+    this._injectionManager.overrideMethod(AppDisplay.AppDisplay.prototype,
+      '_redisplay', () => {
+        this._debugMessage('Patching _redisplay');
+        return AppGridHelper.reloadAppGrid;
+      });
   }
 
   _connectListeners() {
