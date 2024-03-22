@@ -105,7 +105,6 @@ class AppGridExtension {
     }
   }
 
-
   _patchCompareItems() {
     this._debugMessage('Patching _compareItems');
 
