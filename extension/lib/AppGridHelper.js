@@ -18,10 +18,6 @@ function alphabeticalSort(a, b) {
   return a.localeCompare(b);
 }
 
-function alphabeticalSortName(a, b) {
-  return alphabeticalSort(a.name, b.name);
-}
-
 //Reorders folder contents
 export function reorderFolderContents() {
   //Get array of folders from 'folder-children' key
@@ -82,7 +78,7 @@ function orderByDisplayName(inputArray) {
 export function compareItems(a, b, folderPosition, folderArray) {
   //Skip extra steps if a regular alphabetical order is required
   if (folderPosition == 'alphabetical') {
-    return alphabeticalSortName(a, b);
+    return alphabeticalSort(a.name, b.name);
   }
 
   let isAFolder = folderArray.includes(a._id);
@@ -90,7 +86,7 @@ export function compareItems(a, b, folderPosition, folderArray) {
 
   //If they're both folders or both apps, order alphabetically
   if (isAFolder == isBFolder) {
-    return alphabeticalSortName(a, b);
+    return alphabeticalSort(a.name, b.name);
   }
 
   //If one is a folder, move it to the configured position
