@@ -3,7 +3,6 @@
 //Main imports
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
-import Shell from 'gi://Shell';
 
 //Helpers to provide alphabetical ordering
 function alphabeticalSort(a, b) {
@@ -24,7 +23,7 @@ export function reorderFolderContents() {
     let folderContents = folderContentsSettings.get_value('apps').get_strv();
 
     //Reorder the contents of the folder
-    folderContents = orderByDisplayName(folderContents);
+    folderContents = orderByDisplayName(this._appSystem, folderContents);
 
     //Set the gsettings value for 'apps' to the ordered list
     let currentOrder = folderContentsSettings.get_value('apps').get_strv();
@@ -43,14 +42,13 @@ export function reorderFolderContents() {
 
 //Returns an ordered version of 'inputArray', ordered by display name
 //inputArray should be an array of app ids
-function orderByDisplayName(inputArray) {
+function orderByDisplayName(appSystem, inputArray) {
   let outputArray = [];
 
   //Loop through array contents and get their display names
-  let AppSystem = Shell.AppSystem.get_default();
   inputArray.forEach((currentTarget) => {
     let displayName;
-    let appInfo = AppSystem.lookup_app(currentTarget);
+    let appInfo = appSystem.lookup_app(currentTarget);
     if (appInfo != null) {
       displayName = appInfo.get_name();
     }
