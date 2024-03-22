@@ -15,7 +15,6 @@ import * as OverviewControls from 'resource:///org/gnome/shell/ui/overviewContro
 import {Extension, InjectionManager} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 //Access required objects and systems
-const AppDisplay = AppGridHelper.AppDisplay;
 const Controls = Main.overview._overview._controls;
 
 export default class AppGridManager extends Extension {
@@ -38,6 +37,7 @@ class AppGridExtension {
   constructor(extensionSettings) {
     this._injectionManager = new InjectionManager();
     this._appSystem = Shell.AppSystem.get_default();
+    this._appDisplay = Main.overview._overview._controls._appDisplay;
 
     this._extensionSettings = extensionSettings;
     this._shellSettings = new Gio.Settings({schema: 'org.gnome.shell'});
@@ -52,20 +52,22 @@ class AppGridExtension {
 
   reorderGrid(logText) {
     //Detect lock to avoid multiple changes at once
-    if (!this._currentlyUpdating && !AppDisplay._pageManager._updatingPages) {
+    if (!this._currentlyUpdating && !this._appDisplay._pageManager._updatingPages) {
       this._currentlyUpdating = true;
       this._debugMessage(logText);
 
       //Alphabetically order the contents of each folder, if enabled
       if (this._extensionSettings.get_boolean('sort-folder-contents')) {
         this._debugMessage('Reordering folder contents');
-        AppGridHelper.reorderFolderContents();
+        AppGridHelper.reorderFolderContents.call(this);
       }
 
       //Wait a small amount of time to avoid clashing with animations
       this._reorderGridTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-        //Redisplay the app grid and release the lock
-        AppDisplay._redisplay();
+        //Redisplay the app grid
+        this._appDisplay._redisplay();
+
+        //Release the lock and clean up
         this._currentlyUpdating = false;
         this._reorderGridTimeoutId = null;
         return GLib.SOURCE_REMOVE;
@@ -113,13 +115,13 @@ class AppGridExtension {
     }
 
     //Patch the internal functions
-    this._injectionManager.overrideMethod(AppDisplay, '_compareItems', () => {
-      return _patchedCompareItems.bind(AppDisplay);
+    this._injectionManager.overrideMethod(this._appDisplay, '_compareItems', () => {
+      return _patchedCompareItems.bind(this._appDisplay);
     });
     this._debugMessage('Patched item comparison');
 
-    this._injectionManager.overrideMethod(AppDisplay, '_redisplay', () => {
-      return AppGridHelper.reloadAppGrid.bind(AppDisplay);
+    this._injectionManager.overrideMethod(this._appDisplay, '_redisplay', () => {
+      return AppGridHelper.reloadAppGrid.bind(this._appDisplay);
     });
     this._debugMessage('Patched redisplay');
   }

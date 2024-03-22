@@ -1,13 +1,10 @@
-/* exported AppDisplay reorderFolderContents compareItems reloadAppGrid */
+/* exported reorderFolderContents compareItems reloadAppGrid */
 
 //Main imports
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';
 import Shell from 'gi://Shell';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-
-//Get access to the AppDisplay, also used by extension.js
-export var AppDisplay = Main.overview._overview._controls._appDisplay;
 
 let folderSettings = new Gio.Settings({schema: 'org.gnome.desktop.app-folders'});
 
@@ -42,7 +39,7 @@ export function reorderFolderContents() {
   });
 
   //Refresh the folders
-  AppDisplay._folderIcons.forEach((folder) => {
+  this._appDisplay._folderIcons.forEach((folder) => {
     folder.view._redisplay();
   });
 }
