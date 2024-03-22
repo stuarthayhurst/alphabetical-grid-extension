@@ -116,14 +116,14 @@ class AppGridExtension {
 
     //Patch the internal functions
     this._injectionManager.overrideMethod(this._appDisplay, '_compareItems', () => {
+      this._debugMessage('Patched _compareItems');
       return _patchedCompareItems.bind(this._appDisplay);
     });
-    this._debugMessage('Patched item comparison');
 
     this._injectionManager.overrideMethod(this._appDisplay, '_redisplay', () => {
+      this._debugMessage('Patched _redisplay');
       return AppGridHelper.reloadAppGrid.bind(this._appDisplay);
     });
-    this._debugMessage('Patched redisplay');
   }
 
   _connectListeners() {
