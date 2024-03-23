@@ -1,6 +1,6 @@
 {
   "name": "Alphabetical App Grid",
-  "description": "Restore the alphabetical ordering of the app grid",
+  "description": "Alphabetically order the app grid and folders",
   "uuid": "AlphabeticalAppGrid@stuarthayhurst",
   "gettext-domain": "AlphabeticalAppGrid@stuarthayhurst",
   "settings-schema": "org.gnome.shell.extensions.alphabetical-app-grid",
