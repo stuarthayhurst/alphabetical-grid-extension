@@ -69,7 +69,7 @@ function orderByDisplayName(appSystem, inputArray) {
 //Replaces shell's _compareItems() to provide custom order
 export function compareItems(a, b, folderPosition, folderArray) {
   //Skip extra steps if a regular alphabetical order is required
-  if (folderPosition == 'alphabetical') {
+  if (folderPosition === 'alphabetical') {
     return alphabeticalSort(a.name, b.name);
   }
 
