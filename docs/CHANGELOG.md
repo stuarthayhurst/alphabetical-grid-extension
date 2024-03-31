@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v40: - `2024-03-31`
+ - Fixed folder previews and contents getting stuck
+ - Fixed compatibility issues with "Favourites in AppGrid" extension (#87)
+ - Updated description
+ - General code cleanup
+
 ### v39: - `2024-02-25`
  - Added support for GNOME 46
 
