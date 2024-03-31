@@ -105,19 +105,6 @@ class AppGridExtension {
     }
   }
 
-  _patchCompareItems() {
-    this._debugMessage('Patching _compareItems');
-
-    //Patched version of _compareItems(), to apply custom order
-    let extensionSettings = this._extensionSettings;
-    let folderSettings = this._folderSettings;
-    return function _compareItemsWrapper(a, b) {
-      let folderPosition = extensionSettings.get_string('folder-order-position');
-      let folderArray = folderSettings.get_value('folder-children').get_strv();
-      return AppGridHelper.compareItems.call(this, a, b, folderPosition, folderArray);
-    };
-  }
-
   _patchShell() {
     //Patch the app comparison
     this._injectionManager.overrideMethod(AppDisplay.AppDisplay.prototype,
