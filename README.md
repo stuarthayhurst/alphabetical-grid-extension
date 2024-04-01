@@ -16,16 +16,18 @@
   - Alternatively, you can just use an older release or tag to install from
 
 ## Install the extension from releases:
-  - Extract the zip to `~/.local/share/gnome-shell/extensions/AlphabeticalAppGrid@stuarthayhurst/`
-    - Alternatively: `gnome-extensions install "AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip" --force`
-  - Reload GNOME: <kbd>ALT</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>, <kbd>ENTER</kbd>
+  - Run `gnome-extensions install "AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip" --force`
+  - Alternatively:
+    - Extract the zip to `~/.local/share/gnome-shell/extensions/AlphabeticalAppGrid@stuarthayhurst/`
+    - Then run `glib-compile-schemas ~/.local/share/gnome-shell/extensions/AlphabeticalAppGrid@stuarthayhurst/schemas/`
+  - Log out and back in to restart GNOME
   - Enable the extension: `gnome-extensions enable AlphabeticalAppGrid@stuarthayhurst`
 
 ## Install the extension from source:
   - Make sure the install dependencies are installed
   - `make build`
   - `make install`
-  - Reload GNOME: <kbd>ALT</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>, <kbd>ENTER</kbd>
+  - Log out and back in to restart GNOME
   - Enable the extension: `gnome-extensions enable AlphabeticalAppGrid@stuarthayhurst`
 
 ## Build system usage:
