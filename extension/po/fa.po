@@ -57,7 +57,7 @@ msgstr "مکان پوشه‌های چیده‌شده"
 
 #: extension/prefs.js:140
 msgid "Where to place folders when ordering the applications grid"
-msgstr "مکان قرارگیری پوشه‌ها هنگام چنیش شبکهٔ کاره‌ها"
+msgstr "مکان جای‌گیری پوشه‌ها هنگام چنیش شبکهٔ کاره‌ها"
 
 #: extension/prefs.js:141
 msgid "Enable extension logging"
