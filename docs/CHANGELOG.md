@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v41: - `2024-08-06`
+ - Added GNOME 47 support
+ - Added Farsi translation - [avds2](https://github.com/avds2) (#93)
+ - Updated installation instructions
+ - Updated pipeline runners
+
 ### v40: - `2024-03-31`
  - Fixed folder previews and contents getting stuck
  - Fixed compatibility issues with "Favourites in AppGrid" extension (#87)
