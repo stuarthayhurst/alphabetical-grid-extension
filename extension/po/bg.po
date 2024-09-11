@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-11 15:16+0300\n"
-"PO-Revision-Date: 2024-09-11 15:38+0300\n"
+"PO-Revision-Date: 2024-09-11 15:50+0300\n"
 "Last-Translator: Iliya Iliev <iliq0000@proton.me>\n"
 "Language-Team: Bulgarian\n"
 "Language: bg\n"
@@ -38,7 +38,7 @@ msgstr "По азбучен ред"
 #. Translators: 'Start' means 'Place folders at the start'
 #: extension/prefs.js:132
 msgid "Start"
-msgstr "В начало"
+msgstr "В началото"
 
 #. Translators: 'End' means 'Place folders at the end'
 #: extension/prefs.js:134
