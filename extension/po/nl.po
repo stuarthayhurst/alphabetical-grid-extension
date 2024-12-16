@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-22 13:36+0100\n"
-"PO-Revision-Date: 2022-03-24 14:40+0100\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"PO-Revision-Date: 2024-12-16 11:32+0100\n"
+"Last-Translator: Ties Jan Hefting <hello@tiesjan.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -38,12 +38,12 @@ msgstr "Alfabetisch"
 #. Translators: 'Start' means 'Place folders at the start'
 #: extension/prefs.js:132
 msgid "Start"
-msgstr ""
+msgstr "Vooraan"
 
 #. Translators: 'End' means 'Place folders at the end'
 #: extension/prefs.js:134
 msgid "End"
-msgstr ""
+msgstr "Achteraan"
 
 #: extension/prefs.js:139
 msgid "Sort folder contents"
@@ -59,40 +59,40 @@ msgstr "Positie van geordende mappen"
 
 #: extension/prefs.js:140
 msgid "Where to place folders when ordering the applications grid"
-msgstr "Waar mappen geplaatst moeten worden op het rooster"
+msgstr "Waar mappen geplaatst moeten worden in het applicatieoverzicht"
 
 #: extension/prefs.js:141
 msgid "Enable extension logging"
-msgstr "Logboek aanleggen"
+msgstr "Logboek bijhouden"
 
 #: extension/prefs.js:141
 msgid "Allow the extension to send messages to the system logs"
-msgstr "Laat de extensie een logboek aanleggen met daarin alle uitvoer"
+msgstr "Sta de extensie toe om berichten naar het systeemlogboek te schrijven"
 
 #: extension/prefs.js:150
 msgid "Report an issue"
-msgstr ""
+msgstr "Rapporteer een probleem"
 
 #: extension/prefs.js:150
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "GitHub issue tracker"
 
 #: extension/prefs.js:151
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Doneer via GitHub"
 
 #: extension/prefs.js:151
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Word sponsor"
 
 #: extension/prefs.js:152
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Doneer via PayPal"
 
 #: extension/prefs.js:152
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Bedankt voor je steun :)"
 
 #: extension/prefs.js:154
 msgid "Links"
-msgstr ""
+msgstr "Links"
