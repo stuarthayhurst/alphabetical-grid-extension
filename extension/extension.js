@@ -1,5 +1,3 @@
-/* exported AppGridManager */
-
 //Local imports
 import * as AppGridHelper from './lib/AppGridHelper.js';
 

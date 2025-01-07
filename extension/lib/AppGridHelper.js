@@ -1,5 +1,3 @@
-/* exported reorderFolderContents compareItems reloadAppGrid */
-
 //Main imports
 import GLib from 'gi://GLib';
 import Gio from 'gi://Gio';

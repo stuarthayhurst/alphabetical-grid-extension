@@ -1,5 +1,3 @@
-/* exported AppGridPrefs */
-
 //Main imports
 import Gio from 'gi://Gio';
 import Gtk from 'gi://Gtk';
