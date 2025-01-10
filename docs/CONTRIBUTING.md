@@ -12,20 +12,6 @@
   - Bug fixes and feature additions
   - UI improvements
 
-## Working with issues:
-  - If someone else is already working on a reported issue, feel free help them out. Please don't try and commandeer the issue, if you want to work on something on your own, find another issue
-  - Please report large issues before submitting a pull request to fix them
-  - If you are working on your own issue, use that report as a space to track information and progress relating to the issue
-  - If any help is required, please make it known, instead of silently dropping the issue
-    - There's a label to use when help is wanted, to make searching for the issues easier
-
-## General changes:
-  - To work on the project, for the repository first, so you can make changes to your copy
-  - Each commit should be a meaningful change, and be functional
-  - When the changes are ready, submit a pull request, as described in a later section
-  - If the changes aren't complete, submit the pull request as a draft instead
-  - Changes may be requested, please don't take them personally, they're just to ensure quality and consistency within the extension
-
 ## Translations:
   - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
   - `.po` files can be found in `extension/po/`
