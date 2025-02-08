@@ -1,5 +1,10 @@
 ## Changelog:
 
+### v42: - `2025-02-08`
+ - Added GNOME 48 support
+ - Added Bulgarian translation - [Iliya](https://github.com/iliqiliev) (#94)
+ - Updated Dutch translation (#95)
+
 ### v41: - `2024-08-06`
  - Added GNOME 47 support
  - Added Farsi translation - [avds2](https://github.com/avds2) (#93)
