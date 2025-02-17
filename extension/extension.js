@@ -96,6 +96,7 @@ class AppGridExtension {
   }
 
   _debugMessage(message) {
+    //TODO: Port this to use the logging API when GNOME 47 is dropped
     if (this._loggingEnabled) {
       let date = new Date();
       let timestamp = date.toTimeString().split(' ')[0];
