@@ -16,11 +16,11 @@ package:
 	@echo "Packing files..."
 	@cd "extension"; \
 	gnome-extensions pack --force \
-	--podir=po \
-	--extra-source=../LICENSE.txt \
-	--extra-source=../docs/CHANGELOG.md \
-	--extra-source=lib/ \
-	-o ../$(BUILD_DIR)/
+	  --podir=po \
+	  --extra-source=../LICENSE.txt \
+	  --extra-source=../docs/CHANGELOG.md \
+	  --extra-source=lib/ \
+	  -o ../$(BUILD_DIR)/
 check:
 	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
 	  echo "WARNING: Extension zip couldn't be found"; exit 1; \
