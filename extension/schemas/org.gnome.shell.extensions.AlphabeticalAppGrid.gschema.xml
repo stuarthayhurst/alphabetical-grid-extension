@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.alphabetical-app-grid" path="/org/gnome/shell/extensions/alphabetical-app-grid/">
-    <key name="sort-folder-contents" type="b">
-      <default>true</default>
-      <summary>Sort folder contents</summary>
-      <description>Whether the contents of folders should be sorted alphabetically</description>
-    </key>
-    <key name="folder-order-position" type="s">
-      <default>"alphabetical"</default>
-      <summary>Position of ordered folders</summary>
-      <description>Where to place folders when ordering the application grid</description>
-    </key>
-    <key name="show-favourite-apps" type="b">
-      <default>false</default>
-      <summary>Show favourite apps on the app grid</summary>
-      <description>Allows displaying the favourite apps on the app grid (GNOME 40+)</description>
-    </key>
-    <key name="logging-enabled" type="b">
-      <default>false</default>
-      <summary>Enable extension logging</summary>
-      <description>Allow the extension to send messages to the system logs</description>
-    </key>
-  </schema>
+    <schema id="org.gnome.shell.extensions.alphabetical-app-grid"
+            path="/org/gnome/shell/extensions/alphabetical-app-grid/">
+        <key name="sort-folder-contents" type="b">
+            <default>true</default>
+            <summary>Sort folder contents</summary>
+            <description>Whether the contents of folders should be sorted alphabetically</description>
+        </key>
+        <key name="folder-order-position" type="s">
+            <default>"alphabetical"</default>
+            <summary>Position of ordered folders</summary>
+            <description>Where to place folders when ordering the application grid</description>
+        </key>
+        <key name="show-favourite-apps" type="b">
+            <default>false</default>
+            <summary>Show favourite apps on the app grid</summary>
+            <description>Allows displaying the favourite apps on the app grid (GNOME 40+)</description>
+        </key>
+        <key name="logging-enabled" type="b">
+            <default>false</default>
+            <summary>Enable extension logging</summary>
+            <description>Allow the extension to send messages to the system logs</description>
+        </key>
+    </schema>
 </schemalist>

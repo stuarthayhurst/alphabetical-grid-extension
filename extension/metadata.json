@@ -1,7 +1,7 @@
 {
   "name": "Alphabetical App Grid",
   "description": "Alphabetically order the app grid and folders",
-  "uuid": "AlphabeticalAppGrid@stuarthayhurst",
+  "uuid": "alphabetical-app-grid@stuarthayhurst",
   "gettext-domain": "AlphabeticalAppGrid@stuarthayhurst",
   "settings-schema": "org.gnome.shell.extensions.alphabetical-app-grid",
   "url": "https://github.com/stuarthayhurst/alphabetical-grid-extension",
@@ -10,7 +10,10 @@
     "paypal": "stuartahayhurst"
   },
   "shell-version": [
-    "45", "46", "47", "48"
+    "45",
+    "46",
+    "47",
+    "48"
   ],
   "version": 42
 }
