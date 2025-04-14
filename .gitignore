@@ -10,3 +10,7 @@ schemas/gschemas.compiled
 *.po~
 *.ui~
 *.ui#
+
+# Project dir
+.idea
+.vscode
