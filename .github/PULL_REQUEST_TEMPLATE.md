@@ -1,18 +1,19 @@
+<!--
+ - This project doesn't accept AI-generated contributions, please don't submit them
+-->
+
 ## Pull request summary:
  - What does the pull request do? Why is it necessary?
-
-## UI related changes:
- - Add any screenshots of UI related changes here
+ - Add screenshots of UI changes here
 
 ## Build system related changes:
- - Does the pull request cause any new dependencies to be required?
+ - Does the pull request require any new dependencies?
  - Have any new dependencies, quirks, options or makefile targets been documented?
 
 ## Todo:
  - Is there anything left to do?
-   - If so, mark the pull request as a draft to avoid any confusion
+   - If so, mark the pull request as a draft
 
 ## Related issues / pull requests:
- - If the pull request requires another pull request to be merged first, please make note of this in the summary and mark the pull request as WIP
- - If the pull request is designed to fix an issue, tag it at the end of the pull request
- - For example, add `Fixes #1` as the last line
+ - If the pull request depends on another, mark the pull request as a draft and tag the dependency
+ - Tag any issues affected by this pull request (e.g. add `Fixes #1` as the last line)
