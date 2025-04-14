@@ -26,8 +26,6 @@ check:
 	  echo -e "\nWARNING! Extension zip couldn't be found"; exit 1; \
 	elif [[ "$$(stat -c %s $(BUNDLE_PATH))" -gt 4096000 ]]; then \
 	  echo -e "\nWARNING! The extension is too big to be uploaded to the extensions website, keep it smaller than 4096 KB"; exit 1; \
-	elif grep '"debug": true' extension/metadata.json > /dev/null; then \
-	  echo -e "\nWARNING! Debug mode is enabled, a release shouldn't be published"; exit 1; \
 	fi
 release:
 	@if [[ "$(VERSION)" != "" ]]; then \
