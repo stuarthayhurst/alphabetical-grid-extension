@@ -23,9 +23,9 @@ package:
 	-o ../$(BUILD_DIR)/
 check:
 	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
-	  echo -e "\nWARNING! Extension zip couldn't be found"; exit 1; \
+	  echo "WARNING: Extension zip couldn't be found"; exit 1; \
 	elif [[ "$$(stat -c %s $(BUNDLE_PATH))" -gt 4096000 ]]; then \
-	  echo -e "\nWARNING! The extension is too big to be uploaded to the extensions website, keep it smaller than 4096 KB"; exit 1; \
+	  echo "WARNING: Extension zip must stay below 4096 KB"; exit 1; \
 	fi
 release:
 	@if [[ "$(VERSION)" != "" ]]; then \
