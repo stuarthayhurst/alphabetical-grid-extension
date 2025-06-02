@@ -27,6 +27,7 @@ check:
 	elif [[ "$$(stat -c %s $(BUNDLE_PATH))" -gt 4096000 ]]; then \
 	  echo "WARNING: Extension zip must stay below 4096 KB"; exit 1; \
 	fi
+	@./scripts/check-characters.sh
 release:
 	@if [[ "$(VERSION)" != "" ]]; then \
 	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION),|g" extension/metadata.json; \
