@@ -78,7 +78,7 @@
 ![Enable logging](docs/enable-logging.png)
 
 ### Credits:
-  - `scripts/update-po.sh` and `scripts/update-pot.sh` were derived from [Fly-Pie](https://github.com/Schneegans/Fly-Pie), originally licensed under the [MIT license](https://github.com/Schneegans/Fly-Pie/blob/develop/LICENSE)
+  - `scripts/update-po.sh` and `scripts/update-pot.sh` were derived from [Fly-Pie](https://github.com/Schneegans/Fly-Pie), originally licensed under the [MIT License](https://github.com/Schneegans/Fly-Pie/blob/develop/LICENSE)
 
 ### Screenshots:
 ![Extension](docs/screenshot.png)
