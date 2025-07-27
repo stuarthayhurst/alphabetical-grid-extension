@@ -1,20 +1,22 @@
-# Portuguese translation for the Alphabetical App Grid GNOME Shell Extension.
-# Copyright (C) 2023 Stuart Hayhurst
+# Brazilian Portuguese translation for the Alphabetical App Grid GNOME Shell Extension.
+# Copyright (C) 2025 Stuart Hayhurst
 # This file is distributed under the same license as the alphabetical-grid-extension package.
 # Vinícius <vrpedrinho@gmail.com>, 2023.
+# Thiago Rocha Lira <rochalirathiago@outlook.com>, 2025 (revisão).
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: alphabetical-grid-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-22 13:36+0100\n"
-"PO-Revision-Date: 2023-03-07 19:55-0300\n"
-"Last-Translator: Vinícius <vrpedrinho@gmail.com>\n"
-"Language-Team: Language [pt\n"
-"Language: [pt_BR]\n"
+"PO-Revision-Date: 2025-07-26 23:34-0300\n"
+"Last-Translator: Thiago Rocha Lira <rochalirathiago@outlook.com>\n"
+"Language-Team: Português do Brasil\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
 
 #: extension/prefs.js:119
 msgid "Settings"
@@ -26,30 +28,31 @@ msgstr "Configurações gerais"
 
 #: extension/prefs.js:124
 msgid "Developer settings"
-msgstr "Configurações de desenvolvedor"
+msgstr "Configurações do desenvolvedor"
 
+# changed to Feminine adjective to sound more natural
 #. Translators: 'Alphabetical' means 'Place folders alphabetically, among other items'
 #: extension/prefs.js:130
 msgid "Alphabetical"
-msgstr "Alfabético"
+msgstr "Alfabética"
 
 #. Translators: 'Start' means 'Place folders at the start'
 #: extension/prefs.js:132
 msgid "Start"
-msgstr ""
+msgstr "Início"
 
 #. Translators: 'End' means 'Place folders at the end'
 #: extension/prefs.js:134
 msgid "End"
-msgstr ""
+msgstr "Fim"
 
 #: extension/prefs.js:139
 msgid "Sort folder contents"
-msgstr "Organizar conteúdos das pastas"
+msgstr "Ordenar conteúdo das pastas"
 
 #: extension/prefs.js:139
 msgid "Whether the contents of folders should be sorted alphabetically"
-msgstr "Se o conteúdo das pastas deve ser organizado alfabeticamente"
+msgstr "Define se o conteúdo das pastas deve ser ordenado alfabeticamente"
 
 #: extension/prefs.js:140
 msgid "Position of ordered folders"
@@ -57,40 +60,40 @@ msgstr "Posição das pastas ordenadas"
 
 #: extension/prefs.js:140
 msgid "Where to place folders when ordering the applications grid"
-msgstr "Onde posicionar as pastas quando ordenar as aplicações"
+msgstr "Onde posicionar as pastas ao ordenar a grade de aplicativos"
 
 #: extension/prefs.js:141
 msgid "Enable extension logging"
-msgstr "Habilitar log da extensão"
+msgstr "Ativar registro(logging) da extensão"
 
 #: extension/prefs.js:141
 msgid "Allow the extension to send messages to the system logs"
-msgstr "Permitir que a extensão envie mensagens ao sistema de logs"
+msgstr "Permite que a extensão envie mensagens para os logs do sistema"
 
 #: extension/prefs.js:150
 msgid "Report an issue"
-msgstr ""
+msgstr "Reportar um problema"
 
 #: extension/prefs.js:150
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "Rastreador de problemas do GitHub"
 
 #: extension/prefs.js:151
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Doar via GitHub"
 
 #: extension/prefs.js:151
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Torne-se um patrocinador"
 
 #: extension/prefs.js:152
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Doar via PayPal"
 
 #: extension/prefs.js:152
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Obrigado pelo apoio :)"
 
 #: extension/prefs.js:154
 msgid "Links"
-msgstr ""
+msgstr "Links"
