@@ -1,5 +1,13 @@
 ## Changelog:
 
+### v43: - `2025-08-08`
+ - Added GNOME 49 support
+ - Added Ukrainian translation - [freeducks-debug](https://github.com/freeducks-debug) (#98)
+ - Added build-time check for non-ASCII characters in scripts
+ - Improved Makefile
+ - Renamed LICENSE.txt to LICENCE.txt
+ - Updated Brazilian Portuguese translation (#101)
+
 ### v42: - `2025-02-08`
  - Added GNOME 48 support
  - Added Bulgarian translation - [Iliya](https://github.com/iliqiliev) (#94)
