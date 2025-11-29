@@ -10,7 +10,7 @@ jobs:
   shellcheck:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Run shellcheck
         run: |
           find $GITHUB_WORKSPACE -type f -and \( -name "*.sh" \) | xargs shellcheck
