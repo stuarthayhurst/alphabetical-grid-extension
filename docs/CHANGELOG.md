@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v44: - `2026-03-01`
+ - Added GNOME 50 support
+ - Added Ko-Fi donation link
+ - Updated GitHub workflow versions
+ - Stop including CHANGELOG.md in the extension bundle
+
 ### v43: - `2025-08-08`
  - Added GNOME 49 support
  - Added Ukrainian translation - [freeducks-debug](https://github.com/freeducks-debug) (#98)
