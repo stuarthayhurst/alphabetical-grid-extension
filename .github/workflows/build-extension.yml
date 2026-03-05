@@ -25,7 +25,8 @@ jobs:
       run: |
         make check
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         name: AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip
         path: build/AlphabeticalAppGrid@stuarthayhurst.shell-extension.zip
+        archive: false
