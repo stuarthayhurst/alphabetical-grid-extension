@@ -1,10 +1,10 @@
-SHELL = bash
-UUID = AlphabeticalAppGrid@stuarthayhurst
+SHELL := bash
+UUID := AlphabeticalAppGrid@stuarthayhurst
 COMPRESSLEVEL ?= -o7
 
 BUILD_DIR ?= build
-PNG_FILES = $(wildcard ./docs/*.png)
-BUNDLE_PATH = "$(BUILD_DIR)/$(UUID).shell-extension.zip"
+PNG_FILES := $(wildcard ./docs/*.png)
+BUNDLE_PATH := "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
 .PHONY: build package check release translations compress install uninstall clean $(PNG_FILES)
 
