@@ -1,5 +1,13 @@
 ## Changelog:
 
+### v45: - `2026-08-31`
+ - Added GNOME 51 support
+ - Updated upload-artifact to v7
+ - Updated checkout to v7
+ - Updated bug report template
+ - Swapped runner image to `ubuntu-slim`
+ - Improved Makefile
+
 ### v44: - `2026-03-01`
  - Added GNOME 50 support
  - Added Ko-Fi donation link
