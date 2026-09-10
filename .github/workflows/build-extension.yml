@@ -23,7 +23,7 @@ jobs:
       run: |
         make build
 
-    - name: Run checks on extension
+    - name: Run checks on the extension
       run: |
         make check
 
