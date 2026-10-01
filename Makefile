@@ -1,12 +1,10 @@
 SHELL := bash
 UUID := AlphabeticalAppGrid@stuarthayhurst
-COMPRESSLEVEL ?= -o7
 
 BUILD_DIR ?= build
-PNG_FILES := $(wildcard ./docs/*.png)
 BUNDLE_PATH := "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
-.PHONY: build package check release translations compress install uninstall clean $(PNG_FILES)
+.PHONY: build package check release translations install uninstall clean
 
 build: clean
 	@mkdir -p $(BUILD_DIR)
@@ -32,16 +30,11 @@ release:
 	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION),|g" extension/metadata.json; \
 	fi
 	#Call other targets required to make a release
-	$(MAKE) translations compress
+	$(MAKE) translations
 	$(MAKE) build
 	$(MAKE) check
 translations:
 	@BUILD_DIR=$(BUILD_DIR) ./scripts/update-po.sh -a
-compress:
-	$(MAKE) $(PNG_FILES)
-$(PNG_FILES):
-	@echo "Compressing $@..."
-	@optipng $(COMPRESSLEVEL) -quiet -strip all "$@"
 install:
 	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
 	  $(MAKE) build; \

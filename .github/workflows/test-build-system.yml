@@ -17,12 +17,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install --no-install-recommends git make optipng gettext gnome-shell
-
-    - name: Check that the asset optimisation targets work
-      run: |
-        # Check all assets are space optimised
-        make compress COMPRESSLEVEL="-o0" "-j$(nproc)"
+        sudo apt-get install --no-install-recommends git make gettext gnome-shell
 
     - name: Check that translation generation works
       run: |
@@ -46,7 +41,7 @@ jobs:
 
     - name: Check that the release workflow is functional
       run: |
-        make release COMPRESSLEVEL="-o0" "-j$(nproc)"
+        make release "-j$(nproc)"
 
     - name: Test that the extension installs
       run: |

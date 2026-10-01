@@ -38,11 +38,8 @@
   - ### Development targets: These targets are aimed at developers and translators
     - `make clean`: Cleans the extension repository, including built files and translations
     - `make translations`: Updates translations
-    - `make compress`: Losslessly compresses any `.png`s in `docs/`
-      - Allows passing `COMPRESSLEVEL="-o[X]"`, where `[X]` is an integer between 0-7
-      - Supports `-j[X]`, where `[X]` is the number of threads to use
     - `make release`: Updates translations and icons, then creates and checks an extension zip
-      - Calls `make translations compress build check`
+      - Calls `make translations build check`
       - Supports any variables / arguments supported by these targets
       - Also allows passing `VERSION="[XX]"`, where `[XX]` is the version to update `metadata.json` to
       - Supports `-j[X]`, where `[X]` is the number of threads to use
@@ -55,7 +52,6 @@
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
   - sed (`make translations`)
-  - optipng (`make compress`)
 
 ## What happened to the show favourites option?
   - Maintaining this feature was going to end up complicated and messy
